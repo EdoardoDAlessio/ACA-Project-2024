@@ -1,0 +1,272 @@
+{
+    "schema": "MEGraphSchema-0.5",
+    "id": "root",
+    "blockTypes": {
+        "b0": {
+            "type": "function",
+            "function": "my_kernel_function",
+            "srcFile": "src/my_kernel_1.cpp",
+            "headers": [
+                "src/my_kernel_1.h",
+                "../common/common.h"
+            ],
+            "ports": {
+                "pi0": {
+                    "type": "stream",
+                    "elementType": "uint8",
+                    "direction": "in",
+                    "parameterIndex": 0,
+                    "portName": "in[0]",
+                    "varName": "input",
+                    "cppDataType": "input_stream<unsigned char> *"
+                },
+                "pi1": {
+                    "type": "stream",
+                    "elementType": "uint8",
+                    "direction": "in",
+                    "parameterIndex": 1,
+                    "portName": "in[1]",
+                    "varName": "input2",
+                    "cppDataType": "input_stream<unsigned char> *"
+                },
+                "po0": {
+                    "type": "stream",
+                    "elementType": "int32",
+                    "direction": "out",
+                    "parameterIndex": 2,
+                    "portName": "out[0]",
+                    "varName": "output",
+                    "cppDataType": "output_stream<int> *"
+                }
+            }
+        },
+        "b1": {
+            "type": "plio",
+            "ports": {
+                "po0": {
+                    "type": "stream",
+                    "elementType": "uint8",
+                    "direction": "out",
+                    "portName": "in_1.out[0]"
+                }
+            }
+        },
+        "b2": {
+            "type": "plio",
+            "ports": {
+                "po0": {
+                    "type": "stream",
+                    "elementType": "uint8",
+                    "direction": "out",
+                    "portName": "in_2.out[0]"
+                }
+            }
+        },
+        "b3": {
+            "type": "plio",
+            "ports": {
+                "pi0": {
+                    "type": "stream",
+                    "elementType": "int32",
+                    "direction": "in",
+                    "portName": "out_1.in[0]"
+                }
+            }
+        }
+    },
+    "blockInstances": {
+        "i0": {
+            "blockType": "b0",
+            "graphIds": [
+                0
+            ],
+            "graphName": "aie_graph",
+            "graphType": "my_graph",
+            "qualifiedGraphName": "aie_graph",
+            "qualifiedName": "aie_graph.my_kernel_1",
+            "runTime": 0.8999,
+            "fabric": "me",
+            "instanceId": 0,
+            "loc": "src/graph.h:50:17"
+        },
+        "i1": {
+            "blockType": "b1",
+            "graphIds": [
+                0
+            ],
+            "graphName": "aie_graph",
+            "graphType": "my_graph",
+            "qualifiedGraphName": "aie_graph",
+            "qualifiedName": "aie_graph.in_1",
+            "dataWidth": 32,
+            "dataFile": "data/in_plio_source_1.txt",
+            "logicalName": "in_plio_1",
+            "instanceId": 0,
+            "loc": "src/graph.h:42:2"
+        },
+        "i2": {
+            "blockType": "b2",
+            "graphIds": [
+                0
+            ],
+            "graphName": "aie_graph",
+            "graphType": "my_graph",
+            "qualifiedGraphName": "aie_graph",
+            "qualifiedName": "aie_graph.in_2",
+            "dataWidth": 32,
+            "dataFile": "data/in_plio_source_2.txt",
+            "logicalName": "in_plio_2",
+            "instanceId": 1,
+            "loc": "src/graph.h:43:2"
+        },
+        "i3": {
+            "blockType": "b3",
+            "graphIds": [
+                0
+            ],
+            "graphName": "aie_graph",
+            "graphType": "my_graph",
+            "qualifiedGraphName": "aie_graph",
+            "qualifiedName": "aie_graph.out_1",
+            "dataWidth": 32,
+            "dataFile": "data/out_plio_sink_1.txt",
+            "logicalName": "out_plio_1",
+            "instanceId": 2,
+            "loc": "src/graph.h:44:2"
+        }
+    },
+    "portInstances": {
+        "i0_pi0": {
+            "margin": 0,
+            "port": "pi0",
+            "graphName": "aie_graph",
+            "graphType": "my_graph",
+            "portName": "my_kernel_1.in[0]",
+            "qualifiedName": "aie_graph.my_kernel_1.in[0]",
+            "instanceId": 0,
+            "blockInstance": "i0"
+        },
+        "i0_pi1": {
+            "margin": 0,
+            "port": "pi1",
+            "graphName": "aie_graph",
+            "graphType": "my_graph",
+            "portName": "my_kernel_1.in[1]",
+            "qualifiedName": "aie_graph.my_kernel_1.in[1]",
+            "instanceId": 1,
+            "blockInstance": "i0"
+        },
+        "i0_po0": {
+            "margin": 0,
+            "port": "po0",
+            "graphName": "aie_graph",
+            "graphType": "my_graph",
+            "portName": "my_kernel_1.out[0]",
+            "qualifiedName": "aie_graph.my_kernel_1.out[0]",
+            "instanceId": 2,
+            "blockInstance": "i0"
+        },
+        "i1_po0": {
+            "margin": 0,
+            "port": "po0",
+            "graphName": "aie_graph",
+            "graphType": "my_graph",
+            "portName": "in_1.out[0]",
+            "qualifiedName": "aie_graph.in_1.out[0]",
+            "blockInstance": "i1"
+        },
+        "i2_po0": {
+            "margin": 0,
+            "port": "po0",
+            "graphName": "aie_graph",
+            "graphType": "my_graph",
+            "portName": "in_2.out[0]",
+            "qualifiedName": "aie_graph.in_2.out[0]",
+            "blockInstance": "i2"
+        },
+        "i3_pi0": {
+            "margin": 0,
+            "port": "pi0",
+            "graphName": "aie_graph",
+            "graphType": "my_graph",
+            "portName": "out_1.in[0]",
+            "qualifiedName": "aie_graph.out_1.in[0]",
+            "blockInstance": "i3"
+        }
+    },
+    "nets": {
+        "net0": {
+            "srcInstance": "i1",
+            "srcPort": "i1_po0",
+            "dstInstance": "i0",
+            "dstPort": "i0_pi0",
+            "varNames": [
+                ""
+            ],
+            "locs": [
+                "src/graph.h:63:3"
+            ]
+        },
+        "net1": {
+            "srcInstance": "i2",
+            "srcPort": "i2_po0",
+            "dstInstance": "i0",
+            "dstPort": "i0_pi1",
+            "varNames": [
+                ""
+            ],
+            "locs": [
+                "src/graph.h:64:3"
+            ]
+        },
+        "net2": {
+            "srcInstance": "i0",
+            "srcPort": "i0_po0",
+            "dstInstance": "i3",
+            "dstPort": "i3_pi0",
+            "varNames": [
+                ""
+            ],
+            "locs": [
+                "src/graph.h:65:3"
+            ]
+        }
+    },
+    "debugInfo": {
+        "i0": {
+            "varName": "my_kernel_1"
+        },
+        "i1": {
+            "varName": "in_1"
+        },
+        "i2": {
+            "varName": "in_2"
+        },
+        "i3": {
+            "varName": "out_1"
+        },
+        "i0_pi0": {
+            "varName": "my_kernel_1.in[0]"
+        },
+        "i0_pi1": {
+            "varName": "my_kernel_1.in[1]"
+        },
+        "i0_po0": {
+            "varName": "my_kernel_1.out[0]"
+        },
+        "i1_po0": {
+            "varName": "in_1.out[0]"
+        },
+        "i2_po0": {
+            "varName": "in_2.out[0]"
+        },
+        "i3_pi0": {
+            "varName": "out_1.in[0]"
+        }
+    },
+    "graphFilesInfo": {
+        "headerFiles": [
+            "src/graph.h"
+        ]
+    }
+}

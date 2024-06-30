@@ -1,0 +1,36 @@
+Begin Function 'setup_aie'
+
+RTL state condition: (1'b1 == ap_CS_fsm_state1)
+# ST_1
+local trunc_ln <> <integer> <> 'partselect' <>
+trunc_ln /home/xilinx/software/Vitis_HLS/2022.2/common/technology/autopilot/ap_int_base.h:416
+reg: trunc_ln_reg_193[56:0] lv
+
+
+RTL state condition: (1'b1 == ap_CS_fsm_state72)
+# ST_72
+local tmp_V <> <integer> <> 'trunc' <>
+tmp_V /home/xilinx/software/Vitis_HLS/2022.2/common/technology/autopilot/ap_int_base.h:186
+reg: tmp_V_reg_204[127:0] lv
+
+local tmp <bitselect_46> <integer> <> 'bitselect' </home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/data_movers/setup_aie.cpp:46>
+tmp /home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/data_movers/setup_aie.cpp:46
+reg: tmp_reg_210[0:0] lv
+
+local trunc_ln48 <trunc_48> <integer> <> 'trunc' </home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/data_movers/setup_aie.cpp:48>
+trunc_ln48 /home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/data_movers/setup_aie.cpp:48
+reg: trunc_ln48_reg_215[0:0] lv
+
+
+RTL state condition: (1'b1 == ap_CS_fsm_state74)
+# ST_74
+local select_ln48 <select_48> <integer> <> 'select' </home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/data_movers/setup_aie.cpp:48>
+select_ln48 /home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/data_movers/setup_aie.cpp:48
+reg: select_ln48_reg_220[4:0] lv
+
+
+RTL state condition: (1'b1 == ap_CS_fsm_state75)
+# ST_75
+
+End Function 'setup_aie'
+

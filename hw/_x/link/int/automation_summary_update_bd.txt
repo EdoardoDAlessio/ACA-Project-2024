@@ -1,0 +1,119 @@
+====================================================================
+Version:    xcd v2022.2.2 (64-bit)
+Copyright:  Copyright 1986-2023 Xilinx, Inc. All Rights Reserved.
+Created:    Sun Jun 30 17:23:40 2024
+====================================================================
+
+1. Kernel and compute unit information
+======================================
+
+Compute Unit: ai_engine_0
+Kernel: ai_engine
+Clock Pin: aclk0
+Reset Pin: 
+
+Compute Unit: setup_aie_0
+Kernel: setup_aie
+Clock Pin: ap_clk
+Reset Pin: ap_rst_n
+
+Compute Unit: setup_aie_1
+Kernel: setup_aie
+Clock Pin: ap_clk
+Reset Pin: ap_rst_n
+
+Compute Unit: sink_from_aie_0
+Kernel: sink_from_aie
+Clock Pin: ap_clk
+Reset Pin: ap_rst_n
+
+2. Interface Connections
+========================
+
+Compute Unit to Compute Unit
+----------------------------
+Source Pin: ai_engine_0/M00_AXIS
+Destination Pin: sink_from_aie_0/input_stream
+
+IP to Compute Unit
+------------------
+Source Pin: axi_ic_user/M01_AXI
+Destination Pin: setup_aie_0/s_axi_control
+
+Source Pin: axi_ic_user/M02_AXI
+Destination Pin: setup_aie_1/s_axi_control
+
+Source Pin: axi_ic_user/M03_AXI
+Destination Pin: sink_from_aie_0/s_axi_control
+
+Source Pin: axi_noc_aie_prog/M00_AXI
+Destination Pin: ai_engine_0/S00_AXI
+
+Source Pin: dwc_setup_aie_0_s/M_AXIS
+Destination Pin: ai_engine_0/S00_AXIS
+
+Source Pin: dwc_setup_aie_1_s/M_AXIS
+Destination Pin: ai_engine_0/S01_AXIS
+
+Compute Unit to IP
+------------------
+Source Pin: setup_aie_0/m_axi_gmem0
+Destination Pin: axi_ic_axi_noc_kernel0_S00_AXI/S00_AXI
+
+Source Pin: setup_aie_0/s
+Destination Pin: dwc_setup_aie_0_s/S_AXIS
+
+Source Pin: setup_aie_1/m_axi_gmem0
+Destination Pin: axi_ic_axi_noc_kernel0_S01_AXI/S00_AXI
+
+Source Pin: setup_aie_1/s
+Destination Pin: dwc_setup_aie_1_s/S_AXIS
+
+Source Pin: sink_from_aie_0/m_axi_gmem1
+Destination Pin: axi_noc_kernel0/S02_AXI
+
+3. Clock Connections
+====================
+
+Compute Unit: setup_aie_0
+Clock ID: 0
+Platform Clock Frequency: 299.996999 MHz
+Source Port: /blp_s_aclk_kernel_00
+Destination Pin: setup_aie_0/ap_clk
+
+Compute Unit: setup_aie_1
+Clock ID: 0
+Platform Clock Frequency: 299.996999 MHz
+Source Port: /blp_s_aclk_kernel_00
+Destination Pin: setup_aie_1/ap_clk
+
+Compute Unit: sink_from_aie_0
+Clock ID: 0
+Platform Clock Frequency: 299.996999 MHz
+Source Port: /blp_s_aclk_kernel_00
+Destination Pin: sink_from_aie_0/ap_clk
+
+Compute Unit: ai_engine_0
+Clock ID: 0
+Platform Clock Frequency: 299.996999 MHz
+Source Port: /blp_s_aclk_kernel_00
+Destination Pin: ai_engine_0/aclk0
+
+4. Reset Connections
+====================
+
+Compute Unit: setup_aie_0
+Source Pin: reset_controllers/peripheral_aresetn
+Destination Pin: setup_aie_0/ap_rst_n
+Associated Clock Pin: setup_aie_0/ap_clk
+
+Compute Unit: setup_aie_1
+Source Pin: reset_controllers/peripheral_aresetn
+Destination Pin: setup_aie_1/ap_rst_n
+Associated Clock Pin: setup_aie_1/ap_clk
+
+Compute Unit: sink_from_aie_0
+Source Pin: reset_controllers/peripheral_aresetn
+Destination Pin: sink_from_aie_0/ap_rst_n
+Associated Clock Pin: sink_from_aie_0/ap_clk
+

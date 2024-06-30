@@ -1,0 +1,18 @@
+{"sourceFile": [{
+      "name": "",
+      "directive": [{
+          "functionName": "setup_aie",
+          "label": "",
+          "functionLabel": "",
+          "id": "1",
+          "sourceFile": "\/home\/users\/edoardo.dalessio\/code\/av_omega\/VersalAutomationTemplate\/data_movers\/_x\/setup_aie_hw\/setup_aie\/setup_aie.tcl",
+          "sourceLine": "27",
+          "pragma": {
+            "name": "TOP",
+            "option": [{
+                "name": "name",
+                "value": "setup_aie"
+              }]
+          }
+        }]
+    }]}

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<BindInfo>
+	<BindNode BINDTYPE="op" DISPLAY="bind_op add" ID="" IMPL="fabric" LATENCY="0" OPTYPE="add" PRAGMA="" RTLNAME="j_1_fu_77_p2" SOURCE="" VARIABLE="j_1" MODULE="setup_aie_Pipeline_VITIS_LOOP_48_1" LOOP="VITIS_LOOP_48_1" BUNDLEDNAME="" DSP="0" BRAM="0" URAM="0"/>
+	<BindNode BINDTYPE="op" DISPLAY="bind_op icmp" ID="" IMPL="auto" LATENCY="0" OPTYPE="icmp" PRAGMA="" RTLNAME="icmp_ln48_fu_83_p2" SOURCE="/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/data_movers/setup_aie.cpp:48" VARIABLE="icmp_ln48" MODULE="setup_aie_Pipeline_VITIS_LOOP_48_1" LOOP="VITIS_LOOP_48_1" BUNDLEDNAME="" DSP="0" BRAM="0" URAM="0"/>
+	<BindNode BINDTYPE="op" DISPLAY="bind_op add" ID="" IMPL="fabric" LATENCY="0" OPTYPE="add" PRAGMA="" RTLNAME="add_ln48_fu_167_p2" SOURCE="/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/data_movers/setup_aie.cpp:48" VARIABLE="add_ln48" MODULE="setup_aie" LOOP="" BUNDLEDNAME="" DSP="0" BRAM="0" URAM="0"/>
+	<BindNode BINDTYPE="op" DISPLAY="bind_op select" ID="" IMPL="auto_sel" LATENCY="0" OPTYPE="select" PRAGMA="" RTLNAME="select_ln48_fu_185_p3" SOURCE="/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/data_movers/setup_aie.cpp:48" VARIABLE="select_ln48" MODULE="setup_aie" LOOP="" BUNDLEDNAME="" DSP="0" BRAM="0" URAM="0"/>
+	<BindNode BINDTYPE="adapter" DISPLAY="bind_adapter axilite" ID="" IMPL="" LATENCY="" OPTYPE="" PRAGMA="yes" RTLNAME="control_s_axi_U" SOURCE="" VARIABLE="" MODULE="setup_aie" LOOP="" BUNDLEDNAME="control" DSP="0" BRAM="0" URAM="0"/>
+	<BindNode BINDTYPE="adapter" DISPLAY="bind_adapter axi_master" ID="" IMPL="" LATENCY="" OPTYPE="" PRAGMA="yes" RTLNAME="gmem0_m_axi_U" SOURCE="" VARIABLE="" MODULE="setup_aie" LOOP="" BUNDLEDNAME="gmem0" DSP="0" BRAM="0" URAM="0"/>
+</BindInfo>

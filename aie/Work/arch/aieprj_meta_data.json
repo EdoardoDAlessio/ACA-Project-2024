@@ -1,0 +1,12 @@
+{
+  "MetaData": [
+    {
+      "name": "AIE_PL_INTF_ID",
+      "value": 12968
+    },
+    {
+      "name": "AIE_PL_INTF_ID_STR",
+      "value": "in_plio_1AIE_PL_X23Y0_AIE_PL_S_AXIS_1cf312.500dw32reg1in_plio_2AIE_PL_X23Y0_AIE_PL_S_AXIS_2cf312.500dw32reg1out_plio_1AIE_PL_X23Y0_AIE_PL_M_AXIS_1cf312.500dw32reg1"
+    }
+  ]
+}

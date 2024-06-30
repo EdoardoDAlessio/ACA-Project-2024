@@ -1,0 +1,1726 @@
+{
+    "DependenceAnalysisHints": [
+        {
+            "FunctionName": "my_kernel_function(input_stream<unsigned char>*, input_stream<unsigned char>*, output_stream<int>*)",
+            "Var1": "custom_type.tmp",
+            "ArgIndex1": "NotArgIndex",
+            "Var2": "print_marginal",
+            "ArgIndex2": "NotArgIndex"
+        },
+        {
+            "FunctionName": "my_kernel_function(input_stream<unsigned char>*, input_stream<unsigned char>*, output_stream<int>*)",
+            "Var1": "custom_type.tmp5",
+            "ArgIndex1": "NotArgIndex",
+            "Var2": "print",
+            "ArgIndex2": "NotArgIndex"
+        },
+        {
+            "FunctionName": "my_kernel_function(input_stream<unsigned char>*, input_stream<unsigned char>*, output_stream<int>*)",
+            "Var1": "x27",
+            "ArgIndex1": "NotArgIndex",
+            "Var2": "x16",
+            "ArgIndex2": "NotArgIndex"
+        },
+        {
+            "FunctionName": "my_kernel_function(input_stream<unsigned char>*, input_stream<unsigned char>*, output_stream<int>*)",
+            "Var1": "y1",
+            "ArgIndex1": "NotArgIndex",
+            "Var2": "x27",
+            "ArgIndex2": "NotArgIndex"
+        },
+        {
+            "FunctionName": "my_kernel_function(input_stream<unsigned char>*, input_stream<unsigned char>*, output_stream<int>*)",
+            "Var1": "y2",
+            "ArgIndex1": "NotArgIndex",
+            "Var2": "y1",
+            "ArgIndex2": "NotArgIndex"
+        },
+        {
+            "FunctionName": "my_kernel_function(input_stream<unsigned char>*, input_stream<unsigned char>*, output_stream<int>*)",
+            "Var1": "compare_x",
+            "ArgIndex1": "NotArgIndex",
+            "Var2": "y2",
+            "ArgIndex2": "NotArgIndex"
+        },
+        {
+            "FunctionName": "my_kernel_function(input_stream<unsigned char>*, input_stream<unsigned char>*, output_stream<int>*)",
+            "Var1": "tmp",
+            "ArgIndex1": "NotArgIndex",
+            "Var2": "compare_y",
+            "ArgIndex2": "NotArgIndex"
+        },
+        {
+            "FunctionName": "my_kernel_function(input_stream<unsigned char>*, input_stream<unsigned char>*, output_stream<int>*)",
+            "Var1": "compare_y",
+            "ArgIndex1": "NotArgIndex",
+            "Var2": "tmp",
+            "ArgIndex2": "NotArgIndex"
+        },
+        {
+            "FunctionName": "my_kernel_function(input_stream<unsigned char>*, input_stream<unsigned char>*, output_stream<int>*)",
+            "Var1": "ref.tmp",
+            "ArgIndex1": "NotArgIndex",
+            "Var2": "mask1",
+            "ArgIndex2": "NotArgIndex"
+        },
+        {
+            "FunctionName": "my_kernel_function(input_stream<unsigned char>*, input_stream<unsigned char>*, output_stream<int>*)",
+            "Var1": "mask1",
+            "ArgIndex1": "NotArgIndex",
+            "Var2": "x16",
+            "ArgIndex2": "NotArgIndex"
+        },
+        {
+            "FunctionName": "my_kernel_function(input_stream<unsigned char>*, input_stream<unsigned char>*, output_stream<int>*)",
+            "Var1": "ref.tmp9",
+            "ArgIndex1": "NotArgIndex",
+            "Var2": "mask2",
+            "ArgIndex2": "NotArgIndex"
+        },
+        {
+            "FunctionName": "my_kernel_function(input_stream<unsigned char>*, input_stream<unsigned char>*, output_stream<int>*)",
+            "Var1": "mask2",
+            "ArgIndex1": "NotArgIndex",
+            "Var2": "x27",
+            "ArgIndex2": "NotArgIndex"
+        },
+        {
+            "FunctionName": "my_kernel_function(input_stream<unsigned char>*, input_stream<unsigned char>*, output_stream<int>*)",
+            "Var1": "ref.tmp18",
+            "ArgIndex1": "NotArgIndex",
+            "Var2": "mask_y1",
+            "ArgIndex2": "NotArgIndex"
+        },
+        {
+            "FunctionName": "my_kernel_function(input_stream<unsigned char>*, input_stream<unsigned char>*, output_stream<int>*)",
+            "Var1": "mask_y1",
+            "ArgIndex1": "NotArgIndex",
+            "Var2": "y1",
+            "ArgIndex2": "NotArgIndex"
+        },
+        {
+            "FunctionName": "my_kernel_function(input_stream<unsigned char>*, input_stream<unsigned char>*, output_stream<int>*)",
+            "Var1": "ref.tmp20",
+            "ArgIndex1": "NotArgIndex",
+            "Var2": "mask_y2",
+            "ArgIndex2": "NotArgIndex"
+        },
+        {
+            "FunctionName": "my_kernel_function(input_stream<unsigned char>*, input_stream<unsigned char>*, output_stream<int>*)",
+            "Var1": "mask_y2",
+            "ArgIndex1": "NotArgIndex",
+            "Var2": "y2",
+            "ArgIndex2": "NotArgIndex"
+        },
+        {
+            "FunctionName": "my_kernel_function(input_stream<unsigned char>*, input_stream<unsigned char>*, output_stream<int>*)",
+            "Var1": "ref.tmp25",
+            "ArgIndex1": "NotArgIndex",
+            "Var2": "mask_y1",
+            "ArgIndex2": "NotArgIndex"
+        },
+        {
+            "FunctionName": "my_kernel_function(input_stream<unsigned char>*, input_stream<unsigned char>*, output_stream<int>*)",
+            "Var1": "mask_y1",
+            "ArgIndex1": "NotArgIndex",
+            "Var2": "mask1",
+            "ArgIndex2": "NotArgIndex"
+        },
+        {
+            "FunctionName": "my_kernel_function(input_stream<unsigned char>*, input_stream<unsigned char>*, output_stream<int>*)",
+            "Var1": "ref.tmp27",
+            "ArgIndex1": "NotArgIndex",
+            "Var2": "mask_y2",
+            "ArgIndex2": "NotArgIndex"
+        },
+        {
+            "FunctionName": "my_kernel_function(input_stream<unsigned char>*, input_stream<unsigned char>*, output_stream<int>*)",
+            "Var1": "mask_y2",
+            "ArgIndex1": "NotArgIndex",
+            "Var2": "mask2",
+            "ArgIndex2": "NotArgIndex"
+        },
+        {
+            "FunctionName": "my_kernel_function(input_stream<unsigned char>*, input_stream<unsigned char>*, output_stream<int>*)",
+            "Var1": "val",
+            "ArgIndex1": "NotArgIndex",
+            "Var2": "val",
+            "ArgIndex2": "NotArgIndex"
+        },
+        {
+            "FunctionName": "my_kernel_function(input_stream<unsigned char>*, input_stream<unsigned char>*, output_stream<int>*)",
+            "Var1": "tmp40",
+            "ArgIndex1": "NotArgIndex",
+            "Var2": "compare_y",
+            "ArgIndex2": "NotArgIndex"
+        },
+        {
+            "FunctionName": "my_kernel_function(input_stream<unsigned char>*, input_stream<unsigned char>*, output_stream<int>*)",
+            "Var1": "compare_y",
+            "ArgIndex1": "NotArgIndex",
+            "Var2": "tmp40",
+            "ArgIndex2": "NotArgIndex"
+        },
+        {
+            "FunctionName": "my_kernel_function(input_stream<unsigned char>*, input_stream<unsigned char>*, output_stream<int>*)",
+            "Var1": "j",
+            "ArgIndex1": "NotArgIndex",
+            "Var2": "j",
+            "ArgIndex2": "NotArgIndex"
+        },
+        {
+            "FunctionName": "my_kernel_function(input_stream<unsigned char>*, input_stream<unsigned char>*, output_stream<int>*)",
+            "Var1": "tmp41",
+            "ArgIndex1": "NotArgIndex",
+            "Var2": "compare_x",
+            "ArgIndex2": "NotArgIndex"
+        },
+        {
+            "FunctionName": "my_kernel_function(input_stream<unsigned char>*, input_stream<unsigned char>*, output_stream<int>*)",
+            "Var1": "compare_x",
+            "ArgIndex1": "NotArgIndex",
+            "Var2": "tmp41",
+            "ArgIndex2": "NotArgIndex"
+        },
+        {
+            "FunctionName": "my_kernel_function(input_stream<unsigned char>*, input_stream<unsigned char>*, output_stream<int>*)",
+            "Var1": "tmp42",
+            "ArgIndex1": "NotArgIndex",
+            "Var2": "compare_y",
+            "ArgIndex2": "NotArgIndex"
+        },
+        {
+            "FunctionName": "my_kernel_function(input_stream<unsigned char>*, input_stream<unsigned char>*, output_stream<int>*)",
+            "Var1": "compare_y",
+            "ArgIndex1": "NotArgIndex",
+            "Var2": "tmp42",
+            "ArgIndex2": "NotArgIndex"
+        },
+        {
+            "FunctionName": "my_kernel_function(input_stream<unsigned char>*, input_stream<unsigned char>*, output_stream<int>*)",
+            "Var1": "i",
+            "ArgIndex1": "NotArgIndex",
+            "Var2": "i",
+            "ArgIndex2": "NotArgIndex"
+        },
+        {
+            "FunctionName": "my_kernel_function(input_stream<unsigned char>*, input_stream<unsigned char>*, output_stream<int>*)",
+            "Var1": "ref.tmp47",
+            "ArgIndex1": "NotArgIndex",
+            "Var2": "mask1",
+            "ArgIndex2": "NotArgIndex"
+        },
+        {
+            "FunctionName": "my_kernel_function(input_stream<unsigned char>*, input_stream<unsigned char>*, output_stream<int>*)",
+            "Var1": "mask1",
+            "ArgIndex1": "NotArgIndex",
+            "Var2": "x16",
+            "ArgIndex2": "NotArgIndex"
+        },
+        {
+            "FunctionName": "my_kernel_function(input_stream<unsigned char>*, input_stream<unsigned char>*, output_stream<int>*)",
+            "Var1": "ref.tmp49",
+            "ArgIndex1": "NotArgIndex",
+            "Var2": "mask2",
+            "ArgIndex2": "NotArgIndex"
+        },
+        {
+            "FunctionName": "my_kernel_function(input_stream<unsigned char>*, input_stream<unsigned char>*, output_stream<int>*)",
+            "Var1": "mask2",
+            "ArgIndex1": "NotArgIndex",
+            "Var2": "x27",
+            "ArgIndex2": "NotArgIndex"
+        },
+        {
+            "FunctionName": "my_kernel_function(input_stream<unsigned char>*, input_stream<unsigned char>*, output_stream<int>*)",
+            "Var1": "ref.tmp63",
+            "ArgIndex1": "NotArgIndex",
+            "Var2": "mask_y1",
+            "ArgIndex2": "NotArgIndex"
+        },
+        {
+            "FunctionName": "my_kernel_function(input_stream<unsigned char>*, input_stream<unsigned char>*, output_stream<int>*)",
+            "Var1": "mask_y1",
+            "ArgIndex1": "NotArgIndex",
+            "Var2": "y1",
+            "ArgIndex2": "NotArgIndex"
+        },
+        {
+            "FunctionName": "my_kernel_function(input_stream<unsigned char>*, input_stream<unsigned char>*, output_stream<int>*)",
+            "Var1": "ref.tmp65",
+            "ArgIndex1": "NotArgIndex",
+            "Var2": "mask_y1",
+            "ArgIndex2": "NotArgIndex"
+        },
+        {
+            "FunctionName": "my_kernel_function(input_stream<unsigned char>*, input_stream<unsigned char>*, output_stream<int>*)",
+            "Var1": "mask_y1",
+            "ArgIndex1": "NotArgIndex",
+            "Var2": "mask1",
+            "ArgIndex2": "NotArgIndex"
+        },
+        {
+            "FunctionName": "my_kernel_function(input_stream<unsigned char>*, input_stream<unsigned char>*, output_stream<int>*)",
+            "Var1": "red",
+            "ArgIndex1": "NotArgIndex",
+            "Var2": "red",
+            "ArgIndex2": "NotArgIndex"
+        },
+        {
+            "FunctionName": "my_kernel_function(input_stream<unsigned char>*, input_stream<unsigned char>*, output_stream<int>*)",
+            "Var1": "ref.tmp72",
+            "ArgIndex1": "NotArgIndex",
+            "Var2": "mask_y2",
+            "ArgIndex2": "NotArgIndex"
+        },
+        {
+            "FunctionName": "my_kernel_function(input_stream<unsigned char>*, input_stream<unsigned char>*, output_stream<int>*)",
+            "Var1": "mask_y2",
+            "ArgIndex1": "NotArgIndex",
+            "Var2": "y2",
+            "ArgIndex2": "NotArgIndex"
+        },
+        {
+            "FunctionName": "my_kernel_function(input_stream<unsigned char>*, input_stream<unsigned char>*, output_stream<int>*)",
+            "Var1": "ref.tmp74",
+            "ArgIndex1": "NotArgIndex",
+            "Var2": "mask_y2",
+            "ArgIndex2": "NotArgIndex"
+        },
+        {
+            "FunctionName": "my_kernel_function(input_stream<unsigned char>*, input_stream<unsigned char>*, output_stream<int>*)",
+            "Var1": "mask_y2",
+            "ArgIndex1": "NotArgIndex",
+            "Var2": "mask2",
+            "ArgIndex2": "NotArgIndex"
+        },
+        {
+            "FunctionName": "my_kernel_function(input_stream<unsigned char>*, input_stream<unsigned char>*, output_stream<int>*)",
+            "Var1": "red",
+            "ArgIndex1": "NotArgIndex",
+            "Var2": "red",
+            "ArgIndex2": "NotArgIndex"
+        },
+        {
+            "FunctionName": "my_kernel_function(input_stream<unsigned char>*, input_stream<unsigned char>*, output_stream<int>*)",
+            "Var1": "val",
+            "ArgIndex1": "NotArgIndex",
+            "Var2": "val",
+            "ArgIndex2": "NotArgIndex"
+        },
+        {
+            "FunctionName": "my_kernel_function(input_stream<unsigned char>*, input_stream<unsigned char>*, output_stream<int>*)",
+            "Var1": "tmp86",
+            "ArgIndex1": "NotArgIndex",
+            "Var2": "compare_y",
+            "ArgIndex2": "NotArgIndex"
+        },
+        {
+            "FunctionName": "my_kernel_function(input_stream<unsigned char>*, input_stream<unsigned char>*, output_stream<int>*)",
+            "Var1": "compare_y",
+            "ArgIndex1": "NotArgIndex",
+            "Var2": "tmp86",
+            "ArgIndex2": "NotArgIndex"
+        },
+        {
+            "FunctionName": "my_kernel_function(input_stream<unsigned char>*, input_stream<unsigned char>*, output_stream<int>*)",
+            "Var1": "j",
+            "ArgIndex1": "NotArgIndex",
+            "Var2": "j",
+            "ArgIndex2": "NotArgIndex"
+        },
+        {
+            "FunctionName": "my_kernel_function(input_stream<unsigned char>*, input_stream<unsigned char>*, output_stream<int>*)",
+            "Var1": "tmp91",
+            "ArgIndex1": "NotArgIndex",
+            "Var2": "compare_x",
+            "ArgIndex2": "NotArgIndex"
+        },
+        {
+            "FunctionName": "my_kernel_function(input_stream<unsigned char>*, input_stream<unsigned char>*, output_stream<int>*)",
+            "Var1": "compare_x",
+            "ArgIndex1": "NotArgIndex",
+            "Var2": "tmp91",
+            "ArgIndex2": "NotArgIndex"
+        },
+        {
+            "FunctionName": "my_kernel_function(input_stream<unsigned char>*, input_stream<unsigned char>*, output_stream<int>*)",
+            "Var1": "tmp92",
+            "ArgIndex1": "NotArgIndex",
+            "Var2": "compare_y",
+            "ArgIndex2": "NotArgIndex"
+        },
+        {
+            "FunctionName": "my_kernel_function(input_stream<unsigned char>*, input_stream<unsigned char>*, output_stream<int>*)",
+            "Var1": "compare_y",
+            "ArgIndex1": "NotArgIndex",
+            "Var2": "tmp92",
+            "ArgIndex2": "NotArgIndex"
+        },
+        {
+            "FunctionName": "my_kernel_function(input_stream<unsigned char>*, input_stream<unsigned char>*, output_stream<int>*)",
+            "Var1": "i",
+            "ArgIndex1": "NotArgIndex",
+            "Var2": "i",
+            "ArgIndex2": "NotArgIndex"
+        },
+        {
+            "FunctionName": "my_kernel_function(input_stream<unsigned char>*, input_stream<unsigned char>*, output_stream<int>*)",
+            "Var1": "k",
+            "ArgIndex1": "NotArgIndex",
+            "Var2": "k",
+            "ArgIndex2": "NotArgIndex"
+        },
+        {
+            "FunctionName": "aie::detail::vector<int, 4u>::set(int, unsigned int)",
+            "Var1": "this.addr",
+            "ArgIndex1": "0",
+            "Var2": "data6",
+            "ArgIndex2": "NotArgIndex"
+        },
+        {
+            "FunctionName": "aie::detail::vector<int, 4u>::set(int, unsigned int)",
+            "Var1": "tmp",
+            "ArgIndex1": "NotArgIndex",
+            "Var2": "data",
+            "ArgIndex2": "NotArgIndex"
+        },
+        {
+            "FunctionName": "aie::detail::mask<128u>::mask(bool)",
+            "Var1": "call",
+            "ArgIndex1": "NotArgIndex",
+            "Var2": "data_2",
+            "ArgIndex2": "NotArgIndex"
+        },
+        {
+            "FunctionName": "aie::detail::mask<128u>::mask(bool)",
+            "Var1": "i",
+            "ArgIndex1": "NotArgIndex",
+            "Var2": "i",
+            "ArgIndex2": "NotArgIndex"
+        },
+        {
+            "FunctionName": "aie::detail::mask<128u>::mask(bool)",
+            "Var1": "call4",
+            "ArgIndex1": "NotArgIndex",
+            "Var2": "data_3",
+            "ArgIndex2": "NotArgIndex"
+        },
+        {
+            "FunctionName": "aie::detail::mask<128u>::mask(bool)",
+            "Var1": "call11",
+            "ArgIndex1": "NotArgIndex",
+            "Var2": "data_10",
+            "ArgIndex2": "NotArgIndex"
+        },
+        {
+            "FunctionName": "aie::detail::mask<128u>::mask(bool)",
+            "Var1": "i5",
+            "ArgIndex1": "NotArgIndex",
+            "Var2": "i5",
+            "ArgIndex2": "NotArgIndex"
+        },
+        {
+            "FunctionName": "aie::detail::mask<128u>::count() const",
+            "Var1": "count",
+            "ArgIndex1": "NotArgIndex",
+            "Var2": "count",
+            "ArgIndex2": "NotArgIndex"
+        },
+        {
+            "FunctionName": "aie::detail::mask<128u>::count() const",
+            "Var1": "i",
+            "ArgIndex1": "NotArgIndex",
+            "Var2": "i",
+            "ArgIndex2": "NotArgIndex"
+        },
+        {
+            "FunctionName": "aie::detail::mask<128u>::operator&(aie::detail::mask<128u> const&) const",
+            "Var1": "call5",
+            "ArgIndex1": "0",
+            "Var2": "data_4",
+            "ArgIndex2": "0"
+        },
+        {
+            "FunctionName": "aie::detail::mask<128u>::operator&(aie::detail::mask<128u> const&) const",
+            "Var1": "i",
+            "ArgIndex1": "NotArgIndex",
+            "Var2": "i",
+            "ArgIndex2": "NotArgIndex"
+        },
+        {
+            "FunctionName": "aie::detail::mask<128u>::count_word(unsigned int)",
+            "Var1": "n.addr",
+            "ArgIndex1": "0",
+            "Var2": "n.addr",
+            "ArgIndex2": "0"
+        },
+        {
+            "FunctionName": "aie::detail::mask<128u>::count_word(unsigned int)",
+            "Var1": "n.addr",
+            "ArgIndex1": "0",
+            "Var2": "n.addr",
+            "ArgIndex2": "0"
+        },
+        {
+            "FunctionName": "aie::detail::adf::stream_in_helper<128u, unsigned char, (aie_stream_resource_in)0>::readincr(input_stream<unsigned char>*)",
+            "Var1": "custom_type.tmp",
+            "ArgIndex1": "NotArgIndex",
+            "Var2": "agg.result",
+            "ArgIndex2": "0"
+        },
+        {
+            "FunctionName": "aie::detail::adf::stream_in_helper<128u, unsigned char, (aie_stream_resource_in)0>::readincr(input_stream<unsigned char>*)",
+            "Var1": "custom_type.tmp1",
+            "ArgIndex1": "NotArgIndex",
+            "Var2": "tmp",
+            "ArgIndex2": "NotArgIndex"
+        },
+        {
+            "FunctionName": "aie::detail::adf::stream_in_helper<128u, unsigned char, (aie_stream_resource_in)0>::readincr(input_stream<unsigned char>*)",
+            "Var1": "tmp",
+            "ArgIndex1": "NotArgIndex",
+            "Var2": "custom_type.tmp1",
+            "ArgIndex2": "NotArgIndex"
+        },
+        {
+            "FunctionName": "aie::detail::adf::stream_in_helper<128u, unsigned char, (aie_stream_resource_in)0>::readincr(input_stream<unsigned char>*)",
+            "Var1": "i",
+            "ArgIndex1": "NotArgIndex",
+            "Var2": "i",
+            "ArgIndex2": "NotArgIndex"
+        },
+        {
+            "FunctionName": "aie::detail::vector<short, 8u>::vector(v8int16)",
+            "Var1": "v",
+            "ArgIndex1": "NotArgIndex",
+            "Var2": "data",
+            "ArgIndex2": "NotArgIndex"
+        },
+        {
+            "FunctionName": "aie::detail::vector<unsigned char, 128u>& aie::detail::vector<unsigned char, 128u>::insert<16u>(unsigned int, aie::detail::vector<unsigned char, 16u> const&)",
+            "Var1": "tmp",
+            "ArgIndex1": "NotArgIndex",
+            "Var2": "call",
+            "ArgIndex2": "NotArgIndex"
+        },
+        {
+            "FunctionName": "aie::detail::vector<unsigned char, 128u>& aie::detail::vector<unsigned char, 128u>::insert<16u>(unsigned int, aie::detail::vector<unsigned char, 16u> const&)",
+            "Var1": "custom_type.tmp",
+            "ArgIndex1": "NotArgIndex",
+            "Var2": "tmp12",
+            "ArgIndex2": "NotArgIndex"
+        },
+        {
+            "FunctionName": "aie::detail::vector<unsigned char, 128u>& aie::detail::vector<unsigned char, 128u>::insert<16u>(unsigned int, aie::detail::vector<unsigned char, 16u> const&)",
+            "Var1": "custom_type.tmp18",
+            "ArgIndex1": "NotArgIndex",
+            "Var2": "tmp12",
+            "ArgIndex2": "NotArgIndex"
+        },
+        {
+            "FunctionName": "aie::detail::vector<unsigned char, 128u>& aie::detail::vector<unsigned char, 128u>::insert<16u>(unsigned int, aie::detail::vector<unsigned char, 16u> const&)",
+            "Var1": "tmp32",
+            "ArgIndex1": "NotArgIndex",
+            "Var2": "call31",
+            "ArgIndex2": "NotArgIndex"
+        },
+        {
+            "FunctionName": "aie::detail::vector<unsigned char, 128u>& aie::detail::vector<unsigned char, 128u>::insert<16u>(unsigned int, aie::detail::vector<unsigned char, 16u> const&)",
+            "Var1": "call31",
+            "ArgIndex1": "NotArgIndex",
+            "Var2": "ref.tmp33",
+            "ArgIndex2": "NotArgIndex"
+        },
+        {
+            "FunctionName": "v8int16 stream_utils::aie_stream_get_wss<short>(input_stream<short>*)",
+            "Var1": "ss.addr",
+            "ArgIndex1": "0",
+            "Var2": "channel",
+            "ArgIndex2": "NotArgIndex"
+        },
+        {
+            "FunctionName": "getl_wss(int)",
+            "Var1": "custom_type.tmp",
+            "ArgIndex1": "NotArgIndex",
+            "Var2": "agg.tmp",
+            "ArgIndex2": "NotArgIndex"
+        },
+        {
+            "FunctionName": "getl_wss(int)",
+            "Var1": "custom_type.tmp5",
+            "ArgIndex1": "NotArgIndex",
+            "Var2": "agg.tmp4",
+            "ArgIndex2": "NotArgIndex"
+        },
+        {
+            "FunctionName": "getl_wss(int)",
+            "Var1": "custom_type.tmp10",
+            "ArgIndex1": "NotArgIndex",
+            "Var2": "agg.tmp9",
+            "ArgIndex2": "NotArgIndex"
+        },
+        {
+            "FunctionName": "v8int16::v8int16(chessllvmInternal, v16int8)",
+            "Var1": "aw",
+            "ArgIndex1": "NotArgIndex",
+            "Var2": "mw",
+            "ArgIndex2": "NotArgIndex"
+        },
+        {
+            "FunctionName": "uint1_t::uint1_t(int)",
+            "Var1": "this.addr",
+            "ArgIndex1": "0",
+            "Var2": "this1",
+            "ArgIndex2": "0"
+        },
+        {
+            "FunctionName": "aie::detail::vector<unsigned char, 64u> aie::detail::vector<unsigned char, 16u>::grow<64u>(unsigned int) const",
+            "Var1": "this.addr",
+            "ArgIndex1": "0",
+            "Var2": "data2",
+            "ArgIndex2": "NotArgIndex"
+        },
+        {
+            "FunctionName": "aie::detail::vector<unsigned char, 64u> aie::detail::vector<unsigned char, 16u>::grow<64u>(unsigned int) const",
+            "Var1": "custom_type.tmp",
+            "ArgIndex1": "NotArgIndex",
+            "Var2": "retval",
+            "ArgIndex2": "NotArgIndex"
+        },
+        {
+            "FunctionName": "aie::detail::vector<unsigned char, 64u> aie::detail::vector<unsigned char, 16u>::grow<64u>(unsigned int) const",
+            "Var1": "tmp",
+            "ArgIndex1": "NotArgIndex",
+            "Var2": "data",
+            "ArgIndex2": "NotArgIndex"
+        },
+        {
+            "FunctionName": "aie::detail::vector<unsigned char, 64u> aie::detail::vector<unsigned char, 16u>::grow<64u>(unsigned int) const",
+            "Var1": "data",
+            "ArgIndex1": "NotArgIndex",
+            "Var2": "retval",
+            "ArgIndex2": "NotArgIndex"
+        },
+        {
+            "FunctionName": "auto aie::detail::vector<unsigned char, 64u>::cast_to<cint32>() const",
+            "Var1": "custom_type.tmp",
+            "ArgIndex1": "NotArgIndex",
+            "Var2": "ret",
+            "ArgIndex2": "NotArgIndex"
+        },
+        {
+            "FunctionName": "auto aie::detail::vector<unsigned char, 64u>::cast_to<cint32>() const",
+            "Var1": "tmp",
+            "ArgIndex1": "NotArgIndex",
+            "Var2": "data",
+            "ArgIndex2": "NotArgIndex"
+        },
+        {
+            "FunctionName": "auto aie::detail::vector<unsigned char, 64u>::cast_to<cint32>() const",
+            "Var1": "data",
+            "ArgIndex1": "NotArgIndex",
+            "Var2": "ret",
+            "ArgIndex2": "NotArgIndex"
+        },
+        {
+            "FunctionName": "auto aie::detail::vector<unsigned char, 128u>::cast_to<cint32>() const",
+            "Var1": "custom_type.tmp",
+            "ArgIndex1": "NotArgIndex",
+            "Var2": "ret",
+            "ArgIndex2": "NotArgIndex"
+        },
+        {
+            "FunctionName": "auto aie::detail::vector<unsigned char, 128u>::cast_to<cint32>() const",
+            "Var1": "ret",
+            "ArgIndex1": "NotArgIndex",
+            "Var2": "agg.result",
+            "ArgIndex2": "0"
+        },
+        {
+            "FunctionName": "aie::detail::vector<cint32, 8u> aie::detail::vector<cint32, 16u>::extract<8u>(unsigned int) const",
+            "Var1": "custom_type.tmp",
+            "ArgIndex1": "NotArgIndex",
+            "Var2": "retval",
+            "ArgIndex2": "NotArgIndex"
+        },
+        {
+            "FunctionName": "aie::detail::vector<cint32, 8u> aie::detail::vector<cint32, 16u>::extract<8u>(unsigned int) const",
+            "Var1": "call",
+            "ArgIndex1": "NotArgIndex",
+            "Var2": "data",
+            "ArgIndex2": "NotArgIndex"
+        },
+        {
+            "FunctionName": "aie::detail::vector<cint32, 8u> aie::detail::vector<cint32, 16u>::extract<8u>(unsigned int) const",
+            "Var1": "custom_type.tmp8",
+            "ArgIndex1": "NotArgIndex",
+            "Var2": "retval",
+            "ArgIndex2": "NotArgIndex"
+        },
+        {
+            "FunctionName": "aie::detail::vector<cint32, 8u>::vector(v8cint32)",
+            "Var1": "v",
+            "ArgIndex1": "NotArgIndex",
+            "Var2": "data",
+            "ArgIndex2": "NotArgIndex"
+        },
+        {
+            "FunctionName": "auto aie::detail::vector<cint32, 8u>::cast_to<unsigned char>() const",
+            "Var1": "custom_type.tmp",
+            "ArgIndex1": "NotArgIndex",
+            "Var2": "ret",
+            "ArgIndex2": "NotArgIndex"
+        },
+        {
+            "FunctionName": "auto aie::detail::vector<cint32, 8u>::cast_to<unsigned char>() const",
+            "Var1": "tmp",
+            "ArgIndex1": "NotArgIndex",
+            "Var2": "data",
+            "ArgIndex2": "NotArgIndex"
+        },
+        {
+            "FunctionName": "auto aie::detail::vector<cint32, 8u>::cast_to<unsigned char>() const",
+            "Var1": "data",
+            "ArgIndex1": "NotArgIndex",
+            "Var2": "ret",
+            "ArgIndex2": "NotArgIndex"
+        },
+        {
+            "FunctionName": "aie::detail::vector<unsigned char, 16u>::to_native() const",
+            "Var1": "this.addr",
+            "ArgIndex1": "0",
+            "Var2": "data",
+            "ArgIndex2": "NotArgIndex"
+        },
+        {
+            "FunctionName": "v8cint32::v8cint32(chessllvmInternal, v64int8)",
+            "Var1": "aw",
+            "ArgIndex1": "NotArgIndex",
+            "Var2": "mw",
+            "ArgIndex2": "NotArgIndex"
+        },
+        {
+            "FunctionName": "aie::detail::vector<cint32, 8u>::to_native() const",
+            "Var1": "this.addr",
+            "ArgIndex1": "0",
+            "Var2": "data",
+            "ArgIndex2": "NotArgIndex"
+        },
+        {
+            "FunctionName": "v64uint8::v64uint8(chessllvmInternal, v64int8)",
+            "Var1": "aw",
+            "ArgIndex1": "NotArgIndex",
+            "Var2": "mw",
+            "ArgIndex2": "NotArgIndex"
+        },
+        {
+            "FunctionName": "aie::detail::vector<unsigned char, 64u>::to_native() const",
+            "Var1": "this.addr",
+            "ArgIndex1": "0",
+            "Var2": "data",
+            "ArgIndex2": "NotArgIndex"
+        },
+        {
+            "FunctionName": "auto aie::detail::vector<short, 8u>::cast_to<unsigned char>() const",
+            "Var1": "custom_type.tmp",
+            "ArgIndex1": "NotArgIndex",
+            "Var2": "ret",
+            "ArgIndex2": "NotArgIndex"
+        },
+        {
+            "FunctionName": "auto aie::detail::vector<short, 8u>::cast_to<unsigned char>() const",
+            "Var1": "tmp",
+            "ArgIndex1": "NotArgIndex",
+            "Var2": "data",
+            "ArgIndex2": "NotArgIndex"
+        },
+        {
+            "FunctionName": "auto aie::detail::vector<short, 8u>::cast_to<unsigned char>() const",
+            "Var1": "data",
+            "ArgIndex1": "NotArgIndex",
+            "Var2": "ret",
+            "ArgIndex2": "NotArgIndex"
+        },
+        {
+            "FunctionName": "v16uint8::v16uint8(chessllvmInternal, v16int8)",
+            "Var1": "aw",
+            "ArgIndex1": "NotArgIndex",
+            "Var2": "mw",
+            "ArgIndex2": "NotArgIndex"
+        },
+        {
+            "FunctionName": "aie::detail::vector<unsigned char, 64u> aie::detail::vector<unsigned char, 128u>::extract<64u>(unsigned int) const",
+            "Var1": "custom_type.tmp",
+            "ArgIndex1": "NotArgIndex",
+            "Var2": "retval",
+            "ArgIndex2": "NotArgIndex"
+        },
+        {
+            "FunctionName": "aie::detail::vector<unsigned char, 64u> aie::detail::vector<unsigned char, 128u>::extract<64u>(unsigned int) const",
+            "Var1": "call",
+            "ArgIndex1": "NotArgIndex",
+            "Var2": "data",
+            "ArgIndex2": "NotArgIndex"
+        },
+        {
+            "FunctionName": "aie::detail::vector<unsigned char, 64u> aie::detail::vector<unsigned char, 128u>::extract<64u>(unsigned int) const",
+            "Var1": "custom_type.tmp8",
+            "ArgIndex1": "NotArgIndex",
+            "Var2": "retval",
+            "ArgIndex2": "NotArgIndex"
+        },
+        {
+            "FunctionName": "auto aie::detail::vector<unsigned char, 64u>::cast_to<short>() const",
+            "Var1": "custom_type.tmp",
+            "ArgIndex1": "NotArgIndex",
+            "Var2": "ret",
+            "ArgIndex2": "NotArgIndex"
+        },
+        {
+            "FunctionName": "auto aie::detail::vector<unsigned char, 64u>::cast_to<short>() const",
+            "Var1": "tmp",
+            "ArgIndex1": "NotArgIndex",
+            "Var2": "data",
+            "ArgIndex2": "NotArgIndex"
+        },
+        {
+            "FunctionName": "auto aie::detail::vector<unsigned char, 64u>::cast_to<short>() const",
+            "Var1": "data",
+            "ArgIndex1": "NotArgIndex",
+            "Var2": "ret",
+            "ArgIndex2": "NotArgIndex"
+        },
+        {
+            "FunctionName": "aie::detail::vector<unsigned char, 64u>::vector(v64uint8)",
+            "Var1": "v",
+            "ArgIndex1": "NotArgIndex",
+            "Var2": "data",
+            "ArgIndex2": "NotArgIndex"
+        },
+        {
+            "FunctionName": "v32int16::v32int16(chessllvmInternal, v64int8)",
+            "Var1": "aw",
+            "ArgIndex1": "NotArgIndex",
+            "Var2": "mw",
+            "ArgIndex2": "NotArgIndex"
+        },
+        {
+            "FunctionName": "aie::detail::vector_elem_ref<short, 32u>::vector_elem_ref(aie::detail::vector<short, 32u>&, unsigned int)",
+            "Var1": "v.addr",
+            "ArgIndex1": "0",
+            "Var2": "parent",
+            "ArgIndex2": "NotArgIndex"
+        },
+        {
+            "FunctionName": "aie::detail::vector_elem_ref<short, 32u>::get() const",
+            "Var1": "this.addr",
+            "ArgIndex1": "0",
+            "Var2": "offset",
+            "ArgIndex2": "NotArgIndex"
+        },
+        {
+            "FunctionName": "aie::detail::vector_elem_ref<short, 32u>::get() const",
+            "Var1": "this.addr",
+            "ArgIndex1": "0",
+            "Var2": "parent",
+            "ArgIndex2": "NotArgIndex"
+        },
+        {
+            "FunctionName": "aie::detail::vector<short, 32u>::get(unsigned int) const",
+            "Var1": "this.addr",
+            "ArgIndex1": "0",
+            "Var2": "data",
+            "ArgIndex2": "NotArgIndex"
+        },
+        {
+            "FunctionName": "aie::detail::adf::stream_out_helper<4u, int, (aie_stream_resource_out)0>::writeincr(output_stream<int>*, aie::detail::vector<int, 4u>)",
+            "Var1": "i",
+            "ArgIndex1": "NotArgIndex",
+            "Var2": "i",
+            "ArgIndex2": "NotArgIndex"
+        },
+        {
+            "FunctionName": "aie::detail::vector<int, 4u> aie::detail::vector<int, 4u>::extract<4u>(unsigned int) const",
+            "Var1": "this.addr",
+            "ArgIndex1": "0",
+            "Var2": "this1",
+            "ArgIndex2": "0"
+        },
+        {
+            "FunctionName": "void stream_utils::aie_stream_put_wms<short>(output_stream<short>*, v8int16, bool&)",
+            "Var1": "ss.addr",
+            "ArgIndex1": "0",
+            "Var2": "channel",
+            "ArgIndex2": "NotArgIndex"
+        },
+        {
+            "FunctionName": "put_wms(int, v4int32, int)",
+            "Var1": "custom_type.tmp",
+            "ArgIndex1": "NotArgIndex",
+            "Var2": "agg.tmp",
+            "ArgIndex2": "NotArgIndex"
+        },
+        {
+            "FunctionName": "put_wms(int, v4int32, int)",
+            "Var1": "custom_type.tmp2",
+            "ArgIndex1": "NotArgIndex",
+            "Var2": "custom_type.tmp",
+            "ArgIndex2": "NotArgIndex"
+        },
+        {
+            "FunctionName": "put_wms(int, v4int32, int)",
+            "Var1": "custom_type.tmp2",
+            "ArgIndex1": "NotArgIndex",
+            "Var2": "custom_type.tmp",
+            "ArgIndex2": "NotArgIndex"
+        },
+        {
+            "FunctionName": "put_wms(int, v4int32, int)",
+            "Var1": "custom_type.tmp2",
+            "ArgIndex1": "NotArgIndex",
+            "Var2": "agg.tmp1",
+            "ArgIndex2": "NotArgIndex"
+        },
+        {
+            "FunctionName": "put_wms(int, v4int32, int)",
+            "Var1": "custom_type.tmp6",
+            "ArgIndex1": "NotArgIndex",
+            "Var2": "agg.tmp5",
+            "ArgIndex2": "NotArgIndex"
+        },
+        {
+            "FunctionName": "put_wms(int, v4int32, int)",
+            "Var1": "custom_type.tmp8",
+            "ArgIndex1": "NotArgIndex",
+            "Var2": "custom_type.tmp6",
+            "ArgIndex2": "NotArgIndex"
+        },
+        {
+            "FunctionName": "put_wms(int, v4int32, int)",
+            "Var1": "custom_type.tmp8",
+            "ArgIndex1": "NotArgIndex",
+            "Var2": "custom_type.tmp6",
+            "ArgIndex2": "NotArgIndex"
+        },
+        {
+            "FunctionName": "put_wms(int, v4int32, int)",
+            "Var1": "custom_type.tmp8",
+            "ArgIndex1": "NotArgIndex",
+            "Var2": "agg.tmp7",
+            "ArgIndex2": "NotArgIndex"
+        },
+        {
+            "FunctionName": "put_wms(int, v4int32, int)",
+            "Var1": "custom_type.tmp11",
+            "ArgIndex1": "NotArgIndex",
+            "Var2": "agg.tmp10",
+            "ArgIndex2": "NotArgIndex"
+        },
+        {
+            "FunctionName": "put_wms(int, v4int32, int)",
+            "Var1": "custom_type.tmp13",
+            "ArgIndex1": "NotArgIndex",
+            "Var2": "custom_type.tmp11",
+            "ArgIndex2": "NotArgIndex"
+        },
+        {
+            "FunctionName": "put_wms(int, v4int32, int)",
+            "Var1": "custom_type.tmp13",
+            "ArgIndex1": "NotArgIndex",
+            "Var2": "custom_type.tmp11",
+            "ArgIndex2": "NotArgIndex"
+        },
+        {
+            "FunctionName": "put_wms(int, v4int32, int)",
+            "Var1": "custom_type.tmp13",
+            "ArgIndex1": "NotArgIndex",
+            "Var2": "agg.tmp12",
+            "ArgIndex2": "NotArgIndex"
+        },
+        {
+            "FunctionName": "v4int32::v4int32(chessllvmInternal, v16int8)",
+            "Var1": "aw",
+            "ArgIndex1": "NotArgIndex",
+            "Var2": "mw",
+            "ArgIndex2": "NotArgIndex"
+        },
+        {
+            "FunctionName": "aie::detail::vector<int, 4u>::to_native() const",
+            "Var1": "this.addr",
+            "ArgIndex1": "0",
+            "Var2": "data",
+            "ArgIndex2": "NotArgIndex"
+        },
+        {
+            "FunctionName": "aie::detail::broadcast_bits_impl<16u, short, 64u>::run(short const&)",
+            "Var1": "custom_type.tmp",
+            "ArgIndex1": "NotArgIndex",
+            "Var2": "agg.result",
+            "ArgIndex2": "0"
+        },
+        {
+            "FunctionName": "aie::detail::broadcast_bits_impl<16u, short, 64u>::run(short const&)",
+            "Var1": "tmp1",
+            "ArgIndex1": "NotArgIndex",
+            "Var2": "agg.result",
+            "ArgIndex2": "0"
+        },
+        {
+            "FunctionName": "aie::detail::broadcast_bits_impl<16u, short, 64u>::run(short const&)",
+            "Var1": "agg.result",
+            "ArgIndex1": "0",
+            "Var2": "agg.result",
+            "ArgIndex2": "0"
+        },
+        {
+            "FunctionName": "auto aie::detail::vector<short, 64u>::cast_to<unsigned char>() const",
+            "Var1": "custom_type.tmp",
+            "ArgIndex1": "NotArgIndex",
+            "Var2": "ret",
+            "ArgIndex2": "NotArgIndex"
+        },
+        {
+            "FunctionName": "auto aie::detail::vector<short, 64u>::cast_to<unsigned char>() const",
+            "Var1": "ret",
+            "ArgIndex1": "NotArgIndex",
+            "Var2": "agg.result",
+            "ArgIndex2": "0"
+        },
+        {
+            "FunctionName": "aie::detail::broadcast_bits_impl<16u, short, 32u>::run(short const&)",
+            "Var1": "custom_type.tmp",
+            "ArgIndex1": "NotArgIndex",
+            "Var2": "retval",
+            "ArgIndex2": "0"
+        },
+        {
+            "FunctionName": "aie::detail::broadcast_bits_impl<16u, short, 32u>::run(short const&)",
+            "Var1": "custom_type.tmp1",
+            "ArgIndex1": "NotArgIndex",
+            "Var2": "tmp",
+            "ArgIndex2": "NotArgIndex"
+        },
+        {
+            "FunctionName": "aie::detail::vector<short, 32u> aie::detail::broadcast_bits_impl<16u, short, 32u>::run<32u>(aie::detail::vector_elem_const_ref<short, 32u>)",
+            "Var1": "custom_type.tmp",
+            "ArgIndex1": "NotArgIndex",
+            "Var2": "tmp",
+            "ArgIndex2": "NotArgIndex"
+        },
+        {
+            "FunctionName": "aie::detail::vector<short, 32u> aie::detail::vector<short, 32u>::grow<32u>(unsigned int) const",
+            "Var1": "this.addr",
+            "ArgIndex1": "0",
+            "Var2": "data2",
+            "ArgIndex2": "NotArgIndex"
+        },
+        {
+            "FunctionName": "aie::detail::vector<short, 32u> aie::detail::vector<short, 32u>::grow<32u>(unsigned int) const",
+            "Var1": "custom_type.tmp",
+            "ArgIndex1": "NotArgIndex",
+            "Var2": "retval",
+            "ArgIndex2": "NotArgIndex"
+        },
+        {
+            "FunctionName": "aie::detail::vector<short, 32u> aie::detail::vector<short, 32u>::grow<32u>(unsigned int) const",
+            "Var1": "data2",
+            "ArgIndex1": "NotArgIndex",
+            "Var2": "data",
+            "ArgIndex2": "NotArgIndex"
+        },
+        {
+            "FunctionName": "aie::detail::vector<short, 32u> aie::detail::vector<short, 32u>::grow<32u>(unsigned int) const",
+            "Var1": "data",
+            "ArgIndex1": "NotArgIndex",
+            "Var2": "retval",
+            "ArgIndex2": "NotArgIndex"
+        },
+        {
+            "FunctionName": "aie::detail::vector<short, 32u>::vector(v32int16)",
+            "Var1": "v",
+            "ArgIndex1": "NotArgIndex",
+            "Var2": "data",
+            "ArgIndex2": "NotArgIndex"
+        },
+        {
+            "FunctionName": "aie::detail::vector<short, 32u> aie::detail::vector<short, 32u>::extract<32u>(unsigned int) const",
+            "Var1": "this.addr",
+            "ArgIndex1": "0",
+            "Var2": "this1",
+            "ArgIndex2": "0"
+        },
+        {
+            "FunctionName": "aie::detail::vector<short, 32u>::to_native() const",
+            "Var1": "this.addr",
+            "ArgIndex1": "0",
+            "Var2": "data",
+            "ArgIndex2": "NotArgIndex"
+        },
+        {
+            "FunctionName": "aie::detail::vector_elem_const_ref<short, 32u>::vector_elem_const_ref(aie::detail::vector<short, 32u> const&, unsigned int)",
+            "Var1": "v.addr",
+            "ArgIndex1": "0",
+            "Var2": "parent",
+            "ArgIndex2": "NotArgIndex"
+        },
+        {
+            "FunctionName": "auto aie::detail::concat_vector_helper<short, 32u>::run<aie::detail::vector<short, 32u> const&, aie::detail::vector<short, 32u> const&>(aie::detail::vector<short, 32u> const&, aie::detail::vector<short, 32u> const&)",
+            "Var1": "custom_type.tmp",
+            "ArgIndex1": "NotArgIndex",
+            "Var2": "ret",
+            "ArgIndex2": "NotArgIndex"
+        },
+        {
+            "FunctionName": "auto aie::detail::concat_vector_helper<short, 32u>::run<aie::detail::vector<short, 32u> const&, aie::detail::vector<short, 32u> const&>(aie::detail::vector<short, 32u> const&, aie::detail::vector<short, 32u> const&)",
+            "Var1": "ret",
+            "ArgIndex1": "NotArgIndex",
+            "Var2": "agg.result",
+            "ArgIndex2": "0"
+        },
+        {
+            "FunctionName": "aie::detail::vector<short, 64u>& aie::detail::vector<short, 64u>::upd_all<aie::detail::vector<short, 32u> const&, aie::detail::vector<short, 32u> const&>(aie::detail::vector<short, 32u> const&, aie::detail::vector<short, 32u> const&)",
+            "Var1": "data7",
+            "ArgIndex1": "NotArgIndex",
+            "Var2": "call5",
+            "ArgIndex2": "NotArgIndex"
+        },
+        {
+            "FunctionName": "aie::detail::vector<short, 64u>& aie::detail::vector<short, 64u>::upd_all<aie::detail::vector<short, 32u> const&, aie::detail::vector<short, 32u> const&>(aie::detail::vector<short, 32u> const&, aie::detail::vector<short, 32u> const&)",
+            "Var1": "call5",
+            "ArgIndex1": "NotArgIndex",
+            "Var2": "data7",
+            "ArgIndex2": "NotArgIndex"
+        },
+        {
+            "FunctionName": "aie::detail::vector<short, 64u>& aie::detail::vector<short, 64u>::upd_all<aie::detail::vector<short, 32u> const&, aie::detail::vector<short, 32u> const&>(aie::detail::vector<short, 32u> const&, aie::detail::vector<short, 32u> const&)",
+            "Var1": "data11",
+            "ArgIndex1": "NotArgIndex",
+            "Var2": "call9",
+            "ArgIndex2": "NotArgIndex"
+        },
+        {
+            "FunctionName": "aie::detail::vector<short, 64u>& aie::detail::vector<short, 64u>::upd_all<aie::detail::vector<short, 32u> const&, aie::detail::vector<short, 32u> const&>(aie::detail::vector<short, 32u> const&, aie::detail::vector<short, 32u> const&)",
+            "Var1": "call9",
+            "ArgIndex1": "NotArgIndex",
+            "Var2": "data11",
+            "ArgIndex2": "NotArgIndex"
+        },
+        {
+            "FunctionName": "std::__2::__tuple_leaf<0u, aie::detail::vector<short, 32u>, false>::__tuple_leaf<aie::detail::vector<short, 32u> const&, void>(aie::detail::vector<short, 32u> const&)",
+            "Var1": "call",
+            "ArgIndex1": "NotArgIndex",
+            "Var2": "__value_",
+            "ArgIndex2": "NotArgIndex"
+        },
+        {
+            "FunctionName": "std::__2::__tuple_leaf<0u, aie::detail::vector<short, 32u>, false>::__tuple_leaf<aie::detail::vector<short, 32u> const&, void>(aie::detail::vector<short, 32u> const&)",
+            "Var1": "__value_",
+            "ArgIndex1": "NotArgIndex",
+            "Var2": "call",
+            "ArgIndex2": "NotArgIndex"
+        },
+        {
+            "FunctionName": "std::__2::__tuple_leaf<1u, aie::detail::vector<short, 32u>, false>::__tuple_leaf<aie::detail::vector<short, 32u> const&, void>(aie::detail::vector<short, 32u> const&)",
+            "Var1": "call",
+            "ArgIndex1": "NotArgIndex",
+            "Var2": "__value_",
+            "ArgIndex2": "NotArgIndex"
+        },
+        {
+            "FunctionName": "std::__2::__tuple_leaf<1u, aie::detail::vector<short, 32u>, false>::__tuple_leaf<aie::detail::vector<short, 32u> const&, void>(aie::detail::vector<short, 32u> const&)",
+            "Var1": "__value_",
+            "ArgIndex1": "NotArgIndex",
+            "Var2": "call",
+            "ArgIndex2": "NotArgIndex"
+        },
+        {
+            "FunctionName": "aie::detail::vector<unsigned char, 128u> aie::detail::zeros<unsigned char, 128u>()",
+            "Var1": "custom_type.tmp",
+            "ArgIndex1": "NotArgIndex",
+            "Var2": "tmp",
+            "ArgIndex2": "NotArgIndex"
+        },
+        {
+            "FunctionName": "aie::detail::vector<int, 8u>::vector(v8int32)",
+            "Var1": "v",
+            "ArgIndex1": "NotArgIndex",
+            "Var2": "data",
+            "ArgIndex2": "NotArgIndex"
+        },
+        {
+            "FunctionName": "auto aie::detail::vector<int, 32u>::cast_to<unsigned char>() const",
+            "Var1": "custom_type.tmp",
+            "ArgIndex1": "NotArgIndex",
+            "Var2": "ret",
+            "ArgIndex2": "NotArgIndex"
+        },
+        {
+            "FunctionName": "auto aie::detail::vector<int, 32u>::cast_to<unsigned char>() const",
+            "Var1": "ret",
+            "ArgIndex1": "NotArgIndex",
+            "Var2": "agg.result",
+            "ArgIndex2": "0"
+        },
+        {
+            "FunctionName": "auto aie::detail::concat_vector_helper<int, 8u>::run<aie::detail::vector<int, 8u> const&, aie::detail::vector<int, 8u> const&, aie::detail::vector<int, 8u> const&, aie::detail::vector<int, 8u> const&>(aie::detail::vector<int, 8u> const&, aie::detail::vector<int, 8u> const&, aie::detail::vector<int, 8u> const&, aie::detail::vector<int, 8u> const&)",
+            "Var1": "custom_type.tmp",
+            "ArgIndex1": "NotArgIndex",
+            "Var2": "ret",
+            "ArgIndex2": "NotArgIndex"
+        },
+        {
+            "FunctionName": "auto aie::detail::concat_vector_helper<int, 8u>::run<aie::detail::vector<int, 8u> const&, aie::detail::vector<int, 8u> const&, aie::detail::vector<int, 8u> const&, aie::detail::vector<int, 8u> const&>(aie::detail::vector<int, 8u> const&, aie::detail::vector<int, 8u> const&, aie::detail::vector<int, 8u> const&, aie::detail::vector<int, 8u> const&)",
+            "Var1": "ret",
+            "ArgIndex1": "NotArgIndex",
+            "Var2": "agg.result",
+            "ArgIndex2": "0"
+        },
+        {
+            "FunctionName": "aie::detail::vector<int, 32u>& aie::detail::vector<int, 32u>::upd_all<aie::detail::vector<int, 8u> const&, aie::detail::vector<int, 8u> const&, aie::detail::vector<int, 8u> const&, aie::detail::vector<int, 8u> const&>(aie::detail::vector<int, 8u> const&, aie::detail::vector<int, 8u> const&, aie::detail::vector<int, 8u> const&, aie::detail::vector<int, 8u> const&)",
+            "Var1": "tmp",
+            "ArgIndex1": "NotArgIndex",
+            "Var2": "call11",
+            "ArgIndex2": "NotArgIndex"
+        },
+        {
+            "FunctionName": "aie::detail::vector<int, 32u>& aie::detail::vector<int, 32u>::upd_all<aie::detail::vector<int, 8u> const&, aie::detail::vector<int, 8u> const&, aie::detail::vector<int, 8u> const&, aie::detail::vector<int, 8u> const&>(aie::detail::vector<int, 8u> const&, aie::detail::vector<int, 8u> const&, aie::detail::vector<int, 8u> const&, aie::detail::vector<int, 8u> const&)",
+            "Var1": "tmp20",
+            "ArgIndex1": "NotArgIndex",
+            "Var2": "call19",
+            "ArgIndex2": "NotArgIndex"
+        },
+        {
+            "FunctionName": "std::__2::__tuple_leaf<0u, aie::detail::vector<int, 8u>, false>::__tuple_leaf<aie::detail::vector<int, 8u> const&, void>(aie::detail::vector<int, 8u> const&)",
+            "Var1": "call",
+            "ArgIndex1": "NotArgIndex",
+            "Var2": "__value_",
+            "ArgIndex2": "NotArgIndex"
+        },
+        {
+            "FunctionName": "std::__2::__tuple_leaf<0u, aie::detail::vector<int, 8u>, false>::__tuple_leaf<aie::detail::vector<int, 8u> const&, void>(aie::detail::vector<int, 8u> const&)",
+            "Var1": "__value_",
+            "ArgIndex1": "NotArgIndex",
+            "Var2": "call",
+            "ArgIndex2": "NotArgIndex"
+        },
+        {
+            "FunctionName": "std::__2::__tuple_leaf<1u, aie::detail::vector<int, 8u>, false>::__tuple_leaf<aie::detail::vector<int, 8u> const&, void>(aie::detail::vector<int, 8u> const&)",
+            "Var1": "call",
+            "ArgIndex1": "NotArgIndex",
+            "Var2": "__value_",
+            "ArgIndex2": "NotArgIndex"
+        },
+        {
+            "FunctionName": "std::__2::__tuple_leaf<1u, aie::detail::vector<int, 8u>, false>::__tuple_leaf<aie::detail::vector<int, 8u> const&, void>(aie::detail::vector<int, 8u> const&)",
+            "Var1": "__value_",
+            "ArgIndex1": "NotArgIndex",
+            "Var2": "call",
+            "ArgIndex2": "NotArgIndex"
+        },
+        {
+            "FunctionName": "std::__2::__tuple_leaf<2u, aie::detail::vector<int, 8u>, false>::__tuple_leaf<aie::detail::vector<int, 8u> const&, void>(aie::detail::vector<int, 8u> const&)",
+            "Var1": "call",
+            "ArgIndex1": "NotArgIndex",
+            "Var2": "__value_",
+            "ArgIndex2": "NotArgIndex"
+        },
+        {
+            "FunctionName": "std::__2::__tuple_leaf<2u, aie::detail::vector<int, 8u>, false>::__tuple_leaf<aie::detail::vector<int, 8u> const&, void>(aie::detail::vector<int, 8u> const&)",
+            "Var1": "__value_",
+            "ArgIndex1": "NotArgIndex",
+            "Var2": "call",
+            "ArgIndex2": "NotArgIndex"
+        },
+        {
+            "FunctionName": "std::__2::__tuple_leaf<3u, aie::detail::vector<int, 8u>, false>::__tuple_leaf<aie::detail::vector<int, 8u> const&, void>(aie::detail::vector<int, 8u> const&)",
+            "Var1": "call",
+            "ArgIndex1": "NotArgIndex",
+            "Var2": "__value_",
+            "ArgIndex2": "NotArgIndex"
+        },
+        {
+            "FunctionName": "std::__2::__tuple_leaf<3u, aie::detail::vector<int, 8u>, false>::__tuple_leaf<aie::detail::vector<int, 8u> const&, void>(aie::detail::vector<int, 8u> const&)",
+            "Var1": "__value_",
+            "ArgIndex1": "NotArgIndex",
+            "Var2": "call",
+            "ArgIndex2": "NotArgIndex"
+        },
+        {
+            "FunctionName": "aie::detail::vector<int, 8u>::to_native() const",
+            "Var1": "this.addr",
+            "ArgIndex1": "0",
+            "Var2": "data",
+            "ArgIndex2": "NotArgIndex"
+        },
+        {
+            "FunctionName": "aie::detail::mask<128u>::operator~() const",
+            "Var1": "call3",
+            "ArgIndex1": "NotArgIndex",
+            "Var2": "data_2",
+            "ArgIndex2": "NotArgIndex"
+        },
+        {
+            "FunctionName": "aie::detail::mask<128u>::operator~() const",
+            "Var1": "i",
+            "ArgIndex1": "NotArgIndex",
+            "Var2": "i",
+            "ArgIndex2": "NotArgIndex"
+        },
+        {
+            "FunctionName": "aie::detail::mask<128u>::operator~() const",
+            "Var1": "call8",
+            "ArgIndex1": "NotArgIndex",
+            "Var2": "data_7",
+            "ArgIndex2": "NotArgIndex"
+        },
+        {
+            "FunctionName": "aie::detail::vector<unsigned char, 64u>::unpack() const",
+            "Var1": "custom_type.tmp",
+            "ArgIndex1": "NotArgIndex",
+            "Var2": "agg.result",
+            "ArgIndex2": "0"
+        },
+        {
+            "FunctionName": "aie::detail::vector<short, 64u>& aie::detail::vector<short, 64u>::upd_all<aie::detail::vector<short, 32u>, aie::detail::vector<short, 32u> >(aie::detail::vector<short, 32u>&&, aie::detail::vector<short, 32u>&&)",
+            "Var1": "data7",
+            "ArgIndex1": "NotArgIndex",
+            "Var2": "call5",
+            "ArgIndex2": "NotArgIndex"
+        },
+        {
+            "FunctionName": "aie::detail::vector<short, 64u>& aie::detail::vector<short, 64u>::upd_all<aie::detail::vector<short, 32u>, aie::detail::vector<short, 32u> >(aie::detail::vector<short, 32u>&&, aie::detail::vector<short, 32u>&&)",
+            "Var1": "call5",
+            "ArgIndex1": "NotArgIndex",
+            "Var2": "data7",
+            "ArgIndex2": "NotArgIndex"
+        },
+        {
+            "FunctionName": "aie::detail::vector<short, 64u>& aie::detail::vector<short, 64u>::upd_all<aie::detail::vector<short, 32u>, aie::detail::vector<short, 32u> >(aie::detail::vector<short, 32u>&&, aie::detail::vector<short, 32u>&&)",
+            "Var1": "data11",
+            "ArgIndex1": "NotArgIndex",
+            "Var2": "call9",
+            "ArgIndex2": "NotArgIndex"
+        },
+        {
+            "FunctionName": "aie::detail::vector<short, 64u>& aie::detail::vector<short, 64u>::upd_all<aie::detail::vector<short, 32u>, aie::detail::vector<short, 32u> >(aie::detail::vector<short, 32u>&&, aie::detail::vector<short, 32u>&&)",
+            "Var1": "call9",
+            "ArgIndex1": "NotArgIndex",
+            "Var2": "data11",
+            "ArgIndex2": "NotArgIndex"
+        },
+        {
+            "FunctionName": "aie::detail::vector<unsigned char, 32u>::unpack() const",
+            "Var1": "this.addr",
+            "ArgIndex1": "0",
+            "Var2": "data2",
+            "ArgIndex2": "NotArgIndex"
+        },
+        {
+            "FunctionName": "aie::detail::vector<unsigned char, 32u>::unpack() const",
+            "Var1": "custom_type.tmp",
+            "ArgIndex1": "NotArgIndex",
+            "Var2": "retval",
+            "ArgIndex2": "NotArgIndex"
+        },
+        {
+            "FunctionName": "aie::detail::vector<unsigned char, 32u>::unpack() const",
+            "Var1": "tmp",
+            "ArgIndex1": "NotArgIndex",
+            "Var2": "data",
+            "ArgIndex2": "NotArgIndex"
+        },
+        {
+            "FunctionName": "aie::detail::vector<unsigned char, 32u>::unpack() const",
+            "Var1": "data",
+            "ArgIndex1": "NotArgIndex",
+            "Var2": "retval",
+            "ArgIndex2": "NotArgIndex"
+        },
+        {
+            "FunctionName": "aie::detail::vector<unsigned char, 32u> aie::detail::vector<unsigned char, 64u>::extract<32u>(unsigned int) const",
+            "Var1": "this.addr",
+            "ArgIndex1": "0",
+            "Var2": "data7",
+            "ArgIndex2": "NotArgIndex"
+        },
+        {
+            "FunctionName": "aie::detail::vector<unsigned char, 32u> aie::detail::vector<unsigned char, 64u>::extract<32u>(unsigned int) const",
+            "Var1": "custom_type.tmp",
+            "ArgIndex1": "NotArgIndex",
+            "Var2": "retval",
+            "ArgIndex2": "NotArgIndex"
+        },
+        {
+            "FunctionName": "aie::detail::vector<unsigned char, 32u> aie::detail::vector<unsigned char, 64u>::extract<32u>(unsigned int) const",
+            "Var1": "tmp",
+            "ArgIndex1": "NotArgIndex",
+            "Var2": "data",
+            "ArgIndex2": "NotArgIndex"
+        },
+        {
+            "FunctionName": "aie::detail::vector<unsigned char, 32u> aie::detail::vector<unsigned char, 64u>::extract<32u>(unsigned int) const",
+            "Var1": "custom_type.tmp9",
+            "ArgIndex1": "NotArgIndex",
+            "Var2": "tmp8",
+            "ArgIndex2": "NotArgIndex"
+        },
+        {
+            "FunctionName": "aie::detail::vector<unsigned char, 32u> aie::detail::vector<unsigned char, 64u>::extract<32u>(unsigned int) const",
+            "Var1": "custom_type.tmp14",
+            "ArgIndex1": "NotArgIndex",
+            "Var2": "retval",
+            "ArgIndex2": "NotArgIndex"
+        },
+        {
+            "FunctionName": "std::__2::__tuple_leaf<0u, aie::detail::vector<unsigned char, 32u>, false>::__tuple_leaf<aie::detail::vector<unsigned char, 32u>, void>(aie::detail::vector<unsigned char, 32u>&&)",
+            "Var1": "call",
+            "ArgIndex1": "NotArgIndex",
+            "Var2": "__value_",
+            "ArgIndex2": "NotArgIndex"
+        },
+        {
+            "FunctionName": "std::__2::__tuple_leaf<0u, aie::detail::vector<unsigned char, 32u>, false>::__tuple_leaf<aie::detail::vector<unsigned char, 32u>, void>(aie::detail::vector<unsigned char, 32u>&&)",
+            "Var1": "__value_",
+            "ArgIndex1": "NotArgIndex",
+            "Var2": "call",
+            "ArgIndex2": "NotArgIndex"
+        },
+        {
+            "FunctionName": "std::__2::__tuple_leaf<1u, aie::detail::vector<unsigned char, 32u>, false>::__tuple_leaf<aie::detail::vector<unsigned char, 32u>, void>(aie::detail::vector<unsigned char, 32u>&&)",
+            "Var1": "call",
+            "ArgIndex1": "NotArgIndex",
+            "Var2": "__value_",
+            "ArgIndex2": "NotArgIndex"
+        },
+        {
+            "FunctionName": "std::__2::__tuple_leaf<1u, aie::detail::vector<unsigned char, 32u>, false>::__tuple_leaf<aie::detail::vector<unsigned char, 32u>, void>(aie::detail::vector<unsigned char, 32u>&&)",
+            "Var1": "__value_",
+            "ArgIndex1": "NotArgIndex",
+            "Var2": "call",
+            "ArgIndex2": "NotArgIndex"
+        },
+        {
+            "FunctionName": "aie::detail::vector<unsigned char, 32u>::vector(v32uint8)",
+            "Var1": "v",
+            "ArgIndex1": "NotArgIndex",
+            "Var2": "data",
+            "ArgIndex2": "NotArgIndex"
+        },
+        {
+            "FunctionName": "v32uint8::v32uint8(chessllvmInternal, v32int8)",
+            "Var1": "aw",
+            "ArgIndex1": "NotArgIndex",
+            "Var2": "mw",
+            "ArgIndex2": "NotArgIndex"
+        },
+        {
+            "FunctionName": "std::__2::__tuple_leaf<0u, aie::detail::vector<short, 32u>, false>::__tuple_leaf<aie::detail::vector<short, 32u>, void>(aie::detail::vector<short, 32u>&&)",
+            "Var1": "call",
+            "ArgIndex1": "NotArgIndex",
+            "Var2": "__value_",
+            "ArgIndex2": "NotArgIndex"
+        },
+        {
+            "FunctionName": "std::__2::__tuple_leaf<0u, aie::detail::vector<short, 32u>, false>::__tuple_leaf<aie::detail::vector<short, 32u>, void>(aie::detail::vector<short, 32u>&&)",
+            "Var1": "__value_",
+            "ArgIndex1": "NotArgIndex",
+            "Var2": "call",
+            "ArgIndex2": "NotArgIndex"
+        },
+        {
+            "FunctionName": "std::__2::__tuple_leaf<1u, aie::detail::vector<short, 32u>, false>::__tuple_leaf<aie::detail::vector<short, 32u>, void>(aie::detail::vector<short, 32u>&&)",
+            "Var1": "call",
+            "ArgIndex1": "NotArgIndex",
+            "Var2": "__value_",
+            "ArgIndex2": "NotArgIndex"
+        },
+        {
+            "FunctionName": "std::__2::__tuple_leaf<1u, aie::detail::vector<short, 32u>, false>::__tuple_leaf<aie::detail::vector<short, 32u>, void>(aie::detail::vector<short, 32u>&&)",
+            "Var1": "__value_",
+            "ArgIndex1": "NotArgIndex",
+            "Var2": "call",
+            "ArgIndex2": "NotArgIndex"
+        },
+        {
+            "FunctionName": "unpack(v32uint8)",
+            "Var1": "custom_type.tmp",
+            "ArgIndex1": "NotArgIndex",
+            "Var2": "agg.tmp",
+            "ArgIndex2": "NotArgIndex"
+        },
+        {
+            "FunctionName": "aie::detail::vector<short, 32u> aie::detail::vector<short, 64u>::extract<32u>(unsigned int) const",
+            "Var1": "custom_type.tmp",
+            "ArgIndex1": "NotArgIndex",
+            "Var2": "retval",
+            "ArgIndex2": "NotArgIndex"
+        },
+        {
+            "FunctionName": "aie::detail::vector<short, 32u> aie::detail::vector<short, 64u>::extract<32u>(unsigned int) const",
+            "Var1": "call",
+            "ArgIndex1": "NotArgIndex",
+            "Var2": "data",
+            "ArgIndex2": "NotArgIndex"
+        },
+        {
+            "FunctionName": "aie::detail::vector<short, 32u> aie::detail::vector<short, 64u>::extract<32u>(unsigned int) const",
+            "Var1": "custom_type.tmp8",
+            "ArgIndex1": "NotArgIndex",
+            "Var2": "retval",
+            "ArgIndex2": "NotArgIndex"
+        },
+        {
+            "FunctionName": "void aie::detail::mask<64u>::init_from_words<0u, unsigned int const&>(unsigned int, unsigned int const&)",
+            "Var1": "call",
+            "ArgIndex1": "NotArgIndex",
+            "Var2": "data_",
+            "ArgIndex2": "NotArgIndex"
+        },
+        {
+            "FunctionName": "void aie::detail::mask<64u>::init_from_words<1u>(unsigned int)",
+            "Var1": "call",
+            "ArgIndex1": "NotArgIndex",
+            "Var2": "data_",
+            "ArgIndex2": "NotArgIndex"
+        },
+        {
+            "FunctionName": "void aie::detail::mask<128u>::init_from_words<0u, unsigned int const&, unsigned int const&, unsigned int const&>(unsigned int, unsigned int const&, unsigned int const&, unsigned int const&)",
+            "Var1": "call",
+            "ArgIndex1": "NotArgIndex",
+            "Var2": "data_",
+            "ArgIndex2": "NotArgIndex"
+        },
+        {
+            "FunctionName": "void aie::detail::mask<128u>::init_from_words<1u, unsigned int const&, unsigned int const&>(unsigned int, unsigned int const&, unsigned int const&)",
+            "Var1": "call",
+            "ArgIndex1": "NotArgIndex",
+            "Var2": "data_",
+            "ArgIndex2": "NotArgIndex"
+        },
+        {
+            "FunctionName": "void aie::detail::mask<128u>::init_from_words<2u, unsigned int const&>(unsigned int, unsigned int const&)",
+            "Var1": "call",
+            "ArgIndex1": "NotArgIndex",
+            "Var2": "data_",
+            "ArgIndex2": "NotArgIndex"
+        },
+        {
+            "FunctionName": "void aie::detail::mask<128u>::init_from_words<3u>(unsigned int)",
+            "Var1": "call",
+            "ArgIndex1": "NotArgIndex",
+            "Var2": "data_",
+            "ArgIndex2": "NotArgIndex"
+        },
+        {
+            "FunctionName": "aie::detail::add_sub_bits_impl<8u, unsigned char, 128u, (aie::detail::AddSubOperation)0>::run(aie::detail::vector<unsigned char, 128u> const&, aie::detail::vector<unsigned char, 128u> const&)",
+            "Var1": "custom_type.tmp",
+            "ArgIndex1": "NotArgIndex",
+            "Var2": "agg.result",
+            "ArgIndex2": "0"
+        },
+        {
+            "FunctionName": "aie::detail::vector<unsigned char, 128u>& aie::detail::vector<unsigned char, 128u>::insert<64u>(unsigned int, aie::detail::vector<unsigned char, 64u> const&)",
+            "Var1": "v.addr",
+            "ArgIndex1": "1",
+            "Var2": "data7",
+            "ArgIndex2": "NotArgIndex"
+        },
+        {
+            "FunctionName": "aie::detail::vector<unsigned char, 128u>& aie::detail::vector<unsigned char, 128u>::insert<64u>(unsigned int, aie::detail::vector<unsigned char, 64u> const&)",
+            "Var1": "data7",
+            "ArgIndex1": "NotArgIndex",
+            "Var2": "call",
+            "ArgIndex2": "NotArgIndex"
+        },
+        {
+            "FunctionName": "aie::detail::vector<unsigned char, 128u>& aie::detail::vector<unsigned char, 128u>::insert<64u>(unsigned int, aie::detail::vector<unsigned char, 64u> const&)",
+            "Var1": "call",
+            "ArgIndex1": "NotArgIndex",
+            "Var2": "data7",
+            "ArgIndex2": "NotArgIndex"
+        },
+        {
+            "FunctionName": "aie::detail::vector<unsigned char, 128u>& aie::detail::vector<unsigned char, 128u>::insert<64u>(unsigned int, aie::detail::vector<unsigned char, 64u> const&)",
+            "Var1": "v.addr",
+            "ArgIndex1": "1",
+            "Var2": "data10",
+            "ArgIndex2": "NotArgIndex"
+        },
+        {
+            "FunctionName": "aie::detail::vector<unsigned char, 128u>& aie::detail::vector<unsigned char, 128u>::insert<64u>(unsigned int, aie::detail::vector<unsigned char, 64u> const&)",
+            "Var1": "data10",
+            "ArgIndex1": "NotArgIndex",
+            "Var2": "call9",
+            "ArgIndex2": "NotArgIndex"
+        },
+        {
+            "FunctionName": "aie::detail::vector<unsigned char, 128u>& aie::detail::vector<unsigned char, 128u>::insert<64u>(unsigned int, aie::detail::vector<unsigned char, 64u> const&)",
+            "Var1": "call9",
+            "ArgIndex1": "NotArgIndex",
+            "Var2": "data10",
+            "ArgIndex2": "NotArgIndex"
+        },
+        {
+            "FunctionName": "aie::detail::add_sub_bits_impl<16u, short, 64u, (aie::detail::AddSubOperation)0>::run(aie::detail::vector<short, 64u> const&, aie::detail::vector<short, 64u> const&)",
+            "Var1": "custom_type.tmp",
+            "ArgIndex1": "NotArgIndex",
+            "Var2": "tmp",
+            "ArgIndex2": "NotArgIndex"
+        },
+        {
+            "FunctionName": "aie::detail::add_sub_bits_impl<16u, short, 64u, (aie::detail::AddSubOperation)0>::run(aie::detail::vector<short, 64u> const&, aie::detail::vector<short, 64u> const&)",
+            "Var1": "custom_type.tmp1",
+            "ArgIndex1": "NotArgIndex",
+            "Var2": "agg.result",
+            "ArgIndex2": "0"
+        },
+        {
+            "FunctionName": "aie::detail::add_sub_bits_impl<16u, short, 64u, (aie::detail::AddSubOperation)0>::run(aie::detail::vector<short, 64u> const&, aie::detail::vector<short, 64u> const&)",
+            "Var1": "custom_type.tmp2",
+            "ArgIndex1": "NotArgIndex",
+            "Var2": "tmp",
+            "ArgIndex2": "NotArgIndex"
+        },
+        {
+            "FunctionName": "aie::detail::add_sub_bits_impl<16u, short, 64u, (aie::detail::AddSubOperation)0>::run(aie::detail::vector<short, 64u> const&, aie::detail::vector<short, 64u> const&)",
+            "Var1": "tmp",
+            "ArgIndex1": "NotArgIndex",
+            "Var2": "custom_type.tmp2",
+            "ArgIndex2": "NotArgIndex"
+        },
+        {
+            "FunctionName": "aie::detail::add_sub_bits_impl<16u, short, 64u, (aie::detail::AddSubOperation)0>::run(aie::detail::vector<short, 64u> const&, aie::detail::vector<short, 64u> const&)",
+            "Var1": "custom_type.tmp14",
+            "ArgIndex1": "NotArgIndex",
+            "Var2": "tmp",
+            "ArgIndex2": "NotArgIndex"
+        },
+        {
+            "FunctionName": "aie::detail::add_sub_bits_impl<16u, short, 64u, (aie::detail::AddSubOperation)0>::run(aie::detail::vector<short, 64u> const&, aie::detail::vector<short, 64u> const&)",
+            "Var1": "tmp",
+            "ArgIndex1": "NotArgIndex",
+            "Var2": "custom_type.tmp14",
+            "ArgIndex2": "NotArgIndex"
+        },
+        {
+            "FunctionName": "aie::detail::add_sub_bits_impl<16u, short, 64u, (aie::detail::AddSubOperation)0>::run(aie::detail::vector<short, 64u> const&, aie::detail::vector<short, 64u> const&)",
+            "Var1": "custom_type.tmp28",
+            "ArgIndex1": "NotArgIndex",
+            "Var2": "tmp",
+            "ArgIndex2": "NotArgIndex"
+        },
+        {
+            "FunctionName": "aie::detail::add_sub_bits_impl<16u, short, 64u, (aie::detail::AddSubOperation)0>::run(aie::detail::vector<short, 64u> const&, aie::detail::vector<short, 64u> const&)",
+            "Var1": "tmp",
+            "ArgIndex1": "NotArgIndex",
+            "Var2": "custom_type.tmp28",
+            "ArgIndex2": "NotArgIndex"
+        },
+        {
+            "FunctionName": "aie::detail::add_sub_bits_impl<16u, short, 64u, (aie::detail::AddSubOperation)0>::run(aie::detail::vector<short, 64u> const&, aie::detail::vector<short, 64u> const&)",
+            "Var1": "custom_type.tmp36",
+            "ArgIndex1": "NotArgIndex",
+            "Var2": "tmp",
+            "ArgIndex2": "NotArgIndex"
+        },
+        {
+            "FunctionName": "aie::detail::add_sub_bits_impl<16u, short, 64u, (aie::detail::AddSubOperation)0>::run(aie::detail::vector<short, 64u> const&, aie::detail::vector<short, 64u> const&)",
+            "Var1": "tmp",
+            "ArgIndex1": "NotArgIndex",
+            "Var2": "custom_type.tmp36",
+            "ArgIndex2": "NotArgIndex"
+        },
+        {
+            "FunctionName": "aie::detail::vector<unsigned char, 64u> aie::detail::vector<short, 64u>::pack<unsigned char>() const",
+            "Var1": "custom_type.tmp",
+            "ArgIndex1": "NotArgIndex",
+            "Var2": "retval",
+            "ArgIndex2": "NotArgIndex"
+        },
+        {
+            "FunctionName": "aie::detail::vector<short, 64u>& aie::detail::vector<short, 64u>::insert<32u>(unsigned int, aie::detail::vector<short, 32u> const&)",
+            "Var1": "v.addr",
+            "ArgIndex1": "1",
+            "Var2": "data7",
+            "ArgIndex2": "NotArgIndex"
+        },
+        {
+            "FunctionName": "aie::detail::vector<short, 64u>& aie::detail::vector<short, 64u>::insert<32u>(unsigned int, aie::detail::vector<short, 32u> const&)",
+            "Var1": "data7",
+            "ArgIndex1": "NotArgIndex",
+            "Var2": "call",
+            "ArgIndex2": "NotArgIndex"
+        },
+        {
+            "FunctionName": "aie::detail::vector<short, 64u>& aie::detail::vector<short, 64u>::insert<32u>(unsigned int, aie::detail::vector<short, 32u> const&)",
+            "Var1": "call",
+            "ArgIndex1": "NotArgIndex",
+            "Var2": "data7",
+            "ArgIndex2": "NotArgIndex"
+        },
+        {
+            "FunctionName": "aie::detail::vector<short, 64u>& aie::detail::vector<short, 64u>::insert<32u>(unsigned int, aie::detail::vector<short, 32u> const&)",
+            "Var1": "v.addr",
+            "ArgIndex1": "1",
+            "Var2": "data10",
+            "ArgIndex2": "NotArgIndex"
+        },
+        {
+            "FunctionName": "aie::detail::vector<short, 64u>& aie::detail::vector<short, 64u>::insert<32u>(unsigned int, aie::detail::vector<short, 32u> const&)",
+            "Var1": "data10",
+            "ArgIndex1": "NotArgIndex",
+            "Var2": "call9",
+            "ArgIndex2": "NotArgIndex"
+        },
+        {
+            "FunctionName": "aie::detail::vector<short, 64u>& aie::detail::vector<short, 64u>::insert<32u>(unsigned int, aie::detail::vector<short, 32u> const&)",
+            "Var1": "call9",
+            "ArgIndex1": "NotArgIndex",
+            "Var2": "data10",
+            "ArgIndex2": "NotArgIndex"
+        },
+        {
+            "FunctionName": "aie::detail::vector<unsigned char, 64u>& aie::detail::vector<unsigned char, 64u>::upd_all<aie::detail::vector<unsigned char, 32u>, aie::detail::vector<unsigned char, 32u> >(aie::detail::vector<unsigned char, 32u>&&, aie::detail::vector<unsigned char, 32u>&&)",
+            "Var1": "tmp",
+            "ArgIndex1": "NotArgIndex",
+            "Var2": "data",
+            "ArgIndex2": "NotArgIndex"
+        },
+        {
+            "FunctionName": "aie::detail::vector<unsigned char, 32u> aie::detail::vector<short, 32u>::pack<unsigned char>() const",
+            "Var1": "this.addr",
+            "ArgIndex1": "0",
+            "Var2": "data2",
+            "ArgIndex2": "NotArgIndex"
+        },
+        {
+            "FunctionName": "aie::detail::vector<unsigned char, 32u> aie::detail::vector<short, 32u>::pack<unsigned char>() const",
+            "Var1": "custom_type.tmp",
+            "ArgIndex1": "NotArgIndex",
+            "Var2": "retval",
+            "ArgIndex2": "NotArgIndex"
+        },
+        {
+            "FunctionName": "aie::detail::vector<unsigned char, 32u> aie::detail::vector<short, 32u>::pack<unsigned char>() const",
+            "Var1": "tmp",
+            "ArgIndex1": "NotArgIndex",
+            "Var2": "data",
+            "ArgIndex2": "NotArgIndex"
+        },
+        {
+            "FunctionName": "aie::detail::vector<unsigned char, 32u> aie::detail::vector<short, 32u>::pack<unsigned char>() const",
+            "Var1": "data",
+            "ArgIndex1": "NotArgIndex",
+            "Var2": "retval",
+            "ArgIndex2": "NotArgIndex"
+        },
+        {
+            "FunctionName": "upack(v32int16)",
+            "Var1": "custom_type.tmp",
+            "ArgIndex1": "NotArgIndex",
+            "Var2": "agg.tmp",
+            "ArgIndex2": "NotArgIndex"
+        }
+    ]
+}

@@ -1,0 +1,42 @@
+===============================================================================
+Version:    v++ v2022.2.2 (64-bit)
+Build:      SW Build 3716524 on 2023-02-17-15:43:22
+Copyright:  Copyright 1986-2023 Xilinx, Inc. All Rights Reserved.
+Created:    Sun Jun 30 17:17:02 2024
+===============================================================================
+
+-------------------------------------------------------------------------------
+Design Name:             setup_aie_hw
+Target Device:           xilinx:vck5000:gen4x8_qdma_2:202220.1
+Target Clock:            299.996999MHz
+Total number of kernels: 1
+-------------------------------------------------------------------------------
+
+Kernel Summary
+Kernel Name  Type  Target              OpenCL Library  Compute Units
+-----------  ----  ------------------  --------------  -------------
+setup_aie    c     fpga0:OCL_REGION_0  setup_aie_hw    1
+
+
+-------------------------------------------------------------------------------
+OpenCL Binary:     setup_aie_hw
+Kernels mapped to: clc_region
+
+Timing Information (MHz)
+Compute Unit  Kernel Name  Module Name                         Target Frequency  Estimated Frequency
+------------  -----------  ----------------------------------  ----------------  -------------------
+setup_aie_1   setup_aie    setup_aie_Pipeline_VITIS_LOOP_48_1  300.300293        955.109802
+setup_aie_1   setup_aie    setup_aie                           300.300293        411.015198
+
+Latency Information
+Compute Unit  Kernel Name  Module Name                         Start Interval  Best (cycles)  Avg (cycles)  Worst (cycles)  Best (absolute)  Avg (absolute)  Worst (absolute)
+------------  -----------  ----------------------------------  --------------  -------------  ------------  --------------  ---------------  --------------  ----------------
+setup_aie_1   setup_aie    setup_aie_Pipeline_VITIS_LOOP_48_1  6 ~ 24          6              undef         24              19.998 ns        undef           79.992 ns
+setup_aie_1   setup_aie    setup_aie                           82 ~ 100        81             undef         99              0.270 us         undef           0.330 us
+
+Area Information
+Compute Unit  Kernel Name  Module Name                         FF    LUT    DSP  BRAM  URAM
+------------  -----------  ----------------------------------  ----  -----  ---  ----  ----
+setup_aie_1   setup_aie    setup_aie_Pipeline_VITIS_LOOP_48_1  8     35     0    0     0
+setup_aie_1   setup_aie    setup_aie                           9167  16086  0    0     0
+-------------------------------------------------------------------------------

@@ -1,0 +1,35 @@
+{
+  "NodeConstraints": {
+    "aie_graph.my_kernel_1": {
+      "tile": {
+        "column": 24,
+        "row": 0,
+        "tile_type": "core"
+      },
+      "reserved_memory": {
+        "column": 24,
+        "row": 0,
+        "bankId": 0,
+        "offset": 0
+      }
+    },
+    "in_plio_1": {
+      "shim": {
+        "column": 24,
+        "channel": 1
+      }
+    },
+    "in_plio_2": {
+      "shim": {
+        "column": 24,
+        "channel": 2
+      }
+    },
+    "out_plio_1": {
+      "shim": {
+        "column": 24,
+        "channel": 1
+      }
+    }
+  }
+}

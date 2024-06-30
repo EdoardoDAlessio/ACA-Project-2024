@@ -1,0 +1,237 @@
+<ENTRY>
+{
+ "thisFile": "/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/data_movers/sink_from_aie_hw.xo.compile_summary",
+ "connectId": "",
+ "serverToken": "",
+ "timestamp": "0"
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_CmdStep",
+ "dateTimestamp": "Sun Jun 30 17:17:16 2024",
+ "timestampMillis": "1719760636279",
+ "buildStep": {
+  "cmdId": "e5da8a7f-9fa2-4b65-96b7-034259e1ccd5",
+  "name": "v++",
+  "logFile": "/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/data_movers/_x/sink_from_aie_hw/sink_from_aie_hw.steps.log",
+  "commandLine": "/home/xilinx/software/Vitis/2022.2/bin/unwrapped/lnx64.o/v++  --vivado.prop \"run.__KERNEL__.{STEPS.SYNTH_DESIGN.ARGS.MORE OPTIONS}={-directive sdx_optimization_effort_high}\" --advanced.misc \"report=type report_timing_summary name impl_report_timing_summary_route_design_summary steps {route_design} runs {impl_1} options {-max_paths 10}\" --advanced.misc \"report=type report_timing_summary name impl_report_timing_summary_post_route_phys_opt_design_summary steps {post_route_phys_opt_design} runs {impl_1} options {-max_paths 10}\" --platform xilinx_vck5000_gen4x8_qdma_2_202220_1 -t hw -s -g --kernel sink_from_aie -c -o sink_from_aie_hw.xo sink_from_aie.cpp ",
+  "args": [
+   "--platform",
+   "xilinx_vck5000_gen4x8_qdma_2_202220_1",
+   "-t",
+   "hw",
+   "-s",
+   "-g",
+   "--kernel",
+   "sink_from_aie",
+   "-c",
+   "-o",
+   "sink_from_aie_hw.xo",
+   "sink_from_aie.cpp"
+  ],
+  "iniFiles": [],
+  "cwd": "/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/data_movers"
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Status",
+ "dateTimestamp": "Sun Jun 30 17:17:16 2024",
+ "timestampMillis": "1719760636279",
+ "status": {
+  "cmdId": "e5da8a7f-9fa2-4b65-96b7-034259e1ccd5",
+  "state": "CS_RUNNING"
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_FlowMetaData",
+ "dateTimestamp": "Sun Jun 30 17:17:25 2024",
+ "timestampMillis": "1719760645348",
+ "buildSummary": {
+  "hardwarePlatform": "xilinx_vck5000_gen4x8_qdma_2_202220_1.xpfm",
+  "hardwareDsa": "",
+  "platformDirectory": "/opt/xilinx/platforms/xilinx_vck5000_gen4x8_qdma_2_202220_1",
+  "runtime": "OpenCL",
+  "systemConfig": "Linux",
+  "flow": "BF_COMPILE",
+  "target": "TT_HW",
+  "kernels": [
+   {
+    "base": {
+     "type": "KERNEL",
+     "name": "sink_from_aie",
+     "file": "/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/data_movers/sink_from_aie_hw.xo",
+     "reports": [],
+     "uuid": ""
+    },
+    "sources": [
+     "/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/data_movers/sink_from_aie.cpp"
+    ],
+    "psSources": [],
+    "cuNames": [],
+    "type": "HLS",
+    "frequency": 0,
+    "freqUnits": ""
+   }
+  ],
+  "toolVersion": "Vitis V++ Compiler Release 2022.2.2. SW Build 3716524 on 2023-02-17-15:43:22"
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_SubCmdStep",
+ "dateTimestamp": "Sun Jun 30 17:17:25 2024",
+ "timestampMillis": "1719760645353",
+ "buildStep": {
+  "cmdId": "be41088f-4ad8-44bc-ad23-6a2437edc0b8",
+  "name": "vitis_hls",
+  "logFile": "/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/data_movers/_x/sink_from_aie_hw/sink_from_aie/vitis_hls.log",
+  "commandLine": "vitis_hls -f /home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/data_movers/_x/sink_from_aie_hw/sink_from_aie/sink_from_aie.tcl -messageDb vitis_hls.pb",
+  "args": [
+   "vitis_hls",
+   "-f",
+   "/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/data_movers/_x/sink_from_aie_hw/sink_from_aie/sink_from_aie.tcl",
+   "-messageDb",
+   "vitis_hls.pb"
+  ],
+  "iniFiles": [],
+  "cwd": "/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/data_movers"
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Status",
+ "dateTimestamp": "Sun Jun 30 17:17:25 2024",
+ "timestampMillis": "1719760645353",
+ "status": {
+  "cmdId": "be41088f-4ad8-44bc-ad23-6a2437edc0b8",
+  "state": "CS_RUNNING"
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Status",
+ "dateTimestamp": "Sun Jun 30 17:19:57 2024",
+ "timestampMillis": "1719760797470",
+ "status": {
+  "cmdId": "be41088f-4ad8-44bc-ad23-6a2437edc0b8",
+  "state": "CS_PASSED"
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Report",
+ "dateTimestamp": "Sun Jun 30 17:19:57 2024",
+ "timestampMillis": "1719760797497",
+ "report": {
+  "path": "/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/data_movers/_x/sink_from_aie_hw/sink_from_aie/sink_from_aie/solution/.autopilot/db/sink_from_aie.design.xml",
+  "name": "sink_from_aie",
+  "fileType": "XML",
+  "reportType": "KERNEL_HLS_REPORT",
+  "cmdId": ""
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Report",
+ "dateTimestamp": "Sun Jun 30 17:19:57 2024",
+ "timestampMillis": "1719760797498",
+ "report": {
+  "path": "/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/data_movers/_x/sink_from_aie_hw/sink_from_aie/sink_from_aie/solution/.autopilot/db/.message_syn.xml",
+  "name": "sink_from_aie",
+  "fileType": "XML",
+  "reportType": "KERNEL_HLS_DRC_SYNTHESIS",
+  "cmdId": ""
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Report",
+ "dateTimestamp": "Sun Jun 30 17:19:57 2024",
+ "timestampMillis": "1719760797499",
+ "report": {
+  "path": "/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/data_movers/_x/reports/sink_from_aie_hw/hls_reports/sink_from_aie_csynth.rpt",
+  "name": "sink_from_aie",
+  "fileType": "TEXT",
+  "reportType": "KERNEL_HLS_CSYNTH",
+  "cmdId": ""
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Report",
+ "dateTimestamp": "Sun Jun 30 17:19:57 2024",
+ "timestampMillis": "1719760797499",
+ "report": {
+  "path": "/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/data_movers/_x/sink_from_aie_hw/sink_from_aie/sink_from_aie/solution/syn/report/sink_from_aie_csynth.xml",
+  "name": "sink_from_aie",
+  "fileType": "XML",
+  "reportType": "KERNEL_HLS_CSYNTH",
+  "cmdId": ""
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Report",
+ "dateTimestamp": "Sun Jun 30 17:19:57 2024",
+ "timestampMillis": "1719760797515",
+ "report": {
+  "path": "/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/data_movers/_x/reports/sink_from_aie_hw/system_estimate_sink_from_aie_hw.xtxt",
+  "name": "",
+  "fileType": "TEXT",
+  "reportType": "GLOBAL_SYSTEM_ESTIMATE",
+  "cmdId": ""
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Status",
+ "dateTimestamp": "Sun Jun 30 17:19:57 2024",
+ "timestampMillis": "1719760797669",
+ "status": {
+  "cmdId": "e5da8a7f-9fa2-4b65-96b7-034259e1ccd5",
+  "state": "CS_PASSED"
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Report",
+ "dateTimestamp": "Sun Jun 30 17:19:57 2024",
+ "timestampMillis": "1719760797924",
+ "report": {
+  "path": "/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/data_movers/_x/reports/sink_from_aie_hw/v++_compile_sink_from_aie_hw_guidance.html",
+  "name": "",
+  "fileType": "HTML",
+  "reportType": "GLOBAL_RULECHECK_GUIDANCE",
+  "cmdId": ""
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Report",
+ "dateTimestamp": "Sun Jun 30 17:19:57 2024",
+ "timestampMillis": "1719760797924",
+ "report": {
+  "path": "/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/data_movers/_x/v++_compile_sink_from_aie_hw_guidance.pb3",
+  "name": "",
+  "fileType": "BINARY_PROTOBUF",
+  "reportType": "GLOBAL_RULECHECK_GUIDANCE",
+  "cmdId": ""
+ }
+}
+</ENTRY>

@@ -1,0 +1,442 @@
+#-----------------------------------------------------------
+# Vivado v2022.2.2 (64-bit)
+# SW Build 3788238 on Tue Feb 21 19:59:23 MST 2023
+# IP Build 3783773 on Tue Feb 21 23:41:56 MST 2023
+# Start of session at: Sun Jun 30 17:53:35 2024
+# Process ID: 1750977
+# Current directory: /home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/ulp_inst_0_axi_noc_h2c_0_synth_1
+# Command line: vivado -log ulp_inst_0_axi_noc_h2c_0.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source ulp_inst_0_axi_noc_h2c_0.tcl
+# Log file: /home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/ulp_inst_0_axi_noc_h2c_0_synth_1/ulp_inst_0_axi_noc_h2c_0.vds
+# Journal file: /home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/ulp_inst_0_axi_noc_h2c_0_synth_1/vivado.jou
+# Running On: nags27, OS: Linux, CPU Frequency: 3099.928 MHz, CPU Physical cores: 20, Host memory: 405693 MB
+#-----------------------------------------------------------
+source ulp_inst_0_axi_noc_h2c_0.tcl -notrace
+INFO: Dispatch client connection id - 36651
+create_project: Time (s): cpu = 00:00:12 ; elapsed = 00:01:44 . Memory (MB): peak = 1834.863 ; gain = 88.992 ; free physical = 34077 ; free virtual = 99125
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1700] Loaded user IP repository '/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/int/xo/ip_repo/xilinx_com_hls_sink_from_aie_1_0'.
+INFO: [IP_Flow 19-1700] Loaded user IP repository '/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/int/xo/ip_repo/xilinx_com_hls_setup_aie_1_0'.
+INFO: [IP_Flow 19-1700] Loaded user IP repository '/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/.local/hw_platform/iprepo'.
+INFO: [IP_Flow 19-1700] Loaded user IP repository '/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/.local/hw_platform/ipcache'.
+INFO: [IP_Flow 19-1700] Loaded user IP repository '/home/xilinx/software/Vitis/2022.2/data/ip'.
+INFO: [IP_Flow 19-2313] Loaded Vivado IP repository '/home/xilinx/software/Vivado/2022.2/data/ip'.
+WARNING: [IP_Flow 19-1663] Duplicate IP found for 'xilinx.com:hls:Data_Mover_XIP:1.0'. The one found in IP location '/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/.local/hw_platform/iprepo/xilinx/data_mover' will take precedence over the same IP in location /home/xilinx/software/Vitis/2022.2/data/ip/xilinx/data_mover
+WARNING: [IP_Flow 19-1663] Duplicate IP found for 'xilinx.com:ip:adapter_v3_0:1.0'. The one found in IP location '/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/.local/hw_platform/iprepo/xilinx/adapter_v3_0' will take precedence over the same IP in location /home/xilinx/software/Vitis/2022.2/data/ip/xilinx/adapter_v3_0
+WARNING: [IP_Flow 19-1663] Duplicate IP found for 'xilinx.com:ip:axis_ic2sgdma:1.0'. The one found in IP location '/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/.local/hw_platform/iprepo/xilinx/axis_ic2sgdma_v1_0' will take precedence over the same IP in location /home/xilinx/software/Vitis/2022.2/data/ip/xilinx/axis_ic2sgdma_v1_0
+WARNING: [IP_Flow 19-1663] Duplicate IP found for 'xilinx.com:ip:Event_Pulse:1.0'. The one found in IP location '/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/.local/hw_platform/iprepo/xilinx/event_pulse_v1_0' will take precedence over the same IP in location /home/xilinx/software/Vitis/2022.2/data/ip/xilinx/event_pulse_v1_0
+WARNING: [IP_Flow 19-1663] Duplicate IP found for 'xilinx.com:ip:sds_lib:1.0'. The one found in IP location '/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/.local/hw_platform/iprepo/xilinx/sds_lib' will take precedence over the same IP in location /home/xilinx/software/Vitis/2022.2/data/ip/xilinx/sds_lib
+WARNING: [IP_Flow 19-1663] Duplicate IP found for 'xilinx.com:sds:sds_mem_sink:1.0'. The one found in IP location '/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/.local/hw_platform/iprepo/xilinx/sds_mem_sink' will take precedence over the same IP in location /home/xilinx/software/Vitis/2022.2/data/ip/xilinx/sds_mem_sink
+WARNING: [IP_Flow 19-1663] Duplicate IP found for 'xilinx.com:ip:xrt_queue:1.1'. The one found in IP location '/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/.local/hw_platform/iprepo/xilinx/xrt_queue_v1_1' will take precedence over the same IP in location /home/xilinx/software/Vitis/2022.2/data/ip/xilinx/xrt_queue_v1_1
+WARNING: [IP_Flow 19-1663] Duplicate IP found for 'xilinx.com:ip:aximm_tieoff_v1_0:1.0'. The one found in IP location '/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/.local/hw_platform/iprepo/xilinx/aximm_tieoff_v1_0' will take precedence over the same IP in location /home/xilinx/software/Vitis/2022.2/data/ip/xilinx/aximm_tieoff_v1_0
+WARNING: [IP_Flow 19-1663] Duplicate IP found for 'xilinx.com:ip:maxis_tieoff_v1_0:1.0'. The one found in IP location '/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/.local/hw_platform/iprepo/xilinx/maxis_tieoff_v1_0' will take precedence over the same IP in location /home/xilinx/software/Vitis/2022.2/data/ip/xilinx/maxis_tieoff_v1_0
+WARNING: [IP_Flow 19-1663] Duplicate IP found for 'xilinx.com:ip:saxis_tieoff_v1_0:1.0'. The one found in IP location '/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/.local/hw_platform/iprepo/xilinx/saxis_tieoff_v1_0' will take precedence over the same IP in location /home/xilinx/software/Vitis/2022.2/data/ip/xilinx/saxis_tieoff_v1_0
+WARNING: [IP_Flow 19-1663] Duplicate IP found for 'xilinx.com:ip:ovld_reg:1.0'. The one found in IP location '/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/.local/hw_platform/iprepo/xilinx/ovld_reg_v1_0' will take precedence over the same IP in location /home/xilinx/software/Vitis/2022.2/data/ip/xilinx/ovld_reg_v1_0
+WARNING: [IP_Flow 19-1663] Duplicate IP found for 'xilinx.com:ip:xrt_queue:1.0'. The one found in IP location '/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/.local/hw_platform/iprepo/xilinx/xrt_queue_v1_0' will take precedence over the same IP in location /home/xilinx/software/Vitis/2022.2/data/ip/xilinx/xrt_queue_v1_0
+WARNING: [IP_Flow 19-1663] Duplicate IP found for 'xilinx.com:ip:axi_fifo_register:3.0'. The one found in IP location '/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/.local/hw_platform/iprepo/xilinx/axi_fifo_register_v3_0' will take precedence over the same IP in location /home/xilinx/software/Vitis/2022.2/data/ip/xilinx/axi_fifo_register_v3_0
+WARNING: [IP_Flow 19-1663] Duplicate IP found for 'xilinx.com:ip:stream_gate:1.0'. The one found in IP location '/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/.local/hw_platform/iprepo/xilinx/stream_gate_v1_0' will take precedence over the same IP in location /home/xilinx/software/Vitis/2022.2/data/ip/xilinx/stream_gate_v1_0
+WARNING: [IP_Flow 19-1663] Duplicate IP found for 'xilinx.com:ip:sgdma2axis_ic:1.0'. The one found in IP location '/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/.local/hw_platform/iprepo/xilinx/sgdma2axis_ic_v1_0' will take precedence over the same IP in location /home/xilinx/software/Vitis/2022.2/data/ip/xilinx/sgdma2axis_ic_v1_0
+WARNING: [IP_Flow 19-1663] Duplicate IP found for 'xilinx.com:sds:sds_mem_source:1.0'. The one found in IP location '/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/.local/hw_platform/iprepo/xilinx/sds_mem_source' will take precedence over the same IP in location /home/xilinx/software/Vitis/2022.2/data/ip/xilinx/sds_mem_source
+update_ip_catalog: Time (s): cpu = 00:00:05 ; elapsed = 00:00:43 . Memory (MB): peak = 2030.605 ; gain = 191.742 ; free physical = 34485 ; free virtual = 99596
+INFO: [IP_Flow 19-6924] IPCACHE: Running cache check for IP inst: ulp_inst_0_axi_noc_h2c_0
+Command: synth_design -top ulp_inst_0_axi_noc_h2c_0 -part xcvc1902-vsvd1760-2MP-e-S -incremental_mode off -mode out_of_context
+Starting synth_design
+Attempting to get a license for feature 'Synthesis' and/or device 'xcvc1902'
+INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xcvc1902'
+INFO: [Device 21-403] Loading part xcvc1902-vsvd1760-2MP-e-S
+INFO: [Synth 8-7079] Multithreading enabled for synth_design using a maximum of 1 processes.
+INFO: [Synth 8-7078] Launching helper process for spawning children vivado processes
+INFO: [Synth 8-7075] Helper process launched with PID 1754850
+INFO: [Synth 8-11241] undeclared symbol 'REGCCE', assumed default net type 'wire' [/home/xilinx/software/Vivado/2022.2/data/verilog/src/unimacro/BRAM_SINGLE_MACRO.v:2170]
+INFO: [Synth 8-11241] undeclared symbol 'IF_NOC_AXI_TDEST', assumed default net type 'wire' [/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ip/ulp_inst_0_axi_noc_h2c_0/bd_0/ip/ip_0/hdl/bfm/bd_0dc7_M00_AXI_nsu_0.sv:300]
+INFO: [Synth 8-11241] undeclared symbol 'IF_NOC_AXI_TDEST', assumed default net type 'wire' [/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ip/ulp_inst_0_axi_noc_h2c_0/bd_0/ip/ip_1/hdl/bfm/bd_0dc7_M01_AXI_nsu_0.sv:300]
+---------------------------------------------------------------------------------
+Starting RTL Elaboration : Time (s): cpu = 00:00:10 ; elapsed = 00:01:56 . Memory (MB): peak = 3111.168 ; gain = 354.828 ; free physical = 25584 ; free virtual = 90816
+Synthesis current peak Physical Memory [PSS] (MB): peak = 2300.991; parent = 2174.678; children = 191.628
+Synthesis current peak Virtual Memory [VSS] (MB): peak = 4082.707; parent = 3117.109; children = 965.598
+---------------------------------------------------------------------------------
+INFO: [Synth 8-6157] synthesizing module 'ulp_inst_0_axi_noc_h2c_0' [/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ip/ulp_inst_0_axi_noc_h2c_0/synth/ulp_inst_0_axi_noc_h2c_0.v:53]
+INFO: [Synth 8-6157] synthesizing module 'bd_0dc7' [/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ip/ulp_inst_0_axi_noc_h2c_0/bd_0/synth/bd_0dc7.v:9]
+INFO: [Synth 8-6157] synthesizing module 'bd_0dc7_M00_AXI_nsu_0' [/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ip/ulp_inst_0_axi_noc_h2c_0/bd_0/ip/ip_0/hdl/bfm/bd_0dc7_M00_AXI_nsu_0.sv:54]
+INFO: [Synth 8-6157] synthesizing module 'bd_0dc7_M00_AXI_nsu_0_top' [/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ip/ulp_inst_0_axi_noc_h2c_0/bd_0/ip/ip_0/hdl/bfm/bd_0dc7_M00_AXI_nsu_0_top.sv:69]
+INFO: [Synth 8-6157] synthesizing module 'NOC_NSU512' [/home/xilinx/software/Vivado/2022.2/scripts/rt/data/unisim_comp.v:90133]
+INFO: [Synth 8-6155] done synthesizing module 'NOC_NSU512' (0#1) [/home/xilinx/software/Vivado/2022.2/scripts/rt/data/unisim_comp.v:90133]
+WARNING: [Synth 8-689] width (10) of port connection 'IF_NOC_AXI_ARUSER' does not match port width (16) of module 'NOC_NSU512' [/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ip/ulp_inst_0_axi_noc_h2c_0/bd_0/ip/ip_0/hdl/bfm/bd_0dc7_M00_AXI_nsu_0_top.sv:228]
+WARNING: [Synth 8-689] width (10) of port connection 'IF_NOC_AXI_AWUSER' does not match port width (16) of module 'NOC_NSU512' [/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ip/ulp_inst_0_axi_noc_h2c_0/bd_0/ip/ip_0/hdl/bfm/bd_0dc7_M00_AXI_nsu_0_top.sv:240]
+WARNING: [Synth 8-689] width (16) of port connection 'IF_NOC_AXI_WSTRB' does not match port width (64) of module 'NOC_NSU512' [/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ip/ulp_inst_0_axi_noc_h2c_0/bd_0/ip/ip_0/hdl/bfm/bd_0dc7_M00_AXI_nsu_0_top.sv:247]
+INFO: [Synth 8-6155] done synthesizing module 'bd_0dc7_M00_AXI_nsu_0_top' (0#1) [/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ip/ulp_inst_0_axi_noc_h2c_0/bd_0/ip/ip_0/hdl/bfm/bd_0dc7_M00_AXI_nsu_0_top.sv:69]
+WARNING: [Synth 8-689] width (1) of port connection 'IF_NOC_AXI_TDEST' does not match port width (10) of module 'bd_0dc7_M00_AXI_nsu_0_top' [/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ip/ulp_inst_0_axi_noc_h2c_0/bd_0/ip/ip_0/hdl/bfm/bd_0dc7_M00_AXI_nsu_0.sv:300]
+INFO: [Synth 8-6155] done synthesizing module 'bd_0dc7_M00_AXI_nsu_0' (0#1) [/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ip/ulp_inst_0_axi_noc_h2c_0/bd_0/ip/ip_0/hdl/bfm/bd_0dc7_M00_AXI_nsu_0.sv:54]
+WARNING: [Synth 8-7071] port 'IF_NOC_NPP_IN_NOC_CREDIT_RETURN' of module 'bd_0dc7_M00_AXI_nsu_0' is unconnected for instance 'M00_AXI_nsu' [/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ip/ulp_inst_0_axi_noc_h2c_0/bd_0/synth/bd_0dc7.v:350]
+WARNING: [Synth 8-7071] port 'IF_NOC_NPP_OUT_NOC_CREDIT_RDY' of module 'bd_0dc7_M00_AXI_nsu_0' is unconnected for instance 'M00_AXI_nsu' [/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ip/ulp_inst_0_axi_noc_h2c_0/bd_0/synth/bd_0dc7.v:350]
+WARNING: [Synth 8-7071] port 'IF_NOC_NPP_OUT_NOC_FLIT' of module 'bd_0dc7_M00_AXI_nsu_0' is unconnected for instance 'M00_AXI_nsu' [/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ip/ulp_inst_0_axi_noc_h2c_0/bd_0/synth/bd_0dc7.v:350]
+WARNING: [Synth 8-7071] port 'IF_NOC_NPP_OUT_NOC_VALID' of module 'bd_0dc7_M00_AXI_nsu_0' is unconnected for instance 'M00_AXI_nsu' [/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ip/ulp_inst_0_axi_noc_h2c_0/bd_0/synth/bd_0dc7.v:350]
+WARNING: [Synth 8-7071] port 'IF_NOC_NPP_IN_NOC_CREDIT_RDY' of module 'bd_0dc7_M00_AXI_nsu_0' is unconnected for instance 'M00_AXI_nsu' [/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ip/ulp_inst_0_axi_noc_h2c_0/bd_0/synth/bd_0dc7.v:350]
+WARNING: [Synth 8-7071] port 'IF_NOC_NPP_IN_NOC_FLIT' of module 'bd_0dc7_M00_AXI_nsu_0' is unconnected for instance 'M00_AXI_nsu' [/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ip/ulp_inst_0_axi_noc_h2c_0/bd_0/synth/bd_0dc7.v:350]
+WARNING: [Synth 8-7071] port 'IF_NOC_NPP_IN_NOC_VALID' of module 'bd_0dc7_M00_AXI_nsu_0' is unconnected for instance 'M00_AXI_nsu' [/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ip/ulp_inst_0_axi_noc_h2c_0/bd_0/synth/bd_0dc7.v:350]
+WARNING: [Synth 8-7071] port 'IF_NOC_NPP_OUT_NOC_CREDIT_RETURN' of module 'bd_0dc7_M00_AXI_nsu_0' is unconnected for instance 'M00_AXI_nsu' [/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ip/ulp_inst_0_axi_noc_h2c_0/bd_0/synth/bd_0dc7.v:350]
+WARNING: [Synth 8-7023] instance 'M00_AXI_nsu' of module 'bd_0dc7_M00_AXI_nsu_0' has 51 connections declared, but only 43 given [/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ip/ulp_inst_0_axi_noc_h2c_0/bd_0/synth/bd_0dc7.v:350]
+INFO: [Synth 8-6157] synthesizing module 'bd_0dc7_M01_AXI_nsu_0' [/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ip/ulp_inst_0_axi_noc_h2c_0/bd_0/ip/ip_1/hdl/bfm/bd_0dc7_M01_AXI_nsu_0.sv:54]
+INFO: [Synth 8-6157] synthesizing module 'bd_0dc7_M01_AXI_nsu_0_top' [/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ip/ulp_inst_0_axi_noc_h2c_0/bd_0/ip/ip_1/hdl/bfm/bd_0dc7_M01_AXI_nsu_0_top.sv:69]
+WARNING: [Synth 8-689] width (10) of port connection 'IF_NOC_AXI_ARUSER' does not match port width (16) of module 'NOC_NSU512' [/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ip/ulp_inst_0_axi_noc_h2c_0/bd_0/ip/ip_1/hdl/bfm/bd_0dc7_M01_AXI_nsu_0_top.sv:227]
+WARNING: [Synth 8-689] width (10) of port connection 'IF_NOC_AXI_AWUSER' does not match port width (16) of module 'NOC_NSU512' [/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ip/ulp_inst_0_axi_noc_h2c_0/bd_0/ip/ip_1/hdl/bfm/bd_0dc7_M01_AXI_nsu_0_top.sv:239]
+INFO: [Synth 8-6155] done synthesizing module 'bd_0dc7_M01_AXI_nsu_0_top' (0#1) [/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ip/ulp_inst_0_axi_noc_h2c_0/bd_0/ip/ip_1/hdl/bfm/bd_0dc7_M01_AXI_nsu_0_top.sv:69]
+WARNING: [Synth 8-689] width (1) of port connection 'IF_NOC_AXI_TDEST' does not match port width (10) of module 'bd_0dc7_M01_AXI_nsu_0_top' [/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ip/ulp_inst_0_axi_noc_h2c_0/bd_0/ip/ip_1/hdl/bfm/bd_0dc7_M01_AXI_nsu_0.sv:300]
+INFO: [Synth 8-6155] done synthesizing module 'bd_0dc7_M01_AXI_nsu_0' (0#1) [/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ip/ulp_inst_0_axi_noc_h2c_0/bd_0/ip/ip_1/hdl/bfm/bd_0dc7_M01_AXI_nsu_0.sv:54]
+WARNING: [Synth 8-7071] port 'IF_NOC_NPP_IN_NOC_CREDIT_RETURN' of module 'bd_0dc7_M01_AXI_nsu_0' is unconnected for instance 'M01_AXI_nsu' [/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ip/ulp_inst_0_axi_noc_h2c_0/bd_0/synth/bd_0dc7.v:395]
+WARNING: [Synth 8-7071] port 'IF_NOC_NPP_OUT_NOC_CREDIT_RDY' of module 'bd_0dc7_M01_AXI_nsu_0' is unconnected for instance 'M01_AXI_nsu' [/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ip/ulp_inst_0_axi_noc_h2c_0/bd_0/synth/bd_0dc7.v:395]
+WARNING: [Synth 8-7071] port 'IF_NOC_NPP_OUT_NOC_FLIT' of module 'bd_0dc7_M01_AXI_nsu_0' is unconnected for instance 'M01_AXI_nsu' [/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ip/ulp_inst_0_axi_noc_h2c_0/bd_0/synth/bd_0dc7.v:395]
+WARNING: [Synth 8-7071] port 'IF_NOC_NPP_OUT_NOC_VALID' of module 'bd_0dc7_M01_AXI_nsu_0' is unconnected for instance 'M01_AXI_nsu' [/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ip/ulp_inst_0_axi_noc_h2c_0/bd_0/synth/bd_0dc7.v:395]
+WARNING: [Synth 8-7071] port 'IF_NOC_NPP_IN_NOC_CREDIT_RDY' of module 'bd_0dc7_M01_AXI_nsu_0' is unconnected for instance 'M01_AXI_nsu' [/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ip/ulp_inst_0_axi_noc_h2c_0/bd_0/synth/bd_0dc7.v:395]
+WARNING: [Synth 8-7071] port 'IF_NOC_NPP_IN_NOC_FLIT' of module 'bd_0dc7_M01_AXI_nsu_0' is unconnected for instance 'M01_AXI_nsu' [/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ip/ulp_inst_0_axi_noc_h2c_0/bd_0/synth/bd_0dc7.v:395]
+WARNING: [Synth 8-7071] port 'IF_NOC_NPP_IN_NOC_VALID' of module 'bd_0dc7_M01_AXI_nsu_0' is unconnected for instance 'M01_AXI_nsu' [/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ip/ulp_inst_0_axi_noc_h2c_0/bd_0/synth/bd_0dc7.v:395]
+WARNING: [Synth 8-7071] port 'IF_NOC_NPP_OUT_NOC_CREDIT_RETURN' of module 'bd_0dc7_M01_AXI_nsu_0' is unconnected for instance 'M01_AXI_nsu' [/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ip/ulp_inst_0_axi_noc_h2c_0/bd_0/synth/bd_0dc7.v:395]
+WARNING: [Synth 8-7023] instance 'M01_AXI_nsu' of module 'bd_0dc7_M01_AXI_nsu_0' has 51 connections declared, but only 43 given [/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ip/ulp_inst_0_axi_noc_h2c_0/bd_0/synth/bd_0dc7.v:395]
+INFO: [Synth 8-6155] done synthesizing module 'bd_0dc7' (0#1) [/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ip/ulp_inst_0_axi_noc_h2c_0/bd_0/synth/bd_0dc7.v:9]
+INFO: [Synth 8-6155] done synthesizing module 'ulp_inst_0_axi_noc_h2c_0' (0#1) [/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ip/ulp_inst_0_axi_noc_h2c_0/synth/ulp_inst_0_axi_noc_h2c_0.v:53]
+WARNING: [Synth 8-7129] Port S00_INI_internoc[0] in module bd_0dc7 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port S01_INI_internoc[0] in module bd_0dc7 is either unconnected or has no load
+---------------------------------------------------------------------------------
+Finished RTL Elaboration : Time (s): cpu = 00:00:13 ; elapsed = 00:02:32 . Memory (MB): peak = 3188.074 ; gain = 431.734 ; free physical = 24946 ; free virtual = 90205
+Synthesis current peak Physical Memory [PSS] (MB): peak = 2382.022; parent = 2255.062; children = 191.628
+Synthesis current peak Virtual Memory [VSS] (MB): peak = 4153.676; parent = 3188.078; children = 965.598
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Handling Custom Attributes
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:14 ; elapsed = 00:02:35 . Memory (MB): peak = 3205.887 ; gain = 449.547 ; free physical = 24918 ; free virtual = 90180
+Synthesis current peak Physical Memory [PSS] (MB): peak = 2382.022; parent = 2255.062; children = 191.628
+Synthesis current peak Virtual Memory [VSS] (MB): peak = 4171.488; parent = 3205.891; children = 965.598
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:14 ; elapsed = 00:02:36 . Memory (MB): peak = 3205.887 ; gain = 449.547 ; free physical = 24995 ; free virtual = 90260
+Synthesis current peak Physical Memory [PSS] (MB): peak = 2382.022; parent = 2255.062; children = 191.628
+Synthesis current peak Virtual Memory [VSS] (MB): peak = 4171.488; parent = 3205.891; children = 965.598
+---------------------------------------------------------------------------------
+Netlist sorting complete. Time (s): cpu = 00:00:00.04 ; elapsed = 00:00:00.29 . Memory (MB): peak = 3211.824 ; gain = 0.000 ; free physical = 24889 ; free virtual = 90171
+INFO: [Chipscope 16-579] Latest version is versal_cips_v3_3 for versal_cips_v3_2
+INFO: [Constraints 18-6359] No Clock Expansion Window constraints config file entry for device xcvc1902.  GCLK Deskew mode will be Off and cannot be enabled via GCLK_DESKEW override.
+INFO: [Constraints 18-5720] The default GCLK Deskew mode is Off.
+INFO: [Project 1-570] Preparing netlist for logic optimization
+
+Processing XDC Constraints
+Initializing timing engine
+Parsing XDC File [/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ip/ulp_inst_0_axi_noc_h2c_0/ulp_inst_0_axi_noc_h2c_0_ooc.xdc] for cell 'inst'
+Finished Parsing XDC File [/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ip/ulp_inst_0_axi_noc_h2c_0/ulp_inst_0_axi_noc_h2c_0_ooc.xdc] for cell 'inst'
+Parsing XDC File [/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ip/ulp_inst_0_axi_noc_h2c_0/bd_0/ip/ip_0/xdc/bd_0dc7_M00_AXI_nsu_0.xdc] for cell 'inst/M00_AXI_nsu/bd_0dc7_M00_AXI_nsu_0_top_INST'
+Finished Parsing XDC File [/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ip/ulp_inst_0_axi_noc_h2c_0/bd_0/ip/ip_0/xdc/bd_0dc7_M00_AXI_nsu_0.xdc] for cell 'inst/M00_AXI_nsu/bd_0dc7_M00_AXI_nsu_0_top_INST'
+Parsing XDC File [/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ip/ulp_inst_0_axi_noc_h2c_0/bd_0/ip/ip_1/xdc/bd_0dc7_M01_AXI_nsu_0.xdc] for cell 'inst/M01_AXI_nsu/bd_0dc7_M01_AXI_nsu_0_top_INST'
+Finished Parsing XDC File [/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ip/ulp_inst_0_axi_noc_h2c_0/bd_0/ip/ip_1/xdc/bd_0dc7_M01_AXI_nsu_0.xdc] for cell 'inst/M01_AXI_nsu/bd_0dc7_M01_AXI_nsu_0_top_INST'
+Parsing XDC File [/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ip/ulp_inst_0_axi_noc_h2c_0/ulp_inst_0_axi_noc_h2c_0_board.xdc] for cell 'inst'
+Finished Parsing XDC File [/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ip/ulp_inst_0_axi_noc_h2c_0/ulp_inst_0_axi_noc_h2c_0_board.xdc] for cell 'inst'
+Parsing XDC File [/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ip/ulp_inst_0_axi_noc_h2c_0/ulp_inst_0_axi_noc_h2c_0.xdc] for cell 'inst'
+Finished Parsing XDC File [/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ip/ulp_inst_0_axi_noc_h2c_0/ulp_inst_0_axi_noc_h2c_0.xdc] for cell 'inst'
+Parsing XDC File [/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/ulp_inst_0_axi_noc_h2c_0_synth_1/dont_touch.xdc]
+Finished Parsing XDC File [/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/ulp_inst_0_axi_noc_h2c_0_synth_1/dont_touch.xdc]
+INFO: [Project 1-236] Implementation specific constraints were found while reading constraint file [/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/ulp_inst_0_axi_noc_h2c_0_synth_1/dont_touch.xdc]. These constraints will be ignored for synthesis but will be used in implementation. Impacted constraints are listed in the file [.Xil/ulp_inst_0_axi_noc_h2c_0_propImpl.xdc].
+Resolution: To avoid this warning, move constraints listed in [.Xil/ulp_inst_0_axi_noc_h2c_0_propImpl.xdc] to another XDC file and exclude this new file from synthesis with the used_in_synthesis property (File Properties dialog in GUI) and re-run elaboration/synthesis.
+Completed Processing XDC Constraints
+
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 3278.789 ; gain = 0.000 ; free physical = 25935 ; free virtual = 91243
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
+
+Constraint Validation Runtime : Time (s): cpu = 00:00:00.15 ; elapsed = 00:00:01 . Memory (MB): peak = 3278.789 ; gain = 0.000 ; free physical = 25925 ; free virtual = 91234
+INFO: [Designutils 20-5008] Incremental synthesis strategy off
+INFO: [Synth 8-11241] undeclared symbol 'REGCCE', assumed default net type 'wire' [/home/xilinx/software/Vivado/2022.2/data/verilog/src/unimacro/BRAM_SINGLE_MACRO.v:2170]
+---------------------------------------------------------------------------------
+Finished Constraint Validation : Time (s): cpu = 00:00:30 ; elapsed = 00:05:19 . Memory (MB): peak = 3278.789 ; gain = 522.449 ; free physical = 29164 ; free virtual = 94515
+Synthesis current peak Physical Memory [PSS] (MB): peak = 2382.022; parent = 2255.062; children = 191.628
+Synthesis current peak Virtual Memory [VSS] (MB): peak = 4244.391; parent = 3278.793; children = 965.598
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Loading Part and Timing Information
+---------------------------------------------------------------------------------
+Loading part: xcvc1902-vsvd1760-2MP-e-S
+INFO: [Synth 8-6742] Reading net delay rules and data
+---------------------------------------------------------------------------------
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:30 ; elapsed = 00:05:21 . Memory (MB): peak = 3278.789 ; gain = 522.449 ; free physical = 29546 ; free virtual = 94896
+Synthesis current peak Physical Memory [PSS] (MB): peak = 2382.022; parent = 2255.062; children = 191.628
+Synthesis current peak Virtual Memory [VSS] (MB): peak = 4244.391; parent = 3278.793; children = 965.598
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Applying 'set_property' XDC Constraints
+---------------------------------------------------------------------------------
+Applied set_property KEEP_HIERARCHY = SOFT for inst/M00_AXI_nsu/bd_0dc7_M00_AXI_nsu_0_top_INST. (constraint file  /home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/ulp_inst_0_axi_noc_h2c_0_synth_1/dont_touch.xdc, line 17).
+Applied set_property KEEP_HIERARCHY = SOFT for inst/M01_AXI_nsu/bd_0dc7_M01_AXI_nsu_0_top_INST. (constraint file  /home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/ulp_inst_0_axi_noc_h2c_0_synth_1/dont_touch.xdc, line 20).
+Applied set_property KEEP_HIERARCHY = SOFT for inst. (constraint file  auto generated constraint).
+Applied set_property KEEP_HIERARCHY = SOFT for inst/M00_AXI_nsu. (constraint file  auto generated constraint).
+Applied set_property KEEP_HIERARCHY = SOFT for inst/M01_AXI_nsu. (constraint file  auto generated constraint).
+---------------------------------------------------------------------------------
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:30 ; elapsed = 00:05:22 . Memory (MB): peak = 3278.789 ; gain = 522.449 ; free physical = 29708 ; free virtual = 95059
+Synthesis current peak Physical Memory [PSS] (MB): peak = 2382.022; parent = 2255.062; children = 191.628
+Synthesis current peak Virtual Memory [VSS] (MB): peak = 4244.391; parent = 3278.793; children = 965.598
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:31 ; elapsed = 00:05:28 . Memory (MB): peak = 3278.789 ; gain = 522.449 ; free physical = 30945 ; free virtual = 96296
+Synthesis current peak Physical Memory [PSS] (MB): peak = 2382.022; parent = 2255.062; children = 191.628
+Synthesis current peak Virtual Memory [VSS] (MB): peak = 4244.391; parent = 3278.793; children = 965.598
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start RTL Component Statistics 
+---------------------------------------------------------------------------------
+Detailed RTL Component Info : 
+---------------------------------------------------------------------------------
+Finished RTL Component Statistics 
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Part Resource Summary
+---------------------------------------------------------------------------------
+Part Resources:
+DSPs: 1968 (col length:164)
+BRAMs: 1934 (col length: RAMB18 168 RAMB36 84)
+---------------------------------------------------------------------------------
+Finished Part Resource Summary
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Cross Boundary and Area Optimization
+---------------------------------------------------------------------------------
+WARNING: [Synth 8-7080] Parallel synthesis criteria is not met
+WARNING: [Synth 8-7129] Port S00_INI_internoc[0] in module bd_0dc7 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port S01_INI_internoc[0] in module bd_0dc7 is either unconnected or has no load
+---------------------------------------------------------------------------------
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:34 ; elapsed = 00:05:56 . Memory (MB): peak = 3278.789 ; gain = 522.449 ; free physical = 35515 ; free virtual = 100874
+Synthesis current peak Physical Memory [PSS] (MB): peak = 2382.022; parent = 2255.062; children = 191.628
+Synthesis current peak Virtual Memory [VSS] (MB): peak = 4244.391; parent = 3278.793; children = 965.598
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Applying XDC Timing Constraints
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:01:34 ; elapsed = 00:12:54 . Memory (MB): peak = 4021.586 ; gain = 1265.246 ; free physical = 33831 ; free virtual = 100293
+Synthesis current peak Physical Memory [PSS] (MB): peak = 3200.864; parent = 3073.875; children = 191.628
+Synthesis current peak Virtual Memory [VSS] (MB): peak = 4987.188; parent = 4021.590; children = 965.598
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Timing Optimization
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Timing Optimization : Time (s): cpu = 00:01:34 ; elapsed = 00:12:57 . Memory (MB): peak = 4022.586 ; gain = 1266.246 ; free physical = 34206 ; free virtual = 100461
+Synthesis current peak Physical Memory [PSS] (MB): peak = 3201.911; parent = 3075.032; children = 191.628
+Synthesis current peak Virtual Memory [VSS] (MB): peak = 4988.188; parent = 4022.590; children = 965.598
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Technology Mapping
+---------------------------------------------------------------------------------
+INFO: [Synth 8-11322] No global retiming is needed without any clock constraint
+---------------------------------------------------------------------------------
+Finished Technology Mapping : Time (s): cpu = 00:01:35 ; elapsed = 00:13:05 . Memory (MB): peak = 4042.625 ; gain = 1286.285 ; free physical = 32568 ; free virtual = 100134
+Synthesis current peak Physical Memory [PSS] (MB): peak = 3202.565; parent = 3075.764; children = 191.628
+Synthesis current peak Virtual Memory [VSS] (MB): peak = 5008.227; parent = 4042.629; children = 965.598
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Final Netlist Cleanup
+---------------------------------------------------------------------------------
+INFO: [Synth 8-3295] tying undriven pin M00_AXI_nsu:IF_NOC_NPP_IN_NOC_CREDIT_RDY to constant 0
+INFO: [Synth 8-3295] tying undriven pin M00_AXI_nsu:IF_NOC_NPP_IN_NOC_FLIT[181] to constant 0
+INFO: [Synth 8-3295] tying undriven pin M00_AXI_nsu:IF_NOC_NPP_IN_NOC_FLIT[180] to constant 0
+INFO: [Synth 8-3295] tying undriven pin M00_AXI_nsu:IF_NOC_NPP_IN_NOC_FLIT[179] to constant 0
+INFO: [Synth 8-3295] tying undriven pin M00_AXI_nsu:IF_NOC_NPP_IN_NOC_FLIT[178] to constant 0
+INFO: [Synth 8-3295] tying undriven pin M00_AXI_nsu:IF_NOC_NPP_IN_NOC_FLIT[177] to constant 0
+INFO: [Synth 8-3295] tying undriven pin M00_AXI_nsu:IF_NOC_NPP_IN_NOC_FLIT[176] to constant 0
+INFO: [Synth 8-3295] tying undriven pin M00_AXI_nsu:IF_NOC_NPP_IN_NOC_FLIT[175] to constant 0
+INFO: [Synth 8-3295] tying undriven pin M00_AXI_nsu:IF_NOC_NPP_IN_NOC_FLIT[174] to constant 0
+INFO: [Synth 8-3295] tying undriven pin M00_AXI_nsu:IF_NOC_NPP_IN_NOC_FLIT[173] to constant 0
+INFO: [Synth 8-3295] tying undriven pin M00_AXI_nsu:IF_NOC_NPP_IN_NOC_FLIT[172] to constant 0
+INFO: [Synth 8-3295] tying undriven pin M00_AXI_nsu:IF_NOC_NPP_IN_NOC_FLIT[171] to constant 0
+INFO: [Synth 8-3295] tying undriven pin M00_AXI_nsu:IF_NOC_NPP_IN_NOC_FLIT[170] to constant 0
+INFO: [Synth 8-3295] tying undriven pin M00_AXI_nsu:IF_NOC_NPP_IN_NOC_FLIT[169] to constant 0
+INFO: [Synth 8-3295] tying undriven pin M00_AXI_nsu:IF_NOC_NPP_IN_NOC_FLIT[168] to constant 0
+INFO: [Synth 8-3295] tying undriven pin M00_AXI_nsu:IF_NOC_NPP_IN_NOC_FLIT[167] to constant 0
+INFO: [Synth 8-3295] tying undriven pin M00_AXI_nsu:IF_NOC_NPP_IN_NOC_FLIT[166] to constant 0
+INFO: [Synth 8-3295] tying undriven pin M00_AXI_nsu:IF_NOC_NPP_IN_NOC_FLIT[165] to constant 0
+INFO: [Synth 8-3295] tying undriven pin M00_AXI_nsu:IF_NOC_NPP_IN_NOC_FLIT[164] to constant 0
+INFO: [Synth 8-3295] tying undriven pin M00_AXI_nsu:IF_NOC_NPP_IN_NOC_FLIT[163] to constant 0
+INFO: [Synth 8-3295] tying undriven pin M00_AXI_nsu:IF_NOC_NPP_IN_NOC_FLIT[162] to constant 0
+INFO: [Synth 8-3295] tying undriven pin M00_AXI_nsu:IF_NOC_NPP_IN_NOC_FLIT[161] to constant 0
+INFO: [Synth 8-3295] tying undriven pin M00_AXI_nsu:IF_NOC_NPP_IN_NOC_FLIT[160] to constant 0
+INFO: [Synth 8-3295] tying undriven pin M00_AXI_nsu:IF_NOC_NPP_IN_NOC_FLIT[159] to constant 0
+INFO: [Synth 8-3295] tying undriven pin M00_AXI_nsu:IF_NOC_NPP_IN_NOC_FLIT[158] to constant 0
+INFO: [Synth 8-3295] tying undriven pin M00_AXI_nsu:IF_NOC_NPP_IN_NOC_FLIT[157] to constant 0
+INFO: [Synth 8-3295] tying undriven pin M00_AXI_nsu:IF_NOC_NPP_IN_NOC_FLIT[156] to constant 0
+INFO: [Synth 8-3295] tying undriven pin M00_AXI_nsu:IF_NOC_NPP_IN_NOC_FLIT[155] to constant 0
+INFO: [Synth 8-3295] tying undriven pin M00_AXI_nsu:IF_NOC_NPP_IN_NOC_FLIT[154] to constant 0
+INFO: [Synth 8-3295] tying undriven pin M00_AXI_nsu:IF_NOC_NPP_IN_NOC_FLIT[153] to constant 0
+INFO: [Synth 8-3295] tying undriven pin M00_AXI_nsu:IF_NOC_NPP_IN_NOC_FLIT[152] to constant 0
+INFO: [Synth 8-3295] tying undriven pin M00_AXI_nsu:IF_NOC_NPP_IN_NOC_FLIT[151] to constant 0
+INFO: [Synth 8-3295] tying undriven pin M00_AXI_nsu:IF_NOC_NPP_IN_NOC_FLIT[150] to constant 0
+INFO: [Synth 8-3295] tying undriven pin M00_AXI_nsu:IF_NOC_NPP_IN_NOC_FLIT[149] to constant 0
+INFO: [Synth 8-3295] tying undriven pin M00_AXI_nsu:IF_NOC_NPP_IN_NOC_FLIT[148] to constant 0
+INFO: [Synth 8-3295] tying undriven pin M00_AXI_nsu:IF_NOC_NPP_IN_NOC_FLIT[147] to constant 0
+INFO: [Synth 8-3295] tying undriven pin M00_AXI_nsu:IF_NOC_NPP_IN_NOC_FLIT[146] to constant 0
+INFO: [Synth 8-3295] tying undriven pin M00_AXI_nsu:IF_NOC_NPP_IN_NOC_FLIT[145] to constant 0
+INFO: [Synth 8-3295] tying undriven pin M00_AXI_nsu:IF_NOC_NPP_IN_NOC_FLIT[144] to constant 0
+INFO: [Synth 8-3295] tying undriven pin M00_AXI_nsu:IF_NOC_NPP_IN_NOC_FLIT[143] to constant 0
+INFO: [Synth 8-3295] tying undriven pin M00_AXI_nsu:IF_NOC_NPP_IN_NOC_FLIT[142] to constant 0
+INFO: [Synth 8-3295] tying undriven pin M00_AXI_nsu:IF_NOC_NPP_IN_NOC_FLIT[141] to constant 0
+INFO: [Synth 8-3295] tying undriven pin M00_AXI_nsu:IF_NOC_NPP_IN_NOC_FLIT[140] to constant 0
+INFO: [Synth 8-3295] tying undriven pin M00_AXI_nsu:IF_NOC_NPP_IN_NOC_FLIT[139] to constant 0
+INFO: [Synth 8-3295] tying undriven pin M00_AXI_nsu:IF_NOC_NPP_IN_NOC_FLIT[138] to constant 0
+INFO: [Synth 8-3295] tying undriven pin M00_AXI_nsu:IF_NOC_NPP_IN_NOC_FLIT[137] to constant 0
+INFO: [Synth 8-3295] tying undriven pin M00_AXI_nsu:IF_NOC_NPP_IN_NOC_FLIT[136] to constant 0
+INFO: [Synth 8-3295] tying undriven pin M00_AXI_nsu:IF_NOC_NPP_IN_NOC_FLIT[135] to constant 0
+INFO: [Synth 8-3295] tying undriven pin M00_AXI_nsu:IF_NOC_NPP_IN_NOC_FLIT[134] to constant 0
+INFO: [Synth 8-3295] tying undriven pin M00_AXI_nsu:IF_NOC_NPP_IN_NOC_FLIT[133] to constant 0
+INFO: [Synth 8-3295] tying undriven pin M00_AXI_nsu:IF_NOC_NPP_IN_NOC_FLIT[132] to constant 0
+INFO: [Synth 8-3295] tying undriven pin M00_AXI_nsu:IF_NOC_NPP_IN_NOC_FLIT[131] to constant 0
+INFO: [Synth 8-3295] tying undriven pin M00_AXI_nsu:IF_NOC_NPP_IN_NOC_FLIT[130] to constant 0
+INFO: [Synth 8-3295] tying undriven pin M00_AXI_nsu:IF_NOC_NPP_IN_NOC_FLIT[129] to constant 0
+INFO: [Synth 8-3295] tying undriven pin M00_AXI_nsu:IF_NOC_NPP_IN_NOC_FLIT[128] to constant 0
+INFO: [Synth 8-3295] tying undriven pin M00_AXI_nsu:IF_NOC_NPP_IN_NOC_FLIT[127] to constant 0
+INFO: [Synth 8-3295] tying undriven pin M00_AXI_nsu:IF_NOC_NPP_IN_NOC_FLIT[126] to constant 0
+INFO: [Synth 8-3295] tying undriven pin M00_AXI_nsu:IF_NOC_NPP_IN_NOC_FLIT[125] to constant 0
+INFO: [Synth 8-3295] tying undriven pin M00_AXI_nsu:IF_NOC_NPP_IN_NOC_FLIT[124] to constant 0
+INFO: [Synth 8-3295] tying undriven pin M00_AXI_nsu:IF_NOC_NPP_IN_NOC_FLIT[123] to constant 0
+INFO: [Synth 8-3295] tying undriven pin M00_AXI_nsu:IF_NOC_NPP_IN_NOC_FLIT[122] to constant 0
+INFO: [Synth 8-3295] tying undriven pin M00_AXI_nsu:IF_NOC_NPP_IN_NOC_FLIT[121] to constant 0
+INFO: [Synth 8-3295] tying undriven pin M00_AXI_nsu:IF_NOC_NPP_IN_NOC_FLIT[120] to constant 0
+INFO: [Synth 8-3295] tying undriven pin M00_AXI_nsu:IF_NOC_NPP_IN_NOC_FLIT[119] to constant 0
+INFO: [Synth 8-3295] tying undriven pin M00_AXI_nsu:IF_NOC_NPP_IN_NOC_FLIT[118] to constant 0
+INFO: [Synth 8-3295] tying undriven pin M00_AXI_nsu:IF_NOC_NPP_IN_NOC_FLIT[117] to constant 0
+INFO: [Synth 8-3295] tying undriven pin M00_AXI_nsu:IF_NOC_NPP_IN_NOC_FLIT[116] to constant 0
+INFO: [Synth 8-3295] tying undriven pin M00_AXI_nsu:IF_NOC_NPP_IN_NOC_FLIT[115] to constant 0
+INFO: [Synth 8-3295] tying undriven pin M00_AXI_nsu:IF_NOC_NPP_IN_NOC_FLIT[114] to constant 0
+INFO: [Synth 8-3295] tying undriven pin M00_AXI_nsu:IF_NOC_NPP_IN_NOC_FLIT[113] to constant 0
+INFO: [Synth 8-3295] tying undriven pin M00_AXI_nsu:IF_NOC_NPP_IN_NOC_FLIT[112] to constant 0
+INFO: [Synth 8-3295] tying undriven pin M00_AXI_nsu:IF_NOC_NPP_IN_NOC_FLIT[111] to constant 0
+INFO: [Synth 8-3295] tying undriven pin M00_AXI_nsu:IF_NOC_NPP_IN_NOC_FLIT[110] to constant 0
+INFO: [Synth 8-3295] tying undriven pin M00_AXI_nsu:IF_NOC_NPP_IN_NOC_FLIT[109] to constant 0
+INFO: [Synth 8-3295] tying undriven pin M00_AXI_nsu:IF_NOC_NPP_IN_NOC_FLIT[108] to constant 0
+INFO: [Synth 8-3295] tying undriven pin M00_AXI_nsu:IF_NOC_NPP_IN_NOC_FLIT[107] to constant 0
+INFO: [Synth 8-3295] tying undriven pin M00_AXI_nsu:IF_NOC_NPP_IN_NOC_FLIT[106] to constant 0
+INFO: [Synth 8-3295] tying undriven pin M00_AXI_nsu:IF_NOC_NPP_IN_NOC_FLIT[105] to constant 0
+INFO: [Synth 8-3295] tying undriven pin M00_AXI_nsu:IF_NOC_NPP_IN_NOC_FLIT[104] to constant 0
+INFO: [Synth 8-3295] tying undriven pin M00_AXI_nsu:IF_NOC_NPP_IN_NOC_FLIT[103] to constant 0
+INFO: [Synth 8-3295] tying undriven pin M00_AXI_nsu:IF_NOC_NPP_IN_NOC_FLIT[102] to constant 0
+INFO: [Synth 8-3295] tying undriven pin M00_AXI_nsu:IF_NOC_NPP_IN_NOC_FLIT[101] to constant 0
+INFO: [Synth 8-3295] tying undriven pin M00_AXI_nsu:IF_NOC_NPP_IN_NOC_FLIT[100] to constant 0
+INFO: [Synth 8-3295] tying undriven pin M00_AXI_nsu:IF_NOC_NPP_IN_NOC_FLIT[99] to constant 0
+INFO: [Synth 8-3295] tying undriven pin M00_AXI_nsu:IF_NOC_NPP_IN_NOC_FLIT[98] to constant 0
+INFO: [Synth 8-3295] tying undriven pin M00_AXI_nsu:IF_NOC_NPP_IN_NOC_FLIT[97] to constant 0
+INFO: [Synth 8-3295] tying undriven pin M00_AXI_nsu:IF_NOC_NPP_IN_NOC_FLIT[96] to constant 0
+INFO: [Synth 8-3295] tying undriven pin M00_AXI_nsu:IF_NOC_NPP_IN_NOC_FLIT[95] to constant 0
+INFO: [Synth 8-3295] tying undriven pin M00_AXI_nsu:IF_NOC_NPP_IN_NOC_FLIT[94] to constant 0
+INFO: [Synth 8-3295] tying undriven pin M00_AXI_nsu:IF_NOC_NPP_IN_NOC_FLIT[93] to constant 0
+INFO: [Synth 8-3295] tying undriven pin M00_AXI_nsu:IF_NOC_NPP_IN_NOC_FLIT[92] to constant 0
+INFO: [Synth 8-3295] tying undriven pin M00_AXI_nsu:IF_NOC_NPP_IN_NOC_FLIT[91] to constant 0
+INFO: [Synth 8-3295] tying undriven pin M00_AXI_nsu:IF_NOC_NPP_IN_NOC_FLIT[90] to constant 0
+INFO: [Synth 8-3295] tying undriven pin M00_AXI_nsu:IF_NOC_NPP_IN_NOC_FLIT[89] to constant 0
+INFO: [Synth 8-3295] tying undriven pin M00_AXI_nsu:IF_NOC_NPP_IN_NOC_FLIT[88] to constant 0
+INFO: [Synth 8-3295] tying undriven pin M00_AXI_nsu:IF_NOC_NPP_IN_NOC_FLIT[87] to constant 0
+INFO: [Synth 8-3295] tying undriven pin M00_AXI_nsu:IF_NOC_NPP_IN_NOC_FLIT[86] to constant 0
+INFO: [Synth 8-3295] tying undriven pin M00_AXI_nsu:IF_NOC_NPP_IN_NOC_FLIT[85] to constant 0
+INFO: [Synth 8-3295] tying undriven pin M00_AXI_nsu:IF_NOC_NPP_IN_NOC_FLIT[84] to constant 0
+INFO: [Synth 8-3295] tying undriven pin M00_AXI_nsu:IF_NOC_NPP_IN_NOC_FLIT[83] to constant 0
+INFO: [Common 17-14] Message 'Synth 8-3295' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
+---------------------------------------------------------------------------------
+Finished IO Insertion : Time (s): cpu = 00:01:43 ; elapsed = 00:14:19 . Memory (MB): peak = 4048.562 ; gain = 1292.223 ; free physical = 33493 ; free virtual = 100758
+Synthesis current peak Physical Memory [PSS] (MB): peak = 3203.542; parent = 3076.625; children = 191.628
+Synthesis current peak Virtual Memory [VSS] (MB): peak = 5014.164; parent = 4048.566; children = 965.598
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Instances
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Instances : Time (s): cpu = 00:01:43 ; elapsed = 00:14:21 . Memory (MB): peak = 4048.562 ; gain = 1292.223 ; free physical = 33572 ; free virtual = 100838
+Synthesis current peak Physical Memory [PSS] (MB): peak = 3203.555; parent = 3076.625; children = 191.628
+Synthesis current peak Virtual Memory [VSS] (MB): peak = 5014.164; parent = 4048.566; children = 965.598
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Rebuilding User Hierarchy
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:01:43 ; elapsed = 00:14:23 . Memory (MB): peak = 4048.562 ; gain = 1292.223 ; free physical = 33559 ; free virtual = 100826
+Synthesis current peak Physical Memory [PSS] (MB): peak = 3203.570; parent = 3076.625; children = 191.628
+Synthesis current peak Virtual Memory [VSS] (MB): peak = 5014.164; parent = 4048.566; children = 965.598
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Ports
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Ports : Time (s): cpu = 00:01:43 ; elapsed = 00:14:25 . Memory (MB): peak = 4048.562 ; gain = 1292.223 ; free physical = 33829 ; free virtual = 101097
+Synthesis current peak Physical Memory [PSS] (MB): peak = 3203.570; parent = 3076.625; children = 191.628
+Synthesis current peak Virtual Memory [VSS] (MB): peak = 5014.164; parent = 4048.566; children = 965.598
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Handling Custom Attributes
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Handling Custom Attributes : Time (s): cpu = 00:01:43 ; elapsed = 00:14:27 . Memory (MB): peak = 4048.562 ; gain = 1292.223 ; free physical = 33908 ; free virtual = 101176
+Synthesis current peak Physical Memory [PSS] (MB): peak = 3203.570; parent = 3076.625; children = 191.628
+Synthesis current peak Virtual Memory [VSS] (MB): peak = 5014.164; parent = 4048.566; children = 965.598
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Nets
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Nets : Time (s): cpu = 00:01:43 ; elapsed = 00:14:28 . Memory (MB): peak = 4048.562 ; gain = 1292.223 ; free physical = 34202 ; free virtual = 101471
+Synthesis current peak Physical Memory [PSS] (MB): peak = 3203.599; parent = 3076.646; children = 191.628
+Synthesis current peak Virtual Memory [VSS] (MB): peak = 5014.164; parent = 4048.566; children = 965.598
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Writing Synthesis Report
+---------------------------------------------------------------------------------
+
+Report BlackBoxes: 
++-+--------------+----------+
+| |BlackBox name |Instances |
++-+--------------+----------+
++-+--------------+----------+
+
+Report Cell Usage: 
++------+-----------+------+
+|      |Cell       |Count |
++------+-----------+------+
+|1     |NOC_NSU512 |     2|
++------+-----------+------+
+---------------------------------------------------------------------------------
+Finished Writing Synthesis Report : Time (s): cpu = 00:01:43 ; elapsed = 00:14:30 . Memory (MB): peak = 4048.562 ; gain = 1292.223 ; free physical = 34217 ; free virtual = 101486
+Synthesis current peak Physical Memory [PSS] (MB): peak = 3203.608; parent = 3076.656; children = 191.628
+Synthesis current peak Virtual Memory [VSS] (MB): peak = 5014.164; parent = 4048.566; children = 965.598
+---------------------------------------------------------------------------------
+Synthesis finished with 0 errors, 0 critical warnings and 3 warnings.
+Synthesis Optimization Runtime : Time (s): cpu = 00:01:38 ; elapsed = 00:13:38 . Memory (MB): peak = 4048.562 ; gain = 1219.320 ; free physical = 34223 ; free virtual = 101492
+Synthesis Optimization Complete : Time (s): cpu = 00:01:43 ; elapsed = 00:14:35 . Memory (MB): peak = 4048.570 ; gain = 1292.223 ; free physical = 34309 ; free virtual = 101579
+INFO: [Project 1-571] Translating synthesized netlist
+Netlist sorting complete. Time (s): cpu = 00:00:00.04 ; elapsed = 00:00:00.2 . Memory (MB): peak = 4048.570 ; gain = 0.000 ; free physical = 34273 ; free virtual = 101543
+INFO: [Chipscope 16-579] Latest version is versal_cips_v3_3 for versal_cips_v3_2
+INFO: [Constraints 18-6359] No Clock Expansion Window constraints config file entry for device xcvc1902.  GCLK Deskew mode will be Off and cannot be enabled via GCLK_DESKEW override.
+INFO: [Constraints 18-5720] The default GCLK Deskew mode is Off.
+INFO: [Project 1-570] Preparing netlist for logic optimization
+INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 4097.156 ; gain = 0.000 ; free physical = 34329 ; free virtual = 101597
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
+
+Synth Design complete, checksum: 10c18221
+INFO: [Common 17-83] Releasing license: Synthesis
+149 Infos, 46 Warnings, 0 Critical Warnings and 0 Errors encountered.
+synth_design completed successfully
+synth_design: Time (s): cpu = 00:02:12 ; elapsed = 00:18:01 . Memory (MB): peak = 4097.156 ; gain = 2066.551 ; free physical = 34515 ; free virtual = 101783
+INFO: [Common 17-600] The following parameters have non-default value.
+general.maxThreads
+INFO: [Common 17-1381] The checkpoint '/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/ulp_inst_0_axi_noc_h2c_0_synth_1/ulp_inst_0_axi_noc_h2c_0.dcp' has been generated.
+write_checkpoint: Time (s): cpu = 00:00:00.79 ; elapsed = 00:00:07 . Memory (MB): peak = 4129.172 ; gain = 32.016 ; free physical = 35105 ; free virtual = 102375
+INFO: [Coretcl 2-1648] Added synthesis output to IP cache for IP ulp_inst_0_axi_noc_h2c_0, cache-ID = da23e17696079dac
+INFO: [Coretcl 2-1174] Renamed 5 cell refs.
+INFO: [Common 17-1381] The checkpoint '/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/ulp_inst_0_axi_noc_h2c_0_synth_1/ulp_inst_0_axi_noc_h2c_0.dcp' has been generated.
+write_checkpoint: Time (s): cpu = 00:00:00.69 ; elapsed = 00:00:06 . Memory (MB): peak = 4129.172 ; gain = 0.000 ; free physical = 37718 ; free virtual = 105007
+INFO: [runtcl-4] Executing : report_utilization -file ulp_inst_0_axi_noc_h2c_0_utilization_synth.rpt -pb ulp_inst_0_axi_noc_h2c_0_utilization_synth.pb
+INFO: [Common 17-206] Exiting Vivado at Sun Jun 30 18:16:23 2024...

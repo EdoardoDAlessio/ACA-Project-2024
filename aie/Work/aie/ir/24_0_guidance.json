@@ -1,0 +1,14 @@
+{
+    "Alignment Hints": [],
+    "Size Hints": [],
+    "Name Mangling Hints": [],
+    "Global Var Read-Before-Write Hints": [],
+    "Global Var Conflict Hints": [],
+    "Operator Hints": [
+        "Operator urem at line 721 in file xilinx/software/Vitis/2022.2/aietools/include/aie_api/detail/aie1/vector.hpp will degrade performance",
+        "Operator urem at line 722 in file xilinx/software/Vitis/2022.2/aietools/include/aie_api/detail/aie1/vector.hpp will degrade performance",
+        "Operator urem at line 901 in file xilinx/software/Vitis/2022.2/aietools/include/aie_api/detail/aie1/vector.hpp will degrade performance"
+    ],
+    "Bank Conflict Hints": [],
+    "RestrictAliasAnalysisHints": []
+}

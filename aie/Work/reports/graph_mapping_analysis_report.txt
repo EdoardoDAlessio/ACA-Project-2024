@@ -1,0 +1,37 @@
+Mapping Analysis Report
+
+
+Acronym List
+    * CR(x,y)    - Core <column, row>
+    * MG(x,y):b  - MemoryGroup <column, row> : Bank
+    * MT(x,y):b  - MemoryTile <column, row> : Bank
+
+
+===============================================
+Block Mapping Report:
+===============================================
+
+Block:Function Name    CR(x,y)/IO(x)  Schedule  Utilization  Variable Name  Graph Name
+---------------------  -------------  --------  -----------  -------------  ----------
+i0:my_kernel_function  CR(24,0)              0        0.900  my_kernel_1    aie_graph
+i1:PLIO                IO(24)                                in_1           aie_graph
+i2:PLIO                IO(24)                                in_2           aie_graph
+i3:PLIO                IO(24)                                out_1          aie_graph
+
+
+===============================================
+Port Mapping Report:
+===============================================
+
+PortName  Dir  PrtType  BufType  Buffer Name  MG(x,y):b  Addr  Size  Variable Name  Graph Name
+--------  ---  -------  -------  -----------  ---------  ----  ----  -------------  ----------
+
+
+===============================================
+Memory Bank Report:
+===============================================
+
+MG(x,y):b   Buffer Name     Addr  Size  Accessing Block  CR(x,y)/IO(x)
+----------  -----------  -------  ----  ---------------  -------------
+MG(24,0):0  sysmem0      0x00000  6176  main             CR(24,0)
+

@@ -1,0 +1,799 @@
+
+*** Running vivado
+    with args -log ulp_inst_0_sink_from_aie_0_0.vds -m64 -product Vivado -mode batch -messageDb vivado.pb -notrace -source ulp_inst_0_sink_from_aie_0_0.tcl
+
+
+****** Vivado v2022.2.2 (64-bit)
+  **** SW Build 3788238 on Tue Feb 21 19:59:23 MST 2023
+  **** IP Build 3783773 on Tue Feb 21 23:41:56 MST 2023
+    ** Copyright 1986-2023 Xilinx, Inc. All Rights Reserved.
+
+source ulp_inst_0_sink_from_aie_0_0.tcl -notrace
+INFO: Dispatch client connection id - 36651
+create_project: Time (s): cpu = 00:00:13 ; elapsed = 00:02:03 . Memory (MB): peak = 1835.785 ; gain = 91.961 ; free physical = 15968 ; free virtual = 99441
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1700] Loaded user IP repository '/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/int/xo/ip_repo/xilinx_com_hls_sink_from_aie_1_0'.
+INFO: [IP_Flow 19-1700] Loaded user IP repository '/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/int/xo/ip_repo/xilinx_com_hls_setup_aie_1_0'.
+INFO: [IP_Flow 19-1700] Loaded user IP repository '/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/.local/hw_platform/iprepo'.
+INFO: [IP_Flow 19-1700] Loaded user IP repository '/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/.local/hw_platform/ipcache'.
+INFO: [IP_Flow 19-1700] Loaded user IP repository '/home/xilinx/software/Vitis/2022.2/data/ip'.
+INFO: [IP_Flow 19-2313] Loaded Vivado IP repository '/home/xilinx/software/Vivado/2022.2/data/ip'.
+WARNING: [IP_Flow 19-1663] Duplicate IP found for 'xilinx.com:hls:Data_Mover_XIP:1.0'. The one found in IP location '/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/.local/hw_platform/iprepo/xilinx/data_mover' will take precedence over the same IP in location /home/xilinx/software/Vitis/2022.2/data/ip/xilinx/data_mover
+WARNING: [IP_Flow 19-1663] Duplicate IP found for 'xilinx.com:ip:adapter_v3_0:1.0'. The one found in IP location '/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/.local/hw_platform/iprepo/xilinx/adapter_v3_0' will take precedence over the same IP in location /home/xilinx/software/Vitis/2022.2/data/ip/xilinx/adapter_v3_0
+WARNING: [IP_Flow 19-1663] Duplicate IP found for 'xilinx.com:ip:axis_ic2sgdma:1.0'. The one found in IP location '/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/.local/hw_platform/iprepo/xilinx/axis_ic2sgdma_v1_0' will take precedence over the same IP in location /home/xilinx/software/Vitis/2022.2/data/ip/xilinx/axis_ic2sgdma_v1_0
+WARNING: [IP_Flow 19-1663] Duplicate IP found for 'xilinx.com:ip:Event_Pulse:1.0'. The one found in IP location '/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/.local/hw_platform/iprepo/xilinx/event_pulse_v1_0' will take precedence over the same IP in location /home/xilinx/software/Vitis/2022.2/data/ip/xilinx/event_pulse_v1_0
+WARNING: [IP_Flow 19-1663] Duplicate IP found for 'xilinx.com:ip:sds_lib:1.0'. The one found in IP location '/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/.local/hw_platform/iprepo/xilinx/sds_lib' will take precedence over the same IP in location /home/xilinx/software/Vitis/2022.2/data/ip/xilinx/sds_lib
+WARNING: [IP_Flow 19-1663] Duplicate IP found for 'xilinx.com:sds:sds_mem_sink:1.0'. The one found in IP location '/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/.local/hw_platform/iprepo/xilinx/sds_mem_sink' will take precedence over the same IP in location /home/xilinx/software/Vitis/2022.2/data/ip/xilinx/sds_mem_sink
+WARNING: [IP_Flow 19-1663] Duplicate IP found for 'xilinx.com:ip:xrt_queue:1.1'. The one found in IP location '/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/.local/hw_platform/iprepo/xilinx/xrt_queue_v1_1' will take precedence over the same IP in location /home/xilinx/software/Vitis/2022.2/data/ip/xilinx/xrt_queue_v1_1
+WARNING: [IP_Flow 19-1663] Duplicate IP found for 'xilinx.com:ip:aximm_tieoff_v1_0:1.0'. The one found in IP location '/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/.local/hw_platform/iprepo/xilinx/aximm_tieoff_v1_0' will take precedence over the same IP in location /home/xilinx/software/Vitis/2022.2/data/ip/xilinx/aximm_tieoff_v1_0
+WARNING: [IP_Flow 19-1663] Duplicate IP found for 'xilinx.com:ip:maxis_tieoff_v1_0:1.0'. The one found in IP location '/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/.local/hw_platform/iprepo/xilinx/maxis_tieoff_v1_0' will take precedence over the same IP in location /home/xilinx/software/Vitis/2022.2/data/ip/xilinx/maxis_tieoff_v1_0
+WARNING: [IP_Flow 19-1663] Duplicate IP found for 'xilinx.com:ip:saxis_tieoff_v1_0:1.0'. The one found in IP location '/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/.local/hw_platform/iprepo/xilinx/saxis_tieoff_v1_0' will take precedence over the same IP in location /home/xilinx/software/Vitis/2022.2/data/ip/xilinx/saxis_tieoff_v1_0
+WARNING: [IP_Flow 19-1663] Duplicate IP found for 'xilinx.com:ip:ovld_reg:1.0'. The one found in IP location '/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/.local/hw_platform/iprepo/xilinx/ovld_reg_v1_0' will take precedence over the same IP in location /home/xilinx/software/Vitis/2022.2/data/ip/xilinx/ovld_reg_v1_0
+WARNING: [IP_Flow 19-1663] Duplicate IP found for 'xilinx.com:ip:xrt_queue:1.0'. The one found in IP location '/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/.local/hw_platform/iprepo/xilinx/xrt_queue_v1_0' will take precedence over the same IP in location /home/xilinx/software/Vitis/2022.2/data/ip/xilinx/xrt_queue_v1_0
+WARNING: [IP_Flow 19-1663] Duplicate IP found for 'xilinx.com:ip:axi_fifo_register:3.0'. The one found in IP location '/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/.local/hw_platform/iprepo/xilinx/axi_fifo_register_v3_0' will take precedence over the same IP in location /home/xilinx/software/Vitis/2022.2/data/ip/xilinx/axi_fifo_register_v3_0
+WARNING: [IP_Flow 19-1663] Duplicate IP found for 'xilinx.com:ip:stream_gate:1.0'. The one found in IP location '/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/.local/hw_platform/iprepo/xilinx/stream_gate_v1_0' will take precedence over the same IP in location /home/xilinx/software/Vitis/2022.2/data/ip/xilinx/stream_gate_v1_0
+WARNING: [IP_Flow 19-1663] Duplicate IP found for 'xilinx.com:ip:sgdma2axis_ic:1.0'. The one found in IP location '/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/.local/hw_platform/iprepo/xilinx/sgdma2axis_ic_v1_0' will take precedence over the same IP in location /home/xilinx/software/Vitis/2022.2/data/ip/xilinx/sgdma2axis_ic_v1_0
+WARNING: [IP_Flow 19-1663] Duplicate IP found for 'xilinx.com:sds:sds_mem_source:1.0'. The one found in IP location '/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/.local/hw_platform/iprepo/xilinx/sds_mem_source' will take precedence over the same IP in location /home/xilinx/software/Vitis/2022.2/data/ip/xilinx/sds_mem_source
+update_ip_catalog: Time (s): cpu = 00:00:05 ; elapsed = 00:01:02 . Memory (MB): peak = 2030.488 ; gain = 190.703 ; free physical = 15303 ; free virtual = 98791
+INFO: [IP_Flow 19-6924] IPCACHE: Running cache check for IP inst: ulp_inst_0_sink_from_aie_0_0
+Command: synth_design -top ulp_inst_0_sink_from_aie_0_0 -part xcvc1902-vsvd1760-2MP-e-S -directive sdx_optimization_effort_high -incremental_mode off -mode out_of_context
+Starting synth_design
+Attempting to get a license for feature 'Synthesis' and/or device 'xcvc1902'
+INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xcvc1902'
+INFO: [Device 21-403] Loading part xcvc1902-vsvd1760-2MP-e-S
+INFO: [Synth 8-7079] Multithreading enabled for synth_design using a maximum of 1 processes.
+INFO: [Synth 8-7078] Launching helper process for spawning children vivado processes
+INFO: [Synth 8-7075] Helper process launched with PID 1867631
+INFO: [Synth 8-11241] undeclared symbol 'REGCCE', assumed default net type 'wire' [/home/xilinx/software/Vivado/2022.2/data/verilog/src/unimacro/BRAM_SINGLE_MACRO.v:2170]
+---------------------------------------------------------------------------------
+Starting RTL Elaboration : Time (s): cpu = 00:00:10 ; elapsed = 00:01:41 . Memory (MB): peak = 3104.051 ; gain = 356.797 ; free physical = 18082 ; free virtual = 101630
+Synthesis current peak Physical Memory [PSS] (MB): peak = 2298.548; parent = 2171.210; children = 150.057
+Synthesis current peak Virtual Memory [VSS] (MB): peak = 4076.586; parent = 3110.992; children = 965.594
+---------------------------------------------------------------------------------
+INFO: [Synth 8-6157] synthesizing module 'ulp_inst_0_sink_from_aie_0_0' [/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ip/ulp_inst_0_sink_from_aie_0_0/synth/ulp_inst_0_sink_from_aie_0_0.v:53]
+INFO: [Synth 8-6157] synthesizing module 'sink_from_aie' [/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ipshared/c08a/hdl/verilog/sink_from_aie.v:10]
+INFO: [Synth 8-6157] synthesizing module 'sink_from_aie_joint_RAM_AUTO_1R1W' [/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ipshared/c08a/hdl/verilog/sink_from_aie_joint_RAM_AUTO_1R1W.v:7]
+INFO: [Synth 8-6155] done synthesizing module 'sink_from_aie_joint_RAM_AUTO_1R1W' (0#1) [/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ipshared/c08a/hdl/verilog/sink_from_aie_joint_RAM_AUTO_1R1W.v:7]
+INFO: [Synth 8-6157] synthesizing module 'sink_from_aie_h1_RAM_AUTO_1R1W' [/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ipshared/c08a/hdl/verilog/sink_from_aie_h1_RAM_AUTO_1R1W.v:7]
+INFO: [Synth 8-6155] done synthesizing module 'sink_from_aie_h1_RAM_AUTO_1R1W' (0#1) [/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ipshared/c08a/hdl/verilog/sink_from_aie_h1_RAM_AUTO_1R1W.v:7]
+INFO: [Synth 8-6157] synthesizing module 'sink_from_aie_sink_from_aie_Pipeline_VITIS_LOOP_78_3' [/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ipshared/c08a/hdl/verilog/sink_from_aie_sink_from_aie_Pipeline_VITIS_LOOP_78_3.v:10]
+INFO: [Synth 8-6157] synthesizing module 'sink_from_aie_flow_control_loop_pipe_sequential_init' [/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ipshared/c08a/hdl/verilog/sink_from_aie_flow_control_loop_pipe_sequential_init.v:9]
+INFO: [Synth 8-6155] done synthesizing module 'sink_from_aie_flow_control_loop_pipe_sequential_init' (0#1) [/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ipshared/c08a/hdl/verilog/sink_from_aie_flow_control_loop_pipe_sequential_init.v:9]
+INFO: [Synth 8-6155] done synthesizing module 'sink_from_aie_sink_from_aie_Pipeline_VITIS_LOOP_78_3' (0#1) [/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ipshared/c08a/hdl/verilog/sink_from_aie_sink_from_aie_Pipeline_VITIS_LOOP_78_3.v:10]
+INFO: [Synth 8-6157] synthesizing module 'sink_from_aie_sink_from_aie_Pipeline_VITIS_LOOP_72_2' [/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ipshared/c08a/hdl/verilog/sink_from_aie_sink_from_aie_Pipeline_VITIS_LOOP_72_2.v:10]
+INFO: [Synth 8-6155] done synthesizing module 'sink_from_aie_sink_from_aie_Pipeline_VITIS_LOOP_72_2' (0#1) [/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ipshared/c08a/hdl/verilog/sink_from_aie_sink_from_aie_Pipeline_VITIS_LOOP_72_2.v:10]
+INFO: [Synth 8-6157] synthesizing module 'sink_from_aie_sink_from_aie_Pipeline_VITIS_LOOP_106_4' [/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ipshared/c08a/hdl/verilog/sink_from_aie_sink_from_aie_Pipeline_VITIS_LOOP_106_4.v:10]
+INFO: [Synth 8-6155] done synthesizing module 'sink_from_aie_sink_from_aie_Pipeline_VITIS_LOOP_106_4' (0#1) [/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ipshared/c08a/hdl/verilog/sink_from_aie_sink_from_aie_Pipeline_VITIS_LOOP_106_4.v:10]
+INFO: [Synth 8-6157] synthesizing module 'sink_from_aie_sink_from_aie_Pipeline_VITIS_LOOP_110_5' [/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ipshared/c08a/hdl/verilog/sink_from_aie_sink_from_aie_Pipeline_VITIS_LOOP_110_5.v:10]
+INFO: [Synth 8-6155] done synthesizing module 'sink_from_aie_sink_from_aie_Pipeline_VITIS_LOOP_110_5' (0#1) [/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ipshared/c08a/hdl/verilog/sink_from_aie_sink_from_aie_Pipeline_VITIS_LOOP_110_5.v:10]
+INFO: [Synth 8-6157] synthesizing module 'sink_from_aie_sink_from_aie_Pipeline_VITIS_LOOP_117_6_VITIS_LOOP_118_7' [/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ipshared/c08a/hdl/verilog/sink_from_aie_sink_from_aie_Pipeline_VITIS_LOOP_117_6_VITIS_LOOP_118_7.v:10]
+INFO: [Synth 8-6155] done synthesizing module 'sink_from_aie_sink_from_aie_Pipeline_VITIS_LOOP_117_6_VITIS_LOOP_118_7' (0#1) [/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ipshared/c08a/hdl/verilog/sink_from_aie_sink_from_aie_Pipeline_VITIS_LOOP_117_6_VITIS_LOOP_118_7.v:10]
+INFO: [Synth 8-6157] synthesizing module 'sink_from_aie_control_s_axi' [/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ipshared/c08a/hdl/verilog/sink_from_aie_control_s_axi.v:7]
+INFO: [Synth 8-155] case statement is not full and has no default [/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ipshared/c08a/hdl/verilog/sink_from_aie_control_s_axi.v:218]
+INFO: [Synth 8-6155] done synthesizing module 'sink_from_aie_control_s_axi' (0#1) [/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ipshared/c08a/hdl/verilog/sink_from_aie_control_s_axi.v:7]
+INFO: [Synth 8-6157] synthesizing module 'sink_from_aie_gmem1_m_axi' [/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ipshared/c08a/hdl/verilog/sink_from_aie_gmem1_m_axi.v:11]
+INFO: [Synth 8-6157] synthesizing module 'sink_from_aie_gmem1_m_axi_store' [/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ipshared/c08a/hdl/verilog/sink_from_aie_gmem1_m_axi.v:781]
+INFO: [Synth 8-6157] synthesizing module 'sink_from_aie_gmem1_m_axi_fifo' [/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ipshared/c08a/hdl/verilog/sink_from_aie_gmem1_m_axi.v:2551]
+INFO: [Synth 8-6157] synthesizing module 'sink_from_aie_gmem1_m_axi_srl' [/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ipshared/c08a/hdl/verilog/sink_from_aie_gmem1_m_axi.v:2729]
+INFO: [Synth 8-6155] done synthesizing module 'sink_from_aie_gmem1_m_axi_srl' (0#1) [/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ipshared/c08a/hdl/verilog/sink_from_aie_gmem1_m_axi.v:2729]
+INFO: [Synth 8-6155] done synthesizing module 'sink_from_aie_gmem1_m_axi_fifo' (0#1) [/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ipshared/c08a/hdl/verilog/sink_from_aie_gmem1_m_axi.v:2551]
+INFO: [Synth 8-6157] synthesizing module 'sink_from_aie_gmem1_m_axi_fifo__parameterized0' [/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ipshared/c08a/hdl/verilog/sink_from_aie_gmem1_m_axi.v:2551]
+INFO: [Synth 8-6157] synthesizing module 'sink_from_aie_gmem1_m_axi_mem' [/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ipshared/c08a/hdl/verilog/sink_from_aie_gmem1_m_axi.v:2783]
+INFO: [Synth 8-6155] done synthesizing module 'sink_from_aie_gmem1_m_axi_mem' (0#1) [/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ipshared/c08a/hdl/verilog/sink_from_aie_gmem1_m_axi.v:2783]
+INFO: [Synth 8-6155] done synthesizing module 'sink_from_aie_gmem1_m_axi_fifo__parameterized0' (0#1) [/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ipshared/c08a/hdl/verilog/sink_from_aie_gmem1_m_axi.v:2551]
+INFO: [Synth 8-6157] synthesizing module 'sink_from_aie_gmem1_m_axi_fifo__parameterized1' [/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ipshared/c08a/hdl/verilog/sink_from_aie_gmem1_m_axi.v:2551]
+INFO: [Synth 8-6157] synthesizing module 'sink_from_aie_gmem1_m_axi_srl__parameterized0' [/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ipshared/c08a/hdl/verilog/sink_from_aie_gmem1_m_axi.v:2729]
+INFO: [Synth 8-6155] done synthesizing module 'sink_from_aie_gmem1_m_axi_srl__parameterized0' (0#1) [/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ipshared/c08a/hdl/verilog/sink_from_aie_gmem1_m_axi.v:2729]
+INFO: [Synth 8-6155] done synthesizing module 'sink_from_aie_gmem1_m_axi_fifo__parameterized1' (0#1) [/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ipshared/c08a/hdl/verilog/sink_from_aie_gmem1_m_axi.v:2551]
+INFO: [Synth 8-6157] synthesizing module 'sink_from_aie_gmem1_m_axi_fifo__parameterized2' [/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ipshared/c08a/hdl/verilog/sink_from_aie_gmem1_m_axi.v:2551]
+INFO: [Synth 8-6157] synthesizing module 'sink_from_aie_gmem1_m_axi_srl__parameterized1' [/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ipshared/c08a/hdl/verilog/sink_from_aie_gmem1_m_axi.v:2729]
+INFO: [Synth 8-6155] done synthesizing module 'sink_from_aie_gmem1_m_axi_srl__parameterized1' (0#1) [/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ipshared/c08a/hdl/verilog/sink_from_aie_gmem1_m_axi.v:2729]
+INFO: [Synth 8-6155] done synthesizing module 'sink_from_aie_gmem1_m_axi_fifo__parameterized2' (0#1) [/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ipshared/c08a/hdl/verilog/sink_from_aie_gmem1_m_axi.v:2551]
+INFO: [Synth 8-6155] done synthesizing module 'sink_from_aie_gmem1_m_axi_store' (0#1) [/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ipshared/c08a/hdl/verilog/sink_from_aie_gmem1_m_axi.v:781]
+INFO: [Synth 8-6157] synthesizing module 'sink_from_aie_gmem1_m_axi_load' [/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ipshared/c08a/hdl/verilog/sink_from_aie_gmem1_m_axi.v:325]
+INFO: [Synth 8-6157] synthesizing module 'sink_from_aie_gmem1_m_axi_fifo__parameterized3' [/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ipshared/c08a/hdl/verilog/sink_from_aie_gmem1_m_axi.v:2551]
+INFO: [Synth 8-6157] synthesizing module 'sink_from_aie_gmem1_m_axi_mem__parameterized0' [/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ipshared/c08a/hdl/verilog/sink_from_aie_gmem1_m_axi.v:2783]
+INFO: [Synth 8-6155] done synthesizing module 'sink_from_aie_gmem1_m_axi_mem__parameterized0' (0#1) [/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ipshared/c08a/hdl/verilog/sink_from_aie_gmem1_m_axi.v:2783]
+INFO: [Synth 8-6155] done synthesizing module 'sink_from_aie_gmem1_m_axi_fifo__parameterized3' (0#1) [/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ipshared/c08a/hdl/verilog/sink_from_aie_gmem1_m_axi.v:2551]
+INFO: [Synth 8-6155] done synthesizing module 'sink_from_aie_gmem1_m_axi_load' (0#1) [/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ipshared/c08a/hdl/verilog/sink_from_aie_gmem1_m_axi.v:325]
+INFO: [Synth 8-6157] synthesizing module 'sink_from_aie_gmem1_m_axi_write' [/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ipshared/c08a/hdl/verilog/sink_from_aie_gmem1_m_axi.v:1716]
+INFO: [Synth 8-6157] synthesizing module 'sink_from_aie_gmem1_m_axi_reg_slice' [/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ipshared/c08a/hdl/verilog/sink_from_aie_gmem1_m_axi.v:2449]
+INFO: [Synth 8-6155] done synthesizing module 'sink_from_aie_gmem1_m_axi_reg_slice' (0#1) [/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ipshared/c08a/hdl/verilog/sink_from_aie_gmem1_m_axi.v:2449]
+INFO: [Synth 8-6157] synthesizing module 'sink_from_aie_gmem1_m_axi_fifo__parameterized4' [/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ipshared/c08a/hdl/verilog/sink_from_aie_gmem1_m_axi.v:2551]
+INFO: [Synth 8-6157] synthesizing module 'sink_from_aie_gmem1_m_axi_srl__parameterized2' [/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ipshared/c08a/hdl/verilog/sink_from_aie_gmem1_m_axi.v:2729]
+INFO: [Synth 8-6155] done synthesizing module 'sink_from_aie_gmem1_m_axi_srl__parameterized2' (0#1) [/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ipshared/c08a/hdl/verilog/sink_from_aie_gmem1_m_axi.v:2729]
+INFO: [Synth 8-6155] done synthesizing module 'sink_from_aie_gmem1_m_axi_fifo__parameterized4' (0#1) [/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ipshared/c08a/hdl/verilog/sink_from_aie_gmem1_m_axi.v:2551]
+INFO: [Synth 8-6157] synthesizing module 'sink_from_aie_gmem1_m_axi_throttle' [/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ipshared/c08a/hdl/verilog/sink_from_aie_gmem1_m_axi.v:2224]
+INFO: [Synth 8-6157] synthesizing module 'sink_from_aie_gmem1_m_axi_reg_slice__parameterized0' [/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ipshared/c08a/hdl/verilog/sink_from_aie_gmem1_m_axi.v:2449]
+INFO: [Synth 8-6155] done synthesizing module 'sink_from_aie_gmem1_m_axi_reg_slice__parameterized0' (0#1) [/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ipshared/c08a/hdl/verilog/sink_from_aie_gmem1_m_axi.v:2449]
+INFO: [Synth 8-6157] synthesizing module 'sink_from_aie_gmem1_m_axi_fifo__parameterized5' [/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ipshared/c08a/hdl/verilog/sink_from_aie_gmem1_m_axi.v:2551]
+INFO: [Synth 8-6157] synthesizing module 'sink_from_aie_gmem1_m_axi_srl__parameterized3' [/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ipshared/c08a/hdl/verilog/sink_from_aie_gmem1_m_axi.v:2729]
+INFO: [Synth 8-6155] done synthesizing module 'sink_from_aie_gmem1_m_axi_srl__parameterized3' (0#1) [/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ipshared/c08a/hdl/verilog/sink_from_aie_gmem1_m_axi.v:2729]
+INFO: [Synth 8-6155] done synthesizing module 'sink_from_aie_gmem1_m_axi_fifo__parameterized5' (0#1) [/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ipshared/c08a/hdl/verilog/sink_from_aie_gmem1_m_axi.v:2551]
+INFO: [Synth 8-6157] synthesizing module 'sink_from_aie_gmem1_m_axi_fifo__parameterized6' [/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ipshared/c08a/hdl/verilog/sink_from_aie_gmem1_m_axi.v:2551]
+INFO: [Synth 8-6157] synthesizing module 'sink_from_aie_gmem1_m_axi_srl__parameterized4' [/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ipshared/c08a/hdl/verilog/sink_from_aie_gmem1_m_axi.v:2729]
+INFO: [Synth 8-6155] done synthesizing module 'sink_from_aie_gmem1_m_axi_srl__parameterized4' (0#1) [/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ipshared/c08a/hdl/verilog/sink_from_aie_gmem1_m_axi.v:2729]
+INFO: [Synth 8-6155] done synthesizing module 'sink_from_aie_gmem1_m_axi_fifo__parameterized6' (0#1) [/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ipshared/c08a/hdl/verilog/sink_from_aie_gmem1_m_axi.v:2551]
+INFO: [Synth 8-6155] done synthesizing module 'sink_from_aie_gmem1_m_axi_throttle' (0#1) [/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ipshared/c08a/hdl/verilog/sink_from_aie_gmem1_m_axi.v:2224]
+INFO: [Synth 8-6157] synthesizing module 'sink_from_aie_gmem1_m_axi_reg_slice__parameterized1' [/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ipshared/c08a/hdl/verilog/sink_from_aie_gmem1_m_axi.v:2449]
+INFO: [Synth 8-6155] done synthesizing module 'sink_from_aie_gmem1_m_axi_reg_slice__parameterized1' (0#1) [/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ipshared/c08a/hdl/verilog/sink_from_aie_gmem1_m_axi.v:2449]
+WARNING: [Synth 8-589] replacing case/wildcard equality operator === with logical equality operator == [/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ipshared/c08a/hdl/verilog/sink_from_aie_gmem1_m_axi.v:2216]
+WARNING: [Synth 8-589] replacing case/wildcard equality operator === with logical equality operator == [/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ipshared/c08a/hdl/verilog/sink_from_aie_gmem1_m_axi.v:2219]
+INFO: [Synth 8-6155] done synthesizing module 'sink_from_aie_gmem1_m_axi_write' (0#1) [/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ipshared/c08a/hdl/verilog/sink_from_aie_gmem1_m_axi.v:1716]
+INFO: [Synth 8-6157] synthesizing module 'sink_from_aie_gmem1_m_axi_read' [/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ipshared/c08a/hdl/verilog/sink_from_aie_gmem1_m_axi.v:1332]
+INFO: [Synth 8-6157] synthesizing module 'sink_from_aie_gmem1_m_axi_reg_slice__parameterized2' [/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ipshared/c08a/hdl/verilog/sink_from_aie_gmem1_m_axi.v:2449]
+INFO: [Synth 8-6155] done synthesizing module 'sink_from_aie_gmem1_m_axi_reg_slice__parameterized2' (0#1) [/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ipshared/c08a/hdl/verilog/sink_from_aie_gmem1_m_axi.v:2449]
+WARNING: [Synth 8-589] replacing case/wildcard equality operator === with logical equality operator == [/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ipshared/c08a/hdl/verilog/sink_from_aie_gmem1_m_axi.v:1708]
+INFO: [Synth 8-6155] done synthesizing module 'sink_from_aie_gmem1_m_axi_read' (0#1) [/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ipshared/c08a/hdl/verilog/sink_from_aie_gmem1_m_axi.v:1332]
+INFO: [Synth 8-6155] done synthesizing module 'sink_from_aie_gmem1_m_axi' (0#1) [/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ipshared/c08a/hdl/verilog/sink_from_aie_gmem1_m_axi.v:11]
+INFO: [Synth 8-6157] synthesizing module 'sink_from_aie_regslice_both' [/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ipshared/c08a/hdl/verilog/sink_from_aie_regslice_both.v:9]
+INFO: [Synth 8-6155] done synthesizing module 'sink_from_aie_regslice_both' (0#1) [/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ipshared/c08a/hdl/verilog/sink_from_aie_regslice_both.v:9]
+INFO: [Synth 8-6155] done synthesizing module 'sink_from_aie' (0#1) [/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ipshared/c08a/hdl/verilog/sink_from_aie.v:10]
+INFO: [Synth 8-6155] done synthesizing module 'ulp_inst_0_sink_from_aie_0_0' (0#1) [/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ip/ulp_inst_0_sink_from_aie_0_0/synth/ulp_inst_0_sink_from_aie_0_0.v:53]
+WARNING: [Synth 8-6014] Unused sequential element int_ap_done_reg was removed.  [/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ipshared/c08a/hdl/verilog/sink_from_aie_control_s_axi.v:303]
+WARNING: [Synth 8-7129] Port in_BUS_RID[0] in module sink_from_aie_gmem1_m_axi_read is either unconnected or has no load
+WARNING: [Synth 8-7129] Port in_BUS_RRESP[1] in module sink_from_aie_gmem1_m_axi_read is either unconnected or has no load
+WARNING: [Synth 8-7129] Port in_BUS_RRESP[0] in module sink_from_aie_gmem1_m_axi_read is either unconnected or has no load
+WARNING: [Synth 8-7129] Port in_BUS_RUSER[0] in module sink_from_aie_gmem1_m_axi_read is either unconnected or has no load
+WARNING: [Synth 8-7129] Port in_BUS_BID[0] in module sink_from_aie_gmem1_m_axi_write is either unconnected or has no load
+WARNING: [Synth 8-7129] Port in_BUS_BRESP[1] in module sink_from_aie_gmem1_m_axi_write is either unconnected or has no load
+WARNING: [Synth 8-7129] Port in_BUS_BRESP[0] in module sink_from_aie_gmem1_m_axi_write is either unconnected or has no load
+WARNING: [Synth 8-7129] Port in_BUS_BUSER[0] in module sink_from_aie_gmem1_m_axi_write is either unconnected or has no load
+WARNING: [Synth 8-7129] Port m_axi_gmem1_AWREADY in module sink_from_aie_sink_from_aie_Pipeline_VITIS_LOOP_117_6_VITIS_LOOP_118_7 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port m_axi_gmem1_ARREADY in module sink_from_aie_sink_from_aie_Pipeline_VITIS_LOOP_117_6_VITIS_LOOP_118_7 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port m_axi_gmem1_RVALID in module sink_from_aie_sink_from_aie_Pipeline_VITIS_LOOP_117_6_VITIS_LOOP_118_7 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port m_axi_gmem1_RDATA[511] in module sink_from_aie_sink_from_aie_Pipeline_VITIS_LOOP_117_6_VITIS_LOOP_118_7 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port m_axi_gmem1_RDATA[510] in module sink_from_aie_sink_from_aie_Pipeline_VITIS_LOOP_117_6_VITIS_LOOP_118_7 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port m_axi_gmem1_RDATA[509] in module sink_from_aie_sink_from_aie_Pipeline_VITIS_LOOP_117_6_VITIS_LOOP_118_7 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port m_axi_gmem1_RDATA[508] in module sink_from_aie_sink_from_aie_Pipeline_VITIS_LOOP_117_6_VITIS_LOOP_118_7 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port m_axi_gmem1_RDATA[507] in module sink_from_aie_sink_from_aie_Pipeline_VITIS_LOOP_117_6_VITIS_LOOP_118_7 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port m_axi_gmem1_RDATA[506] in module sink_from_aie_sink_from_aie_Pipeline_VITIS_LOOP_117_6_VITIS_LOOP_118_7 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port m_axi_gmem1_RDATA[505] in module sink_from_aie_sink_from_aie_Pipeline_VITIS_LOOP_117_6_VITIS_LOOP_118_7 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port m_axi_gmem1_RDATA[504] in module sink_from_aie_sink_from_aie_Pipeline_VITIS_LOOP_117_6_VITIS_LOOP_118_7 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port m_axi_gmem1_RDATA[503] in module sink_from_aie_sink_from_aie_Pipeline_VITIS_LOOP_117_6_VITIS_LOOP_118_7 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port m_axi_gmem1_RDATA[502] in module sink_from_aie_sink_from_aie_Pipeline_VITIS_LOOP_117_6_VITIS_LOOP_118_7 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port m_axi_gmem1_RDATA[501] in module sink_from_aie_sink_from_aie_Pipeline_VITIS_LOOP_117_6_VITIS_LOOP_118_7 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port m_axi_gmem1_RDATA[500] in module sink_from_aie_sink_from_aie_Pipeline_VITIS_LOOP_117_6_VITIS_LOOP_118_7 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port m_axi_gmem1_RDATA[499] in module sink_from_aie_sink_from_aie_Pipeline_VITIS_LOOP_117_6_VITIS_LOOP_118_7 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port m_axi_gmem1_RDATA[498] in module sink_from_aie_sink_from_aie_Pipeline_VITIS_LOOP_117_6_VITIS_LOOP_118_7 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port m_axi_gmem1_RDATA[497] in module sink_from_aie_sink_from_aie_Pipeline_VITIS_LOOP_117_6_VITIS_LOOP_118_7 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port m_axi_gmem1_RDATA[496] in module sink_from_aie_sink_from_aie_Pipeline_VITIS_LOOP_117_6_VITIS_LOOP_118_7 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port m_axi_gmem1_RDATA[495] in module sink_from_aie_sink_from_aie_Pipeline_VITIS_LOOP_117_6_VITIS_LOOP_118_7 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port m_axi_gmem1_RDATA[494] in module sink_from_aie_sink_from_aie_Pipeline_VITIS_LOOP_117_6_VITIS_LOOP_118_7 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port m_axi_gmem1_RDATA[493] in module sink_from_aie_sink_from_aie_Pipeline_VITIS_LOOP_117_6_VITIS_LOOP_118_7 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port m_axi_gmem1_RDATA[492] in module sink_from_aie_sink_from_aie_Pipeline_VITIS_LOOP_117_6_VITIS_LOOP_118_7 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port m_axi_gmem1_RDATA[491] in module sink_from_aie_sink_from_aie_Pipeline_VITIS_LOOP_117_6_VITIS_LOOP_118_7 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port m_axi_gmem1_RDATA[490] in module sink_from_aie_sink_from_aie_Pipeline_VITIS_LOOP_117_6_VITIS_LOOP_118_7 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port m_axi_gmem1_RDATA[489] in module sink_from_aie_sink_from_aie_Pipeline_VITIS_LOOP_117_6_VITIS_LOOP_118_7 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port m_axi_gmem1_RDATA[488] in module sink_from_aie_sink_from_aie_Pipeline_VITIS_LOOP_117_6_VITIS_LOOP_118_7 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port m_axi_gmem1_RDATA[487] in module sink_from_aie_sink_from_aie_Pipeline_VITIS_LOOP_117_6_VITIS_LOOP_118_7 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port m_axi_gmem1_RDATA[486] in module sink_from_aie_sink_from_aie_Pipeline_VITIS_LOOP_117_6_VITIS_LOOP_118_7 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port m_axi_gmem1_RDATA[485] in module sink_from_aie_sink_from_aie_Pipeline_VITIS_LOOP_117_6_VITIS_LOOP_118_7 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port m_axi_gmem1_RDATA[484] in module sink_from_aie_sink_from_aie_Pipeline_VITIS_LOOP_117_6_VITIS_LOOP_118_7 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port m_axi_gmem1_RDATA[483] in module sink_from_aie_sink_from_aie_Pipeline_VITIS_LOOP_117_6_VITIS_LOOP_118_7 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port m_axi_gmem1_RDATA[482] in module sink_from_aie_sink_from_aie_Pipeline_VITIS_LOOP_117_6_VITIS_LOOP_118_7 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port m_axi_gmem1_RDATA[481] in module sink_from_aie_sink_from_aie_Pipeline_VITIS_LOOP_117_6_VITIS_LOOP_118_7 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port m_axi_gmem1_RDATA[480] in module sink_from_aie_sink_from_aie_Pipeline_VITIS_LOOP_117_6_VITIS_LOOP_118_7 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port m_axi_gmem1_RDATA[479] in module sink_from_aie_sink_from_aie_Pipeline_VITIS_LOOP_117_6_VITIS_LOOP_118_7 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port m_axi_gmem1_RDATA[478] in module sink_from_aie_sink_from_aie_Pipeline_VITIS_LOOP_117_6_VITIS_LOOP_118_7 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port m_axi_gmem1_RDATA[477] in module sink_from_aie_sink_from_aie_Pipeline_VITIS_LOOP_117_6_VITIS_LOOP_118_7 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port m_axi_gmem1_RDATA[476] in module sink_from_aie_sink_from_aie_Pipeline_VITIS_LOOP_117_6_VITIS_LOOP_118_7 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port m_axi_gmem1_RDATA[475] in module sink_from_aie_sink_from_aie_Pipeline_VITIS_LOOP_117_6_VITIS_LOOP_118_7 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port m_axi_gmem1_RDATA[474] in module sink_from_aie_sink_from_aie_Pipeline_VITIS_LOOP_117_6_VITIS_LOOP_118_7 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port m_axi_gmem1_RDATA[473] in module sink_from_aie_sink_from_aie_Pipeline_VITIS_LOOP_117_6_VITIS_LOOP_118_7 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port m_axi_gmem1_RDATA[472] in module sink_from_aie_sink_from_aie_Pipeline_VITIS_LOOP_117_6_VITIS_LOOP_118_7 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port m_axi_gmem1_RDATA[471] in module sink_from_aie_sink_from_aie_Pipeline_VITIS_LOOP_117_6_VITIS_LOOP_118_7 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port m_axi_gmem1_RDATA[470] in module sink_from_aie_sink_from_aie_Pipeline_VITIS_LOOP_117_6_VITIS_LOOP_118_7 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port m_axi_gmem1_RDATA[469] in module sink_from_aie_sink_from_aie_Pipeline_VITIS_LOOP_117_6_VITIS_LOOP_118_7 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port m_axi_gmem1_RDATA[468] in module sink_from_aie_sink_from_aie_Pipeline_VITIS_LOOP_117_6_VITIS_LOOP_118_7 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port m_axi_gmem1_RDATA[467] in module sink_from_aie_sink_from_aie_Pipeline_VITIS_LOOP_117_6_VITIS_LOOP_118_7 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port m_axi_gmem1_RDATA[466] in module sink_from_aie_sink_from_aie_Pipeline_VITIS_LOOP_117_6_VITIS_LOOP_118_7 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port m_axi_gmem1_RDATA[465] in module sink_from_aie_sink_from_aie_Pipeline_VITIS_LOOP_117_6_VITIS_LOOP_118_7 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port m_axi_gmem1_RDATA[464] in module sink_from_aie_sink_from_aie_Pipeline_VITIS_LOOP_117_6_VITIS_LOOP_118_7 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port m_axi_gmem1_RDATA[463] in module sink_from_aie_sink_from_aie_Pipeline_VITIS_LOOP_117_6_VITIS_LOOP_118_7 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port m_axi_gmem1_RDATA[462] in module sink_from_aie_sink_from_aie_Pipeline_VITIS_LOOP_117_6_VITIS_LOOP_118_7 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port m_axi_gmem1_RDATA[461] in module sink_from_aie_sink_from_aie_Pipeline_VITIS_LOOP_117_6_VITIS_LOOP_118_7 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port m_axi_gmem1_RDATA[460] in module sink_from_aie_sink_from_aie_Pipeline_VITIS_LOOP_117_6_VITIS_LOOP_118_7 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port m_axi_gmem1_RDATA[459] in module sink_from_aie_sink_from_aie_Pipeline_VITIS_LOOP_117_6_VITIS_LOOP_118_7 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port m_axi_gmem1_RDATA[458] in module sink_from_aie_sink_from_aie_Pipeline_VITIS_LOOP_117_6_VITIS_LOOP_118_7 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port m_axi_gmem1_RDATA[457] in module sink_from_aie_sink_from_aie_Pipeline_VITIS_LOOP_117_6_VITIS_LOOP_118_7 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port m_axi_gmem1_RDATA[456] in module sink_from_aie_sink_from_aie_Pipeline_VITIS_LOOP_117_6_VITIS_LOOP_118_7 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port m_axi_gmem1_RDATA[455] in module sink_from_aie_sink_from_aie_Pipeline_VITIS_LOOP_117_6_VITIS_LOOP_118_7 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port m_axi_gmem1_RDATA[454] in module sink_from_aie_sink_from_aie_Pipeline_VITIS_LOOP_117_6_VITIS_LOOP_118_7 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port m_axi_gmem1_RDATA[453] in module sink_from_aie_sink_from_aie_Pipeline_VITIS_LOOP_117_6_VITIS_LOOP_118_7 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port m_axi_gmem1_RDATA[452] in module sink_from_aie_sink_from_aie_Pipeline_VITIS_LOOP_117_6_VITIS_LOOP_118_7 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port m_axi_gmem1_RDATA[451] in module sink_from_aie_sink_from_aie_Pipeline_VITIS_LOOP_117_6_VITIS_LOOP_118_7 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port m_axi_gmem1_RDATA[450] in module sink_from_aie_sink_from_aie_Pipeline_VITIS_LOOP_117_6_VITIS_LOOP_118_7 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port m_axi_gmem1_RDATA[449] in module sink_from_aie_sink_from_aie_Pipeline_VITIS_LOOP_117_6_VITIS_LOOP_118_7 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port m_axi_gmem1_RDATA[448] in module sink_from_aie_sink_from_aie_Pipeline_VITIS_LOOP_117_6_VITIS_LOOP_118_7 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port m_axi_gmem1_RDATA[447] in module sink_from_aie_sink_from_aie_Pipeline_VITIS_LOOP_117_6_VITIS_LOOP_118_7 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port m_axi_gmem1_RDATA[446] in module sink_from_aie_sink_from_aie_Pipeline_VITIS_LOOP_117_6_VITIS_LOOP_118_7 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port m_axi_gmem1_RDATA[445] in module sink_from_aie_sink_from_aie_Pipeline_VITIS_LOOP_117_6_VITIS_LOOP_118_7 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port m_axi_gmem1_RDATA[444] in module sink_from_aie_sink_from_aie_Pipeline_VITIS_LOOP_117_6_VITIS_LOOP_118_7 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port m_axi_gmem1_RDATA[443] in module sink_from_aie_sink_from_aie_Pipeline_VITIS_LOOP_117_6_VITIS_LOOP_118_7 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port m_axi_gmem1_RDATA[442] in module sink_from_aie_sink_from_aie_Pipeline_VITIS_LOOP_117_6_VITIS_LOOP_118_7 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port m_axi_gmem1_RDATA[441] in module sink_from_aie_sink_from_aie_Pipeline_VITIS_LOOP_117_6_VITIS_LOOP_118_7 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port m_axi_gmem1_RDATA[440] in module sink_from_aie_sink_from_aie_Pipeline_VITIS_LOOP_117_6_VITIS_LOOP_118_7 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port m_axi_gmem1_RDATA[439] in module sink_from_aie_sink_from_aie_Pipeline_VITIS_LOOP_117_6_VITIS_LOOP_118_7 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port m_axi_gmem1_RDATA[438] in module sink_from_aie_sink_from_aie_Pipeline_VITIS_LOOP_117_6_VITIS_LOOP_118_7 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port m_axi_gmem1_RDATA[437] in module sink_from_aie_sink_from_aie_Pipeline_VITIS_LOOP_117_6_VITIS_LOOP_118_7 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port m_axi_gmem1_RDATA[436] in module sink_from_aie_sink_from_aie_Pipeline_VITIS_LOOP_117_6_VITIS_LOOP_118_7 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port m_axi_gmem1_RDATA[435] in module sink_from_aie_sink_from_aie_Pipeline_VITIS_LOOP_117_6_VITIS_LOOP_118_7 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port m_axi_gmem1_RDATA[434] in module sink_from_aie_sink_from_aie_Pipeline_VITIS_LOOP_117_6_VITIS_LOOP_118_7 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port m_axi_gmem1_RDATA[433] in module sink_from_aie_sink_from_aie_Pipeline_VITIS_LOOP_117_6_VITIS_LOOP_118_7 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port m_axi_gmem1_RDATA[432] in module sink_from_aie_sink_from_aie_Pipeline_VITIS_LOOP_117_6_VITIS_LOOP_118_7 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port m_axi_gmem1_RDATA[431] in module sink_from_aie_sink_from_aie_Pipeline_VITIS_LOOP_117_6_VITIS_LOOP_118_7 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port m_axi_gmem1_RDATA[430] in module sink_from_aie_sink_from_aie_Pipeline_VITIS_LOOP_117_6_VITIS_LOOP_118_7 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port m_axi_gmem1_RDATA[429] in module sink_from_aie_sink_from_aie_Pipeline_VITIS_LOOP_117_6_VITIS_LOOP_118_7 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port m_axi_gmem1_RDATA[428] in module sink_from_aie_sink_from_aie_Pipeline_VITIS_LOOP_117_6_VITIS_LOOP_118_7 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port m_axi_gmem1_RDATA[427] in module sink_from_aie_sink_from_aie_Pipeline_VITIS_LOOP_117_6_VITIS_LOOP_118_7 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port m_axi_gmem1_RDATA[426] in module sink_from_aie_sink_from_aie_Pipeline_VITIS_LOOP_117_6_VITIS_LOOP_118_7 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port m_axi_gmem1_RDATA[425] in module sink_from_aie_sink_from_aie_Pipeline_VITIS_LOOP_117_6_VITIS_LOOP_118_7 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port m_axi_gmem1_RDATA[424] in module sink_from_aie_sink_from_aie_Pipeline_VITIS_LOOP_117_6_VITIS_LOOP_118_7 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port m_axi_gmem1_RDATA[423] in module sink_from_aie_sink_from_aie_Pipeline_VITIS_LOOP_117_6_VITIS_LOOP_118_7 is either unconnected or has no load
+INFO: [Common 17-14] Message 'Synth 8-7129' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
+---------------------------------------------------------------------------------
+Finished RTL Elaboration : Time (s): cpu = 00:00:18 ; elapsed = 00:02:53 . Memory (MB): peak = 3229.410 ; gain = 482.156 ; free physical = 16488 ; free virtual = 100051
+Synthesis current peak Physical Memory [PSS] (MB): peak = 2428.557; parent = 2301.594; children = 150.057
+Synthesis current peak Virtual Memory [VSS] (MB): peak = 4195.008; parent = 3229.414; children = 965.594
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Handling Custom Attributes
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:19 ; elapsed = 00:02:58 . Memory (MB): peak = 3244.254 ; gain = 497.000 ; free physical = 16454 ; free virtual = 100018
+Synthesis current peak Physical Memory [PSS] (MB): peak = 2428.557; parent = 2301.594; children = 150.057
+Synthesis current peak Virtual Memory [VSS] (MB): peak = 4209.852; parent = 3244.258; children = 965.594
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:19 ; elapsed = 00:03:00 . Memory (MB): peak = 3244.254 ; gain = 497.000 ; free physical = 16449 ; free virtual = 100013
+Synthesis current peak Physical Memory [PSS] (MB): peak = 2428.557; parent = 2301.594; children = 150.057
+Synthesis current peak Virtual Memory [VSS] (MB): peak = 4209.852; parent = 3244.258; children = 965.594
+---------------------------------------------------------------------------------
+Netlist sorting complete. Time (s): cpu = 00:00:00.68 ; elapsed = 00:00:03 . Memory (MB): peak = 3244.254 ; gain = 0.000 ; free physical = 16028 ; free virtual = 99597
+INFO: [Chipscope 16-579] Latest version is versal_cips_v3_3 for versal_cips_v3_2
+INFO: [Constraints 18-6359] No Clock Expansion Window constraints config file entry for device xcvc1902.  GCLK Deskew mode will be Off and cannot be enabled via GCLK_DESKEW override.
+INFO: [Constraints 18-5720] The default GCLK Deskew mode is Off.
+INFO: [Project 1-570] Preparing netlist for logic optimization
+
+Processing XDC Constraints
+Initializing timing engine
+Parsing XDC File [/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ip/ulp_inst_0_sink_from_aie_0_0/constraints/sink_from_aie_ooc.xdc] for cell 'inst'
+create_clock: Time (s): cpu = 00:00:12 ; elapsed = 00:01:44 . Memory (MB): peak = 3486.422 ; gain = 64.594 ; free physical = 15701 ; free virtual = 99300
+Finished Parsing XDC File [/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ip/ulp_inst_0_sink_from_aie_0_0/constraints/sink_from_aie_ooc.xdc] for cell 'inst'
+Parsing XDC File [/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/ulp_inst_0_sink_from_aie_0_0_synth_1/dont_touch.xdc]
+Finished Parsing XDC File [/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/ulp_inst_0_sink_from_aie_0_0_synth_1/dont_touch.xdc]
+Completed Processing XDC Constraints
+
+Netlist sorting complete. Time (s): cpu = 00:00:00.01 ; elapsed = 00:00:00.04 . Memory (MB): peak = 3486.422 ; gain = 0.000 ; free physical = 15695 ; free virtual = 99294
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
+
+Constraint Validation Runtime : Time (s): cpu = 00:00:01 ; elapsed = 00:00:06 . Memory (MB): peak = 3504.234 ; gain = 17.812 ; free physical = 15776 ; free virtual = 99377
+INFO: [Designutils 20-5008] Incremental synthesis strategy off
+INFO: [Synth 8-11241] undeclared symbol 'REGCCE', assumed default net type 'wire' [/home/xilinx/software/Vivado/2022.2/data/verilog/src/unimacro/BRAM_SINGLE_MACRO.v:2170]
+---------------------------------------------------------------------------------
+Finished Constraint Validation : Time (s): cpu = 00:00:57 ; elapsed = 00:07:35 . Memory (MB): peak = 3504.234 ; gain = 756.980 ; free physical = 15620 ; free virtual = 99249
+Synthesis current peak Physical Memory [PSS] (MB): peak = 2579.902; parent = 2452.115; children = 150.057
+Synthesis current peak Virtual Memory [VSS] (MB): peak = 4469.832; parent = 3504.238; children = 965.594
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Loading Part and Timing Information
+---------------------------------------------------------------------------------
+Loading part: xcvc1902-vsvd1760-2MP-e-S
+INFO: [Synth 8-6742] Reading net delay rules and data
+---------------------------------------------------------------------------------
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:57 ; elapsed = 00:07:36 . Memory (MB): peak = 3504.234 ; gain = 756.980 ; free physical = 15589 ; free virtual = 99223
+Synthesis current peak Physical Memory [PSS] (MB): peak = 2579.902; parent = 2452.115; children = 150.057
+Synthesis current peak Virtual Memory [VSS] (MB): peak = 4469.832; parent = 3504.238; children = 965.594
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Applying 'set_property' XDC Constraints
+---------------------------------------------------------------------------------
+Applied set_property KEEP_HIERARCHY = SOFT for inst. (constraint file  /home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/ulp_inst_0_sink_from_aie_0_0_synth_1/dont_touch.xdc, line 9).
+---------------------------------------------------------------------------------
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:57 ; elapsed = 00:07:38 . Memory (MB): peak = 3504.234 ; gain = 756.980 ; free physical = 15545 ; free virtual = 99185
+Synthesis current peak Physical Memory [PSS] (MB): peak = 2579.902; parent = 2452.115; children = 150.057
+Synthesis current peak Virtual Memory [VSS] (MB): peak = 4469.832; parent = 3504.238; children = 965.594
+---------------------------------------------------------------------------------
+INFO: [Synth 8-4490] FSM extraction disabled for register 'ap_CS_fsm_reg' through user attribute
+INFO: [Synth 8-802] inferred FSM for state register 'wstate_reg' in module 'sink_from_aie_control_s_axi'
+INFO: [Synth 8-802] inferred FSM for state register 'rstate_reg' in module 'sink_from_aie_control_s_axi'
+INFO: [Synth 8-802] inferred FSM for state register 'state_reg' in module 'sink_from_aie_gmem1_m_axi_reg_slice'
+INFO: [Synth 8-802] inferred FSM for state register 'state_reg' in module 'sink_from_aie_gmem1_m_axi_reg_slice__parameterized0'
+INFO: [Synth 8-802] inferred FSM for state register 'state_reg' in module 'sink_from_aie_gmem1_m_axi_reg_slice__parameterized1'
+INFO: [Synth 8-802] inferred FSM for state register 'state_reg' in module 'sink_from_aie_gmem1_m_axi_reg_slice__parameterized2'
+INFO: [Synth 8-4490] FSM extraction disabled for register 'ap_CS_fsm_reg' through user attribute
+INFO: [Synth 8-6794] RAM ("sink_from_aie_joint_RAM_AUTO_1R1W:/ram_reg") will be automatically implemented using URAM. 
+INFO: [Synth 8-5780] Default cascade height of 8 will be used for URAM '"sink_from_aie_joint_RAM_AUTO_1R1W:/ram_reg"'.
+---------------------------------------------------------------------------------------------------
+                   State |                     New Encoding |                Previous Encoding 
+---------------------------------------------------------------------------------------------------
+                  iSTATE |                             0001 |                               11
+*
+                  WRIDLE |                             0010 |                               00
+                  WRDATA |                             0100 |                               01
+                  WRRESP |                             1000 |                               10
+---------------------------------------------------------------------------------------------------
+INFO: [Synth 8-3354] encoded FSM with state register 'wstate_reg' using encoding 'one-hot' in module 'sink_from_aie_control_s_axi'
+---------------------------------------------------------------------------------------------------
+                   State |                     New Encoding |                Previous Encoding 
+---------------------------------------------------------------------------------------------------
+                  iSTATE |                              001 |                               10
+*
+                  RDIDLE |                              010 |                               00
+                  RDDATA |                              100 |                               01
+---------------------------------------------------------------------------------------------------
+INFO: [Synth 8-3354] encoded FSM with state register 'rstate_reg' using encoding 'one-hot' in module 'sink_from_aie_control_s_axi'
+INFO: [Synth 8-7030] Implemented Non-Cascaded Block Ram (cascade_height = 1) of width 72 for RAM "sink_from_aie_gmem1_m_axi_mem:/mem_reg"
+INFO: [Synth 8-7030] Implemented Non-Cascaded Block Ram (cascade_height = 1) of width 72 for RAM "sink_from_aie_gmem1_m_axi_mem:/mem_reg"
+INFO: [Synth 8-7030] Implemented Non-Cascaded Block Ram (cascade_height = 1) of width 72 for RAM "sink_from_aie_gmem1_m_axi_mem:/mem_reg"
+INFO: [Synth 8-7030] Implemented Non-Cascaded Block Ram (cascade_height = 1) of width 72 for RAM "sink_from_aie_gmem1_m_axi_mem:/mem_reg"
+INFO: [Synth 8-7030] Implemented Non-Cascaded Block Ram (cascade_height = 1) of width 72 for RAM "sink_from_aie_gmem1_m_axi_mem:/mem_reg"
+INFO: [Synth 8-7030] Implemented Non-Cascaded Block Ram (cascade_height = 1) of width 72 for RAM "sink_from_aie_gmem1_m_axi_mem:/mem_reg"
+INFO: [Synth 8-7030] Implemented Non-Cascaded Block Ram (cascade_height = 1) of width 72 for RAM "sink_from_aie_gmem1_m_axi_mem:/mem_reg"
+INFO: [Synth 8-7030] Implemented Non-Cascaded Block Ram (cascade_height = 1) of width 72 for RAM "sink_from_aie_gmem1_m_axi_mem:/mem_reg"
+INFO: [Synth 8-7030] Implemented Non-Cascaded Block Ram (cascade_height = 1) of width 72 for RAM "sink_from_aie_gmem1_m_axi_mem__parameterized0:/mem_reg"
+INFO: [Synth 8-7030] Implemented Non-Cascaded Block Ram (cascade_height = 1) of width 72 for RAM "sink_from_aie_gmem1_m_axi_mem__parameterized0:/mem_reg"
+INFO: [Synth 8-7030] Implemented Non-Cascaded Block Ram (cascade_height = 1) of width 72 for RAM "sink_from_aie_gmem1_m_axi_mem__parameterized0:/mem_reg"
+INFO: [Synth 8-7030] Implemented Non-Cascaded Block Ram (cascade_height = 1) of width 72 for RAM "sink_from_aie_gmem1_m_axi_mem__parameterized0:/mem_reg"
+INFO: [Synth 8-7030] Implemented Non-Cascaded Block Ram (cascade_height = 1) of width 72 for RAM "sink_from_aie_gmem1_m_axi_mem__parameterized0:/mem_reg"
+INFO: [Synth 8-7030] Implemented Non-Cascaded Block Ram (cascade_height = 1) of width 72 for RAM "sink_from_aie_gmem1_m_axi_mem__parameterized0:/mem_reg"
+INFO: [Synth 8-7030] Implemented Non-Cascaded Block Ram (cascade_height = 1) of width 72 for RAM "sink_from_aie_gmem1_m_axi_mem__parameterized0:/mem_reg"
+INFO: [Synth 8-7030] Implemented Non-Cascaded Block Ram (cascade_height = 1) of width 10 for RAM "sink_from_aie_gmem1_m_axi_mem__parameterized0:/mem_reg"
+---------------------------------------------------------------------------------------------------
+                   State |                     New Encoding |                Previous Encoding 
+---------------------------------------------------------------------------------------------------
+                    ZERO |                               00 |                               10
+                     ONE |                               10 |                               11
+                     TWO |                               01 |                               01
+---------------------------------------------------------------------------------------------------
+INFO: [Synth 8-3354] encoded FSM with state register 'state_reg' using encoding 'sequential' in module 'sink_from_aie_gmem1_m_axi_reg_slice'
+---------------------------------------------------------------------------------------------------
+                   State |                     New Encoding |                Previous Encoding 
+---------------------------------------------------------------------------------------------------
+                    ZERO |                               00 |                               10
+                     ONE |                               10 |                               11
+                     TWO |                               01 |                               01
+---------------------------------------------------------------------------------------------------
+INFO: [Synth 8-3354] encoded FSM with state register 'state_reg' using encoding 'sequential' in module 'sink_from_aie_gmem1_m_axi_reg_slice__parameterized0'
+---------------------------------------------------------------------------------------------------
+                   State |                     New Encoding |                Previous Encoding 
+---------------------------------------------------------------------------------------------------
+                    ZERO |                               00 |                               10
+                     ONE |                               10 |                               11
+                     TWO |                               01 |                               01
+---------------------------------------------------------------------------------------------------
+INFO: [Synth 8-3354] encoded FSM with state register 'state_reg' using encoding 'sequential' in module 'sink_from_aie_gmem1_m_axi_reg_slice__parameterized1'
+---------------------------------------------------------------------------------------------------
+                   State |                     New Encoding |                Previous Encoding 
+---------------------------------------------------------------------------------------------------
+                    ZERO |                               00 |                               10
+                     ONE |                               10 |                               11
+                     TWO |                               01 |                               01
+---------------------------------------------------------------------------------------------------
+INFO: [Synth 8-3354] encoded FSM with state register 'state_reg' using encoding 'sequential' in module 'sink_from_aie_gmem1_m_axi_reg_slice__parameterized2'
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:01:06 ; elapsed = 00:09:00 . Memory (MB): peak = 3504.234 ; gain = 756.980 ; free physical = 17735 ; free virtual = 101413
+Synthesis current peak Physical Memory [PSS] (MB): peak = 2579.902; parent = 2452.115; children = 150.057
+Synthesis current peak Virtual Memory [VSS] (MB): peak = 4469.832; parent = 3504.238; children = 965.594
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start RTL Component Statistics 
+---------------------------------------------------------------------------------
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input   64 Bit       Adders := 6     
+	   2 Input   52 Bit       Adders := 2     
+	   2 Input   32 Bit       Adders := 5     
+	   2 Input   16 Bit       Adders := 3     
+	   2 Input   12 Bit       Adders := 2     
+	   2 Input    9 Bit       Adders := 10    
+	   2 Input    8 Bit       Adders := 9     
+	   2 Input    7 Bit       Adders := 6     
+	   2 Input    5 Bit       Adders := 19    
+	   2 Input    4 Bit       Adders := 16    
+	   2 Input    2 Bit       Adders := 2     
++---XORs : 
+	   2 Input     32 Bit         XORs := 1     
+	   2 Input      1 Bit         XORs := 2     
++---Registers : 
+	              577 Bit    Registers := 1     
+	              576 Bit    Registers := 1     
+	              514 Bit    Registers := 1     
+	              513 Bit    Registers := 2     
+	              512 Bit    Registers := 2     
+	              480 Bit    Registers := 3     
+	              215 Bit    Registers := 1     
+	               96 Bit    Registers := 6     
+	               72 Bit    Registers := 3     
+	               64 Bit    Registers := 12    
+	               58 Bit    Registers := 3     
+	               52 Bit    Registers := 2     
+	               32 Bit    Registers := 20    
+	               16 Bit    Registers := 1     
+	                9 Bit    Registers := 8     
+	                8 Bit    Registers := 16    
+	                7 Bit    Registers := 3     
+	                6 Bit    Registers := 5     
+	                5 Bit    Registers := 9     
+	                4 Bit    Registers := 10    
+	                2 Bit    Registers := 9     
+	                1 Bit    Registers := 135   
++---RAMs : 
+	            2048K Bit	(65536 X 32 bit)          RAMs := 1     
+	             127K Bit	(255 X 514 bit)          RAMs := 1     
+	               8K Bit	(256 X 32 bit)          RAMs := 2     
+	               8K Bit	(15 X 576 bit)          RAMs := 1     
++---Muxes : 
+	   2 Input  513 Bit        Muxes := 1     
+	   2 Input  512 Bit        Muxes := 4     
+	   2 Input  215 Bit        Muxes := 1     
+	 216 Input  215 Bit        Muxes := 1     
+	   2 Input  148 Bit        Muxes := 1     
+	   2 Input  146 Bit        Muxes := 1     
+	   2 Input   96 Bit        Muxes := 2     
+	   2 Input   78 Bit        Muxes := 1     
+	   2 Input   76 Bit        Muxes := 1     
+	   2 Input   72 Bit        Muxes := 1     
+	   2 Input   64 Bit        Muxes := 12    
+	   2 Input   52 Bit        Muxes := 2     
+	   2 Input   32 Bit        Muxes := 6     
+	   9 Input   32 Bit        Muxes := 1     
+	   2 Input   16 Bit        Muxes := 3     
+	   4 Input   12 Bit        Muxes := 2     
+	   2 Input    9 Bit        Muxes := 3     
+	   2 Input    8 Bit        Muxes := 19    
+	   4 Input    8 Bit        Muxes := 2     
+	   2 Input    7 Bit        Muxes := 3     
+	   2 Input    6 Bit        Muxes := 9     
+	   2 Input    5 Bit        Muxes := 19    
+	   2 Input    4 Bit        Muxes := 18    
+	   4 Input    4 Bit        Muxes := 1     
+	   9 Input    4 Bit        Muxes := 1     
+	   2 Input    3 Bit        Muxes := 3     
+	   3 Input    3 Bit        Muxes := 1     
+	   3 Input    2 Bit        Muxes := 16    
+	   2 Input    2 Bit        Muxes := 52    
+	   4 Input    2 Bit        Muxes := 6     
+	   2 Input    1 Bit        Muxes := 155   
+---------------------------------------------------------------------------------
+Finished RTL Component Statistics 
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Part Resource Summary
+---------------------------------------------------------------------------------
+Part Resources:
+DSPs: 1968 (col length:164)
+BRAMs: 1934 (col length: RAMB18 168 RAMB36 84)
+---------------------------------------------------------------------------------
+Finished Part Resource Summary
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Cross Boundary and Area Optimization
+---------------------------------------------------------------------------------
+WARNING: [Synth 8-7080] Parallel synthesis criteria is not met
+INFO: [Synth 8-6794] RAM ("inst/joint_U/ram_reg") will be automatically implemented using URAM. 
+INFO: [Synth 8-5780] Default cascade height of 1 will be used for URAM '"inst/joint_U/ram_reg"'.
+RAM ("inst/h1_U/ram_reg") is too shallow (depth = 256) to use URAM. Choosing BRAM instead of URAM 
+RAM ("inst/h2_U/ram_reg") is too shallow (depth = 256) to use URAM. Choosing BRAM instead of URAM 
+INFO: [Synth 8-7030] Implemented Non-Cascaded Block Ram (cascade_height = 1) of width 72 for RAM "inst/gmem1_m_axi_U/store_unit/buff_wdata/U_fifo_mem/mem_reg"
+INFO: [Synth 8-7030] Implemented Non-Cascaded Block Ram (cascade_height = 1) of width 72 for RAM "inst/gmem1_m_axi_U/store_unit/buff_wdata/U_fifo_mem/mem_reg"
+INFO: [Synth 8-7030] Implemented Non-Cascaded Block Ram (cascade_height = 1) of width 72 for RAM "inst/gmem1_m_axi_U/store_unit/buff_wdata/U_fifo_mem/mem_reg"
+INFO: [Synth 8-7030] Implemented Non-Cascaded Block Ram (cascade_height = 1) of width 72 for RAM "inst/gmem1_m_axi_U/store_unit/buff_wdata/U_fifo_mem/mem_reg"
+INFO: [Synth 8-7030] Implemented Non-Cascaded Block Ram (cascade_height = 1) of width 72 for RAM "inst/gmem1_m_axi_U/store_unit/buff_wdata/U_fifo_mem/mem_reg"
+INFO: [Synth 8-7030] Implemented Non-Cascaded Block Ram (cascade_height = 1) of width 72 for RAM "inst/gmem1_m_axi_U/store_unit/buff_wdata/U_fifo_mem/mem_reg"
+INFO: [Synth 8-7030] Implemented Non-Cascaded Block Ram (cascade_height = 1) of width 72 for RAM "inst/gmem1_m_axi_U/store_unit/buff_wdata/U_fifo_mem/mem_reg"
+INFO: [Synth 8-7030] Implemented Non-Cascaded Block Ram (cascade_height = 1) of width 72 for RAM "inst/gmem1_m_axi_U/store_unit/buff_wdata/U_fifo_mem/mem_reg"
+INFO: [Synth 8-7030] Implemented Non-Cascaded Block Ram (cascade_height = 1) of width 72 for RAM "inst/gmem1_m_axi_U/load_unit/buff_rdata/U_fifo_mem/mem_reg"
+INFO: [Synth 8-7030] Implemented Non-Cascaded Block Ram (cascade_height = 1) of width 72 for RAM "inst/gmem1_m_axi_U/load_unit/buff_rdata/U_fifo_mem/mem_reg"
+INFO: [Synth 8-7030] Implemented Non-Cascaded Block Ram (cascade_height = 1) of width 72 for RAM "inst/gmem1_m_axi_U/load_unit/buff_rdata/U_fifo_mem/mem_reg"
+INFO: [Synth 8-7030] Implemented Non-Cascaded Block Ram (cascade_height = 1) of width 72 for RAM "inst/gmem1_m_axi_U/load_unit/buff_rdata/U_fifo_mem/mem_reg"
+INFO: [Synth 8-7030] Implemented Non-Cascaded Block Ram (cascade_height = 1) of width 72 for RAM "inst/gmem1_m_axi_U/load_unit/buff_rdata/U_fifo_mem/mem_reg"
+INFO: [Synth 8-7030] Implemented Non-Cascaded Block Ram (cascade_height = 1) of width 72 for RAM "inst/gmem1_m_axi_U/load_unit/buff_rdata/U_fifo_mem/mem_reg"
+INFO: [Synth 8-7030] Implemented Non-Cascaded Block Ram (cascade_height = 1) of width 72 for RAM "inst/gmem1_m_axi_U/load_unit/buff_rdata/U_fifo_mem/mem_reg"
+INFO: [Synth 8-7030] Implemented Non-Cascaded Block Ram (cascade_height = 1) of width 10 for RAM "inst/gmem1_m_axi_U/load_unit/buff_rdata/U_fifo_mem/mem_reg"
+INFO: [Synth 8-6794] RAM ("inst/joint_U/ram_reg") will be automatically implemented using URAM. 
+INFO: [Synth 8-5780] Default cascade height of 1 will be used for URAM '"inst/joint_U/ram_reg"'.
+WARNING: [Synth 8-3332] Sequential element (FSM_onehot_wstate_reg[0]) is unused and will be removed from module sink_from_aie_control_s_axi.
+WARNING: [Synth 8-3332] Sequential element (FSM_onehot_rstate_reg[0]) is unused and will be removed from module sink_from_aie_control_s_axi.
+WARNING: [Synth 8-3332] Sequential element (rs_rreq/FSM_sequential_state_reg[1]) is unused and will be removed from module sink_from_aie_gmem1_m_axi_read.
+WARNING: [Synth 8-3332] Sequential element (rs_rreq/FSM_sequential_state_reg[0]) is unused and will be removed from module sink_from_aie_gmem1_m_axi_read.
+---------------------------------------------------------------------------------
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:01:42 ; elapsed = 00:13:06 . Memory (MB): peak = 3504.234 ; gain = 756.980 ; free physical = 15689 ; free virtual = 99587
+Synthesis current peak Physical Memory [PSS] (MB): peak = 2637.956; parent = 2510.910; children = 150.057
+Synthesis current peak Virtual Memory [VSS] (MB): peak = 4469.832; parent = 3504.238; children = 965.594
+---------------------------------------------------------------------------------
+INFO: [Synth 8-6794] RAM ("inst/joint_U/ram_reg") will be automatically implemented using URAM. 
+INFO: [Synth 8-5780] Default cascade height of 1 will be used for URAM '"inst/joint_U/ram_reg"'.
+RAM ("inst/h1_U/ram_reg") is too shallow (depth = 256) to use URAM. Choosing BRAM instead of URAM 
+RAM ("inst/h2_U/ram_reg") is too shallow (depth = 256) to use URAM. Choosing BRAM instead of URAM 
+WARNING: [Synth 8-6057] Memory: "joint_U/ram_reg" defined in module: "inst" implemented as Ultra-Ram has no pipeline registers. It is recommended to use pipeline registers to achieve high performance.
+---------------------------------------------------------------------------------
+Start ROM, RAM, DSP, Shift Register and Retiming Reporting
+---------------------------------------------------------------------------------
+
+Ultra RAM: Preliminary Mapping Report (see note below)
++------------+-----------------+------------------------+---+---+------------------------+---+---+------------------+---------+--------------+--------------------------+-------------+
+|Module Name | RTL Object      | PORT A (Depth x Width) | W | R | PORT B (Depth x Width) | W | R | Ports driving FF | URAM288 | Matrix Shape | FF provided for Pipeline | FF absorbed | 
++------------+-----------------+------------------------+---+---+------------------------+---+---+------------------+---------+--------------+--------------------------+-------------+
+|inst        | joint_U/ram_reg | 64 K x 32              |   | R | 64 K x 32              | W |   | Port A and B     | 8       | 1x2          | 0                        | 0           | 
++------------+-----------------+------------------------+---+---+------------------------+---+---+------------------+---------+--------------+--------------------------+-------------+
+
+Note: The table above is a preliminary report that shows the Ultra RAMs at the current stage of the synthesis flow. Some Ultra RAMs may be reimplemented as non Ultra RAM primitives later in the synthesis flow. Multiple instantiated Ultra RAMs are reported only once. Fields "FF provided for Pipeline" and "FF absorbed" respectively indicate number of registers available for pipelining and number of registers absorbed in the URAM matrix for pipelining. 
+
+Block RAM: Preliminary Mapping Report (see note below)
++------------------------------+-------------------------------+------------------------+---+---+------------------------+---+---+------------------+--------+--------+-----------------+
+|Module Name                   | RTL Object                    | PORT A (Depth x Width) | W | R | PORT B (Depth x Width) | W | R | Ports driving FF | RAMB18 | RAMB36 | Cascade Heights | 
++------------------------------+-------------------------------+------------------------+---+---+------------------------+---+---+------------------+--------+--------+-----------------+
+|inst                          | h1_U/ram_reg                  | 256 x 32(READ_FIRST)   | W | R |                        |   |   | Port A           | 1      | 0      |                 | 
+|inst                          | h2_U/ram_reg                  | 256 x 32(READ_FIRST)   | W | R |                        |   |   | Port A           | 1      | 0      |                 | 
+|inst/gmem1_m_axi_U/store_unit | buff_wdata/U_fifo_mem/mem_reg | 15 x 576(WRITE_FIRST)  |   | R | 15 x 576(READ_FIRST)   | W |   | Port A and B     | 0      | 8      | 1,1,1,1,1,1,1,1 | 
++------------------------------+-------------------------------+------------------------+---+---+------------------------+---+---+------------------+--------+--------+-----------------+
+
+Note: The table above is a preliminary report that shows the Block RAMs at the current stage of the synthesis flow. Some Block RAMs may be reimplemented as non Block RAM primitives later in the synthesis flow. Multiple instantiated Block RAMs are reported only once. 
+---------------------------------------------------------------------------------
+Finished ROM, RAM, DSP, Shift Register and Retiming Reporting
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Applying XDC Timing Constraints
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:02:44 ; elapsed = 00:20:35 . Memory (MB): peak = 4049.000 ; gain = 1301.746 ; free physical = 12806 ; free virtual = 96872
+Synthesis current peak Physical Memory [PSS] (MB): peak = 3209.095; parent = 3080.748; children = 150.057
+Synthesis current peak Virtual Memory [VSS] (MB): peak = 5014.598; parent = 4049.004; children = 965.594
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Timing Optimization
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Timing Optimization : Time (s): cpu = 00:03:02 ; elapsed = 00:23:15 . Memory (MB): peak = 4178.062 ; gain = 1430.809 ; free physical = 12227 ; free virtual = 96296
+Synthesis current peak Physical Memory [PSS] (MB): peak = 3337.470; parent = 3209.168; children = 150.057
+Synthesis current peak Virtual Memory [VSS] (MB): peak = 5143.660; parent = 4178.066; children = 965.594
+---------------------------------------------------------------------------------
+WARNING: [Synth 8-6057] Memory: "joint_U/ram_reg" defined in module: "inst" implemented as Ultra-Ram has no pipeline registers. It is recommended to use pipeline registers to achieve high performance.
+---------------------------------------------------------------------------------
+Start ROM, RAM, DSP, Shift Register and Retiming Reporting
+---------------------------------------------------------------------------------
+
+Ultra RAM: Final Mapping Report (see note below)
++------------+-----------------+------------------------+---+---+------------------------+---+---+------------------+---------+--------------+--------------------------+-------------+
+|Module Name | RTL Object      | PORT A (Depth x Width) | W | R | PORT B (Depth x Width) | W | R | Ports driving FF | URAM288 | Matrix Shape | FF provided for Pipeline | FF absorbed | 
++------------+-----------------+------------------------+---+---+------------------------+---+---+------------------+---------+--------------+--------------------------+-------------+
+|inst        | joint_U/ram_reg | 64 K x 32              |   | R | 64 K x 32              | W |   | Port A and B     | 8       | 1x2          | 0                        | 0           | 
++------------+-----------------+------------------------+---+---+------------------------+---+---+------------------+---------+--------------+--------------------------+-------------+
+
+
+Block RAM: Final Mapping Report
++------------------------------+-------------------------------+------------------------+---+---+------------------------+---+---+------------------+--------+--------+-----------------+
+|Module Name                   | RTL Object                    | PORT A (Depth x Width) | W | R | PORT B (Depth x Width) | W | R | Ports driving FF | RAMB18 | RAMB36 | Cascade Heights | 
++------------------------------+-------------------------------+------------------------+---+---+------------------------+---+---+------------------+--------+--------+-----------------+
+|inst                          | h1_U/ram_reg                  | 256 x 32(READ_FIRST)   | W | R |                        |   |   | Port A           | 1      | 0      |                 | 
+|inst                          | h2_U/ram_reg                  | 256 x 32(READ_FIRST)   | W | R |                        |   |   | Port A           | 1      | 0      |                 | 
+|inst/gmem1_m_axi_U/store_unit | buff_wdata/U_fifo_mem/mem_reg | 15 x 576(WRITE_FIRST)  |   | R | 15 x 576(READ_FIRST)   | W |   | Port A and B     | 0      | 8      | 1,1,1,1,1,1,1,1 | 
++------------------------------+-------------------------------+------------------------+---+---+------------------------+---+---+------------------+--------+--------+-----------------+
+
+---------------------------------------------------------------------------------
+Finished ROM, RAM, DSP, Shift Register and Retiming Reporting
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Technology Mapping
+---------------------------------------------------------------------------------
+INFO: [Synth 8-5816] Retiming module `sink_from_aie`
+   Worst Slack before retiming is 186 and worst slack after retiming is 186
+   Numbers of local forward move = 1, and local backward move = 0
+
+	Retimed registers names:
+		inst/tmp_reg_354_reg[8]_fret
+		inst/tmp_reg_354_reg[8]_fret__0
+		inst/tmp_reg_354_reg[8]_fret__1
+		inst/tmp_reg_354_reg[8]_fret__2
+		inst/tmp_reg_354_reg[8]_fret__3
+		inst/tmp_reg_354_reg[8]_fret__4
+		inst/tmp_reg_354_reg[8]_fret__5
+		inst/tmp_reg_354_reg[8]_fret__6
+ 
+
+INFO: [Synth 8-5816] Retiming module `sink_from_aie' done
+
+
+INFO: [Synth 8-11328] No retiming is needed, due to no register satisfying retiming conditions
+INFO: [Synth 8-5816] Retiming module `ulp_inst_0_sink_from_aie_0_0`
+   Worst Slack before retiming is 186 and worst slack after retiming is 186
+   Numbers of local forward move = 0, and local backward move = 0
+
+
+INFO: [Synth 8-5816] Retiming module `ulp_inst_0_sink_from_aie_0_0' done
+
+
+INFO: [Synth 8-7052] The timing for the instance inst/h1_U/ram_reg (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance inst/h1_U/ram_reg (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance inst/h2_U/ram_reg (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance inst/h2_U/ram_reg (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance inst/joint_U/ram_reg_uram_1 (implemented as a Ultra RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance inst/joint_U/ram_reg_uram_2 (implemented as a Ultra RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance inst/joint_U/ram_reg_uram_4 (implemented as a Ultra RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance inst/joint_U/ram_reg_uram_5 (implemented as a Ultra RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance inst/joint_U/ram_reg_uram_7 (implemented as a Ultra RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance inst/joint_U/ram_reg_uram_8 (implemented as a Ultra RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance inst/joint_U/ram_reg_uram_10 (implemented as a Ultra RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance inst/joint_U/ram_reg_uram_11 (implemented as a Ultra RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+---------------------------------------------------------------------------------
+Finished Technology Mapping : Time (s): cpu = 00:03:15 ; elapsed = 00:25:02 . Memory (MB): peak = 4178.062 ; gain = 1430.809 ; free physical = 12255 ; free virtual = 96370
+Synthesis current peak Physical Memory [PSS] (MB): peak = 3337.470; parent = 3209.168; children = 150.057
+Synthesis current peak Virtual Memory [VSS] (MB): peak = 5143.660; parent = 4178.066; children = 965.594
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Final Netlist Cleanup
+---------------------------------------------------------------------------------
+INFO: [Synth 8-3295] tying undriven pin i_3_144:I4 to constant 0
+INFO: [Synth 8-3295] tying undriven pin grp_sink_from_aie_Pipeline_VITIS_LOOP_117_6_VITIS_LOOP_118_7_fu_211/i_3_740:I4 to constant 0
+INFO: [Synth 8-3295] tying undriven pin i_3_789:I4 to constant 0
+INFO: [Synth 8-3295] tying undriven pin i_3_1790:I4 to constant 0
+INFO: [Synth 8-3295] tying undriven pin i_3_1793:I4 to constant 0
+INFO: [Synth 8-3295] tying undriven pin i_3_2803:I4 to constant 0
+---------------------------------------------------------------------------------
+Finished IO Insertion : Time (s): cpu = 00:03:25 ; elapsed = 00:26:30 . Memory (MB): peak = 4178.062 ; gain = 1430.809 ; free physical = 17401 ; free virtual = 101483
+Synthesis current peak Physical Memory [PSS] (MB): peak = 3337.470; parent = 3209.168; children = 150.057
+Synthesis current peak Virtual Memory [VSS] (MB): peak = 5143.660; parent = 4178.066; children = 965.594
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Instances
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Instances : Time (s): cpu = 00:03:25 ; elapsed = 00:26:32 . Memory (MB): peak = 4178.062 ; gain = 1430.809 ; free physical = 17403 ; free virtual = 101486
+Synthesis current peak Physical Memory [PSS] (MB): peak = 3337.470; parent = 3209.168; children = 150.057
+Synthesis current peak Virtual Memory [VSS] (MB): peak = 5143.660; parent = 4178.066; children = 965.594
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Rebuilding User Hierarchy
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:03:26 ; elapsed = 00:26:41 . Memory (MB): peak = 4178.062 ; gain = 1430.809 ; free physical = 17361 ; free virtual = 101446
+Synthesis current peak Physical Memory [PSS] (MB): peak = 3337.470; parent = 3209.168; children = 150.057
+Synthesis current peak Virtual Memory [VSS] (MB): peak = 5143.660; parent = 4178.066; children = 965.594
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Ports
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Ports : Time (s): cpu = 00:03:26 ; elapsed = 00:26:43 . Memory (MB): peak = 4178.062 ; gain = 1430.809 ; free physical = 17343 ; free virtual = 101427
+Synthesis current peak Physical Memory [PSS] (MB): peak = 3337.470; parent = 3209.168; children = 150.057
+Synthesis current peak Virtual Memory [VSS] (MB): peak = 5143.660; parent = 4178.066; children = 965.594
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Handling Custom Attributes
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Handling Custom Attributes : Time (s): cpu = 00:03:26 ; elapsed = 00:26:49 . Memory (MB): peak = 4178.062 ; gain = 1430.809 ; free physical = 17316 ; free virtual = 101402
+Synthesis current peak Physical Memory [PSS] (MB): peak = 3337.470; parent = 3209.168; children = 150.057
+Synthesis current peak Virtual Memory [VSS] (MB): peak = 5143.660; parent = 4178.066; children = 965.594
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Nets
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Nets : Time (s): cpu = 00:03:26 ; elapsed = 00:26:52 . Memory (MB): peak = 4178.062 ; gain = 1430.809 ; free physical = 17302 ; free virtual = 101389
+Synthesis current peak Physical Memory [PSS] (MB): peak = 3337.470; parent = 3209.168; children = 150.057
+Synthesis current peak Virtual Memory [VSS] (MB): peak = 5143.660; parent = 4178.066; children = 965.594
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start ROM, RAM, DSP, Shift Register and Retiming Reporting
+---------------------------------------------------------------------------------
+
+Dynamic Shift Register Report:
++------------+-------------+--------+------------+--------+---------+--------+--------+--------+
+|Module Name | RTL Name    | Length | Data Width | SRL16E | SRLC32E | Mux F7 | Mux F8 | Mux F9 | 
++------------+-------------+--------+------------+--------+---------+--------+--------+--------+
+|dsrl        | mem_reg[67] | 96     | 96         | 0      | 288     | 0      | 0      | 0      | 
+|dsrl__1     | mem_reg[14] | 1      | 1          | 1      | 0       | 0      | 0      | 0      | 
+|dsrl__2     | mem_reg[67] | 1      | 1          | 0      | 3       | 0      | 0      | 0      | 
+|dsrl__3     | mem_reg[14] | 8      | 8          | 8      | 0       | 0      | 0      | 0      | 
+|dsrl__4     | mem_reg[14] | 72     | 72         | 72     | 0       | 0      | 0      | 0      | 
+|dsrl__5     | mem_reg[14] | 577    | 577        | 577    | 0       | 0      | 0      | 0      | 
++------------+-------------+--------+------------+--------+---------+--------+--------+--------+
+
+
+Retiming Report:
++--------------------+---+
+|Retiming summary:   |   | 
++--------------------+---+
+|Forward Retiming    | 1 | 
+|Backward Retiming   | 0 | 
+|New registers added | 8 | 
+|Registers deleted   | 0 | 
++--------------------+---+
+
+---------------------------------------------------------------------------------
+Finished ROM, RAM, DSP, Shift Register and Retiming Reporting
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Writing Synthesis Report
+---------------------------------------------------------------------------------
+
+Report BlackBoxes: 
++-+--------------+----------+
+| |BlackBox name |Instances |
++-+--------------+----------+
++-+--------------+----------+
+
+Report Cell Usage: 
++------+-------------+------+
+|      |Cell         |Count |
++------+-------------+------+
+|1     |LOOKAHEAD8   |    65|
+|6     |LUT1         |    23|
+|7     |LUT2         |   574|
+|8     |LUT3         |   410|
+|9     |LUT4         |   349|
+|10    |LUT5         |   249|
+|11    |LUT6         |   847|
+|12    |LUT6CY       |   474|
+|13    |LUT6         |     9|
+|14    |RAMB18E5_INT |     2|
+|15    |RAMB36E5_INT |     8|
+|16    |SRL16E       |   645|
+|17    |SRLC32E      |   180|
+|18    |URAM288E5    |     8|
+|22    |FDRE         |  4482|
+|23    |FDSE         |     6|
++------+-------------+------+
+---------------------------------------------------------------------------------
+Finished Writing Synthesis Report : Time (s): cpu = 00:03:26 ; elapsed = 00:26:54 . Memory (MB): peak = 4178.062 ; gain = 1430.809 ; free physical = 17292 ; free virtual = 101378
+Synthesis current peak Physical Memory [PSS] (MB): peak = 3337.470; parent = 3209.168; children = 150.057
+Synthesis current peak Virtual Memory [VSS] (MB): peak = 5143.660; parent = 4178.066; children = 965.594
+---------------------------------------------------------------------------------
+Synthesis finished with 0 errors, 0 critical warnings and 1791 warnings.
+Synthesis Optimization Runtime : Time (s): cpu = 00:03:00 ; elapsed = 00:23:37 . Memory (MB): peak = 4178.062 ; gain = 1170.828 ; free physical = 17314 ; free virtual = 101401
+Synthesis Optimization Complete : Time (s): cpu = 00:03:27 ; elapsed = 00:26:58 . Memory (MB): peak = 4178.070 ; gain = 1430.809 ; free physical = 17295 ; free virtual = 101383
+INFO: [Project 1-571] Translating synthesized netlist
+Netlist sorting complete. Time (s): cpu = 00:00:00.19 ; elapsed = 00:00:01 . Memory (MB): peak = 4178.070 ; gain = 0.000 ; free physical = 16370 ; free virtual = 100463
+INFO: [Netlist 29-17] Analyzing 493 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+INFO: [Chipscope 16-579] Latest version is versal_cips_v3_3 for versal_cips_v3_2
+INFO: [Constraints 18-6359] No Clock Expansion Window constraints config file entry for device xcvc1902.  GCLK Deskew mode will be Off and cannot be enabled via GCLK_DESKEW override.
+INFO: [Constraints 18-5720] The default GCLK Deskew mode is Off.
+INFO: [Project 1-570] Preparing netlist for logic optimization
+INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
+INFO: [Opt 31-422] The CLOCK_DOMAINS attribute on the BRAM cell inst/h1_U/ram_reg has been changed from INDEPENDENT to COMMON to match the clocking topology used for the BRAM.
+INFO: [Opt 31-422] The CLOCK_DOMAINS attribute on the BRAM cell inst/h2_U/ram_reg has been changed from INDEPENDENT to COMMON to match the clocking topology used for the BRAM.
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.01 . Memory (MB): peak = 4178.070 ; gain = 0.000 ; free physical = 14722 ; free virtual = 98824
+INFO: [Project 1-111] Unisim Transformation Summary:
+  A total of 493 instances were transformed.
+  LUT6CY => LUT6CY (LUTCY1, LUTCY2): 474 instances
+  LUT6_2 => LUT6_2 (LUT5, LUT6): 9 instances
+  RAMB18E5 => RAMB18E5_INT: 2 instances
+  RAMB36E5 => RAMB36E5_INT: 8 instances
+
+Synth Design complete, checksum: 73d1d336
+INFO: [Common 17-83] Releasing license: Synthesis
+189 Infos, 127 Warnings, 0 Critical Warnings and 0 Errors encountered.
+synth_design completed successfully
+synth_design: Time (s): cpu = 00:04:03 ; elapsed = 00:31:32 . Memory (MB): peak = 4178.070 ; gain = 2147.582 ; free physical = 14420 ; free virtual = 98523
+INFO: [Common 17-600] The following parameters have non-default value.
+general.maxThreads
+INFO: [Common 17-1381] The checkpoint '/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/ulp_inst_0_sink_from_aie_0_0_synth_1/ulp_inst_0_sink_from_aie_0_0.dcp' has been generated.
+write_checkpoint: Time (s): cpu = 00:00:02 ; elapsed = 00:00:17 . Memory (MB): peak = 4210.078 ; gain = 32.008 ; free physical = 14692 ; free virtual = 98800
+write_verilog: Time (s): cpu = 00:00:00.89 ; elapsed = 00:00:09 . Memory (MB): peak = 4210.078 ; gain = 0.000 ; free physical = 14572 ; free virtual = 98686
+write_vhdl: Time (s): cpu = 00:00:01 ; elapsed = 00:00:12 . Memory (MB): peak = 4210.078 ; gain = 0.000 ; free physical = 14357 ; free virtual = 98478
+INFO: [Coretcl 2-1648] Added synthesis output to IP cache for IP ulp_inst_0_sink_from_aie_0_0, cache-ID = 59267c0463a4f82c
+INFO: [Coretcl 2-1174] Renamed 42 cell refs.
+INFO: [Common 17-1381] The checkpoint '/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/ulp_inst_0_sink_from_aie_0_0_synth_1/ulp_inst_0_sink_from_aie_0_0.dcp' has been generated.
+write_checkpoint: Time (s): cpu = 00:00:02 ; elapsed = 00:00:19 . Memory (MB): peak = 4210.078 ; gain = 0.000 ; free physical = 14297 ; free virtual = 98425
+INFO: [runtcl-4] Executing : report_utilization -file ulp_inst_0_sink_from_aie_0_0_utilization_synth.rpt -pb ulp_inst_0_sink_from_aie_0_0_utilization_synth.pb
+report_utilization: Time (s): cpu = 00:00:00.36 ; elapsed = 00:00:05 . Memory (MB): peak = 4210.078 ; gain = 0.000 ; free physical = 14172 ; free virtual = 98304
+write_verilog: Time (s): cpu = 00:00:00.76 ; elapsed = 00:00:08 . Memory (MB): peak = 4210.078 ; gain = 0.000 ; free physical = 13969 ; free virtual = 98110
+write_vhdl: Time (s): cpu = 00:00:01 ; elapsed = 00:00:09 . Memory (MB): peak = 4210.078 ; gain = 0.000 ; free physical = 13792 ; free virtual = 97940
+INFO: [Common 17-206] Exiting Vivado at Sun Jun 30 18:58:41 2024...

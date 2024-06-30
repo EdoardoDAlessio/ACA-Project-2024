@@ -1,0 +1,61 @@
+Begin Function 'sink_from_aie_Pipeline_VITIS_LOOP_78_3'
+
+RTL state condition: (1'b1 == ap_CS_fsm_state1)
+# ST_1
+local i_1 <read_80> <integer> <> 'read' </home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/data_movers/sink_from_aie.cpp:80>
+value /home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/data_movers/sink_from_aie.cpp:80
+reg: i_1_reg_201[31:0] lv
+
+local trunc_ln82 <trunc_82> <integer> <> 'trunc' </home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/data_movers/sink_from_aie.cpp:82>
+trunc_ln82 /home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/data_movers/sink_from_aie.cpp:82
+reg: trunc_ln82_reg_205[7:0] lv
+
+local icmp_ln82 <icmp_82> <integer> <Comparator> 'icmp' </home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/data_movers/sink_from_aie.cpp:82>
+icmp_ln82 /home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/data_movers/sink_from_aie.cpp:82
+reg: icmp_ln82_reg_210[0:0] lv
+
+local tmp <bitselect_86> <integer> <> 'bitselect' </home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/data_movers/sink_from_aie.cpp:86>
+tmp /home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/data_movers/sink_from_aie.cpp:86
+reg: tmp_reg_214[0:0] lv
+
+
+RTL state condition: (1'b1 == ap_CS_fsm_state2)
+# ST_2
+local joint_addr <getelementptr_89> <integer> <GetArrayAddress> 'getelementptr' </home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/data_movers/sink_from_aie.cpp:89>
+joint_addr /home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/data_movers/sink_from_aie.cpp:89
+reg: joint_addr_reg_218[15:0] lv
+
+local h2_addr <getelementptr_90> <integer> <GetArrayAddress> 'getelementptr' </home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/data_movers/sink_from_aie.cpp:90>
+h2_addr /home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/data_movers/sink_from_aie.cpp:90
+reg: h2_addr_reg_223[7:0] lv
+
+local h1_addr <getelementptr_98> <integer> <GetArrayAddress> 'getelementptr' </home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/data_movers/sink_from_aie.cpp:98>
+h1_addr /home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/data_movers/sink_from_aie.cpp:98
+reg: h1_addr_reg_228[7:0] lv
+
+
+RTL state condition: (1'b1 == ap_CS_fsm_state3)
+# ST_3
+local input_stream_read <read_89> <integer> <> 'read' </home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/data_movers/sink_from_aie.cpp:89>
+input_stream_read /home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/data_movers/sink_from_aie.cpp:89
+reg: reg_97[31:0] lv
+
+local joint_load <load_89> <integer> <ArrayAccess><ArrayLoad><MultiCycle> 'load' </home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/data_movers/sink_from_aie.cpp:89>
+joint_load /home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/data_movers/sink_from_aie.cpp:89
+reg: joint_load_reg_233[31:0] lv
+
+local h2_load <load_90> <integer> <ArrayAccess><ArrayLoad><MultiCycle> 'load' </home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/data_movers/sink_from_aie.cpp:90>
+h2_load /home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/data_movers/sink_from_aie.cpp:90
+reg: h2_load_reg_238[31:0] lv
+
+local input_stream_read_2 <read_98> <integer> <> 'read' </home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/data_movers/sink_from_aie.cpp:98>
+input_stream_read_2 /home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/data_movers/sink_from_aie.cpp:98
+reg: reg_97[31:0] lv
+
+local h1_load <load_98> <integer> <ArrayAccess><ArrayLoad><MultiCycle> 'load' </home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/data_movers/sink_from_aie.cpp:98>
+h1_load /home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/data_movers/sink_from_aie.cpp:98
+reg: h1_load_reg_243[31:0] lv
+
+
+End Function 'sink_from_aie_Pipeline_VITIS_LOOP_78_3'
+

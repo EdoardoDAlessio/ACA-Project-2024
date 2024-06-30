@@ -1,0 +1,292 @@
+
+*** Running vivado
+    with args -log ulp_inst_0_ip_pipe_dbg_hub_fw_00_0.vds -m64 -product Vivado -mode batch -messageDb vivado.pb -notrace -source ulp_inst_0_ip_pipe_dbg_hub_fw_00_0.tcl
+
+
+****** Vivado v2022.2.2 (64-bit)
+  **** SW Build 3788238 on Tue Feb 21 19:59:23 MST 2023
+  **** IP Build 3783773 on Tue Feb 21 23:41:56 MST 2023
+    ** Copyright 1986-2023 Xilinx, Inc. All Rights Reserved.
+
+source ulp_inst_0_ip_pipe_dbg_hub_fw_00_0.tcl -notrace
+INFO: Dispatch client connection id - 36651
+create_project: Time (s): cpu = 00:00:13 ; elapsed = 00:01:42 . Memory (MB): peak = 1835.047 ; gain = 89.961 ; free physical = 17133 ; free virtual = 101018
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1700] Loaded user IP repository '/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/int/xo/ip_repo/xilinx_com_hls_sink_from_aie_1_0'.
+INFO: [IP_Flow 19-1700] Loaded user IP repository '/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/int/xo/ip_repo/xilinx_com_hls_setup_aie_1_0'.
+INFO: [IP_Flow 19-1700] Loaded user IP repository '/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/.local/hw_platform/iprepo'.
+INFO: [IP_Flow 19-1700] Loaded user IP repository '/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/.local/hw_platform/ipcache'.
+INFO: [IP_Flow 19-1700] Loaded user IP repository '/home/xilinx/software/Vitis/2022.2/data/ip'.
+INFO: [IP_Flow 19-2313] Loaded Vivado IP repository '/home/xilinx/software/Vivado/2022.2/data/ip'.
+WARNING: [IP_Flow 19-1663] Duplicate IP found for 'xilinx.com:hls:Data_Mover_XIP:1.0'. The one found in IP location '/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/.local/hw_platform/iprepo/xilinx/data_mover' will take precedence over the same IP in location /home/xilinx/software/Vitis/2022.2/data/ip/xilinx/data_mover
+WARNING: [IP_Flow 19-1663] Duplicate IP found for 'xilinx.com:ip:adapter_v3_0:1.0'. The one found in IP location '/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/.local/hw_platform/iprepo/xilinx/adapter_v3_0' will take precedence over the same IP in location /home/xilinx/software/Vitis/2022.2/data/ip/xilinx/adapter_v3_0
+WARNING: [IP_Flow 19-1663] Duplicate IP found for 'xilinx.com:ip:axis_ic2sgdma:1.0'. The one found in IP location '/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/.local/hw_platform/iprepo/xilinx/axis_ic2sgdma_v1_0' will take precedence over the same IP in location /home/xilinx/software/Vitis/2022.2/data/ip/xilinx/axis_ic2sgdma_v1_0
+WARNING: [IP_Flow 19-1663] Duplicate IP found for 'xilinx.com:ip:Event_Pulse:1.0'. The one found in IP location '/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/.local/hw_platform/iprepo/xilinx/event_pulse_v1_0' will take precedence over the same IP in location /home/xilinx/software/Vitis/2022.2/data/ip/xilinx/event_pulse_v1_0
+WARNING: [IP_Flow 19-1663] Duplicate IP found for 'xilinx.com:ip:sds_lib:1.0'. The one found in IP location '/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/.local/hw_platform/iprepo/xilinx/sds_lib' will take precedence over the same IP in location /home/xilinx/software/Vitis/2022.2/data/ip/xilinx/sds_lib
+WARNING: [IP_Flow 19-1663] Duplicate IP found for 'xilinx.com:sds:sds_mem_sink:1.0'. The one found in IP location '/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/.local/hw_platform/iprepo/xilinx/sds_mem_sink' will take precedence over the same IP in location /home/xilinx/software/Vitis/2022.2/data/ip/xilinx/sds_mem_sink
+WARNING: [IP_Flow 19-1663] Duplicate IP found for 'xilinx.com:ip:xrt_queue:1.1'. The one found in IP location '/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/.local/hw_platform/iprepo/xilinx/xrt_queue_v1_1' will take precedence over the same IP in location /home/xilinx/software/Vitis/2022.2/data/ip/xilinx/xrt_queue_v1_1
+WARNING: [IP_Flow 19-1663] Duplicate IP found for 'xilinx.com:ip:aximm_tieoff_v1_0:1.0'. The one found in IP location '/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/.local/hw_platform/iprepo/xilinx/aximm_tieoff_v1_0' will take precedence over the same IP in location /home/xilinx/software/Vitis/2022.2/data/ip/xilinx/aximm_tieoff_v1_0
+WARNING: [IP_Flow 19-1663] Duplicate IP found for 'xilinx.com:ip:maxis_tieoff_v1_0:1.0'. The one found in IP location '/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/.local/hw_platform/iprepo/xilinx/maxis_tieoff_v1_0' will take precedence over the same IP in location /home/xilinx/software/Vitis/2022.2/data/ip/xilinx/maxis_tieoff_v1_0
+WARNING: [IP_Flow 19-1663] Duplicate IP found for 'xilinx.com:ip:saxis_tieoff_v1_0:1.0'. The one found in IP location '/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/.local/hw_platform/iprepo/xilinx/saxis_tieoff_v1_0' will take precedence over the same IP in location /home/xilinx/software/Vitis/2022.2/data/ip/xilinx/saxis_tieoff_v1_0
+WARNING: [IP_Flow 19-1663] Duplicate IP found for 'xilinx.com:ip:ovld_reg:1.0'. The one found in IP location '/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/.local/hw_platform/iprepo/xilinx/ovld_reg_v1_0' will take precedence over the same IP in location /home/xilinx/software/Vitis/2022.2/data/ip/xilinx/ovld_reg_v1_0
+WARNING: [IP_Flow 19-1663] Duplicate IP found for 'xilinx.com:ip:xrt_queue:1.0'. The one found in IP location '/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/.local/hw_platform/iprepo/xilinx/xrt_queue_v1_0' will take precedence over the same IP in location /home/xilinx/software/Vitis/2022.2/data/ip/xilinx/xrt_queue_v1_0
+WARNING: [IP_Flow 19-1663] Duplicate IP found for 'xilinx.com:ip:axi_fifo_register:3.0'. The one found in IP location '/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/.local/hw_platform/iprepo/xilinx/axi_fifo_register_v3_0' will take precedence over the same IP in location /home/xilinx/software/Vitis/2022.2/data/ip/xilinx/axi_fifo_register_v3_0
+WARNING: [IP_Flow 19-1663] Duplicate IP found for 'xilinx.com:ip:stream_gate:1.0'. The one found in IP location '/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/.local/hw_platform/iprepo/xilinx/stream_gate_v1_0' will take precedence over the same IP in location /home/xilinx/software/Vitis/2022.2/data/ip/xilinx/stream_gate_v1_0
+WARNING: [IP_Flow 19-1663] Duplicate IP found for 'xilinx.com:ip:sgdma2axis_ic:1.0'. The one found in IP location '/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/.local/hw_platform/iprepo/xilinx/sgdma2axis_ic_v1_0' will take precedence over the same IP in location /home/xilinx/software/Vitis/2022.2/data/ip/xilinx/sgdma2axis_ic_v1_0
+WARNING: [IP_Flow 19-1663] Duplicate IP found for 'xilinx.com:sds:sds_mem_source:1.0'. The one found in IP location '/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/.local/hw_platform/iprepo/xilinx/sds_mem_source' will take precedence over the same IP in location /home/xilinx/software/Vitis/2022.2/data/ip/xilinx/sds_mem_source
+update_ip_catalog: Time (s): cpu = 00:00:05 ; elapsed = 00:00:20 . Memory (MB): peak = 2030.789 ; gain = 191.742 ; free physical = 16558 ; free virtual = 100451
+INFO: [IP_Flow 19-6924] IPCACHE: Running cache check for IP inst: ulp_inst_0_ip_pipe_dbg_hub_fw_00_0
+Command: synth_design -top ulp_inst_0_ip_pipe_dbg_hub_fw_00_0 -part xcvc1902-vsvd1760-2MP-e-S -incremental_mode off -mode out_of_context
+Starting synth_design
+Attempting to get a license for feature 'Synthesis' and/or device 'xcvc1902'
+INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xcvc1902'
+INFO: [Device 21-403] Loading part xcvc1902-vsvd1760-2MP-e-S
+INFO: [Synth 8-7079] Multithreading enabled for synth_design using a maximum of 1 processes.
+INFO: [Synth 8-7078] Launching helper process for spawning children vivado processes
+INFO: [Synth 8-7075] Helper process launched with PID 1881991
+INFO: [Synth 8-11241] undeclared symbol 'REGCCE', assumed default net type 'wire' [/home/xilinx/software/Vivado/2022.2/data/verilog/src/unimacro/BRAM_SINGLE_MACRO.v:2170]
+---------------------------------------------------------------------------------
+Starting RTL Elaboration : Time (s): cpu = 00:00:11 ; elapsed = 00:01:57 . Memory (MB): peak = 3102.844 ; gain = 353.828 ; free physical = 14155 ; free virtual = 98157
+Synthesis current peak Physical Memory [PSS] (MB): peak = 2296.507; parent = 2168.744; children = 127.804
+Synthesis current peak Virtual Memory [VSS] (MB): peak = 4074.379; parent = 3108.785; children = 965.594
+---------------------------------------------------------------------------------
+INFO: [Synth 8-6157] synthesizing module 'ulp_inst_0_ip_pipe_dbg_hub_fw_00_0' [/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ip/ulp_inst_0_ip_pipe_dbg_hub_fw_00_0/synth/ulp_inst_0_ip_pipe_dbg_hub_fw_00_0.v:53]
+INFO: [Synth 8-6157] synthesizing module 'util_ff_v1_0_1_util_ff' [/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ipshared/28b8/hdl/util_ff_v1_0_rfs.v:3]
+INFO: [Synth 8-6157] synthesizing module 'FDRE' [/home/xilinx/software/Vivado/2022.2/scripts/rt/data/unisim_comp.v:38708]
+INFO: [Synth 8-6155] done synthesizing module 'FDRE' (0#1) [/home/xilinx/software/Vivado/2022.2/scripts/rt/data/unisim_comp.v:38708]
+INFO: [Synth 8-6155] done synthesizing module 'util_ff_v1_0_1_util_ff' (0#1) [/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ipshared/28b8/hdl/util_ff_v1_0_rfs.v:3]
+INFO: [Synth 8-6155] done synthesizing module 'ulp_inst_0_ip_pipe_dbg_hub_fw_00_0' (0#1) [/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ip/ulp_inst_0_ip_pipe_dbg_hub_fw_00_0/synth/ulp_inst_0_ip_pipe_dbg_hub_fw_00_0.v:53]
+WARNING: [Synth 8-7129] Port set in module util_ff_v1_0_1_util_ff is either unconnected or has no load
+WARNING: [Synth 8-7129] Port clear in module util_ff_v1_0_1_util_ff is either unconnected or has no load
+WARNING: [Synth 8-7129] Port preset in module util_ff_v1_0_1_util_ff is either unconnected or has no load
+WARNING: [Synth 8-7129] Port gate_enable in module util_ff_v1_0_1_util_ff is either unconnected or has no load
+WARNING: [Synth 8-7129] Port G in module util_ff_v1_0_1_util_ff is either unconnected or has no load
+---------------------------------------------------------------------------------
+Finished RTL Elaboration : Time (s): cpu = 00:00:14 ; elapsed = 00:02:32 . Memory (MB): peak = 3176.750 ; gain = 427.734 ; free physical = 14883 ; free virtual = 98895
+Synthesis current peak Physical Memory [PSS] (MB): peak = 2370.720; parent = 2242.961; children = 127.804
+Synthesis current peak Virtual Memory [VSS] (MB): peak = 4142.348; parent = 3176.754; children = 965.594
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Handling Custom Attributes
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:14 ; elapsed = 00:02:35 . Memory (MB): peak = 3194.562 ; gain = 445.547 ; free physical = 14783 ; free virtual = 98795
+Synthesis current peak Physical Memory [PSS] (MB): peak = 2370.720; parent = 2242.961; children = 127.804
+Synthesis current peak Virtual Memory [VSS] (MB): peak = 4160.160; parent = 3194.566; children = 965.594
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:14 ; elapsed = 00:02:37 . Memory (MB): peak = 3194.562 ; gain = 445.547 ; free physical = 14779 ; free virtual = 98792
+Synthesis current peak Physical Memory [PSS] (MB): peak = 2370.720; parent = 2242.961; children = 127.804
+Synthesis current peak Virtual Memory [VSS] (MB): peak = 4160.160; parent = 3194.566; children = 965.594
+---------------------------------------------------------------------------------
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 3200.500 ; gain = 0.000 ; free physical = 14224 ; free virtual = 98240
+INFO: [Chipscope 16-579] Latest version is versal_cips_v3_3 for versal_cips_v3_2
+INFO: [Constraints 18-6359] No Clock Expansion Window constraints config file entry for device xcvc1902.  GCLK Deskew mode will be Off and cannot be enabled via GCLK_DESKEW override.
+INFO: [Constraints 18-5720] The default GCLK Deskew mode is Off.
+INFO: [Project 1-570] Preparing netlist for logic optimization
+
+Processing XDC Constraints
+Initializing timing engine
+WARNING: [Designutils 20-1758] instance inst wraps a black box. Constraint reading is skipped for elaborated designs in this case. Skipping constraint file '/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ip/ulp_inst_0_ip_pipe_dbg_hub_fw_00_0/ulp_inst_0_ip_pipe_dbg_hub_fw_00_0_ooc.xdc'.
+Parsing XDC File [/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/ulp_inst_0_ip_pipe_dbg_hub_fw_00_0_synth_1/dont_touch.xdc]
+Finished Parsing XDC File [/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/ulp_inst_0_ip_pipe_dbg_hub_fw_00_0_synth_1/dont_touch.xdc]
+Completed Processing XDC Constraints
+
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 3260.527 ; gain = 0.000 ; free physical = 13219 ; free virtual = 97247
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
+
+Constraint Validation Runtime : Time (s): cpu = 00:00:00.01 ; elapsed = 00:00:00.23 . Memory (MB): peak = 3260.527 ; gain = 0.000 ; free physical = 13208 ; free virtual = 97236
+INFO: [Designutils 20-5008] Incremental synthesis strategy off
+INFO: [Synth 8-11241] undeclared symbol 'REGCCE', assumed default net type 'wire' [/home/xilinx/software/Vivado/2022.2/data/verilog/src/unimacro/BRAM_SINGLE_MACRO.v:2170]
+---------------------------------------------------------------------------------
+Finished Constraint Validation : Time (s): cpu = 00:00:30 ; elapsed = 00:05:17 . Memory (MB): peak = 3260.527 ; gain = 511.512 ; free physical = 12967 ; free virtual = 97037
+Synthesis current peak Physical Memory [PSS] (MB): peak = 2370.720; parent = 2242.961; children = 128.535
+Synthesis current peak Virtual Memory [VSS] (MB): peak = 4226.125; parent = 3260.531; children = 965.594
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Loading Part and Timing Information
+---------------------------------------------------------------------------------
+Loading part: xcvc1902-vsvd1760-2MP-e-S
+INFO: [Synth 8-6742] Reading net delay rules and data
+---------------------------------------------------------------------------------
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:30 ; elapsed = 00:05:18 . Memory (MB): peak = 3260.527 ; gain = 511.512 ; free physical = 12964 ; free virtual = 97034
+Synthesis current peak Physical Memory [PSS] (MB): peak = 2370.720; parent = 2242.961; children = 128.535
+Synthesis current peak Virtual Memory [VSS] (MB): peak = 4226.125; parent = 3260.531; children = 965.594
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Applying 'set_property' XDC Constraints
+---------------------------------------------------------------------------------
+Applied set_property KEEP_HIERARCHY = SOFT for inst. (constraint file  /home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/ulp_inst_0_ip_pipe_dbg_hub_fw_00_0_synth_1/dont_touch.xdc, line 9).
+---------------------------------------------------------------------------------
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:30 ; elapsed = 00:05:19 . Memory (MB): peak = 3260.527 ; gain = 511.512 ; free physical = 12957 ; free virtual = 97027
+Synthesis current peak Physical Memory [PSS] (MB): peak = 2370.720; parent = 2242.961; children = 128.535
+Synthesis current peak Virtual Memory [VSS] (MB): peak = 4226.125; parent = 3260.531; children = 965.594
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:30 ; elapsed = 00:05:24 . Memory (MB): peak = 3260.527 ; gain = 511.512 ; free physical = 12891 ; free virtual = 96962
+Synthesis current peak Physical Memory [PSS] (MB): peak = 2370.720; parent = 2242.961; children = 128.535
+Synthesis current peak Virtual Memory [VSS] (MB): peak = 4226.125; parent = 3260.531; children = 965.594
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start RTL Component Statistics 
+---------------------------------------------------------------------------------
+Detailed RTL Component Info : 
+---------------------------------------------------------------------------------
+Finished RTL Component Statistics 
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Part Resource Summary
+---------------------------------------------------------------------------------
+Part Resources:
+DSPs: 1968 (col length:164)
+BRAMs: 1934 (col length: RAMB18 168 RAMB36 84)
+---------------------------------------------------------------------------------
+Finished Part Resource Summary
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Cross Boundary and Area Optimization
+---------------------------------------------------------------------------------
+WARNING: [Synth 8-7080] Parallel synthesis criteria is not met
+WARNING: [Synth 8-7129] Port set in module util_ff_v1_0_1_util_ff is either unconnected or has no load
+WARNING: [Synth 8-7129] Port clear in module util_ff_v1_0_1_util_ff is either unconnected or has no load
+WARNING: [Synth 8-7129] Port preset in module util_ff_v1_0_1_util_ff is either unconnected or has no load
+WARNING: [Synth 8-7129] Port gate_enable in module util_ff_v1_0_1_util_ff is either unconnected or has no load
+WARNING: [Synth 8-7129] Port G in module util_ff_v1_0_1_util_ff is either unconnected or has no load
+---------------------------------------------------------------------------------
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:33 ; elapsed = 00:05:49 . Memory (MB): peak = 3260.527 ; gain = 511.512 ; free physical = 12844 ; free virtual = 96922
+Synthesis current peak Physical Memory [PSS] (MB): peak = 2370.720; parent = 2242.961; children = 128.535
+Synthesis current peak Virtual Memory [VSS] (MB): peak = 4226.125; parent = 3260.531; children = 965.594
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Applying XDC Timing Constraints
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:01:34 ; elapsed = 00:14:56 . Memory (MB): peak = 3956.355 ; gain = 1207.340 ; free physical = 16331 ; free virtual = 100474
+Synthesis current peak Physical Memory [PSS] (MB): peak = 3144.618; parent = 3014.558; children = 131.055
+Synthesis current peak Virtual Memory [VSS] (MB): peak = 4921.953; parent = 3956.359; children = 965.594
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Timing Optimization
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Timing Optimization : Time (s): cpu = 00:01:34 ; elapsed = 00:14:58 . Memory (MB): peak = 3956.355 ; gain = 1207.340 ; free physical = 16368 ; free virtual = 100512
+Synthesis current peak Physical Memory [PSS] (MB): peak = 3144.681; parent = 3014.607; children = 131.055
+Synthesis current peak Virtual Memory [VSS] (MB): peak = 4921.953; parent = 3956.359; children = 965.594
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Technology Mapping
+---------------------------------------------------------------------------------
+INFO: [Synth 8-11322] No global retiming is needed without any clock constraint
+---------------------------------------------------------------------------------
+Finished Technology Mapping : Time (s): cpu = 00:01:34 ; elapsed = 00:15:00 . Memory (MB): peak = 3975.387 ; gain = 1226.371 ; free physical = 16332 ; free virtual = 100477
+Synthesis current peak Physical Memory [PSS] (MB): peak = 3145.040; parent = 3014.967; children = 131.055
+Synthesis current peak Virtual Memory [VSS] (MB): peak = 4940.984; parent = 3975.391; children = 965.594
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished IO Insertion : Time (s): cpu = 00:01:42 ; elapsed = 00:15:36 . Memory (MB): peak = 3981.324 ; gain = 1232.309 ; free physical = 15792 ; free virtual = 99912
+Synthesis current peak Physical Memory [PSS] (MB): peak = 3145.056; parent = 3014.983; children = 131.055
+Synthesis current peak Virtual Memory [VSS] (MB): peak = 4946.922; parent = 3981.328; children = 965.594
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Instances
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Instances : Time (s): cpu = 00:01:42 ; elapsed = 00:15:37 . Memory (MB): peak = 3981.324 ; gain = 1232.309 ; free physical = 15779 ; free virtual = 99900
+Synthesis current peak Physical Memory [PSS] (MB): peak = 3145.056; parent = 3014.983; children = 131.055
+Synthesis current peak Virtual Memory [VSS] (MB): peak = 4946.922; parent = 3981.328; children = 965.594
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Rebuilding User Hierarchy
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:01:42 ; elapsed = 00:15:38 . Memory (MB): peak = 3981.324 ; gain = 1232.309 ; free physical = 15679 ; free virtual = 99800
+Synthesis current peak Physical Memory [PSS] (MB): peak = 3145.056; parent = 3014.983; children = 131.055
+Synthesis current peak Virtual Memory [VSS] (MB): peak = 4946.922; parent = 3981.328; children = 965.594
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Ports
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Ports : Time (s): cpu = 00:01:42 ; elapsed = 00:15:38 . Memory (MB): peak = 3981.324 ; gain = 1232.309 ; free physical = 15430 ; free virtual = 99551
+Synthesis current peak Physical Memory [PSS] (MB): peak = 3145.056; parent = 3014.983; children = 131.055
+Synthesis current peak Virtual Memory [VSS] (MB): peak = 4946.922; parent = 3981.328; children = 965.594
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Handling Custom Attributes
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Handling Custom Attributes : Time (s): cpu = 00:01:42 ; elapsed = 00:15:39 . Memory (MB): peak = 3981.324 ; gain = 1232.309 ; free physical = 15417 ; free virtual = 99538
+Synthesis current peak Physical Memory [PSS] (MB): peak = 3145.056; parent = 3014.983; children = 131.055
+Synthesis current peak Virtual Memory [VSS] (MB): peak = 4946.922; parent = 3981.328; children = 965.594
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Nets
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Nets : Time (s): cpu = 00:01:42 ; elapsed = 00:15:40 . Memory (MB): peak = 3981.324 ; gain = 1232.309 ; free physical = 15523 ; free virtual = 99644
+Synthesis current peak Physical Memory [PSS] (MB): peak = 3145.056; parent = 3014.983; children = 131.055
+Synthesis current peak Virtual Memory [VSS] (MB): peak = 4946.922; parent = 3981.328; children = 965.594
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Writing Synthesis Report
+---------------------------------------------------------------------------------
+
+Report BlackBoxes: 
++-+--------------+----------+
+| |BlackBox name |Instances |
++-+--------------+----------+
++-+--------------+----------+
+
+Report Cell Usage: 
++------+-----+------+
+|      |Cell |Count |
++------+-----+------+
+|1     |FDRE |     1|
++------+-----+------+
+---------------------------------------------------------------------------------
+Finished Writing Synthesis Report : Time (s): cpu = 00:01:42 ; elapsed = 00:15:40 . Memory (MB): peak = 3981.324 ; gain = 1232.309 ; free physical = 15694 ; free virtual = 99815
+Synthesis current peak Physical Memory [PSS] (MB): peak = 3145.056; parent = 3014.983; children = 131.055
+Synthesis current peak Virtual Memory [VSS] (MB): peak = 4946.922; parent = 3981.328; children = 965.594
+---------------------------------------------------------------------------------
+Synthesis finished with 0 errors, 0 critical warnings and 6 warnings.
+Synthesis Optimization Runtime : Time (s): cpu = 00:01:37 ; elapsed = 00:14:49 . Memory (MB): peak = 3981.324 ; gain = 1166.344 ; free physical = 15625 ; free virtual = 99746
+Synthesis Optimization Complete : Time (s): cpu = 00:01:42 ; elapsed = 00:15:43 . Memory (MB): peak = 3981.332 ; gain = 1232.309 ; free physical = 15467 ; free virtual = 99588
+INFO: [Project 1-571] Translating synthesized netlist
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 3981.332 ; gain = 0.000 ; free physical = 15464 ; free virtual = 99586
+INFO: [Chipscope 16-579] Latest version is versal_cips_v3_3 for versal_cips_v3_2
+INFO: [Constraints 18-6359] No Clock Expansion Window constraints config file entry for device xcvc1902.  GCLK Deskew mode will be Off and cannot be enabled via GCLK_DESKEW override.
+INFO: [Constraints 18-5720] The default GCLK Deskew mode is Off.
+INFO: [Project 1-570] Preparing netlist for logic optimization
+INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 4025.949 ; gain = 0.000 ; free physical = 15753 ; free virtual = 99876
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
+
+Synth Design complete, checksum: 4871ccf3
+INFO: [Common 17-83] Releasing license: Synthesis
+37 Infos, 28 Warnings, 0 Critical Warnings and 0 Errors encountered.
+synth_design completed successfully
+synth_design: Time (s): cpu = 00:02:10 ; elapsed = 00:18:49 . Memory (MB): peak = 4025.949 ; gain = 1995.160 ; free physical = 16222 ; free virtual = 100346
+INFO: [Common 17-600] The following parameters have non-default value.
+general.maxThreads
+INFO: [Common 17-1381] The checkpoint '/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/ulp_inst_0_ip_pipe_dbg_hub_fw_00_0_synth_1/ulp_inst_0_ip_pipe_dbg_hub_fw_00_0.dcp' has been generated.
+INFO: [Coretcl 2-1648] Added synthesis output to IP cache for IP ulp_inst_0_ip_pipe_dbg_hub_fw_00_0, cache-ID = fa4452a621c682d0
+INFO: [Common 17-1381] The checkpoint '/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/ulp_inst_0_ip_pipe_dbg_hub_fw_00_0_synth_1/ulp_inst_0_ip_pipe_dbg_hub_fw_00_0.dcp' has been generated.
+INFO: [runtcl-4] Executing : report_utilization -file ulp_inst_0_ip_pipe_dbg_hub_fw_00_0_utilization_synth.rpt -pb ulp_inst_0_ip_pipe_dbg_hub_fw_00_0_utilization_synth.pb
+INFO: [Common 17-206] Exiting Vivado at Sun Jun 30 19:00:35 2024...

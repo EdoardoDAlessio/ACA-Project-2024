@@ -1,0 +1,119 @@
+Sun Jun 30 17:20:04 2024: Running xcd server. This server was built by gradle.
+Sun Jun 30 17:20:04 2024: Server was asked to start on port: '36651'
+Sun Jun 30 17:20:04 2024: Server is using token UUID: 'f20e52ae-c677-4045-abb2-9b9d6aa74bb1'
+Sun Jun 30 17:20:04 2024: SESSION_MGR: creating session with session uuid: '6d04a3e9-ade5-4ab9-8d63-1f78fcd2ec76' and name 'default'
+Sun Jun 30 17:20:04 2024: Attempting to start server on port '36651'
+Sun Jun 30 17:20:04 2024: XCD main fifo: created main fifo '/tmp/xcdmainf20e52ae-c677-4045-abb2-9b9d6aa74bb1', fd read = 12
+Sun Jun 30 17:20:04 2024: Running Dispatch Server
+Sun Jun 30 17:20:04 2024: Version 2.2.0
+Sun Jun 30 17:20:12 2024: Dispatch Server: Accepted socket connection from client
+Sun Jun 30 17:20:12 2024: Starting Socket connection
+Sun Jun 30 17:20:12 2024: EXCHANGE_TOKEN received, server token: f20e52ae-c677-4045-abb2-9b9d6aa74bb1, passed token: f20e52ae-c677-4045-abb2-9b9d6aa74bb1
+Sun Jun 30 17:20:13 2024: DISPATCH_HANDLER: Adding handler from function makeHandler in library libxv_system_diagram
+Sun Jun 30 17:20:13 2024: SESSION_MGR: creating session with session uuid: 'da99ce42-1215-4967-be7d-966680abf93e' and name 'v++_link_overlay_hw'
+Sun Jun 30 17:20:13 2024: KERNEL_SVC: creating session with uuid: 'da99ce42-1215-4967-be7d-966680abf93e' and name 'v++_link_overlay_hw'
+Sun Jun 30 17:20:13 2024: GUIDANCE_SMGR: creating guidance session with uuid: 'da99ce42-1215-4967-be7d-966680abf93e' and name 'v++_link_overlay_hw'
+Sun Jun 30 17:20:13 2024: SYSTEM_DIAGRAM: creating session with uuid: 'da99ce42-1215-4967-be7d-966680abf93e' and name 'v++_link_overlay_hw'
+Sun Jun 30 17:21:51 2024: Dispatch Server: Accepted socket connection from client
+Sun Jun 30 17:21:51 2024: Starting Socket connection
+Sun Jun 30 17:22:24 2024: Dispatch Server: Accepted socket connection from client
+Sun Jun 30 17:22:24 2024: Starting Socket connection
+Sun Jun 30 17:29:24 2024: Dispatch Server: Accepted socket connection from client
+Sun Jun 30 17:29:24 2024: Starting Socket connection
+Sun Jun 30 17:29:31 2024: Dispatch Server: Accepted socket connection from client
+Sun Jun 30 17:29:31 2024: Starting Socket connection
+Sun Jun 30 17:29:32 2024: Dispatch Server: Accepted socket connection from client
+Sun Jun 30 17:29:32 2024: Starting Socket connection
+Sun Jun 30 17:29:38 2024: Dispatch Server: Accepted socket connection from client
+Sun Jun 30 17:29:38 2024: Starting Socket connection
+Sun Jun 30 17:29:40 2024: Dispatch Server: Accepted socket connection from client
+Sun Jun 30 17:29:40 2024: Starting Socket connection
+Sun Jun 30 17:29:46 2024: Dispatch Server: Accepted socket connection from client
+Sun Jun 30 17:29:46 2024: Starting Socket connection
+Sun Jun 30 17:29:48 2024: Dispatch Server: Accepted socket connection from client
+Sun Jun 30 17:29:48 2024: Starting Socket connection
+Sun Jun 30 17:29:50 2024: Dispatch Server: Accepted socket connection from client
+Sun Jun 30 17:29:50 2024: Starting Socket connection
+Sun Jun 30 17:52:39 2024: Dispatch Server: Accepted socket connection from client
+Sun Jun 30 17:52:39 2024: Starting Socket connection
+Sun Jun 30 17:53:30 2024: Dispatch Server: Accepted socket connection from client
+Sun Jun 30 17:53:30 2024: Starting Socket connection
+Sun Jun 30 17:53:31 2024: Dispatch Server: Accepted socket connection from client
+Sun Jun 30 17:53:31 2024: Starting Socket connection
+Sun Jun 30 17:53:48 2024: Dispatch Server: Accepted socket connection from client
+Sun Jun 30 17:53:48 2024: Starting Socket connection
+Sun Jun 30 17:54:58 2024: Dispatch Server: Accepted socket connection from client
+Sun Jun 30 17:54:58 2024: Starting Socket connection
+Sun Jun 30 17:55:10 2024: Dispatch Server: Accepted socket connection from client
+Sun Jun 30 17:55:10 2024: Starting Socket connection
+Sun Jun 30 17:55:48 2024: Dispatch Server: Accepted socket connection from client
+Sun Jun 30 17:55:48 2024: Starting Socket connection
+Sun Jun 30 18:08:53 2024: Dispatch Server: Accepted socket connection from client
+Sun Jun 30 18:08:53 2024: Starting Socket connection
+Sun Jun 30 18:18:04 2024: Dispatch Server: Accepted socket connection from client
+Sun Jun 30 18:18:04 2024: Starting Socket connection
+Sun Jun 30 18:18:40 2024: Dispatch Server: Accepted socket connection from client
+Sun Jun 30 18:18:40 2024: Starting Socket connection
+Sun Jun 30 18:18:55 2024: Dispatch Server: Accepted socket connection from client
+Sun Jun 30 18:18:55 2024: Starting Socket connection
+Sun Jun 30 18:19:54 2024: Dispatch Server: Accepted socket connection from client
+Sun Jun 30 18:19:54 2024: Starting Socket connection
+Sun Jun 30 18:22:26 2024: Dispatch Server: Accepted socket connection from client
+Sun Jun 30 18:22:26 2024: Starting Socket connection
+Sun Jun 30 18:31:31 2024: Dispatch Server: Accepted socket connection from client
+Sun Jun 30 18:31:31 2024: Starting Socket connection
+Sun Jun 30 18:39:18 2024: Dispatch Server: Accepted socket connection from client
+Sun Jun 30 18:39:18 2024: Starting Socket connection
+Sun Jun 30 18:45:52 2024: Dispatch Server: Accepted socket connection from client
+Sun Jun 30 18:45:52 2024: Starting Socket connection
+Sun Jun 30 18:51:22 2024: Dispatch Server: Accepted socket connection from client
+Sun Jun 30 18:51:22 2024: Starting Socket connection
+Sun Jun 30 18:54:13 2024: Dispatch Server: Accepted socket connection from client
+Sun Jun 30 18:54:13 2024: Starting Socket connection
+Sun Jun 30 18:56:51 2024: Dispatch Server: Accepted socket connection from client
+Sun Jun 30 18:56:51 2024: Starting Socket connection
+Sun Jun 30 18:56:56 2024: Dispatch Server: Accepted socket connection from client
+Sun Jun 30 18:56:56 2024: Starting Socket connection
+Sun Jun 30 19:04:40 2024: Dispatch Server: Accepted socket connection from client
+Sun Jun 30 19:04:40 2024: Starting Socket connection
+Sun Jun 30 19:10:45 2024: Dispatch Server: Accepted socket connection from client
+Sun Jun 30 19:10:45 2024: Starting Socket connection
+Sun Jun 30 19:15:11 2024: Dispatch Server: Accepted socket connection from client
+Sun Jun 30 19:15:11 2024: Starting Socket connection
+Sun Jun 30 22:27:00 2024: SESSION_MGR: closing session for UUID 'da99ce42-1215-4967-be7d-966680abf93e' with name 'v++_link_overlay_hw'
+Sun Jun 30 22:27:00 2024: KERNEL_SVC: closing session for UUID 'da99ce42-1215-4967-be7d-966680abf93e' with name 'v++_link_overlay_hw'
+Sun Jun 30 22:27:00 2024: GUIDANCE_SMGR: closing session for UUID 'da99ce42-1215-4967-be7d-966680abf93e' with name 'v++_link_overlay_hw'
+Sun Jun 30 22:27:00 2024: SYSTEM_DIAGRAM: closing session for UUID 'da99ce42-1215-4967-be7d-966680abf93e' with name 'v++_link_overlay_hw'
+Sun Jun 30 22:27:00 2024: STOP_SERVER received, server token: f20e52ae-c677-4045-abb2-9b9d6aa74bb1, passed token: f20e52ae-c677-4045-abb2-9b9d6aa74bb1
+Sun Jun 30 22:27:00 2024: DISPATCH_HANDLER: 2 connections are active. Stop request denied.
+Sun Jun 30 22:27:17 2024: Running xcd server. This server was built by gradle.
+Sun Jun 30 22:27:17 2024: Server was asked to start on port: '39259'
+Sun Jun 30 22:27:17 2024: Server is using token UUID: '51eca574-1656-42ef-a4c9-5e3381ff430e'
+Sun Jun 30 22:27:17 2024: SESSION_MGR: creating session with session uuid: '6d04a3e9-ade5-4ab9-8d63-1f78fcd2ec76' and name 'default'
+Sun Jun 30 22:27:17 2024: Attempting to start server on port '39259'
+Sun Jun 30 22:27:17 2024: XCD main fifo: created main fifo '/tmp/xcdmain51eca574-1656-42ef-a4c9-5e3381ff430e', fd read = 12
+Sun Jun 30 22:27:17 2024: Running Dispatch Server
+Sun Jun 30 22:27:17 2024: Version 2.2.0
+Sun Jun 30 22:27:25 2024: Dispatch Server: Accepted socket connection from client
+Sun Jun 30 22:27:25 2024: Starting Socket connection
+Sun Jun 30 22:27:25 2024: EXCHANGE_TOKEN received, server token: 51eca574-1656-42ef-a4c9-5e3381ff430e, passed token: 51eca574-1656-42ef-a4c9-5e3381ff430e
+Sun Jun 30 22:27:25 2024: DISPATCH_HANDLER: Adding handler from function makeHandler in library libxv_system_diagram
+Sun Jun 30 22:27:25 2024: SESSION_MGR: creating session with session uuid: 'd74008a6-549c-4d47-9406-50d5322f4645' and name 'v++_package_overlay_hw'
+Sun Jun 30 22:27:25 2024: KERNEL_SVC: creating session with uuid: 'd74008a6-549c-4d47-9406-50d5322f4645' and name 'v++_package_overlay_hw'
+Sun Jun 30 22:27:25 2024: GUIDANCE_SMGR: creating guidance session with uuid: 'd74008a6-549c-4d47-9406-50d5322f4645' and name 'v++_package_overlay_hw'
+Sun Jun 30 22:27:25 2024: SYSTEM_DIAGRAM: creating session with uuid: 'd74008a6-549c-4d47-9406-50d5322f4645' and name 'v++_package_overlay_hw'
+Sun Jun 30 22:27:41 2024: SESSION_MGR: closing session for UUID 'd74008a6-549c-4d47-9406-50d5322f4645' with name 'v++_package_overlay_hw'
+Sun Jun 30 22:27:41 2024: KERNEL_SVC: closing session for UUID 'd74008a6-549c-4d47-9406-50d5322f4645' with name 'v++_package_overlay_hw'
+Sun Jun 30 22:27:41 2024: GUIDANCE_SMGR: closing session for UUID 'd74008a6-549c-4d47-9406-50d5322f4645' with name 'v++_package_overlay_hw'
+Sun Jun 30 22:27:41 2024: SYSTEM_DIAGRAM: closing session for UUID 'd74008a6-549c-4d47-9406-50d5322f4645' with name 'v++_package_overlay_hw'
+Sun Jun 30 22:27:41 2024: STOP_SERVER received, server token: 51eca574-1656-42ef-a4c9-5e3381ff430e, passed token: 51eca574-1656-42ef-a4c9-5e3381ff430e
+Sun Jun 30 22:27:41 2024: Socket received request to stop server.
+Sun Jun 30 22:27:41 2024: Dispatch Server: do_await_stop
+Sun Jun 30 22:27:41 2024: Dispatch Server: stopping mainFifo_
+Sun Jun 30 22:27:41 2024: XCD main fifo: Stopping
+Sun Jun 30 22:27:41 2024: XCD main fifo: do_read error code: Operation canceled
+Sun Jun 30 22:27:41 2024: XCD main fifo: bytes_transferred: 0
+Sun Jun 30 22:27:41 2024: SERVER: destructor for server bound to port 39259
+Sun Jun 30 22:27:41 2024: XCD main fifo: Good unlink of /tmp/xcdmain51eca574-1656-42ef-a4c9-5e3381ff430e
+Sun Jun 30 22:27:41 2024: Server exiting with status 0.
+Sun Jun 30 22:27:41 2024: Closing log file.

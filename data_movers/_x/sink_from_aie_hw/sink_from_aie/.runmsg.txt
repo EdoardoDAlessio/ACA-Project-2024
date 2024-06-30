@@ -1,0 +1,2 @@
+performing high-level synthesis for kernel: sink_from_aie
+Log file: /home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/data_movers/_x/sink_from_aie_hw/sink_from_aie/vitis_hls.log

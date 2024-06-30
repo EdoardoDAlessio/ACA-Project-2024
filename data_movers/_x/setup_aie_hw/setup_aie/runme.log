@@ -1,0 +1,132 @@
+
+*** Running vitis_hls
+    with args -f setup_aie.tcl -messageDb vitis_hls.pb
+
+
+****** Vitis HLS - High-Level Synthesis from C, C++ and OpenCL v2022.2.2 (64-bit)
+  **** SW Build 3779808 on Feb 17 2023
+  **** IP Build 3783773 on Tue Feb 21 23:41:56 MST 2023
+    ** Copyright 1986-2023 Xilinx, Inc. All Rights Reserved.
+
+source /home/xilinx/software/Vitis_HLS/2022.2/scripts/vitis_hls/hls.tcl -notrace
+INFO: [HLS 200-10] Running '/home/xilinx/software/Vitis_HLS/2022.2/bin/unwrapped/lnx64.o/vitis_hls'
+INFO: [HLS 200-10] For user 'edoardo.dalessio' on host 'nags27.local.necst.it' (Linux_x86_64 version 5.15.0-107-generic) on Sun Jun 30 17:13:50 CEST 2024
+INFO: [HLS 200-10] On os Ubuntu 20.04.6 LTS
+INFO: [HLS 200-10] In directory '/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/data_movers/_x/setup_aie_hw/setup_aie'
+Sourcing Tcl script 'setup_aie.tcl'
+INFO: [HLS 200-1510] Running: open_project setup_aie 
+INFO: [HLS 200-10] Creating and opening project '/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/data_movers/_x/setup_aie_hw/setup_aie/setup_aie'.
+INFO: [HLS 200-1510] Running: set_top setup_aie 
+INFO: [HLS 200-1510] Running: add_files /home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/data_movers/setup_aie.cpp -cflags  -g 
+INFO: [HLS 200-10] Adding design file '/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/data_movers/setup_aie.cpp' to the project
+INFO: [HLS 200-1510] Running: open_solution -flow_target vitis solution 
+INFO: [HLS 200-10] Creating and opening solution '/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/data_movers/_x/setup_aie_hw/setup_aie/setup_aie/solution'.
+INFO: [HLS 200-1505] Using flow_target 'vitis'
+Resolution: For help on HLS 200-1505 see www.xilinx.com/cgi-bin/docs/rdoc?v=2022.2;t=hls+guidance;d=200-1505.html
+INFO: [HLS 200-435] Setting 'open_solution -flow_target vitis' configuration: config_interface -m_axi_latency=64
+INFO: [HLS 200-435] Setting 'open_solution -flow_target vitis' configuration: config_interface -m_axi_alignment_byte_size=64
+INFO: [HLS 200-435] Setting 'open_solution -flow_target vitis' configuration: config_interface -m_axi_max_widen_bitwidth=512
+INFO: [HLS 200-435] Setting 'open_solution -flow_target vitis' configuration: config_rtl -register_reset_num=3
+INFO: [HLS 200-1510] Running: set_part xcvc1902-vsvd1760-2MP-e-S 
+INFO: [HLS 200-1611] Setting target device to 'xcvc1902-vsvd1760-2MP-e-S'
+INFO: [HLS 200-1510] Running: create_clock -period 299.996999MHz -name default 
+INFO: [SYN 201-201] Setting up clock 'default' with a period of 3.333ns.
+INFO: [HLS 200-1510] Running: config_rtl -kernel_profile 
+INFO: [HLS 200-1510] Running: config_dataflow -strict_mode warning 
+INFO: [HLS 200-1510] Running: config_debug -enable 
+INFO: [HLS 200-1510] Running: config_export -deadlock_detection sim 
+WARNING: [HLS 200-483] The 'config_export -deadlock_detection' command is deprecated and will be removed in a future release. Use 'config_rtl -deadlock_detection' as its replacement.
+INFO: [HLS 200-1907] Replacing 'config_export -deadlock_detection=sim' with 'config_rtl -deadlock_detection=sim' in current solution file
+INFO: [HLS 200-1510] Running: config_interface -m_axi_conservative_mode=1 
+INFO: [HLS 200-1510] Running: config_interface -m_axi_addr64 
+INFO: [HLS 200-1510] Running: config_interface -m_axi_auto_max_ports=0 
+INFO: [HLS 200-1510] Running: config_export -format xo -ipname setup_aie 
+INFO: [HLS 200-1907] Replacing 'config_export -deadlock_detection=sim' with 'config_rtl -deadlock_detection=sim' in current solution file
+INFO: [HLS 200-1510] Running: csynth_design 
+INFO: [HLS 200-111] Finished File checks and directory preparation: CPU user time: 0.01 seconds. CPU system time: 0 seconds. Elapsed time: 0.02 seconds; current allocated memory: 874.453 MB.
+INFO: [HLS 200-10] Analyzing design file '/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/data_movers/setup_aie.cpp' ... 
+INFO: [HLS 200-111] Finished Source Code Analysis and Preprocessing: CPU user time: 61.7 seconds. CPU system time: 3.19 seconds. Elapsed time: 114.35 seconds; current allocated memory: 880.934 MB.
+INFO: [HLS 200-777] Using interface defaults for 'Vitis' flow target.
+INFO: [HLS 200-111] Finished Compiling Optimization and Transform: CPU user time: 5.9 seconds. CPU system time: 1.04 seconds. Elapsed time: 11.26 seconds; current allocated memory: 880.934 MB.
+INFO: [HLS 200-111] Finished Checking Pragmas: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0 seconds; current allocated memory: 880.934 MB.
+INFO: [HLS 200-10] Starting code transformations ...
+INFO: [HLS 200-111] Finished Standard Transforms: CPU user time: 0.02 seconds. CPU system time: 0 seconds. Elapsed time: 0.05 seconds; current allocated memory: 881.676 MB.
+INFO: [HLS 200-10] Checking synthesizability ...
+INFO: [HLS 200-111] Finished Checking Synthesizability: CPU user time: 0.02 seconds. CPU system time: 0 seconds. Elapsed time: 0.04 seconds; current allocated memory: 882.184 MB.
+INFO: [XFORM 203-510] Pipelining loop 'VITIS_LOOP_48_1' (/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/data_movers/setup_aie.cpp:48) in function 'setup_aie' automatically.
+INFO: [HLS 200-111] Finished Loop, function and other optimizations: CPU user time: 0.05 seconds. CPU system time: 0.03 seconds. Elapsed time: 0.14 seconds; current allocated memory: 904.289 MB.
+INFO: [HLS 200-111] Finished Architecture Synthesis: CPU user time: 0.06 seconds. CPU system time: 0 seconds. Elapsed time: 0.05 seconds; current allocated memory: 904.543 MB.
+INFO: [HLS 200-10] Starting hardware synthesis ...
+INFO: [HLS 200-10] Synthesizing 'setup_aie' ...
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'setup_aie_Pipeline_VITIS_LOOP_48_1' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-61] Pipelining loop 'VITIS_LOOP_48_1'.
+INFO: [HLS 200-1470] Pipelining result : Target II = NA, Final II = 1, Depth = 2, loop 'VITIS_LOOP_48_1'
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0.08 seconds. CPU system time: 0.08 seconds. Elapsed time: 0.25 seconds; current allocated memory: 905.688 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 0.05 seconds. CPU system time: 0 seconds. Elapsed time: 0.07 seconds; current allocated memory: 905.688 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'setup_aie' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0.4 seconds. CPU system time: 0 seconds. Elapsed time: 0.44 seconds; current allocated memory: 905.934 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 0.91 seconds. CPU system time: 0.01 seconds. Elapsed time: 0.99 seconds; current allocated memory: 905.934 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'setup_aie_Pipeline_VITIS_LOOP_48_1' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-1030] Apply Unified Pipeline Control on module 'setup_aie_Pipeline_VITIS_LOOP_48_1' pipeline 'VITIS_LOOP_48_1' pipeline type 'loop pipeline'
+INFO: [RTGEN 206-100] Finished creating RTL model for 'setup_aie_Pipeline_VITIS_LOOP_48_1'.
+INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 0.2 seconds. CPU system time: 0 seconds. Elapsed time: 0.23 seconds; current allocated memory: 905.934 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'setup_aie' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+WARNING: [RTGEN 206-101] Design contains AXI ports. Reset is fixed to synchronous and active low.
+INFO: [RTGEN 206-500] Setting interface mode on port 'setup_aie/gmem0' to 'm_axi'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'setup_aie/size' to 's_axilite & ap_none'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'setup_aie/input_r' to 's_axilite & ap_none'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'setup_aie/s' to 'axis' (register, both mode).
+INFO: [RTGEN 206-500] Setting interface mode on function 'setup_aie' to 's_axilite & ap_ctrl_chain'.
+INFO: [RTGEN 206-100] Bundling port 'size', 'input_r' to AXI-Lite port control.
+INFO: [RTGEN 206-100] Finished creating RTL model for 'setup_aie'.
+INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 0.27 seconds. CPU system time: 0.01 seconds. Elapsed time: 0.42 seconds; current allocated memory: 907.934 MB.
+INFO: [HLS 200-111] Finished Generating all RTL models: CPU user time: 1.06 seconds. CPU system time: 0.05 seconds. Elapsed time: 1.17 seconds; current allocated memory: 911.398 MB.
+INFO: [HLS 200-111] Finished Updating report files: CPU user time: 1.8 seconds. CPU system time: 0.03 seconds. Elapsed time: 1.87 seconds; current allocated memory: 915.684 MB.
+INFO: [VHDL 208-304] Generating VHDL RTL for setup_aie.
+INFO: [VLOG 209-307] Generating Verilog RTL for setup_aie.
+INFO: [HLS 200-790] **** Loop Constraint Status: All loop constraints were satisfied.
+INFO: [HLS 200-789] **** Estimated Fmax: 411.00 MHz
+INFO: [HLS 200-111] Finished Command csynth_design CPU user time: 72.56 seconds. CPU system time: 4.45 seconds. Elapsed time: 131.45 seconds; current allocated memory: 41.281 MB.
+INFO: [HLS 200-1510] Running: export_design 
+INFO: [IMPL 213-8] Exporting RTL as a Vivado IP.
+
+****** Vivado v2022.2.2 (64-bit)
+  **** SW Build 3788238 on Tue Feb 21 19:59:23 MST 2023
+  **** IP Build 3783773 on Tue Feb 21 23:41:56 MST 2023
+    ** Copyright 1986-2023 Xilinx, Inc. All Rights Reserved.
+
+source run_ippack.tcl -notrace
+ipx::create_core: Time (s): cpu = 00:00:13 ; elapsed = 00:00:14 . Memory (MB): peak = 1859.773 ; gain = 87.023 ; free physical = 51766 ; free virtual = 114483
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1704] No user IP repositories specified
+INFO: [IP_Flow 19-2313] Loaded Vivado IP repository '/home/xilinx/software/Vivado/2022.2/data/ip'.
+Running package_xo -xo_path /home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/data_movers/_x/setup_aie_hw/setup_aie/setup_aie/solution/impl/export.xo -kernel_name setup_aie -kernel_xml /home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/data_movers/_x/setup_aie_hw/setup_aie/setup_aie/solution/impl/ip/../kernel/kernel.xml -kernel_files /home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/data_movers/setup_aie.cpp -ip_directory /home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/data_movers/_x/setup_aie_hw/setup_aie/setup_aie/solution/impl/ip/ip_unzip_dir -design_xml /home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/data_movers/_x/setup_aie_hw/setup_aie/setup_aie/solution/.autopilot/db/setup_aie.design.xml -debug_directory /home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/data_movers/_x/setup_aie_hw/setup_aie/setup_aie/solution/.debug -hls_directory /home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/data_movers/_x/setup_aie_hw/setup_aie/setup_aie/solution/impl/ip/hls_files
+INFO: [Common 17-206] Exiting Vivado at Sun Jun 30 17:16:50 2024...
+INFO: [HLS 200-802] Generated output file setup_aie/solution/impl/export.xo
+INFO: [HLS 200-111] Finished Command export_design CPU user time: 34.33 seconds. CPU system time: 2.55 seconds. Elapsed time: 49.6 seconds; current allocated memory: 7.668 MB.
+INFO: [HLS 200-1510] Running: close_project 
+HLS completed successfully
+INFO: [HLS 200-112] Total CPU user time: 112.91 seconds. Total CPU system time: 8 seconds. Total elapsed time: 193.39 seconds; peak allocated memory: 923.402 MB.
+INFO: [Common 17-206] Exiting vitis_hls at Sun Jun 30 17:17:01 2024...

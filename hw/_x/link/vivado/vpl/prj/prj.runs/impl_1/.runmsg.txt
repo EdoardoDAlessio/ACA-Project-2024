@@ -1,0 +1,2 @@
+Compiling (bitstream) accelerator binary: overlay_hw
+Log file: /home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/impl_1/runme.log

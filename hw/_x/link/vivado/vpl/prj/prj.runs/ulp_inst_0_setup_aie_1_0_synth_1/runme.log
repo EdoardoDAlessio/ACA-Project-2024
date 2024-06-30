@@ -1,0 +1,665 @@
+
+*** Running vivado
+    with args -log ulp_inst_0_setup_aie_1_0.vds -m64 -product Vivado -mode batch -messageDb vivado.pb -notrace -source ulp_inst_0_setup_aie_1_0.tcl
+
+
+****** Vivado v2022.2.2 (64-bit)
+  **** SW Build 3788238 on Tue Feb 21 19:59:23 MST 2023
+  **** IP Build 3783773 on Tue Feb 21 23:41:56 MST 2023
+    ** Copyright 1986-2023 Xilinx, Inc. All Rights Reserved.
+
+source ulp_inst_0_setup_aie_1_0.tcl -notrace
+INFO: Dispatch client connection id - 36651
+create_project: Time (s): cpu = 00:00:13 ; elapsed = 00:01:44 . Memory (MB): peak = 1835.238 ; gain = 89.992 ; free physical = 15285 ; free virtual = 98865
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1700] Loaded user IP repository '/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/int/xo/ip_repo/xilinx_com_hls_sink_from_aie_1_0'.
+INFO: [IP_Flow 19-1700] Loaded user IP repository '/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/int/xo/ip_repo/xilinx_com_hls_setup_aie_1_0'.
+INFO: [IP_Flow 19-1700] Loaded user IP repository '/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/.local/hw_platform/iprepo'.
+INFO: [IP_Flow 19-1700] Loaded user IP repository '/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/.local/hw_platform/ipcache'.
+INFO: [IP_Flow 19-1700] Loaded user IP repository '/home/xilinx/software/Vitis/2022.2/data/ip'.
+INFO: [IP_Flow 19-2313] Loaded Vivado IP repository '/home/xilinx/software/Vivado/2022.2/data/ip'.
+WARNING: [IP_Flow 19-1663] Duplicate IP found for 'xilinx.com:hls:Data_Mover_XIP:1.0'. The one found in IP location '/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/.local/hw_platform/iprepo/xilinx/data_mover' will take precedence over the same IP in location /home/xilinx/software/Vitis/2022.2/data/ip/xilinx/data_mover
+WARNING: [IP_Flow 19-1663] Duplicate IP found for 'xilinx.com:ip:adapter_v3_0:1.0'. The one found in IP location '/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/.local/hw_platform/iprepo/xilinx/adapter_v3_0' will take precedence over the same IP in location /home/xilinx/software/Vitis/2022.2/data/ip/xilinx/adapter_v3_0
+WARNING: [IP_Flow 19-1663] Duplicate IP found for 'xilinx.com:ip:axis_ic2sgdma:1.0'. The one found in IP location '/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/.local/hw_platform/iprepo/xilinx/axis_ic2sgdma_v1_0' will take precedence over the same IP in location /home/xilinx/software/Vitis/2022.2/data/ip/xilinx/axis_ic2sgdma_v1_0
+WARNING: [IP_Flow 19-1663] Duplicate IP found for 'xilinx.com:ip:Event_Pulse:1.0'. The one found in IP location '/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/.local/hw_platform/iprepo/xilinx/event_pulse_v1_0' will take precedence over the same IP in location /home/xilinx/software/Vitis/2022.2/data/ip/xilinx/event_pulse_v1_0
+WARNING: [IP_Flow 19-1663] Duplicate IP found for 'xilinx.com:ip:sds_lib:1.0'. The one found in IP location '/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/.local/hw_platform/iprepo/xilinx/sds_lib' will take precedence over the same IP in location /home/xilinx/software/Vitis/2022.2/data/ip/xilinx/sds_lib
+WARNING: [IP_Flow 19-1663] Duplicate IP found for 'xilinx.com:sds:sds_mem_sink:1.0'. The one found in IP location '/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/.local/hw_platform/iprepo/xilinx/sds_mem_sink' will take precedence over the same IP in location /home/xilinx/software/Vitis/2022.2/data/ip/xilinx/sds_mem_sink
+WARNING: [IP_Flow 19-1663] Duplicate IP found for 'xilinx.com:ip:xrt_queue:1.1'. The one found in IP location '/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/.local/hw_platform/iprepo/xilinx/xrt_queue_v1_1' will take precedence over the same IP in location /home/xilinx/software/Vitis/2022.2/data/ip/xilinx/xrt_queue_v1_1
+WARNING: [IP_Flow 19-1663] Duplicate IP found for 'xilinx.com:ip:aximm_tieoff_v1_0:1.0'. The one found in IP location '/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/.local/hw_platform/iprepo/xilinx/aximm_tieoff_v1_0' will take precedence over the same IP in location /home/xilinx/software/Vitis/2022.2/data/ip/xilinx/aximm_tieoff_v1_0
+WARNING: [IP_Flow 19-1663] Duplicate IP found for 'xilinx.com:ip:maxis_tieoff_v1_0:1.0'. The one found in IP location '/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/.local/hw_platform/iprepo/xilinx/maxis_tieoff_v1_0' will take precedence over the same IP in location /home/xilinx/software/Vitis/2022.2/data/ip/xilinx/maxis_tieoff_v1_0
+WARNING: [IP_Flow 19-1663] Duplicate IP found for 'xilinx.com:ip:saxis_tieoff_v1_0:1.0'. The one found in IP location '/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/.local/hw_platform/iprepo/xilinx/saxis_tieoff_v1_0' will take precedence over the same IP in location /home/xilinx/software/Vitis/2022.2/data/ip/xilinx/saxis_tieoff_v1_0
+WARNING: [IP_Flow 19-1663] Duplicate IP found for 'xilinx.com:ip:ovld_reg:1.0'. The one found in IP location '/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/.local/hw_platform/iprepo/xilinx/ovld_reg_v1_0' will take precedence over the same IP in location /home/xilinx/software/Vitis/2022.2/data/ip/xilinx/ovld_reg_v1_0
+WARNING: [IP_Flow 19-1663] Duplicate IP found for 'xilinx.com:ip:xrt_queue:1.0'. The one found in IP location '/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/.local/hw_platform/iprepo/xilinx/xrt_queue_v1_0' will take precedence over the same IP in location /home/xilinx/software/Vitis/2022.2/data/ip/xilinx/xrt_queue_v1_0
+WARNING: [IP_Flow 19-1663] Duplicate IP found for 'xilinx.com:ip:axi_fifo_register:3.0'. The one found in IP location '/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/.local/hw_platform/iprepo/xilinx/axi_fifo_register_v3_0' will take precedence over the same IP in location /home/xilinx/software/Vitis/2022.2/data/ip/xilinx/axi_fifo_register_v3_0
+WARNING: [IP_Flow 19-1663] Duplicate IP found for 'xilinx.com:ip:stream_gate:1.0'. The one found in IP location '/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/.local/hw_platform/iprepo/xilinx/stream_gate_v1_0' will take precedence over the same IP in location /home/xilinx/software/Vitis/2022.2/data/ip/xilinx/stream_gate_v1_0
+WARNING: [IP_Flow 19-1663] Duplicate IP found for 'xilinx.com:ip:sgdma2axis_ic:1.0'. The one found in IP location '/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/.local/hw_platform/iprepo/xilinx/sgdma2axis_ic_v1_0' will take precedence over the same IP in location /home/xilinx/software/Vitis/2022.2/data/ip/xilinx/sgdma2axis_ic_v1_0
+WARNING: [IP_Flow 19-1663] Duplicate IP found for 'xilinx.com:sds:sds_mem_source:1.0'. The one found in IP location '/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/.local/hw_platform/iprepo/xilinx/sds_mem_source' will take precedence over the same IP in location /home/xilinx/software/Vitis/2022.2/data/ip/xilinx/sds_mem_source
+update_ip_catalog: Time (s): cpu = 00:00:05 ; elapsed = 00:00:50 . Memory (MB): peak = 2030.980 ; gain = 191.742 ; free physical = 15464 ; free virtual = 99055
+INFO: [IP_Flow 19-6924] IPCACHE: Running cache check for IP inst: ulp_inst_0_setup_aie_1_0
+Command: synth_design -top ulp_inst_0_setup_aie_1_0 -part xcvc1902-vsvd1760-2MP-e-S -directive sdx_optimization_effort_high -incremental_mode off -mode out_of_context
+Starting synth_design
+Attempting to get a license for feature 'Synthesis' and/or device 'xcvc1902'
+INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xcvc1902'
+INFO: [Device 21-403] Loading part xcvc1902-vsvd1760-2MP-e-S
+INFO: [Synth 8-7079] Multithreading enabled for synth_design using a maximum of 1 processes.
+INFO: [Synth 8-7078] Launching helper process for spawning children vivado processes
+INFO: [Synth 8-7075] Helper process launched with PID 1875326
+INFO: [Synth 8-11241] undeclared symbol 'REGCCE', assumed default net type 'wire' [/home/xilinx/software/Vivado/2022.2/data/verilog/src/unimacro/BRAM_SINGLE_MACRO.v:2170]
+---------------------------------------------------------------------------------
+Starting RTL Elaboration : Time (s): cpu = 00:00:11 ; elapsed = 00:01:24 . Memory (MB): peak = 3104.043 ; gain = 354.828 ; free physical = 16677 ; free virtual = 100396
+Synthesis current peak Physical Memory [PSS] (MB): peak = 2296.667; parent = 2169.620; children = 161.921
+Synthesis current peak Virtual Memory [VSS] (MB): peak = 4075.582; parent = 3109.984; children = 965.598
+---------------------------------------------------------------------------------
+INFO: [Synth 8-6157] synthesizing module 'ulp_inst_0_setup_aie_1_0' [/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ip/ulp_inst_0_setup_aie_1_0/synth/ulp_inst_0_setup_aie_1_0.v:53]
+INFO: [Synth 8-6157] synthesizing module 'setup_aie' [/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ipshared/9e60/hdl/verilog/setup_aie.v:10]
+INFO: [Synth 8-6157] synthesizing module 'setup_aie_setup_aie_Pipeline_VITIS_LOOP_48_1' [/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ipshared/9e60/hdl/verilog/setup_aie_setup_aie_Pipeline_VITIS_LOOP_48_1.v:10]
+INFO: [Synth 8-6157] synthesizing module 'setup_aie_flow_control_loop_pipe_sequential_init' [/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ipshared/9e60/hdl/verilog/setup_aie_flow_control_loop_pipe_sequential_init.v:9]
+INFO: [Synth 8-6155] done synthesizing module 'setup_aie_flow_control_loop_pipe_sequential_init' (0#1) [/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ipshared/9e60/hdl/verilog/setup_aie_flow_control_loop_pipe_sequential_init.v:9]
+INFO: [Synth 8-6155] done synthesizing module 'setup_aie_setup_aie_Pipeline_VITIS_LOOP_48_1' (0#1) [/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ipshared/9e60/hdl/verilog/setup_aie_setup_aie_Pipeline_VITIS_LOOP_48_1.v:10]
+INFO: [Synth 8-6157] synthesizing module 'setup_aie_control_s_axi' [/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ipshared/9e60/hdl/verilog/setup_aie_control_s_axi.v:7]
+INFO: [Synth 8-155] case statement is not full and has no default [/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ipshared/9e60/hdl/verilog/setup_aie_control_s_axi.v:215]
+INFO: [Synth 8-6155] done synthesizing module 'setup_aie_control_s_axi' (0#1) [/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ipshared/9e60/hdl/verilog/setup_aie_control_s_axi.v:7]
+INFO: [Synth 8-6157] synthesizing module 'setup_aie_gmem0_m_axi' [/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ipshared/9e60/hdl/verilog/setup_aie_gmem0_m_axi.v:11]
+INFO: [Synth 8-6157] synthesizing module 'setup_aie_gmem0_m_axi_store' [/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ipshared/9e60/hdl/verilog/setup_aie_gmem0_m_axi.v:781]
+INFO: [Synth 8-6157] synthesizing module 'setup_aie_gmem0_m_axi_fifo' [/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ipshared/9e60/hdl/verilog/setup_aie_gmem0_m_axi.v:2551]
+INFO: [Synth 8-6157] synthesizing module 'setup_aie_gmem0_m_axi_srl' [/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ipshared/9e60/hdl/verilog/setup_aie_gmem0_m_axi.v:2729]
+INFO: [Synth 8-6155] done synthesizing module 'setup_aie_gmem0_m_axi_srl' (0#1) [/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ipshared/9e60/hdl/verilog/setup_aie_gmem0_m_axi.v:2729]
+INFO: [Synth 8-6155] done synthesizing module 'setup_aie_gmem0_m_axi_fifo' (0#1) [/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ipshared/9e60/hdl/verilog/setup_aie_gmem0_m_axi.v:2551]
+INFO: [Synth 8-6157] synthesizing module 'setup_aie_gmem0_m_axi_fifo__parameterized0' [/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ipshared/9e60/hdl/verilog/setup_aie_gmem0_m_axi.v:2551]
+INFO: [Synth 8-6157] synthesizing module 'setup_aie_gmem0_m_axi_mem' [/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ipshared/9e60/hdl/verilog/setup_aie_gmem0_m_axi.v:2783]
+INFO: [Synth 8-6155] done synthesizing module 'setup_aie_gmem0_m_axi_mem' (0#1) [/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ipshared/9e60/hdl/verilog/setup_aie_gmem0_m_axi.v:2783]
+INFO: [Synth 8-6155] done synthesizing module 'setup_aie_gmem0_m_axi_fifo__parameterized0' (0#1) [/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ipshared/9e60/hdl/verilog/setup_aie_gmem0_m_axi.v:2551]
+INFO: [Synth 8-6157] synthesizing module 'setup_aie_gmem0_m_axi_fifo__parameterized1' [/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ipshared/9e60/hdl/verilog/setup_aie_gmem0_m_axi.v:2551]
+INFO: [Synth 8-6157] synthesizing module 'setup_aie_gmem0_m_axi_srl__parameterized0' [/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ipshared/9e60/hdl/verilog/setup_aie_gmem0_m_axi.v:2729]
+INFO: [Synth 8-6155] done synthesizing module 'setup_aie_gmem0_m_axi_srl__parameterized0' (0#1) [/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ipshared/9e60/hdl/verilog/setup_aie_gmem0_m_axi.v:2729]
+INFO: [Synth 8-6155] done synthesizing module 'setup_aie_gmem0_m_axi_fifo__parameterized1' (0#1) [/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ipshared/9e60/hdl/verilog/setup_aie_gmem0_m_axi.v:2551]
+INFO: [Synth 8-6157] synthesizing module 'setup_aie_gmem0_m_axi_fifo__parameterized2' [/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ipshared/9e60/hdl/verilog/setup_aie_gmem0_m_axi.v:2551]
+INFO: [Synth 8-6157] synthesizing module 'setup_aie_gmem0_m_axi_srl__parameterized1' [/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ipshared/9e60/hdl/verilog/setup_aie_gmem0_m_axi.v:2729]
+INFO: [Synth 8-6155] done synthesizing module 'setup_aie_gmem0_m_axi_srl__parameterized1' (0#1) [/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ipshared/9e60/hdl/verilog/setup_aie_gmem0_m_axi.v:2729]
+INFO: [Synth 8-6155] done synthesizing module 'setup_aie_gmem0_m_axi_fifo__parameterized2' (0#1) [/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ipshared/9e60/hdl/verilog/setup_aie_gmem0_m_axi.v:2551]
+INFO: [Synth 8-6155] done synthesizing module 'setup_aie_gmem0_m_axi_store' (0#1) [/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ipshared/9e60/hdl/verilog/setup_aie_gmem0_m_axi.v:781]
+INFO: [Synth 8-6157] synthesizing module 'setup_aie_gmem0_m_axi_load' [/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ipshared/9e60/hdl/verilog/setup_aie_gmem0_m_axi.v:325]
+INFO: [Synth 8-6157] synthesizing module 'setup_aie_gmem0_m_axi_fifo__parameterized3' [/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ipshared/9e60/hdl/verilog/setup_aie_gmem0_m_axi.v:2551]
+INFO: [Synth 8-6157] synthesizing module 'setup_aie_gmem0_m_axi_mem__parameterized0' [/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ipshared/9e60/hdl/verilog/setup_aie_gmem0_m_axi.v:2783]
+INFO: [Synth 8-6155] done synthesizing module 'setup_aie_gmem0_m_axi_mem__parameterized0' (0#1) [/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ipshared/9e60/hdl/verilog/setup_aie_gmem0_m_axi.v:2783]
+INFO: [Synth 8-6155] done synthesizing module 'setup_aie_gmem0_m_axi_fifo__parameterized3' (0#1) [/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ipshared/9e60/hdl/verilog/setup_aie_gmem0_m_axi.v:2551]
+INFO: [Synth 8-6155] done synthesizing module 'setup_aie_gmem0_m_axi_load' (0#1) [/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ipshared/9e60/hdl/verilog/setup_aie_gmem0_m_axi.v:325]
+INFO: [Synth 8-6157] synthesizing module 'setup_aie_gmem0_m_axi_write' [/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ipshared/9e60/hdl/verilog/setup_aie_gmem0_m_axi.v:1716]
+INFO: [Synth 8-6157] synthesizing module 'setup_aie_gmem0_m_axi_reg_slice' [/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ipshared/9e60/hdl/verilog/setup_aie_gmem0_m_axi.v:2449]
+INFO: [Synth 8-6155] done synthesizing module 'setup_aie_gmem0_m_axi_reg_slice' (0#1) [/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ipshared/9e60/hdl/verilog/setup_aie_gmem0_m_axi.v:2449]
+INFO: [Synth 8-6157] synthesizing module 'setup_aie_gmem0_m_axi_fifo__parameterized4' [/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ipshared/9e60/hdl/verilog/setup_aie_gmem0_m_axi.v:2551]
+INFO: [Synth 8-6157] synthesizing module 'setup_aie_gmem0_m_axi_srl__parameterized2' [/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ipshared/9e60/hdl/verilog/setup_aie_gmem0_m_axi.v:2729]
+INFO: [Synth 8-6155] done synthesizing module 'setup_aie_gmem0_m_axi_srl__parameterized2' (0#1) [/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ipshared/9e60/hdl/verilog/setup_aie_gmem0_m_axi.v:2729]
+INFO: [Synth 8-6155] done synthesizing module 'setup_aie_gmem0_m_axi_fifo__parameterized4' (0#1) [/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ipshared/9e60/hdl/verilog/setup_aie_gmem0_m_axi.v:2551]
+INFO: [Synth 8-6157] synthesizing module 'setup_aie_gmem0_m_axi_throttle' [/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ipshared/9e60/hdl/verilog/setup_aie_gmem0_m_axi.v:2224]
+INFO: [Synth 8-6157] synthesizing module 'setup_aie_gmem0_m_axi_reg_slice__parameterized0' [/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ipshared/9e60/hdl/verilog/setup_aie_gmem0_m_axi.v:2449]
+INFO: [Synth 8-6155] done synthesizing module 'setup_aie_gmem0_m_axi_reg_slice__parameterized0' (0#1) [/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ipshared/9e60/hdl/verilog/setup_aie_gmem0_m_axi.v:2449]
+INFO: [Synth 8-6157] synthesizing module 'setup_aie_gmem0_m_axi_fifo__parameterized5' [/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ipshared/9e60/hdl/verilog/setup_aie_gmem0_m_axi.v:2551]
+INFO: [Synth 8-6157] synthesizing module 'setup_aie_gmem0_m_axi_srl__parameterized3' [/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ipshared/9e60/hdl/verilog/setup_aie_gmem0_m_axi.v:2729]
+INFO: [Synth 8-6155] done synthesizing module 'setup_aie_gmem0_m_axi_srl__parameterized3' (0#1) [/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ipshared/9e60/hdl/verilog/setup_aie_gmem0_m_axi.v:2729]
+INFO: [Synth 8-6155] done synthesizing module 'setup_aie_gmem0_m_axi_fifo__parameterized5' (0#1) [/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ipshared/9e60/hdl/verilog/setup_aie_gmem0_m_axi.v:2551]
+INFO: [Synth 8-6157] synthesizing module 'setup_aie_gmem0_m_axi_fifo__parameterized6' [/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ipshared/9e60/hdl/verilog/setup_aie_gmem0_m_axi.v:2551]
+INFO: [Synth 8-6157] synthesizing module 'setup_aie_gmem0_m_axi_srl__parameterized4' [/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ipshared/9e60/hdl/verilog/setup_aie_gmem0_m_axi.v:2729]
+INFO: [Synth 8-6155] done synthesizing module 'setup_aie_gmem0_m_axi_srl__parameterized4' (0#1) [/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ipshared/9e60/hdl/verilog/setup_aie_gmem0_m_axi.v:2729]
+INFO: [Synth 8-6155] done synthesizing module 'setup_aie_gmem0_m_axi_fifo__parameterized6' (0#1) [/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ipshared/9e60/hdl/verilog/setup_aie_gmem0_m_axi.v:2551]
+INFO: [Synth 8-6155] done synthesizing module 'setup_aie_gmem0_m_axi_throttle' (0#1) [/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ipshared/9e60/hdl/verilog/setup_aie_gmem0_m_axi.v:2224]
+INFO: [Synth 8-6157] synthesizing module 'setup_aie_gmem0_m_axi_reg_slice__parameterized1' [/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ipshared/9e60/hdl/verilog/setup_aie_gmem0_m_axi.v:2449]
+INFO: [Synth 8-6155] done synthesizing module 'setup_aie_gmem0_m_axi_reg_slice__parameterized1' (0#1) [/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ipshared/9e60/hdl/verilog/setup_aie_gmem0_m_axi.v:2449]
+WARNING: [Synth 8-589] replacing case/wildcard equality operator === with logical equality operator == [/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ipshared/9e60/hdl/verilog/setup_aie_gmem0_m_axi.v:2216]
+WARNING: [Synth 8-589] replacing case/wildcard equality operator === with logical equality operator == [/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ipshared/9e60/hdl/verilog/setup_aie_gmem0_m_axi.v:2219]
+INFO: [Synth 8-6155] done synthesizing module 'setup_aie_gmem0_m_axi_write' (0#1) [/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ipshared/9e60/hdl/verilog/setup_aie_gmem0_m_axi.v:1716]
+INFO: [Synth 8-6157] synthesizing module 'setup_aie_gmem0_m_axi_read' [/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ipshared/9e60/hdl/verilog/setup_aie_gmem0_m_axi.v:1332]
+INFO: [Synth 8-6157] synthesizing module 'setup_aie_gmem0_m_axi_reg_slice__parameterized2' [/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ipshared/9e60/hdl/verilog/setup_aie_gmem0_m_axi.v:2449]
+INFO: [Synth 8-6155] done synthesizing module 'setup_aie_gmem0_m_axi_reg_slice__parameterized2' (0#1) [/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ipshared/9e60/hdl/verilog/setup_aie_gmem0_m_axi.v:2449]
+WARNING: [Synth 8-589] replacing case/wildcard equality operator === with logical equality operator == [/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ipshared/9e60/hdl/verilog/setup_aie_gmem0_m_axi.v:1708]
+INFO: [Synth 8-6155] done synthesizing module 'setup_aie_gmem0_m_axi_read' (0#1) [/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ipshared/9e60/hdl/verilog/setup_aie_gmem0_m_axi.v:1332]
+INFO: [Synth 8-6155] done synthesizing module 'setup_aie_gmem0_m_axi' (0#1) [/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ipshared/9e60/hdl/verilog/setup_aie_gmem0_m_axi.v:11]
+INFO: [Synth 8-6157] synthesizing module 'setup_aie_regslice_both' [/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ipshared/9e60/hdl/verilog/setup_aie_regslice_both.v:9]
+INFO: [Synth 8-6155] done synthesizing module 'setup_aie_regslice_both' (0#1) [/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ipshared/9e60/hdl/verilog/setup_aie_regslice_both.v:9]
+INFO: [Synth 8-6155] done synthesizing module 'setup_aie' (0#1) [/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ipshared/9e60/hdl/verilog/setup_aie.v:10]
+INFO: [Synth 8-6155] done synthesizing module 'ulp_inst_0_setup_aie_1_0' (0#1) [/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ip/ulp_inst_0_setup_aie_1_0/synth/ulp_inst_0_setup_aie_1_0.v:53]
+WARNING: [Synth 8-6014] Unused sequential element int_ap_done_reg was removed.  [/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ipshared/9e60/hdl/verilog/setup_aie_control_s_axi.v:297]
+WARNING: [Synth 8-7129] Port in_BUS_RID[0] in module setup_aie_gmem0_m_axi_read is either unconnected or has no load
+WARNING: [Synth 8-7129] Port in_BUS_RRESP[1] in module setup_aie_gmem0_m_axi_read is either unconnected or has no load
+WARNING: [Synth 8-7129] Port in_BUS_RRESP[0] in module setup_aie_gmem0_m_axi_read is either unconnected or has no load
+WARNING: [Synth 8-7129] Port in_BUS_RUSER[0] in module setup_aie_gmem0_m_axi_read is either unconnected or has no load
+WARNING: [Synth 8-7129] Port in_BUS_BID[0] in module setup_aie_gmem0_m_axi_write is either unconnected or has no load
+WARNING: [Synth 8-7129] Port in_BUS_BRESP[1] in module setup_aie_gmem0_m_axi_write is either unconnected or has no load
+WARNING: [Synth 8-7129] Port in_BUS_BRESP[0] in module setup_aie_gmem0_m_axi_write is either unconnected or has no load
+WARNING: [Synth 8-7129] Port in_BUS_BUSER[0] in module setup_aie_gmem0_m_axi_write is either unconnected or has no load
+---------------------------------------------------------------------------------
+Finished RTL Elaboration : Time (s): cpu = 00:00:17 ; elapsed = 00:02:10 . Memory (MB): peak = 3216.949 ; gain = 467.734 ; free physical = 17721 ; free virtual = 101466
+Synthesis current peak Physical Memory [PSS] (MB): peak = 2428.312; parent = 2301.271; children = 161.921
+Synthesis current peak Virtual Memory [VSS] (MB): peak = 4182.551; parent = 3216.953; children = 965.598
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Handling Custom Attributes
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:18 ; elapsed = 00:02:16 . Memory (MB): peak = 3234.762 ; gain = 485.547 ; free physical = 17633 ; free virtual = 101380
+Synthesis current peak Physical Memory [PSS] (MB): peak = 2428.312; parent = 2301.271; children = 161.921
+Synthesis current peak Virtual Memory [VSS] (MB): peak = 4200.363; parent = 3234.766; children = 965.598
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:18 ; elapsed = 00:02:17 . Memory (MB): peak = 3234.762 ; gain = 485.547 ; free physical = 17622 ; free virtual = 101369
+Synthesis current peak Physical Memory [PSS] (MB): peak = 2428.312; parent = 2301.271; children = 161.921
+Synthesis current peak Virtual Memory [VSS] (MB): peak = 4200.363; parent = 3234.766; children = 965.598
+---------------------------------------------------------------------------------
+Netlist sorting complete. Time (s): cpu = 00:00:00.63 ; elapsed = 00:00:06 . Memory (MB): peak = 3234.762 ; gain = 0.000 ; free physical = 18335 ; free virtual = 102092
+INFO: [Chipscope 16-579] Latest version is versal_cips_v3_3 for versal_cips_v3_2
+INFO: [Constraints 18-6359] No Clock Expansion Window constraints config file entry for device xcvc1902.  GCLK Deskew mode will be Off and cannot be enabled via GCLK_DESKEW override.
+INFO: [Constraints 18-5720] The default GCLK Deskew mode is Off.
+INFO: [Project 1-570] Preparing netlist for logic optimization
+
+Processing XDC Constraints
+Initializing timing engine
+Parsing XDC File [/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ip/ulp_inst_0_setup_aie_1_0/constraints/setup_aie_ooc.xdc] for cell 'inst'
+create_clock: Time (s): cpu = 00:00:12 ; elapsed = 00:01:51 . Memory (MB): peak = 3466.133 ; gain = 64.594 ; free physical = 15442 ; free virtual = 99364
+Finished Parsing XDC File [/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.gen/my_rm/bd/ulp_inst_0/ip/ulp_inst_0_setup_aie_1_0/constraints/setup_aie_ooc.xdc] for cell 'inst'
+Parsing XDC File [/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/ulp_inst_0_setup_aie_1_0_synth_1/dont_touch.xdc]
+Finished Parsing XDC File [/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/ulp_inst_0_setup_aie_1_0_synth_1/dont_touch.xdc]
+Completed Processing XDC Constraints
+
+Netlist sorting complete. Time (s): cpu = 00:00:00.01 ; elapsed = 00:00:00.12 . Memory (MB): peak = 3469.102 ; gain = 0.000 ; free physical = 15404 ; free virtual = 99325
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
+
+write_xdc: Time (s): cpu = 00:00:00.92 ; elapsed = 00:00:09 . Memory (MB): peak = 3469.102 ; gain = 0.000 ; free physical = 15314 ; free virtual = 99238
+Constraint Validation Runtime : Time (s): cpu = 00:00:02 ; elapsed = 00:00:16 . Memory (MB): peak = 3487.945 ; gain = 18.844 ; free physical = 15382 ; free virtual = 99301
+INFO: [Designutils 20-5008] Incremental synthesis strategy off
+INFO: [Synth 8-11241] undeclared symbol 'REGCCE', assumed default net type 'wire' [/home/xilinx/software/Vivado/2022.2/data/verilog/src/unimacro/BRAM_SINGLE_MACRO.v:2170]
+---------------------------------------------------------------------------------
+Finished Constraint Validation : Time (s): cpu = 00:00:58 ; elapsed = 00:08:09 . Memory (MB): peak = 3487.945 ; gain = 738.730 ; free physical = 17590 ; free virtual = 101562
+Synthesis current peak Physical Memory [PSS] (MB): peak = 2565.855; parent = 2438.040; children = 161.921
+Synthesis current peak Virtual Memory [VSS] (MB): peak = 4453.547; parent = 3487.949; children = 965.598
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Loading Part and Timing Information
+---------------------------------------------------------------------------------
+Loading part: xcvc1902-vsvd1760-2MP-e-S
+INFO: [Synth 8-6742] Reading net delay rules and data
+---------------------------------------------------------------------------------
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:58 ; elapsed = 00:08:10 . Memory (MB): peak = 3487.945 ; gain = 738.730 ; free physical = 17425 ; free virtual = 101398
+Synthesis current peak Physical Memory [PSS] (MB): peak = 2565.855; parent = 2438.040; children = 161.921
+Synthesis current peak Virtual Memory [VSS] (MB): peak = 4453.547; parent = 3487.949; children = 965.598
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Applying 'set_property' XDC Constraints
+---------------------------------------------------------------------------------
+Applied set_property KEEP_HIERARCHY = SOFT for inst. (constraint file  /home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/ulp_inst_0_setup_aie_1_0_synth_1/dont_touch.xdc, line 9).
+---------------------------------------------------------------------------------
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:58 ; elapsed = 00:08:11 . Memory (MB): peak = 3487.945 ; gain = 738.730 ; free physical = 17255 ; free virtual = 101227
+Synthesis current peak Physical Memory [PSS] (MB): peak = 2565.855; parent = 2438.040; children = 161.921
+Synthesis current peak Virtual Memory [VSS] (MB): peak = 4453.547; parent = 3487.949; children = 965.598
+---------------------------------------------------------------------------------
+INFO: [Synth 8-802] inferred FSM for state register 'wstate_reg' in module 'setup_aie_control_s_axi'
+INFO: [Synth 8-802] inferred FSM for state register 'rstate_reg' in module 'setup_aie_control_s_axi'
+INFO: [Synth 8-802] inferred FSM for state register 'state_reg' in module 'setup_aie_gmem0_m_axi_reg_slice'
+INFO: [Synth 8-802] inferred FSM for state register 'state_reg' in module 'setup_aie_gmem0_m_axi_reg_slice__parameterized0'
+INFO: [Synth 8-802] inferred FSM for state register 'state_reg' in module 'setup_aie_gmem0_m_axi_reg_slice__parameterized1'
+INFO: [Synth 8-802] inferred FSM for state register 'state_reg' in module 'setup_aie_gmem0_m_axi_reg_slice__parameterized2'
+INFO: [Synth 8-4490] FSM extraction disabled for register 'ap_CS_fsm_reg' through user attribute
+---------------------------------------------------------------------------------------------------
+                   State |                     New Encoding |                Previous Encoding 
+---------------------------------------------------------------------------------------------------
+                  iSTATE |                             0001 |                               11
+*
+                  WRIDLE |                             0010 |                               00
+                  WRDATA |                             0100 |                               01
+                  WRRESP |                             1000 |                               10
+---------------------------------------------------------------------------------------------------
+INFO: [Synth 8-3354] encoded FSM with state register 'wstate_reg' using encoding 'one-hot' in module 'setup_aie_control_s_axi'
+---------------------------------------------------------------------------------------------------
+                   State |                     New Encoding |                Previous Encoding 
+---------------------------------------------------------------------------------------------------
+                  iSTATE |                              001 |                               10
+*
+                  RDIDLE |                              010 |                               00
+                  RDDATA |                              100 |                               01
+---------------------------------------------------------------------------------------------------
+INFO: [Synth 8-3354] encoded FSM with state register 'rstate_reg' using encoding 'one-hot' in module 'setup_aie_control_s_axi'
+INFO: [Synth 8-7030] Implemented Non-Cascaded Block Ram (cascade_height = 1) of width 72 for RAM "setup_aie_gmem0_m_axi_mem:/mem_reg"
+INFO: [Synth 8-7030] Implemented Non-Cascaded Block Ram (cascade_height = 1) of width 72 for RAM "setup_aie_gmem0_m_axi_mem:/mem_reg"
+INFO: [Synth 8-7030] Implemented Non-Cascaded Block Ram (cascade_height = 1) of width 72 for RAM "setup_aie_gmem0_m_axi_mem:/mem_reg"
+INFO: [Synth 8-7030] Implemented Non-Cascaded Block Ram (cascade_height = 1) of width 72 for RAM "setup_aie_gmem0_m_axi_mem:/mem_reg"
+INFO: [Synth 8-7030] Implemented Non-Cascaded Block Ram (cascade_height = 1) of width 72 for RAM "setup_aie_gmem0_m_axi_mem:/mem_reg"
+INFO: [Synth 8-7030] Implemented Non-Cascaded Block Ram (cascade_height = 1) of width 72 for RAM "setup_aie_gmem0_m_axi_mem:/mem_reg"
+INFO: [Synth 8-7030] Implemented Non-Cascaded Block Ram (cascade_height = 1) of width 72 for RAM "setup_aie_gmem0_m_axi_mem:/mem_reg"
+INFO: [Synth 8-7030] Implemented Non-Cascaded Block Ram (cascade_height = 1) of width 72 for RAM "setup_aie_gmem0_m_axi_mem:/mem_reg"
+INFO: [Synth 8-7030] Implemented Non-Cascaded Block Ram (cascade_height = 1) of width 72 for RAM "setup_aie_gmem0_m_axi_mem:/mem_reg"
+INFO: [Synth 8-7030] Implemented Non-Cascaded Block Ram (cascade_height = 1) of width 72 for RAM "setup_aie_gmem0_m_axi_mem:/mem_reg"
+INFO: [Synth 8-7030] Implemented Non-Cascaded Block Ram (cascade_height = 1) of width 72 for RAM "setup_aie_gmem0_m_axi_mem:/mem_reg"
+INFO: [Synth 8-7030] Implemented Non-Cascaded Block Ram (cascade_height = 1) of width 72 for RAM "setup_aie_gmem0_m_axi_mem:/mem_reg"
+INFO: [Synth 8-7030] Implemented Non-Cascaded Block Ram (cascade_height = 1) of width 72 for RAM "setup_aie_gmem0_m_axi_mem:/mem_reg"
+INFO: [Synth 8-7030] Implemented Non-Cascaded Block Ram (cascade_height = 1) of width 72 for RAM "setup_aie_gmem0_m_axi_mem:/mem_reg"
+INFO: [Synth 8-7030] Implemented Non-Cascaded Block Ram (cascade_height = 1) of width 72 for RAM "setup_aie_gmem0_m_axi_mem:/mem_reg"
+INFO: [Synth 8-7030] Implemented Non-Cascaded Block Ram (cascade_height = 1) of width 72 for RAM "setup_aie_gmem0_m_axi_mem:/mem_reg"
+INFO: [Synth 8-7030] Implemented Non-Cascaded Block Ram (cascade_height = 1) of width 72 for RAM "setup_aie_gmem0_m_axi_mem__parameterized0:/mem_reg"
+INFO: [Synth 8-7030] Implemented Non-Cascaded Block Ram (cascade_height = 1) of width 72 for RAM "setup_aie_gmem0_m_axi_mem__parameterized0:/mem_reg"
+INFO: [Synth 8-7030] Implemented Non-Cascaded Block Ram (cascade_height = 1) of width 72 for RAM "setup_aie_gmem0_m_axi_mem__parameterized0:/mem_reg"
+INFO: [Synth 8-7030] Implemented Non-Cascaded Block Ram (cascade_height = 1) of width 72 for RAM "setup_aie_gmem0_m_axi_mem__parameterized0:/mem_reg"
+INFO: [Synth 8-7030] Implemented Non-Cascaded Block Ram (cascade_height = 1) of width 72 for RAM "setup_aie_gmem0_m_axi_mem__parameterized0:/mem_reg"
+INFO: [Synth 8-7030] Implemented Non-Cascaded Block Ram (cascade_height = 1) of width 72 for RAM "setup_aie_gmem0_m_axi_mem__parameterized0:/mem_reg"
+INFO: [Synth 8-7030] Implemented Non-Cascaded Block Ram (cascade_height = 1) of width 72 for RAM "setup_aie_gmem0_m_axi_mem__parameterized0:/mem_reg"
+INFO: [Synth 8-7030] Implemented Non-Cascaded Block Ram (cascade_height = 1) of width 72 for RAM "setup_aie_gmem0_m_axi_mem__parameterized0:/mem_reg"
+INFO: [Synth 8-7030] Implemented Non-Cascaded Block Ram (cascade_height = 1) of width 72 for RAM "setup_aie_gmem0_m_axi_mem__parameterized0:/mem_reg"
+INFO: [Synth 8-7030] Implemented Non-Cascaded Block Ram (cascade_height = 1) of width 72 for RAM "setup_aie_gmem0_m_axi_mem__parameterized0:/mem_reg"
+INFO: [Synth 8-7030] Implemented Non-Cascaded Block Ram (cascade_height = 1) of width 72 for RAM "setup_aie_gmem0_m_axi_mem__parameterized0:/mem_reg"
+INFO: [Synth 8-7030] Implemented Non-Cascaded Block Ram (cascade_height = 1) of width 72 for RAM "setup_aie_gmem0_m_axi_mem__parameterized0:/mem_reg"
+INFO: [Synth 8-7030] Implemented Non-Cascaded Block Ram (cascade_height = 1) of width 72 for RAM "setup_aie_gmem0_m_axi_mem__parameterized0:/mem_reg"
+INFO: [Synth 8-7030] Implemented Non-Cascaded Block Ram (cascade_height = 1) of width 72 for RAM "setup_aie_gmem0_m_axi_mem__parameterized0:/mem_reg"
+INFO: [Synth 8-7030] Implemented Non-Cascaded Block Ram (cascade_height = 1) of width 18 for RAM "setup_aie_gmem0_m_axi_mem__parameterized0:/mem_reg"
+---------------------------------------------------------------------------------------------------
+                   State |                     New Encoding |                Previous Encoding 
+---------------------------------------------------------------------------------------------------
+                    ZERO |                               00 |                               10
+                     ONE |                               10 |                               11
+                     TWO |                               01 |                               01
+---------------------------------------------------------------------------------------------------
+INFO: [Synth 8-3354] encoded FSM with state register 'state_reg' using encoding 'sequential' in module 'setup_aie_gmem0_m_axi_reg_slice'
+---------------------------------------------------------------------------------------------------
+                   State |                     New Encoding |                Previous Encoding 
+---------------------------------------------------------------------------------------------------
+                    ZERO |                               00 |                               10
+                     ONE |                               10 |                               11
+                     TWO |                               01 |                               01
+---------------------------------------------------------------------------------------------------
+INFO: [Synth 8-3354] encoded FSM with state register 'state_reg' using encoding 'sequential' in module 'setup_aie_gmem0_m_axi_reg_slice__parameterized0'
+---------------------------------------------------------------------------------------------------
+                   State |                     New Encoding |                Previous Encoding 
+---------------------------------------------------------------------------------------------------
+                    ZERO |                               00 |                               10
+                     ONE |                               10 |                               11
+                     TWO |                               01 |                               01
+---------------------------------------------------------------------------------------------------
+INFO: [Synth 8-3354] encoded FSM with state register 'state_reg' using encoding 'sequential' in module 'setup_aie_gmem0_m_axi_reg_slice__parameterized1'
+---------------------------------------------------------------------------------------------------
+                   State |                     New Encoding |                Previous Encoding 
+---------------------------------------------------------------------------------------------------
+                    ZERO |                               00 |                               10
+                     ONE |                               10 |                               11
+                     TWO |                               01 |                               01
+---------------------------------------------------------------------------------------------------
+INFO: [Synth 8-3354] encoded FSM with state register 'state_reg' using encoding 'sequential' in module 'setup_aie_gmem0_m_axi_reg_slice__parameterized2'
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:01:02 ; elapsed = 00:08:38 . Memory (MB): peak = 3487.945 ; gain = 738.730 ; free physical = 13550 ; free virtual = 97532
+Synthesis current peak Physical Memory [PSS] (MB): peak = 2565.855; parent = 2438.040; children = 161.921
+Synthesis current peak Virtual Memory [VSS] (MB): peak = 4453.547; parent = 3487.949; children = 965.598
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start RTL Component Statistics 
+---------------------------------------------------------------------------------
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input   64 Bit       Adders := 4     
+	   2 Input   52 Bit       Adders := 2     
+	   2 Input   32 Bit       Adders := 2     
+	   2 Input   12 Bit       Adders := 2     
+	   2 Input    9 Bit       Adders := 3     
+	   2 Input    8 Bit       Adders := 9     
+	   2 Input    7 Bit       Adders := 6     
+	   2 Input    5 Bit       Adders := 20    
+	   2 Input    4 Bit       Adders := 17    
+	   2 Input    1 Bit       Adders := 2     
++---XORs : 
+	   2 Input      1 Bit         XORs := 2     
++---Registers : 
+	             1153 Bit    Registers := 1     
+	             1152 Bit    Registers := 1     
+	             1026 Bit    Registers := 1     
+	             1025 Bit    Registers := 2     
+	             1024 Bit    Registers := 1     
+	              128 Bit    Registers := 4     
+	               96 Bit    Registers := 6     
+	               76 Bit    Registers := 1     
+	               72 Bit    Registers := 3     
+	               64 Bit    Registers := 10    
+	               57 Bit    Registers := 1     
+	               52 Bit    Registers := 2     
+	               32 Bit    Registers := 6     
+	                9 Bit    Registers := 1     
+	                8 Bit    Registers := 9     
+	                7 Bit    Registers := 3     
+	                6 Bit    Registers := 1     
+	                5 Bit    Registers := 14    
+	                4 Bit    Registers := 9     
+	                3 Bit    Registers := 1     
+	                2 Bit    Registers := 8     
+	                1 Bit    Registers := 94    
++---RAMs : 
+	             255K Bit	(255 X 1026 bit)          RAMs := 1     
+	              16K Bit	(15 X 1152 bit)          RAMs := 1     
++---Muxes : 
+	   2 Input 1025 Bit        Muxes := 1     
+	   2 Input 1024 Bit        Muxes := 2     
+	   2 Input  128 Bit        Muxes := 4     
+	   2 Input   96 Bit        Muxes := 2     
+	   2 Input   76 Bit        Muxes := 2     
+	  77 Input   76 Bit        Muxes := 1     
+	   2 Input   74 Bit        Muxes := 1     
+	   2 Input   73 Bit        Muxes := 1     
+	   2 Input   72 Bit        Muxes := 1     
+	   2 Input   64 Bit        Muxes := 8     
+	   2 Input   52 Bit        Muxes := 2     
+	   8 Input   32 Bit        Muxes := 1     
+	   2 Input   32 Bit        Muxes := 1     
+	   4 Input   12 Bit        Muxes := 2     
+	   2 Input    9 Bit        Muxes := 2     
+	   2 Input    8 Bit        Muxes := 12    
+	   4 Input    8 Bit        Muxes := 2     
+	   2 Input    7 Bit        Muxes := 7     
+	   2 Input    5 Bit        Muxes := 23    
+	   4 Input    4 Bit        Muxes := 1     
+	   2 Input    4 Bit        Muxes := 15    
+	   3 Input    3 Bit        Muxes := 1     
+	   2 Input    3 Bit        Muxes := 3     
+	   8 Input    3 Bit        Muxes := 1     
+	   2 Input    2 Bit        Muxes := 52    
+	   3 Input    2 Bit        Muxes := 15    
+	   4 Input    2 Bit        Muxes := 6     
+	   2 Input    1 Bit        Muxes := 99    
+---------------------------------------------------------------------------------
+Finished RTL Component Statistics 
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Part Resource Summary
+---------------------------------------------------------------------------------
+Part Resources:
+DSPs: 1968 (col length:164)
+BRAMs: 1934 (col length: RAMB18 168 RAMB36 84)
+---------------------------------------------------------------------------------
+Finished Part Resource Summary
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Cross Boundary and Area Optimization
+---------------------------------------------------------------------------------
+WARNING: [Synth 8-7080] Parallel synthesis criteria is not met
+WARNING: [Synth 8-7129] Port in_BUS_RID[0] in module setup_aie_gmem0_m_axi_read is either unconnected or has no load
+WARNING: [Synth 8-7129] Port in_BUS_RRESP[1] in module setup_aie_gmem0_m_axi_read is either unconnected or has no load
+WARNING: [Synth 8-7129] Port in_BUS_RRESP[0] in module setup_aie_gmem0_m_axi_read is either unconnected or has no load
+WARNING: [Synth 8-7129] Port in_BUS_RUSER[0] in module setup_aie_gmem0_m_axi_read is either unconnected or has no load
+WARNING: [Synth 8-7129] Port in_BUS_BID[0] in module setup_aie_gmem0_m_axi_write is either unconnected or has no load
+WARNING: [Synth 8-7129] Port in_BUS_BRESP[1] in module setup_aie_gmem0_m_axi_write is either unconnected or has no load
+WARNING: [Synth 8-7129] Port in_BUS_BRESP[0] in module setup_aie_gmem0_m_axi_write is either unconnected or has no load
+WARNING: [Synth 8-7129] Port in_BUS_BUSER[0] in module setup_aie_gmem0_m_axi_write is either unconnected or has no load
+INFO: [Synth 8-5784] Optimized 1152 bits of RAM "store_unit/buff_wdata/U_fifo_mem/mem_reg" due to constant propagation. Old ram width 1152 bits, new ram width 0 bits.
+WARNING: [Synth 8-5785] Removed RAM "store_unit/buff_wdata/U_fifo_mem/mem_reg" due to constant propagation. Write data stuck at zero 
+INFO: [Synth 8-7030] Implemented Non-Cascaded Block Ram (cascade_height = 1) of width 72 for RAM "inst/gmem0_m_axi_U/load_unit/buff_rdata/U_fifo_mem/mem_reg"
+INFO: [Synth 8-7030] Implemented Non-Cascaded Block Ram (cascade_height = 1) of width 72 for RAM "inst/gmem0_m_axi_U/load_unit/buff_rdata/U_fifo_mem/mem_reg"
+INFO: [Synth 8-7030] Implemented Non-Cascaded Block Ram (cascade_height = 1) of width 72 for RAM "inst/gmem0_m_axi_U/load_unit/buff_rdata/U_fifo_mem/mem_reg"
+INFO: [Synth 8-7030] Implemented Non-Cascaded Block Ram (cascade_height = 1) of width 72 for RAM "inst/gmem0_m_axi_U/load_unit/buff_rdata/U_fifo_mem/mem_reg"
+INFO: [Synth 8-7030] Implemented Non-Cascaded Block Ram (cascade_height = 1) of width 72 for RAM "inst/gmem0_m_axi_U/load_unit/buff_rdata/U_fifo_mem/mem_reg"
+INFO: [Synth 8-7030] Implemented Non-Cascaded Block Ram (cascade_height = 1) of width 72 for RAM "inst/gmem0_m_axi_U/load_unit/buff_rdata/U_fifo_mem/mem_reg"
+INFO: [Synth 8-7030] Implemented Non-Cascaded Block Ram (cascade_height = 1) of width 72 for RAM "inst/gmem0_m_axi_U/load_unit/buff_rdata/U_fifo_mem/mem_reg"
+INFO: [Synth 8-7030] Implemented Non-Cascaded Block Ram (cascade_height = 1) of width 72 for RAM "inst/gmem0_m_axi_U/load_unit/buff_rdata/U_fifo_mem/mem_reg"
+INFO: [Synth 8-7030] Implemented Non-Cascaded Block Ram (cascade_height = 1) of width 72 for RAM "inst/gmem0_m_axi_U/load_unit/buff_rdata/U_fifo_mem/mem_reg"
+INFO: [Synth 8-7030] Implemented Non-Cascaded Block Ram (cascade_height = 1) of width 72 for RAM "inst/gmem0_m_axi_U/load_unit/buff_rdata/U_fifo_mem/mem_reg"
+INFO: [Synth 8-7030] Implemented Non-Cascaded Block Ram (cascade_height = 1) of width 72 for RAM "inst/gmem0_m_axi_U/load_unit/buff_rdata/U_fifo_mem/mem_reg"
+INFO: [Synth 8-7030] Implemented Non-Cascaded Block Ram (cascade_height = 1) of width 72 for RAM "inst/gmem0_m_axi_U/load_unit/buff_rdata/U_fifo_mem/mem_reg"
+INFO: [Synth 8-7030] Implemented Non-Cascaded Block Ram (cascade_height = 1) of width 72 for RAM "inst/gmem0_m_axi_U/load_unit/buff_rdata/U_fifo_mem/mem_reg"
+INFO: [Synth 8-7030] Implemented Non-Cascaded Block Ram (cascade_height = 1) of width 72 for RAM "inst/gmem0_m_axi_U/load_unit/buff_rdata/U_fifo_mem/mem_reg"
+INFO: [Synth 8-7030] Implemented Non-Cascaded Block Ram (cascade_height = 1) of width 18 for RAM "inst/gmem0_m_axi_U/load_unit/buff_rdata/U_fifo_mem/mem_reg"
+WARNING: [Synth 8-3332] Sequential element (control_s_axi_U/FSM_onehot_wstate_reg[0]) is unused and will be removed from module setup_aie.
+WARNING: [Synth 8-3332] Sequential element (control_s_axi_U/FSM_onehot_rstate_reg[0]) is unused and will be removed from module setup_aie.
+WARNING: [Synth 8-3332] Sequential element (rs_wreq/FSM_sequential_state_reg[1]) is unused and will be removed from module setup_aie_gmem0_m_axi_write.
+WARNING: [Synth 8-3332] Sequential element (rs_wreq/FSM_sequential_state_reg[0]) is unused and will be removed from module setup_aie_gmem0_m_axi_write.
+WARNING: [Synth 8-3332] Sequential element (wreq_throttle/rs_req/FSM_sequential_state_reg[1]) is unused and will be removed from module setup_aie_gmem0_m_axi_write.
+WARNING: [Synth 8-3332] Sequential element (wreq_throttle/rs_req/FSM_sequential_state_reg[0]) is unused and will be removed from module setup_aie_gmem0_m_axi_write.
+---------------------------------------------------------------------------------
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:01:29 ; elapsed = 00:12:53 . Memory (MB): peak = 3487.945 ; gain = 738.730 ; free physical = 12721 ; free virtual = 96802
+Synthesis current peak Physical Memory [PSS] (MB): peak = 2626.241; parent = 2497.827; children = 161.921
+Synthesis current peak Virtual Memory [VSS] (MB): peak = 4453.547; parent = 3487.949; children = 965.598
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start ROM, RAM, DSP, Shift Register and Retiming Reporting
+---------------------------------------------------------------------------------
+
+Block RAM: Preliminary Mapping Report (see note below)
++-------------------+-----------------------------------------+-------------------------+---+---+------------------------+---+---+------------------+--------+--------+-------------------------------+
+|Module Name        | RTL Object                              | PORT A (Depth x Width)  | W | R | PORT B (Depth x Width) | W | R | Ports driving FF | RAMB18 | RAMB36 | Cascade Heights               | 
++-------------------+-----------------------------------------+-------------------------+---+---+------------------------+---+---+------------------+--------+--------+-------------------------------+
+|inst/gmem0_m_axi_U | load_unit/buff_rdata/U_fifo_mem/mem_reg | 255 x 1026(WRITE_FIRST) |   | R | 255 x 1026(READ_FIRST) | W |   | Port A and B     | 1      | 14     | 1,1,1,1,1,1,1,1,1,1,1,1,1,1,1 | 
++-------------------+-----------------------------------------+-------------------------+---+---+------------------------+---+---+------------------+--------+--------+-------------------------------+
+
+Note: The table above is a preliminary report that shows the Block RAMs at the current stage of the synthesis flow. Some Block RAMs may be reimplemented as non Block RAM primitives later in the synthesis flow. Multiple instantiated Block RAMs are reported only once. 
+---------------------------------------------------------------------------------
+Finished ROM, RAM, DSP, Shift Register and Retiming Reporting
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Applying XDC Timing Constraints
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:02:30 ; elapsed = 00:22:23 . Memory (MB): peak = 4033.617 ; gain = 1284.402 ; free physical = 16005 ; free virtual = 100157
+Synthesis current peak Physical Memory [PSS] (MB): peak = 3199.559; parent = 3069.733; children = 161.921
+Synthesis current peak Virtual Memory [VSS] (MB): peak = 4999.219; parent = 4033.621; children = 965.598
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Timing Optimization
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Timing Optimization : Time (s): cpu = 00:02:35 ; elapsed = 00:22:50 . Memory (MB): peak = 4071.195 ; gain = 1321.980 ; free physical = 15677 ; free virtual = 99798
+Synthesis current peak Physical Memory [PSS] (MB): peak = 3258.040; parent = 3128.218; children = 161.921
+Synthesis current peak Virtual Memory [VSS] (MB): peak = 5036.797; parent = 4071.199; children = 965.598
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start ROM, RAM, DSP, Shift Register and Retiming Reporting
+---------------------------------------------------------------------------------
+
+Block RAM: Final Mapping Report
++-------------------+-----------------------------------------+-------------------------+---+---+------------------------+---+---+------------------+--------+--------+-------------------------------+
+|Module Name        | RTL Object                              | PORT A (Depth x Width)  | W | R | PORT B (Depth x Width) | W | R | Ports driving FF | RAMB18 | RAMB36 | Cascade Heights               | 
++-------------------+-----------------------------------------+-------------------------+---+---+------------------------+---+---+------------------+--------+--------+-------------------------------+
+|inst/gmem0_m_axi_U | load_unit/buff_rdata/U_fifo_mem/mem_reg | 255 x 1026(WRITE_FIRST) |   | R | 255 x 1026(READ_FIRST) | W |   | Port A and B     | 1      | 14     | 1,1,1,1,1,1,1,1,1,1,1,1,1,1,1 | 
++-------------------+-----------------------------------------+-------------------------+---+---+------------------------+---+---+------------------+--------+--------+-------------------------------+
+
+---------------------------------------------------------------------------------
+Finished ROM, RAM, DSP, Shift Register and Retiming Reporting
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Technology Mapping
+---------------------------------------------------------------------------------
+INFO: [Synth 8-5816] Retiming module `setup_aie`
+   Worst Slack before retiming is 1538 and worst slack after retiming is 1538
+   Numbers of local forward move = 0, and local backward move = 7
+
+	Retimed registers names:
+		inst/gmem0_m_axi_U/bus_read/sect_cnt_reg[38]_bret
+		inst/gmem0_m_axi_U/bus_read/sect_cnt_reg[38]_bret__1
+		inst/gmem0_m_axi_U/bus_read/sect_cnt_reg[40]_bret
+		inst/gmem0_m_axi_U/bus_read/sect_cnt_reg[40]_bret__1
+		inst/gmem0_m_axi_U/bus_read/sect_cnt_reg[42]_bret
+		inst/gmem0_m_axi_U/bus_read/sect_cnt_reg[42]_bret__1
+		inst/gmem0_m_axi_U/bus_read/sect_cnt_reg[44]_bret
+		inst/gmem0_m_axi_U/bus_read/sect_cnt_reg[44]_bret__1
+		inst/gmem0_m_axi_U/bus_read/sect_cnt_reg[46]_bret
+		inst/gmem0_m_axi_U/bus_read/sect_cnt_reg[46]_bret__1
+		inst/gmem0_m_axi_U/bus_read/sect_cnt_reg[48]_bret
+		inst/gmem0_m_axi_U/bus_read/sect_cnt_reg[48]_bret__1
+		inst/gmem0_m_axi_U/bus_read/sect_cnt_reg[50]_bret
+		inst/gmem0_m_axi_U/bus_read/sect_cnt_reg[50]_bret__0
+		inst/gmem0_m_axi_U/bus_read/sect_cnt_reg[50]_bret__1
+ 
+
+INFO: [Synth 8-5816] Retiming module `setup_aie' done
+
+
+INFO: [Synth 8-11328] No retiming is needed, due to no register satisfying retiming conditions
+INFO: [Synth 8-5816] Retiming module `ulp_inst_0_setup_aie_1_0`
+   Worst Slack before retiming is 1538 and worst slack after retiming is 1538
+   Numbers of local forward move = 0, and local backward move = 0
+
+
+INFO: [Synth 8-5816] Retiming module `ulp_inst_0_setup_aie_1_0' done
+
+
+INFO: [Synth 8-7052] The timing for the instance inst/gmem0_m_axi_U/load_unit/buff_rdata/U_fifo_mem/mem_reg_bram_0 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance inst/gmem0_m_axi_U/load_unit/buff_rdata/U_fifo_mem/mem_reg_bram_1 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance inst/gmem0_m_axi_U/load_unit/buff_rdata/U_fifo_mem/mem_reg_bram_14 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+---------------------------------------------------------------------------------
+Finished Technology Mapping : Time (s): cpu = 00:02:40 ; elapsed = 00:23:20 . Memory (MB): peak = 4079.203 ; gain = 1329.988 ; free physical = 18363 ; free virtual = 102491
+Synthesis current peak Physical Memory [PSS] (MB): peak = 3258.040; parent = 3128.218; children = 161.921
+Synthesis current peak Virtual Memory [VSS] (MB): peak = 5044.805; parent = 4079.207; children = 965.598
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Final Netlist Cleanup
+---------------------------------------------------------------------------------
+INFO: [Synth 8-3295] tying undriven pin i_544:I4 to constant 0
+INFO: [Synth 8-3295] tying undriven pin i_545:I4 to constant 0
+---------------------------------------------------------------------------------
+Finished IO Insertion : Time (s): cpu = 00:02:48 ; elapsed = 00:24:11 . Memory (MB): peak = 4079.203 ; gain = 1329.988 ; free physical = 20645 ; free virtual = 104780
+Synthesis current peak Physical Memory [PSS] (MB): peak = 3258.040; parent = 3128.218; children = 161.921
+Synthesis current peak Virtual Memory [VSS] (MB): peak = 5044.805; parent = 4079.207; children = 965.598
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Instances
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Instances : Time (s): cpu = 00:02:48 ; elapsed = 00:24:12 . Memory (MB): peak = 4079.203 ; gain = 1329.988 ; free physical = 20628 ; free virtual = 104763
+Synthesis current peak Physical Memory [PSS] (MB): peak = 3258.040; parent = 3128.218; children = 161.921
+Synthesis current peak Virtual Memory [VSS] (MB): peak = 5044.805; parent = 4079.207; children = 965.598
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Rebuilding User Hierarchy
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:02:48 ; elapsed = 00:24:15 . Memory (MB): peak = 4079.203 ; gain = 1329.988 ; free physical = 20566 ; free virtual = 104763
+Synthesis current peak Physical Memory [PSS] (MB): peak = 3258.040; parent = 3128.218; children = 161.921
+Synthesis current peak Virtual Memory [VSS] (MB): peak = 5044.805; parent = 4079.207; children = 965.598
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Ports
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Ports : Time (s): cpu = 00:02:48 ; elapsed = 00:24:16 . Memory (MB): peak = 4079.203 ; gain = 1329.988 ; free physical = 20503 ; free virtual = 104757
+Synthesis current peak Physical Memory [PSS] (MB): peak = 3258.040; parent = 3128.218; children = 161.921
+Synthesis current peak Virtual Memory [VSS] (MB): peak = 5044.805; parent = 4079.207; children = 965.598
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Handling Custom Attributes
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Handling Custom Attributes : Time (s): cpu = 00:02:49 ; elapsed = 00:24:18 . Memory (MB): peak = 4079.203 ; gain = 1329.988 ; free physical = 20470 ; free virtual = 104785
+Synthesis current peak Physical Memory [PSS] (MB): peak = 3258.040; parent = 3128.218; children = 161.921
+Synthesis current peak Virtual Memory [VSS] (MB): peak = 5044.805; parent = 4079.207; children = 965.598
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Nets
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Nets : Time (s): cpu = 00:02:49 ; elapsed = 00:24:19 . Memory (MB): peak = 4079.203 ; gain = 1329.988 ; free physical = 20360 ; free virtual = 104753
+Synthesis current peak Physical Memory [PSS] (MB): peak = 3258.040; parent = 3128.218; children = 161.921
+Synthesis current peak Virtual Memory [VSS] (MB): peak = 5044.805; parent = 4079.207; children = 965.598
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start ROM, RAM, DSP, Shift Register and Retiming Reporting
+---------------------------------------------------------------------------------
+
+Dynamic Shift Register Report:
++------------+-------------+--------+------------+--------+---------+--------+--------+--------+
+|Module Name | RTL Name    | Length | Data Width | SRL16E | SRLC32E | Mux F7 | Mux F8 | Mux F9 | 
++------------+-------------+--------+------------+--------+---------+--------+--------+--------+
+|dsrl        | mem_reg[67] | 96     | 96         | 0      | 288     | 0      | 0      | 0      | 
+|dsrl__1     | mem_reg[14] | 1      | 1          | 1      | 0       | 0      | 0      | 0      | 
+|dsrl__2     | mem_reg[67] | 1      | 1          | 0      | 3       | 0      | 0      | 0      | 
+|dsrl__3     | mem_reg[14] | 8      | 8          | 8      | 0       | 0      | 0      | 0      | 
+|dsrl__4     | mem_reg[14] | 72     | 72         | 72     | 0       | 0      | 0      | 0      | 
+|dsrl__5     | mem_reg[14] | 1153   | 1153       | 1153   | 0       | 0      | 0      | 0      | 
++------------+-------------+--------+------------+--------+---------+--------+--------+--------+
+
+
+Retiming Report:
++--------------------+----+
+|Retiming summary:   |    | 
++--------------------+----+
+|Forward Retiming    | 0  | 
+|Backward Retiming   | 7  | 
+|New registers added | 15 | 
+|Registers deleted   | 7  | 
++--------------------+----+
+
+---------------------------------------------------------------------------------
+Finished ROM, RAM, DSP, Shift Register and Retiming Reporting
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Writing Synthesis Report
+---------------------------------------------------------------------------------
+
+Report BlackBoxes: 
++-+--------------+----------+
+| |BlackBox name |Instances |
++-+--------------+----------+
++-+--------------+----------+
+
+Report Cell Usage: 
++------+-------------+------+
+|      |Cell         |Count |
++------+-------------+------+
+|1     |LOOKAHEAD8   |    36|
+|6     |LUT1         |     8|
+|7     |LUT2         |    27|
+|8     |LUT3         |   432|
+|9     |LUT4         |   277|
+|10    |LUT5         |   263|
+|11    |LUT6         |    94|
+|12    |LUT6CY       |   258|
+|13    |LUT6         |     1|
+|14    |RAMB18E5_INT |     1|
+|15    |RAMB36E5_INT |     2|
+|16    |SRL16E       |     1|
+|17    |SRLC32E      |   174|
+|18    |FDRE         |  1637|
+|19    |FDSE         |     3|
++------+-------------+------+
+---------------------------------------------------------------------------------
+Finished Writing Synthesis Report : Time (s): cpu = 00:02:49 ; elapsed = 00:24:21 . Memory (MB): peak = 4079.203 ; gain = 1329.988 ; free physical = 20494 ; free virtual = 104728
+Synthesis current peak Physical Memory [PSS] (MB): peak = 3258.040; parent = 3128.218; children = 161.921
+Synthesis current peak Virtual Memory [VSS] (MB): peak = 5044.805; parent = 4079.207; children = 965.598
+---------------------------------------------------------------------------------
+Synthesis finished with 0 errors, 0 critical warnings and 16 warnings.
+Synthesis Optimization Runtime : Time (s): cpu = 00:02:22 ; elapsed = 00:20:11 . Memory (MB): peak = 4079.203 ; gain = 1076.805 ; free physical = 20432 ; free virtual = 104753
+Synthesis Optimization Complete : Time (s): cpu = 00:02:49 ; elapsed = 00:24:25 . Memory (MB): peak = 4079.211 ; gain = 1329.988 ; free physical = 20401 ; free virtual = 104748
+INFO: [Project 1-571] Translating synthesized netlist
+Netlist sorting complete. Time (s): cpu = 00:00:00.09 ; elapsed = 00:00:00.37 . Memory (MB): peak = 4079.211 ; gain = 0.000 ; free physical = 20451 ; free virtual = 104593
+INFO: [Netlist 29-17] Analyzing 262 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+INFO: [Chipscope 16-579] Latest version is versal_cips_v3_3 for versal_cips_v3_2
+INFO: [Constraints 18-6359] No Clock Expansion Window constraints config file entry for device xcvc1902.  GCLK Deskew mode will be Off and cannot be enabled via GCLK_DESKEW override.
+INFO: [Constraints 18-5720] The default GCLK Deskew mode is Off.
+INFO: [Project 1-570] Preparing netlist for logic optimization
+INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.01 . Memory (MB): peak = 4100.016 ; gain = 0.000 ; free physical = 19321 ; free virtual = 103474
+INFO: [Project 1-111] Unisim Transformation Summary:
+  A total of 262 instances were transformed.
+  LUT6CY => LUT6CY (LUTCY1, LUTCY2): 258 instances
+  LUT6_2 => LUT6_2 (LUT5, LUT6): 1 instance 
+  RAMB18E5 => RAMB18E5_INT: 1 instance 
+  RAMB36E5 => RAMB36E5_INT: 2 instances
+
+Synth Design complete, checksum: 352050ef
+INFO: [Common 17-83] Releasing license: Synthesis
+167 Infos, 44 Warnings, 0 Critical Warnings and 0 Errors encountered.
+synth_design completed successfully
+synth_design: Time (s): cpu = 00:03:23 ; elapsed = 00:28:14 . Memory (MB): peak = 4100.016 ; gain = 2069.035 ; free physical = 19590 ; free virtual = 103749
+INFO: [Common 17-600] The following parameters have non-default value.
+general.maxThreads
+INFO: [Common 17-1381] The checkpoint '/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/ulp_inst_0_setup_aie_1_0_synth_1/ulp_inst_0_setup_aie_1_0.dcp' has been generated.
+write_checkpoint: Time (s): cpu = 00:00:01 ; elapsed = 00:00:05 . Memory (MB): peak = 4132.031 ; gain = 32.016 ; free physical = 19497 ; free virtual = 103658
+INFO: [Coretcl 2-1648] Added synthesis output to IP cache for IP ulp_inst_0_setup_aie_1_0, cache-ID = 5365e2425fab2484
+INFO: [Coretcl 2-1174] Renamed 19 cell refs.
+INFO: [Common 17-1381] The checkpoint '/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/ulp_inst_0_setup_aie_1_0_synth_1/ulp_inst_0_setup_aie_1_0.dcp' has been generated.
+write_checkpoint: Time (s): cpu = 00:00:00.92 ; elapsed = 00:00:07 . Memory (MB): peak = 4132.031 ; gain = 0.000 ; free physical = 18939 ; free virtual = 103227
+INFO: [runtcl-4] Executing : report_utilization -file ulp_inst_0_setup_aie_1_0_utilization_synth.rpt -pb ulp_inst_0_setup_aie_1_0_utilization_synth.pb
+write_vhdl: Time (s): cpu = 00:00:00.71 ; elapsed = 00:00:05 . Memory (MB): peak = 4132.031 ; gain = 0.000 ; free physical = 19154 ; free virtual = 103453
+INFO: [Common 17-206] Exiting Vivado at Sun Jun 30 19:03:03 2024...

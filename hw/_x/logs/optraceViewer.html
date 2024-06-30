@@ -1,0 +1,1247 @@
+<!DOCTYPE html>
+
+<html>
+<!-- Styles -->
+<style>
+    #chartdiv {
+      width: 100%;
+      height: 1000px;
+    }
+</style>
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <title>OPTraceViewer</title>
+  <script src="https://www.amcharts.com/lib/3/amcharts.js">
+  </script>
+  <script src="https://www.amcharts.com/lib/3/serial.js">
+  </script>
+  <script src="https://www.amcharts.com/lib/3/gantt.js">
+  </script>
+  <script src="https://www.amcharts.com/lib/3/themes/light.js">
+  </script>
+  <script src="https://www.amcharts.com/lib/3/plugins/export/export.min.js">
+  </script>
+  <link rel="stylesheet" href="https://www.amcharts.com/lib/3/plugins/export/export.css" type="text/css" media="all"/>
+
+  <form name="userInputForm" action="javascript:userInputFormCallback()">
+    <fieldset>
+    <legend>Graph Filters:</legend>
+    <table style="width:100%">
+      <col width="50"></col>
+      <col width="20"></col>
+      <col width="60"></col>
+      <tr>
+        <td style="text-align: center"; colspan="3"><input type="number" name="userDurationFilterSecInput" id="userDurationFilterSecInput" value="2" min="0" max="6000" step="1"> sec</td>
+        <td>Filter out run durations lower than this value</td>
+      </tr>
+      <tr>
+        <td></td>
+        <td></td>
+        <td style="text-align: center"><input type="checkbox" name="userGroupPidSortSelected" id="userGroupPidSortSelected"></td>
+        <td>Group sort by process ID</td>
+      </tr>
+      <tr>
+        <td></td>
+        <td bgcolor="#0099ff"></td>
+        <td style="text-align: center"><input type="checkbox" name="userRollupSelected" id="userRollupSelected"></td>
+        <td>Show rollup entries</td>
+      </tr>
+      <tr>
+        <td></td>
+        <td bgcolor="#8dc49f"></td>
+        <td style="text-align: center"><input type="checkbox" name="userIndividualEntrySelected" id="userIndividualEntrySelected"></td>
+        <td>Show individual entries</td>
+      </tr>
+      <tr>
+        <td></td>
+        <td bgcolor="#cd82ad"></td>
+        <td style="text-align: center"><input type="checkbox" name="userCheckpointEntrySelected" id="userCheckpointEntrySelected"></td>
+        <td>Show checkpoints entry</td>
+      </tr>
+       <tr>
+        <td></td>
+        <td bgcolor="#b9783f"></td>
+        <td style="text-align: center"><input type="checkbox" name="userReportEntrySelected" id="userReportEntrySelected"></td>
+        <td>Show report entry</td>
+      </tr>
+
+    </table>
+    <br>
+    <input name="Submit" type="submit" value="Update Graph">
+    </fieldset>
+  </form> 
+
+  <div id="chartdiv">
+  </div>
+
+  <script>
+  </script>
+
+</head>
+
+
+<body>
+<table id="myDynamicTable" cellpadding="2" cellspacing="2" border="1" onclick="tester()">
+  <tr>
+  <td>Task</td>
+  <td>Start</td>
+  <td>Duration</td>
+  </tr>
+</table>
+<script>
+  // Default User Selected variables
+  var m_secondFilter = 1;
+  var m_groupPidSort = true;
+  var m_showRollup = true;
+  var m_showIndividualEntry = false;
+  var m_showCheckpointEntry = false;
+  var m_showReportEntry = false;
+
+  function SetDefaultUserValues()
+  {
+    document.getElementById("userDurationFilterSecInput").value = m_secondFilter;
+    document.getElementById("userGroupPidSortSelected").checked = m_groupPidSort;
+    document.getElementById("userRollupSelected").checked = m_showRollup;
+    document.getElementById("userIndividualEntrySelected").checked = m_showIndividualEntry;
+    document.getElementById("userCheckpointEntrySelected").checked = m_showCheckpointEntry;
+    document.getElementById("userReportEntrySelected").checked = m_showReportEntry;
+  }
+
+  window.onload = function(){
+    SetDefaultUserValues();
+  }
+
+
+
+
+  // Header
+  var header = "Keyword|pid|Entry|SrcFile|Catagory|TimeStampMSec|Action|Task|Tags|Misc";
+                         
+  // Insert Raw Data Here
+  // Note: Do not change the following signature. 
+  var csvData =    [
+      "[OPTRACE]|1710855|10|run|cpp|1719760821660|START|OCL_LINK|",
+      "[OPTRACE]|1710855|11|setupBinaryForLink|cpp|1719760821661|START|Create Binary|",
+      "[OPTRACE]|1710855|12||cpp|1719760821661|END|Create Binary|",
+      "[OPTRACE]|1710855|13|setupBinaryForLink|cpp|1719760821661|START|Extract Kernels|",
+      "[OPTRACE]|1710855|14||cpp|1719760821920|END|Extract Kernels|",
+      "[OPTRACE]|1710855|15|launchStep_|cpp|1719760822340|START|Launch Step: system_link|",
+      "[OPTRACE]|1710855|16||cpp|1719760894652|END|Launch Step: system_link|",
+      "[OPTRACE]|1710855|17|launchStep_|cpp|1719760894653|START|Launch Step: cf2sw|",
+      "[OPTRACE]|1710855|18||cpp|1719760907573|END|Launch Step: cf2sw|",
+      "[OPTRACE]|1710855|19|launchStep_|cpp|1719760907574|START|Launch Step: rtd2_system_diagram|",
+      "[OPTRACE]|1710855|1|main|cpp|1719760801843|START|v++|ROLLUP_0",
+      "[OPTRACE]|1710855|20||cpp|1719760908122|END|Launch Step: rtd2_system_diagram|",
+      "[OPTRACE]|1710855|21|launchStep_|cpp|1719760908123|START|Launch Step: vpl|",
+      "[OPTRACE]|1710855|2|run|cpp|1719760801843|START|Validate Kernels|",
+      "[OPTRACE]|1710855|3||cpp|1719760802374|END|Validate Kernels|",
+      "[OPTRACE]|1710855|4|prepareProject|cpp|1719760802375|START|Create Solution|",
+      "[OPTRACE]|1710855|5||cpp|1719760813213|END|Create Solution|",
+      "[OPTRACE]|1710855|650||cpp|1719779212564|END|Launch Step: vpl|",
+      "[OPTRACE]|1710855|651|launchStep_|cpp|1719779212565|START|Launch Step: rtdgen|",
+      "[OPTRACE]|1710855|652|launchCf2sw_|cpp|1719779212573|START|Launch cf2sw|",
+      "[OPTRACE]|1710855|653||cpp|1719779219018|END|Launch cf2sw|",
+      "[OPTRACE]|1710855|654|writeSystemDiagram|cpp|1719779219019|START|writeSystemDiagram|",
+      "[OPTRACE]|1710855|655||cpp|1719779219026|END|writeSystemDiagram|",
+      "[OPTRACE]|1710855|656|writeAutomationSummary|cpp|1719779219026|START|writeAutomationSummary|",
+      "[OPTRACE]|1710855|657||cpp|1719779219030|END|writeAutomationSummary|",
+      "[OPTRACE]|1710855|658||cpp|1719779219031|END|Launch Step: rtdgen|",
+      "[OPTRACE]|1710855|659|launchStep_|cpp|1719779219032|START|Launch Step: xclbinutil|",
+      "[OPTRACE]|1710855|660||cpp|1719779219361|END|Launch Step: xclbinutil|",
+      "[OPTRACE]|1710855|661|launchStep_|cpp|1719779219361|START|Launch Step: xclbinutilinfo|",
+      "[OPTRACE]|1710855|662||cpp|1719779219799|END|Launch Step: xclbinutilinfo|",
+      "[OPTRACE]|1710855|663|launchStep_|cpp|1719779219800|START|Launch Step: generate_sc_driver|",
+      "[OPTRACE]|1710855|664||cpp|1719779219807|END|Launch Step: generate_sc_driver|",
+      "[OPTRACE]|1710855|665||cpp|1719779219824|END|OCL_LINK|",
+      "[OPTRACE]|1710855|666||cpp|1719779220633|END|v++|",
+      "[OPTRACE]|1710855|6|prepareProject|cpp|1719760813213|START|Add Device|",
+      "[OPTRACE]|1710855|7|addDevice|cpp|1719760813213|START|Find & Load Device|",
+      "[OPTRACE]|1710855|8||cpp|1719760815384|END|Find & Load Device|",
+      "[OPTRACE]|1710855|9||cpp|1719760821637|END|Add Device|",
+      "[OPTRACE]|1712505|22|main|cpp|1719760911314|START|vpl|",
+      "[OPTRACE]|1712505|23|runPlatformLinker|cpp|1719760911434|START|runPlatformLinker|",
+      "[OPTRACE]|1712505|24|setupBinaryForLink|cpp|1719760911434|START|Create Solution|",
+      "[OPTRACE]|1712505|25||cpp|1719760911465|END|Create Solution|",
+      "[OPTRACE]|1712505|26|setupBinaryForLink|cpp|1719760911465|START|Add platform|",
+      "[OPTRACE]|1712505|27||cpp|1719760920165|END|Add platform|",
+      "[OPTRACE]|1712505|28|setupBinaryForLink|cpp|1719760920165|START|Create Binary|",
+      "[OPTRACE]|1712505|29||cpp|1719760920166|END|Create Binary|",
+      "[OPTRACE]|1712505|30|setupBinaryForLink|cpp|1719760920167|START|Create Kernels|",
+      "[OPTRACE]|1712505|31||cpp|1719760920177|END|Create Kernels|",
+      "[OPTRACE]|1712505|32|runPlatformLinker|cpp|1719760920194|START|Process Kernels|",
+      "[OPTRACE]|1712505|33|runPlatformLinker|cpp|1719760920195|START|Set Board Repo Paths and Connections|",
+      "[OPTRACE]|1712505|34||cpp|1719760920195|END|Set Board Repo Paths and Connections|",
+      "[OPTRACE]|1712505|35|runPlatformLinker|cpp|1719760920195|START|Process Kernel Profiles|",
+      "[OPTRACE]|1712505|36||cpp|1719760920195|END|Process Kernel Profiles|",
+      "[OPTRACE]|1712505|37|runPlatformLinker|cpp|1719760920195|START|Process Trace Memory|",
+      "[OPTRACE]|1712505|38||cpp|1719760920195|END|Process Trace Memory|",
+      "[OPTRACE]|1712505|39|runPlatformLinker|cpp|1719760920195|START|Process AIE Trace|",
+      "[OPTRACE]|1712505|40||cpp|1719760920196|END|Process AIE Trace|",
+      "[OPTRACE]|1712505|41||cpp|1719760920196|END|Process Kernels|",
+      "[OPTRACE]|1712505|42|runPlatformLinker|cpp|1719760920196|START|Process Kernel Debug|",
+      "[OPTRACE]|1712505|43||cpp|1719760920196|END|Process Kernel Debug|",
+      "[OPTRACE]|1712505|44|runPlatformLinker|cpp|1719760920196|START|Set Kernel Debug|",
+      "[OPTRACE]|1712505|45||cpp|1719760920196|END|Set Kernel Debug|",
+      "[OPTRACE]|1712505|46|runPlatformLinker|cpp|1719760920196|START|Set Miscellaneous|",
+      "[OPTRACE]|1712505|47||cpp|1719760920196|END|Set Miscellaneous|",
+      "[OPTRACE]|1712505|48|run|cpp|1719760920197|START|Extract Platform|",
+      "[OPTRACE]|1712505|49||cpp|1719760923083|END|Extract Platform|",
+      "[OPTRACE]|1712505|646|runPlatformLinker|cpp|1719779212493|START|Generate Resource Availability Report|",
+      "[OPTRACE]|1712505|647||cpp|1719779212494|END|Generate Resource Availability Report|",
+      "[OPTRACE]|1712505|648||cpp|1719779212494|END|runPlatformLinker|",
+      "[OPTRACE]|1712505|649||cpp|1719779212530|END|vpl|",
+      "[OPTRACE]|1712788|50|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/vpl.tcl|vivado_impl|1719760944164|START|Implementation|ROLLUP_1",
+      "[OPTRACE]|1712788|51|ipirun.tcl|vpl|1719760944194|START|ipirun|ROLLUP_0",
+      "[OPTRACE]|1712788|52|ipirun.tcl|vpl|1719760944194|END|ipirun|",
+      "[OPTRACE]|1712788|53|ipirun.tcl|vpl|1719760944241|START|Create project|",
+      "[OPTRACE]|1712788|542|ipirun.tcl|vpl|1719767686572|END|Synthesis|",
+      "[OPTRACE]|1712788|54|ipirun.tcl|vpl|1719760961265|END|Create project|",
+      "[OPTRACE]|1712788|55|ipirun.tcl|vpl|1719760961313|START|Create IP caching environment|",
+      "[OPTRACE]|1712788|56|ipirun.tcl|vpl|1719760968529|END|Create IP caching environment|",
+      "[OPTRACE]|1712788|57|ipirun.tcl|vpl|1719760968530|START|Import/add dynamic BD|",
+      "[OPTRACE]|1712788|58|ipirun.tcl|vpl|1719760981229|END|Import/add dynamic BD|",
+      "[OPTRACE]|1712788|59|ipirun.tcl|vpl|1719760981229|START|Open BD and insert kernels|",
+      "[OPTRACE]|1712788|60|ipirun.tcl|vpl|1719761016725|START|Source pre_sys_link_overlay_tcl Tcl script|",
+      "[OPTRACE]|1712788|61|ipirun.tcl|vpl|1719761016731|END|Source pre_sys_link_overlay_tcl Tcl script|",
+      "[OPTRACE]|1712788|62|ipirun.tcl|vpl|1719761020500|START|Source post_sys_link_overlay_tcl Tcl script|",
+      "[OPTRACE]|1712788|63|ipirun.tcl|vpl|1719761020501|END|Source post_sys_link_overlay_tcl Tcl script|",
+      "[OPTRACE]|1712788|645|ipirun.tcl|vpl|1719779211775|END|Implementation|",
+      "[OPTRACE]|1712788|64|ipirun.tcl|vpl|1719761020501|END|Open BD and insert kernels|",
+      "[OPTRACE]|1712788|65|ipirun.tcl|vpl|1719761020504|START|Add debug/profiling support|",
+      "[OPTRACE]|1712788|66|ipirun.tcl|vpl|1719761020543|END|Add debug/profiling support|",
+      "[OPTRACE]|1712788|67|ipirun.tcl|vpl|1719761020543|START|IPI address assignments|",
+      "[OPTRACE]|1712788|68|ipirun.tcl|vpl|1719761020589|END|IPI address assignments|",
+      "[OPTRACE]|1712788|69|ipirun.tcl|vpl|1719761020594|START|Create address map and debug IP profile files|",
+      "[OPTRACE]|1712788|70|ipirun.tcl|vpl|1719761020604|END|Create address map and debug IP profile files|",
+      "[OPTRACE]|1712788|71|ipirun.tcl|vpl|1719761020605|START|Collect BD interface connectivity and write automation summary report|",
+      "[OPTRACE]|1712788|72|ipirun.tcl|vpl|1719761020640|END|Collect BD interface connectivity and write automation summary report|",
+      "[OPTRACE]|1712788|73|ipirun.tcl|vpl|1719761020852|START|Generate output products|",
+      "[OPTRACE]|1712788|74|ipirun.tcl|vpl|1719761103045|END|Generate output products|",
+      "[OPTRACE]|1712788|75|ipirun.tcl|vpl|1719761103051|START|Source report_commands_tcl|",
+      "[OPTRACE]|1712788|76|ipirun.tcl|vpl|1719761103606|END|Source report_commands_tcl|",
+      "[OPTRACE]|1712788|77|ipirun.tcl|vpl|1719761103607|START|Source synth_props_tcl|",
+      "[OPTRACE]|1712788|78|ipirun.tcl|vpl|1719761238925|END|Source synth_props_tcl|",
+      "[OPTRACE]|1712788|79|ipirun.tcl|vpl|1719761238970|START|Source impl_props_tcl|",
+      "[OPTRACE]|1712788|80|ipirun.tcl|vpl|1719761239983|END|Source impl_props_tcl|",
+      "[OPTRACE]|1712788|81|ipirun.tcl|vpl|1719761239997|START|Synthesis|ROLLUP_1,SYNTH",
+      "[OPTRACE]|1718394|140|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/ulp_inst_0_gate_dbgfw_or_0_synth_1/ulp_inst_0_gate_dbgfw_or_0.tcl|vivado_synth|1719761557279|END|Creating in-memory project|",
+      "[OPTRACE]|1718394|141|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/ulp_inst_0_gate_dbgfw_or_0_synth_1/ulp_inst_0_gate_dbgfw_or_0.tcl|vivado_synth|1719761557288|START|Adding files|",
+      "[OPTRACE]|1718394|142|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/ulp_inst_0_gate_dbgfw_or_0_synth_1/ulp_inst_0_gate_dbgfw_or_0.tcl|vivado_synth|1719761559364|END|Adding files|",
+      "[OPTRACE]|1718394|143|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/ulp_inst_0_gate_dbgfw_or_0_synth_1/ulp_inst_0_gate_dbgfw_or_0.tcl|vivado_synth|1719761559377|START|Configure IP Cache|",
+      "[OPTRACE]|1718394|144|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/ulp_inst_0_gate_dbgfw_or_0_synth_1/ulp_inst_0_gate_dbgfw_or_0.tcl|vivado_synth|1719761559386|END|Configure IP Cache|",
+      "[OPTRACE]|1718394|145|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/ulp_inst_0_gate_dbgfw_or_0_synth_1/ulp_inst_0_gate_dbgfw_or_0.tcl|vivado_synth|1719761559408|START|synth_design|",
+      "[OPTRACE]|1718394|185|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/ulp_inst_0_gate_dbgfw_or_0_synth_1/ulp_inst_0_gate_dbgfw_or_0.tcl|vivado_synth|1719762747368|END|synth_design|",
+      "[OPTRACE]|1718394|186|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/ulp_inst_0_gate_dbgfw_or_0_synth_1/ulp_inst_0_gate_dbgfw_or_0.tcl|vivado_synth|1719762747380|START|Write IP Cache|",
+      "[OPTRACE]|1718394|188|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/ulp_inst_0_gate_dbgfw_or_0_synth_1/ulp_inst_0_gate_dbgfw_or_0.tcl|vivado_synth|1719762757870|END|Write IP Cache|",
+      "[OPTRACE]|1718394|189|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/ulp_inst_0_gate_dbgfw_or_0_synth_1/ulp_inst_0_gate_dbgfw_or_0.tcl|vivado_synth|1719762757872|START|write_checkpoint|CHECKPOINT",
+      "[OPTRACE]|1718394|192|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/ulp_inst_0_gate_dbgfw_or_0_synth_1/ulp_inst_0_gate_dbgfw_or_0.tcl|vivado_synth|1719762759958|END|write_checkpoint|",
+      "[OPTRACE]|1718394|193|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/ulp_inst_0_gate_dbgfw_or_0_synth_1/ulp_inst_0_gate_dbgfw_or_0.tcl|vivado_synth|1719762759958|START|synth reports|REPORT",
+      "[OPTRACE]|1718394|194|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/ulp_inst_0_gate_dbgfw_or_0_synth_1/ulp_inst_0_gate_dbgfw_or_0.tcl|vivado_synth|1719762763177|END|synth reports|",
+      "[OPTRACE]|1718394|195|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/ulp_inst_0_gate_dbgfw_or_0_synth_1/ulp_inst_0_gate_dbgfw_or_0.tcl|vivado_synth|1719762776615|END|ulp_inst_0_gate_dbgfw_or_0_synth_1|",
+      "[OPTRACE]|1718394|96|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/ulp_inst_0_gate_dbgfw_or_0_synth_1/ulp_inst_0_gate_dbgfw_or_0.tcl|vivado_synth|1719761390073|START|ulp_inst_0_gate_dbgfw_or_0_synth_1|ROLLUP_AUTO",
+      "[OPTRACE]|1718394|97|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/ulp_inst_0_gate_dbgfw_or_0_synth_1/ulp_inst_0_gate_dbgfw_or_0.tcl|vivado_synth|1719761390082|START|Creating in-memory project|",
+      "[OPTRACE]|1718400|116|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/ulp_inst_0_reset_sync_fixed_0_synth_1/ulp_inst_0_reset_sync_fixed_0.tcl|vivado_synth|1719761525129|END|Creating in-memory project|",
+      "[OPTRACE]|1718400|117|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/ulp_inst_0_reset_sync_fixed_0_synth_1/ulp_inst_0_reset_sync_fixed_0.tcl|vivado_synth|1719761525129|START|Adding files|",
+      "[OPTRACE]|1718400|120|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/ulp_inst_0_reset_sync_fixed_0_synth_1/ulp_inst_0_reset_sync_fixed_0.tcl|vivado_synth|1719761527830|END|Adding files|",
+      "[OPTRACE]|1718400|121|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/ulp_inst_0_reset_sync_fixed_0_synth_1/ulp_inst_0_reset_sync_fixed_0.tcl|vivado_synth|1719761527850|START|Configure IP Cache|",
+      "[OPTRACE]|1718400|122|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/ulp_inst_0_reset_sync_fixed_0_synth_1/ulp_inst_0_reset_sync_fixed_0.tcl|vivado_synth|1719761527863|END|Configure IP Cache|",
+      "[OPTRACE]|1718400|123|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/ulp_inst_0_reset_sync_fixed_0_synth_1/ulp_inst_0_reset_sync_fixed_0.tcl|vivado_synth|1719761527893|START|synth_design|",
+      "[OPTRACE]|1718400|160|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/ulp_inst_0_reset_sync_fixed_0_synth_1/ulp_inst_0_reset_sync_fixed_0.tcl|vivado_synth|1719762662745|END|synth_design|",
+      "[OPTRACE]|1718400|161|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/ulp_inst_0_reset_sync_fixed_0_synth_1/ulp_inst_0_reset_sync_fixed_0.tcl|vivado_synth|1719762662745|START|Write IP Cache|",
+      "[OPTRACE]|1718400|170|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/ulp_inst_0_reset_sync_fixed_0_synth_1/ulp_inst_0_reset_sync_fixed_0.tcl|vivado_synth|1719762676079|END|Write IP Cache|",
+      "[OPTRACE]|1718400|171|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/ulp_inst_0_reset_sync_fixed_0_synth_1/ulp_inst_0_reset_sync_fixed_0.tcl|vivado_synth|1719762676093|START|write_checkpoint|CHECKPOINT",
+      "[OPTRACE]|1718400|173|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/ulp_inst_0_reset_sync_fixed_0_synth_1/ulp_inst_0_reset_sync_fixed_0.tcl|vivado_synth|1719762679295|END|write_checkpoint|",
+      "[OPTRACE]|1718400|174|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/ulp_inst_0_reset_sync_fixed_0_synth_1/ulp_inst_0_reset_sync_fixed_0.tcl|vivado_synth|1719762679306|START|synth reports|REPORT",
+      "[OPTRACE]|1718400|175|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/ulp_inst_0_reset_sync_fixed_0_synth_1/ulp_inst_0_reset_sync_fixed_0.tcl|vivado_synth|1719762682800|END|synth reports|",
+      "[OPTRACE]|1718400|177|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/ulp_inst_0_reset_sync_fixed_0_synth_1/ulp_inst_0_reset_sync_fixed_0.tcl|vivado_synth|1719762690208|END|ulp_inst_0_reset_sync_fixed_0_synth_1|",
+      "[OPTRACE]|1718400|84|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/ulp_inst_0_reset_sync_fixed_0_synth_1/ulp_inst_0_reset_sync_fixed_0.tcl|vivado_synth|1719761371497|START|ulp_inst_0_reset_sync_fixed_0_synth_1|ROLLUP_AUTO",
+      "[OPTRACE]|1718400|85|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/ulp_inst_0_reset_sync_fixed_0_synth_1/ulp_inst_0_reset_sync_fixed_0.tcl|vivado_synth|1719761371506|START|Creating in-memory project|",
+      "[OPTRACE]|1718402|118|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/ulp_inst_0_reset_sync_kernel0_0_synth_1/ulp_inst_0_reset_sync_kernel0_0.tcl|vivado_synth|1719761526194|END|Creating in-memory project|",
+      "[OPTRACE]|1718402|119|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/ulp_inst_0_reset_sync_kernel0_0_synth_1/ulp_inst_0_reset_sync_kernel0_0.tcl|vivado_synth|1719761526200|START|Adding files|",
+      "[OPTRACE]|1718402|124|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/ulp_inst_0_reset_sync_kernel0_0_synth_1/ulp_inst_0_reset_sync_kernel0_0.tcl|vivado_synth|1719761528302|END|Adding files|",
+      "[OPTRACE]|1718402|125|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/ulp_inst_0_reset_sync_kernel0_0_synth_1/ulp_inst_0_reset_sync_kernel0_0.tcl|vivado_synth|1719761528373|START|Configure IP Cache|",
+      "[OPTRACE]|1718402|126|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/ulp_inst_0_reset_sync_kernel0_0_synth_1/ulp_inst_0_reset_sync_kernel0_0.tcl|vivado_synth|1719761528416|END|Configure IP Cache|",
+      "[OPTRACE]|1718402|127|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/ulp_inst_0_reset_sync_kernel0_0_synth_1/ulp_inst_0_reset_sync_kernel0_0.tcl|vivado_synth|1719761528430|START|synth_design|",
+      "[OPTRACE]|1718402|178|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/ulp_inst_0_reset_sync_kernel0_0_synth_1/ulp_inst_0_reset_sync_kernel0_0.tcl|vivado_synth|1719762724535|END|synth_design|",
+      "[OPTRACE]|1718402|179|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/ulp_inst_0_reset_sync_kernel0_0_synth_1/ulp_inst_0_reset_sync_kernel0_0.tcl|vivado_synth|1719762724552|START|Write IP Cache|",
+      "[OPTRACE]|1718402|180|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/ulp_inst_0_reset_sync_kernel0_0_synth_1/ulp_inst_0_reset_sync_kernel0_0.tcl|vivado_synth|1719762740171|END|Write IP Cache|",
+      "[OPTRACE]|1718402|181|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/ulp_inst_0_reset_sync_kernel0_0_synth_1/ulp_inst_0_reset_sync_kernel0_0.tcl|vivado_synth|1719762740189|START|write_checkpoint|CHECKPOINT",
+      "[OPTRACE]|1718402|182|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/ulp_inst_0_reset_sync_kernel0_0_synth_1/ulp_inst_0_reset_sync_kernel0_0.tcl|vivado_synth|1719762743592|END|write_checkpoint|",
+      "[OPTRACE]|1718402|183|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/ulp_inst_0_reset_sync_kernel0_0_synth_1/ulp_inst_0_reset_sync_kernel0_0.tcl|vivado_synth|1719762743616|START|synth reports|REPORT",
+      "[OPTRACE]|1718402|184|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/ulp_inst_0_reset_sync_kernel0_0_synth_1/ulp_inst_0_reset_sync_kernel0_0.tcl|vivado_synth|1719762746871|END|synth reports|",
+      "[OPTRACE]|1718402|187|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/ulp_inst_0_reset_sync_kernel0_0_synth_1/ulp_inst_0_reset_sync_kernel0_0.tcl|vivado_synth|1719762754176|END|ulp_inst_0_reset_sync_kernel0_0_synth_1|",
+      "[OPTRACE]|1718402|88|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/ulp_inst_0_reset_sync_kernel0_0_synth_1/ulp_inst_0_reset_sync_kernel0_0.tcl|vivado_synth|1719761379002|START|ulp_inst_0_reset_sync_kernel0_0_synth_1|ROLLUP_AUTO",
+      "[OPTRACE]|1718402|89|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/ulp_inst_0_reset_sync_kernel0_0_synth_1/ulp_inst_0_reset_sync_kernel0_0.tcl|vivado_synth|1719761379026|START|Creating in-memory project|",
+      "[OPTRACE]|1718403|110|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/ulp_inst_0_pipereg_pcie0_0_synth_1/ulp_inst_0_pipereg_pcie0_0.tcl|vivado_synth|1719761512746|END|Creating in-memory project|",
+      "[OPTRACE]|1718403|111|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/ulp_inst_0_pipereg_pcie0_0_synth_1/ulp_inst_0_pipereg_pcie0_0.tcl|vivado_synth|1719761512764|START|Adding files|",
+      "[OPTRACE]|1718403|112|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/ulp_inst_0_pipereg_pcie0_0_synth_1/ulp_inst_0_pipereg_pcie0_0.tcl|vivado_synth|1719761515141|END|Adding files|",
+      "[OPTRACE]|1718403|113|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/ulp_inst_0_pipereg_pcie0_0_synth_1/ulp_inst_0_pipereg_pcie0_0.tcl|vivado_synth|1719761515150|START|Configure IP Cache|",
+      "[OPTRACE]|1718403|114|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/ulp_inst_0_pipereg_pcie0_0_synth_1/ulp_inst_0_pipereg_pcie0_0.tcl|vivado_synth|1719761515170|END|Configure IP Cache|",
+      "[OPTRACE]|1718403|115|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/ulp_inst_0_pipereg_pcie0_0_synth_1/ulp_inst_0_pipereg_pcie0_0.tcl|vivado_synth|1719761515189|START|synth_design|",
+      "[OPTRACE]|1718403|156|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/ulp_inst_0_pipereg_pcie0_0_synth_1/ulp_inst_0_pipereg_pcie0_0.tcl|vivado_synth|1719762658319|END|synth_design|",
+      "[OPTRACE]|1718403|157|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/ulp_inst_0_pipereg_pcie0_0_synth_1/ulp_inst_0_pipereg_pcie0_0.tcl|vivado_synth|1719762658364|START|Write IP Cache|",
+      "[OPTRACE]|1718403|165|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/ulp_inst_0_pipereg_pcie0_0_synth_1/ulp_inst_0_pipereg_pcie0_0.tcl|vivado_synth|1719762671452|END|Write IP Cache|",
+      "[OPTRACE]|1718403|166|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/ulp_inst_0_pipereg_pcie0_0_synth_1/ulp_inst_0_pipereg_pcie0_0.tcl|vivado_synth|1719762671457|START|write_checkpoint|CHECKPOINT",
+      "[OPTRACE]|1718403|167|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/ulp_inst_0_pipereg_pcie0_0_synth_1/ulp_inst_0_pipereg_pcie0_0.tcl|vivado_synth|1719762675135|END|write_checkpoint|",
+      "[OPTRACE]|1718403|168|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/ulp_inst_0_pipereg_pcie0_0_synth_1/ulp_inst_0_pipereg_pcie0_0.tcl|vivado_synth|1719762675148|START|synth reports|REPORT",
+      "[OPTRACE]|1718403|172|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/ulp_inst_0_pipereg_pcie0_0_synth_1/ulp_inst_0_pipereg_pcie0_0.tcl|vivado_synth|1719762678411|END|synth reports|",
+      "[OPTRACE]|1718403|176|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/ulp_inst_0_pipereg_pcie0_0_synth_1/ulp_inst_0_pipereg_pcie0_0.tcl|vivado_synth|1719762686912|END|ulp_inst_0_pipereg_pcie0_0_synth_1|",
+      "[OPTRACE]|1718403|86|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/ulp_inst_0_pipereg_pcie0_0_synth_1/ulp_inst_0_pipereg_pcie0_0.tcl|vivado_synth|1719761372229|START|ulp_inst_0_pipereg_pcie0_0_synth_1|ROLLUP_AUTO",
+      "[OPTRACE]|1718403|87|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/ulp_inst_0_pipereg_pcie0_0_synth_1/ulp_inst_0_pipereg_pcie0_0.tcl|vivado_synth|1719761372249|START|Creating in-memory project|",
+      "[OPTRACE]|1718404|100|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/ulp_inst_0_pipereg_pl_axi0_0_synth_1/ulp_inst_0_pipereg_pl_axi0_0.tcl|vivado_synth|1719761477903|END|Adding files|",
+      "[OPTRACE]|1718404|101|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/ulp_inst_0_pipereg_pl_axi0_0_synth_1/ulp_inst_0_pipereg_pl_axi0_0.tcl|vivado_synth|1719761477926|START|Configure IP Cache|",
+      "[OPTRACE]|1718404|102|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/ulp_inst_0_pipereg_pl_axi0_0_synth_1/ulp_inst_0_pipereg_pl_axi0_0.tcl|vivado_synth|1719761477957|END|Configure IP Cache|",
+      "[OPTRACE]|1718404|103|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/ulp_inst_0_pipereg_pl_axi0_0_synth_1/ulp_inst_0_pipereg_pl_axi0_0.tcl|vivado_synth|1719761477957|START|synth_design|",
+      "[OPTRACE]|1718404|146|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/ulp_inst_0_pipereg_pl_axi0_0_synth_1/ulp_inst_0_pipereg_pl_axi0_0.tcl|vivado_synth|1719762597858|END|synth_design|",
+      "[OPTRACE]|1718404|147|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/ulp_inst_0_pipereg_pl_axi0_0_synth_1/ulp_inst_0_pipereg_pl_axi0_0.tcl|vivado_synth|1719762597868|START|Write IP Cache|",
+      "[OPTRACE]|1718404|148|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/ulp_inst_0_pipereg_pl_axi0_0_synth_1/ulp_inst_0_pipereg_pl_axi0_0.tcl|vivado_synth|1719762613399|END|Write IP Cache|",
+      "[OPTRACE]|1718404|149|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/ulp_inst_0_pipereg_pl_axi0_0_synth_1/ulp_inst_0_pipereg_pl_axi0_0.tcl|vivado_synth|1719762613400|START|write_checkpoint|CHECKPOINT",
+      "[OPTRACE]|1718404|150|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/ulp_inst_0_pipereg_pl_axi0_0_synth_1/ulp_inst_0_pipereg_pl_axi0_0.tcl|vivado_synth|1719762617039|END|write_checkpoint|",
+      "[OPTRACE]|1718404|151|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/ulp_inst_0_pipereg_pl_axi0_0_synth_1/ulp_inst_0_pipereg_pl_axi0_0.tcl|vivado_synth|1719762617080|START|synth reports|REPORT",
+      "[OPTRACE]|1718404|152|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/ulp_inst_0_pipereg_pl_axi0_0_synth_1/ulp_inst_0_pipereg_pl_axi0_0.tcl|vivado_synth|1719762621558|END|synth reports|",
+      "[OPTRACE]|1718404|153|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/ulp_inst_0_pipereg_pl_axi0_0_synth_1/ulp_inst_0_pipereg_pl_axi0_0.tcl|vivado_synth|1719762630404|END|ulp_inst_0_pipereg_pl_axi0_0_synth_1|",
+      "[OPTRACE]|1718404|90|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/ulp_inst_0_pipereg_pl_axi0_0_synth_1/ulp_inst_0_pipereg_pl_axi0_0.tcl|vivado_synth|1719761380607|START|ulp_inst_0_pipereg_pl_axi0_0_synth_1|ROLLUP_AUTO",
+      "[OPTRACE]|1718404|91|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/ulp_inst_0_pipereg_pl_axi0_0_synth_1/ulp_inst_0_pipereg_pl_axi0_0.tcl|vivado_synth|1719761380610|START|Creating in-memory project|",
+      "[OPTRACE]|1718404|98|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/ulp_inst_0_pipereg_pl_axi0_0_synth_1/ulp_inst_0_pipereg_pl_axi0_0.tcl|vivado_synth|1719761475487|END|Creating in-memory project|",
+      "[OPTRACE]|1718404|99|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/ulp_inst_0_pipereg_pl_axi0_0_synth_1/ulp_inst_0_pipereg_pl_axi0_0.tcl|vivado_synth|1719761475512|START|Adding files|",
+      "[OPTRACE]|1718405|134|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/ulp_inst_0_reset_sync_kernel1_0_synth_1/ulp_inst_0_reset_sync_kernel1_0.tcl|vivado_synth|1719761537926|END|Creating in-memory project|",
+      "[OPTRACE]|1718405|135|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/ulp_inst_0_reset_sync_kernel1_0_synth_1/ulp_inst_0_reset_sync_kernel1_0.tcl|vivado_synth|1719761537953|START|Adding files|",
+      "[OPTRACE]|1718405|136|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/ulp_inst_0_reset_sync_kernel1_0_synth_1/ulp_inst_0_reset_sync_kernel1_0.tcl|vivado_synth|1719761540724|END|Adding files|",
+      "[OPTRACE]|1718405|137|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/ulp_inst_0_reset_sync_kernel1_0_synth_1/ulp_inst_0_reset_sync_kernel1_0.tcl|vivado_synth|1719761540742|START|Configure IP Cache|",
+      "[OPTRACE]|1718405|138|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/ulp_inst_0_reset_sync_kernel1_0_synth_1/ulp_inst_0_reset_sync_kernel1_0.tcl|vivado_synth|1719761540763|END|Configure IP Cache|",
+      "[OPTRACE]|1718405|139|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/ulp_inst_0_reset_sync_kernel1_0_synth_1/ulp_inst_0_reset_sync_kernel1_0.tcl|vivado_synth|1719761540789|START|synth_design|",
+      "[OPTRACE]|1718405|196|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/ulp_inst_0_reset_sync_kernel1_0_synth_1/ulp_inst_0_reset_sync_kernel1_0.tcl|vivado_synth|1719762779314|END|synth_design|",
+      "[OPTRACE]|1718405|197|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/ulp_inst_0_reset_sync_kernel1_0_synth_1/ulp_inst_0_reset_sync_kernel1_0.tcl|vivado_synth|1719762779323|START|Write IP Cache|",
+      "[OPTRACE]|1718405|198|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/ulp_inst_0_reset_sync_kernel1_0_synth_1/ulp_inst_0_reset_sync_kernel1_0.tcl|vivado_synth|1719762792039|END|Write IP Cache|",
+      "[OPTRACE]|1718405|199|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/ulp_inst_0_reset_sync_kernel1_0_synth_1/ulp_inst_0_reset_sync_kernel1_0.tcl|vivado_synth|1719762792055|START|write_checkpoint|CHECKPOINT",
+      "[OPTRACE]|1718405|200|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/ulp_inst_0_reset_sync_kernel1_0_synth_1/ulp_inst_0_reset_sync_kernel1_0.tcl|vivado_synth|1719762796380|END|write_checkpoint|",
+      "[OPTRACE]|1718405|201|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/ulp_inst_0_reset_sync_kernel1_0_synth_1/ulp_inst_0_reset_sync_kernel1_0.tcl|vivado_synth|1719762796388|START|synth reports|REPORT",
+      "[OPTRACE]|1718405|202|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/ulp_inst_0_reset_sync_kernel1_0_synth_1/ulp_inst_0_reset_sync_kernel1_0.tcl|vivado_synth|1719762800491|END|synth reports|",
+      "[OPTRACE]|1718405|203|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/ulp_inst_0_reset_sync_kernel1_0_synth_1/ulp_inst_0_reset_sync_kernel1_0.tcl|vivado_synth|1719762810253|END|ulp_inst_0_reset_sync_kernel1_0_synth_1|",
+      "[OPTRACE]|1718405|94|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/ulp_inst_0_reset_sync_kernel1_0_synth_1/ulp_inst_0_reset_sync_kernel1_0.tcl|vivado_synth|1719761388283|START|ulp_inst_0_reset_sync_kernel1_0_synth_1|ROLLUP_AUTO",
+      "[OPTRACE]|1718405|95|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/ulp_inst_0_reset_sync_kernel1_0_synth_1/ulp_inst_0_reset_sync_kernel1_0.tcl|vivado_synth|1719761388294|START|Creating in-memory project|",
+      "[OPTRACE]|1718406|128|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/ulp_inst_0_axi_dbg_fw_0_synth_1/ulp_inst_0_axi_dbg_fw_0.tcl|vivado_synth|1719761532079|END|Creating in-memory project|",
+      "[OPTRACE]|1718406|129|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/ulp_inst_0_axi_dbg_fw_0_synth_1/ulp_inst_0_axi_dbg_fw_0.tcl|vivado_synth|1719761532080|START|Adding files|",
+      "[OPTRACE]|1718406|130|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/ulp_inst_0_axi_dbg_fw_0_synth_1/ulp_inst_0_axi_dbg_fw_0.tcl|vivado_synth|1719761535427|END|Adding files|",
+      "[OPTRACE]|1718406|131|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/ulp_inst_0_axi_dbg_fw_0_synth_1/ulp_inst_0_axi_dbg_fw_0.tcl|vivado_synth|1719761535450|START|Configure IP Cache|",
+      "[OPTRACE]|1718406|132|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/ulp_inst_0_axi_dbg_fw_0_synth_1/ulp_inst_0_axi_dbg_fw_0.tcl|vivado_synth|1719761535496|END|Configure IP Cache|",
+      "[OPTRACE]|1718406|133|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/ulp_inst_0_axi_dbg_fw_0_synth_1/ulp_inst_0_axi_dbg_fw_0.tcl|vivado_synth|1719761535497|START|synth_design|",
+      "[OPTRACE]|1718406|258|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/ulp_inst_0_axi_dbg_fw_0_synth_1/ulp_inst_0_axi_dbg_fw_0.tcl|vivado_synth|1719763458497|END|synth_design|",
+      "[OPTRACE]|1718406|259|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/ulp_inst_0_axi_dbg_fw_0_synth_1/ulp_inst_0_axi_dbg_fw_0.tcl|vivado_synth|1719763458505|START|Write IP Cache|",
+      "[OPTRACE]|1718406|260|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/ulp_inst_0_axi_dbg_fw_0_synth_1/ulp_inst_0_axi_dbg_fw_0.tcl|vivado_synth|1719763506666|END|Write IP Cache|",
+      "[OPTRACE]|1718406|261|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/ulp_inst_0_axi_dbg_fw_0_synth_1/ulp_inst_0_axi_dbg_fw_0.tcl|vivado_synth|1719763506720|START|write_checkpoint|CHECKPOINT",
+      "[OPTRACE]|1718406|262|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/ulp_inst_0_axi_dbg_fw_0_synth_1/ulp_inst_0_axi_dbg_fw_0.tcl|vivado_synth|1719763523637|END|write_checkpoint|",
+      "[OPTRACE]|1718406|263|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/ulp_inst_0_axi_dbg_fw_0_synth_1/ulp_inst_0_axi_dbg_fw_0.tcl|vivado_synth|1719763523638|START|synth reports|REPORT",
+      "[OPTRACE]|1718406|264|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/ulp_inst_0_axi_dbg_fw_0_synth_1/ulp_inst_0_axi_dbg_fw_0.tcl|vivado_synth|1719763528897|END|synth reports|",
+      "[OPTRACE]|1718406|265|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/ulp_inst_0_axi_dbg_fw_0_synth_1/ulp_inst_0_axi_dbg_fw_0.tcl|vivado_synth|1719763560769|END|ulp_inst_0_axi_dbg_fw_0_synth_1|",
+      "[OPTRACE]|1718406|92|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/ulp_inst_0_axi_dbg_fw_0_synth_1/ulp_inst_0_axi_dbg_fw_0.tcl|vivado_synth|1719761386821|START|ulp_inst_0_axi_dbg_fw_0_synth_1|ROLLUP_AUTO",
+      "[OPTRACE]|1718406|93|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/ulp_inst_0_axi_dbg_fw_0_synth_1/ulp_inst_0_axi_dbg_fw_0.tcl|vivado_synth|1719761386842|START|Creating in-memory project|",
+      "[OPTRACE]|1718408|104|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/ulp_inst_0_axi_noc_aie_prog_0_synth_1/ulp_inst_0_axi_noc_aie_prog_0.tcl|vivado_synth|1719761503226|END|Creating in-memory project|",
+      "[OPTRACE]|1718408|105|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/ulp_inst_0_axi_noc_aie_prog_0_synth_1/ulp_inst_0_axi_noc_aie_prog_0.tcl|vivado_synth|1719761503234|START|Adding files|",
+      "[OPTRACE]|1718408|106|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/ulp_inst_0_axi_noc_aie_prog_0_synth_1/ulp_inst_0_axi_noc_aie_prog_0.tcl|vivado_synth|1719761507465|END|Adding files|",
+      "[OPTRACE]|1718408|107|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/ulp_inst_0_axi_noc_aie_prog_0_synth_1/ulp_inst_0_axi_noc_aie_prog_0.tcl|vivado_synth|1719761507468|START|Configure IP Cache|",
+      "[OPTRACE]|1718408|108|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/ulp_inst_0_axi_noc_aie_prog_0_synth_1/ulp_inst_0_axi_noc_aie_prog_0.tcl|vivado_synth|1719761508555|END|Configure IP Cache|",
+      "[OPTRACE]|1718408|109|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/ulp_inst_0_axi_noc_aie_prog_0_synth_1/ulp_inst_0_axi_noc_aie_prog_0.tcl|vivado_synth|1719761508556|START|synth_design|",
+      "[OPTRACE]|1718408|154|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/ulp_inst_0_axi_noc_aie_prog_0_synth_1/ulp_inst_0_axi_noc_aie_prog_0.tcl|vivado_synth|1719762642102|END|synth_design|",
+      "[OPTRACE]|1718408|155|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/ulp_inst_0_axi_noc_aie_prog_0_synth_1/ulp_inst_0_axi_noc_aie_prog_0.tcl|vivado_synth|1719762642104|START|Write IP Cache|",
+      "[OPTRACE]|1718408|158|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/ulp_inst_0_axi_noc_aie_prog_0_synth_1/ulp_inst_0_axi_noc_aie_prog_0.tcl|vivado_synth|1719762659397|END|Write IP Cache|",
+      "[OPTRACE]|1718408|159|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/ulp_inst_0_axi_noc_aie_prog_0_synth_1/ulp_inst_0_axi_noc_aie_prog_0.tcl|vivado_synth|1719762659399|START|write_checkpoint|CHECKPOINT",
+      "[OPTRACE]|1718408|162|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/ulp_inst_0_axi_noc_aie_prog_0_synth_1/ulp_inst_0_axi_noc_aie_prog_0.tcl|vivado_synth|1719762664824|END|write_checkpoint|",
+      "[OPTRACE]|1718408|163|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/ulp_inst_0_axi_noc_aie_prog_0_synth_1/ulp_inst_0_axi_noc_aie_prog_0.tcl|vivado_synth|1719762664828|START|synth reports|REPORT",
+      "[OPTRACE]|1718408|164|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/ulp_inst_0_axi_noc_aie_prog_0_synth_1/ulp_inst_0_axi_noc_aie_prog_0.tcl|vivado_synth|1719762667722|END|synth reports|",
+      "[OPTRACE]|1718408|169|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/ulp_inst_0_axi_noc_aie_prog_0_synth_1/ulp_inst_0_axi_noc_aie_prog_0.tcl|vivado_synth|1719762675958|END|ulp_inst_0_axi_noc_aie_prog_0_synth_1|",
+      "[OPTRACE]|1718408|82|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/ulp_inst_0_axi_noc_aie_prog_0_synth_1/ulp_inst_0_axi_noc_aie_prog_0.tcl|vivado_synth|1719761364830|START|ulp_inst_0_axi_noc_aie_prog_0_synth_1|ROLLUP_AUTO",
+      "[OPTRACE]|1718408|83|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/ulp_inst_0_axi_noc_aie_prog_0_synth_1/ulp_inst_0_axi_noc_aie_prog_0.tcl|vivado_synth|1719761364878|START|Creating in-memory project|",
+      "[OPTRACE]|1747605|190|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/ulp_inst_0_pipereg_kernel1_0_synth_1/ulp_inst_0_pipereg_kernel1_0.tcl|vivado_synth|1719762759740|START|ulp_inst_0_pipereg_kernel1_0_synth_1|ROLLUP_AUTO",
+      "[OPTRACE]|1747605|191|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/ulp_inst_0_pipereg_kernel1_0_synth_1/ulp_inst_0_pipereg_kernel1_0.tcl|vivado_synth|1719762759761|START|Creating in-memory project|",
+      "[OPTRACE]|1747605|214|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/ulp_inst_0_pipereg_kernel1_0_synth_1/ulp_inst_0_pipereg_kernel1_0.tcl|vivado_synth|1719762915863|END|Creating in-memory project|",
+      "[OPTRACE]|1747605|215|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/ulp_inst_0_pipereg_kernel1_0_synth_1/ulp_inst_0_pipereg_kernel1_0.tcl|vivado_synth|1719762915880|START|Adding files|",
+      "[OPTRACE]|1747605|216|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/ulp_inst_0_pipereg_kernel1_0_synth_1/ulp_inst_0_pipereg_kernel1_0.tcl|vivado_synth|1719762918302|END|Adding files|",
+      "[OPTRACE]|1747605|217|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/ulp_inst_0_pipereg_kernel1_0_synth_1/ulp_inst_0_pipereg_kernel1_0.tcl|vivado_synth|1719762918326|START|Configure IP Cache|",
+      "[OPTRACE]|1747605|218|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/ulp_inst_0_pipereg_kernel1_0_synth_1/ulp_inst_0_pipereg_kernel1_0.tcl|vivado_synth|1719762918345|END|Configure IP Cache|",
+      "[OPTRACE]|1747605|219|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/ulp_inst_0_pipereg_kernel1_0_synth_1/ulp_inst_0_pipereg_kernel1_0.tcl|vivado_synth|1719762918346|START|synth_design|",
+      "[OPTRACE]|1747605|274|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/ulp_inst_0_pipereg_kernel1_0_synth_1/ulp_inst_0_pipereg_kernel1_0.tcl|vivado_synth|1719764120657|END|synth_design|",
+      "[OPTRACE]|1747605|275|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/ulp_inst_0_pipereg_kernel1_0_synth_1/ulp_inst_0_pipereg_kernel1_0.tcl|vivado_synth|1719764120665|START|Write IP Cache|",
+      "[OPTRACE]|1747605|276|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/ulp_inst_0_pipereg_kernel1_0_synth_1/ulp_inst_0_pipereg_kernel1_0.tcl|vivado_synth|1719764129207|END|Write IP Cache|",
+      "[OPTRACE]|1747605|277|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/ulp_inst_0_pipereg_kernel1_0_synth_1/ulp_inst_0_pipereg_kernel1_0.tcl|vivado_synth|1719764129213|START|write_checkpoint|CHECKPOINT",
+      "[OPTRACE]|1747605|278|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/ulp_inst_0_pipereg_kernel1_0_synth_1/ulp_inst_0_pipereg_kernel1_0.tcl|vivado_synth|1719764131742|END|write_checkpoint|",
+      "[OPTRACE]|1747605|279|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/ulp_inst_0_pipereg_kernel1_0_synth_1/ulp_inst_0_pipereg_kernel1_0.tcl|vivado_synth|1719764131750|START|synth reports|REPORT",
+      "[OPTRACE]|1747605|280|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/ulp_inst_0_pipereg_kernel1_0_synth_1/ulp_inst_0_pipereg_kernel1_0.tcl|vivado_synth|1719764134074|END|synth reports|",
+      "[OPTRACE]|1747605|281|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/ulp_inst_0_pipereg_kernel1_0_synth_1/ulp_inst_0_pipereg_kernel1_0.tcl|vivado_synth|1719764141222|END|ulp_inst_0_pipereg_kernel1_0_synth_1|",
+      "[OPTRACE]|1749054|204|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/ulp_inst_0_pipereg_kernel0_0_synth_1/ulp_inst_0_pipereg_kernel0_0.tcl|vivado_synth|1719762810274|START|ulp_inst_0_pipereg_kernel0_0_synth_1|ROLLUP_AUTO",
+      "[OPTRACE]|1749054|205|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/ulp_inst_0_pipereg_kernel0_0_synth_1/ulp_inst_0_pipereg_kernel0_0.tcl|vivado_synth|1719762810294|START|Creating in-memory project|",
+      "[OPTRACE]|1749054|222|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/ulp_inst_0_pipereg_kernel0_0_synth_1/ulp_inst_0_pipereg_kernel0_0.tcl|vivado_synth|1719762965836|END|Creating in-memory project|",
+      "[OPTRACE]|1749054|223|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/ulp_inst_0_pipereg_kernel0_0_synth_1/ulp_inst_0_pipereg_kernel0_0.tcl|vivado_synth|1719762965864|START|Adding files|",
+      "[OPTRACE]|1749054|224|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/ulp_inst_0_pipereg_kernel0_0_synth_1/ulp_inst_0_pipereg_kernel0_0.tcl|vivado_synth|1719762968175|END|Adding files|",
+      "[OPTRACE]|1749054|225|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/ulp_inst_0_pipereg_kernel0_0_synth_1/ulp_inst_0_pipereg_kernel0_0.tcl|vivado_synth|1719762968202|START|Configure IP Cache|",
+      "[OPTRACE]|1749054|226|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/ulp_inst_0_pipereg_kernel0_0_synth_1/ulp_inst_0_pipereg_kernel0_0.tcl|vivado_synth|1719762968222|END|Configure IP Cache|",
+      "[OPTRACE]|1749054|227|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/ulp_inst_0_pipereg_kernel0_0_synth_1/ulp_inst_0_pipereg_kernel0_0.tcl|vivado_synth|1719762968241|START|synth_design|",
+      "[OPTRACE]|1749054|282|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/ulp_inst_0_pipereg_kernel0_0_synth_1/ulp_inst_0_pipereg_kernel0_0.tcl|vivado_synth|1719764147369|END|synth_design|",
+      "[OPTRACE]|1749054|283|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/ulp_inst_0_pipereg_kernel0_0_synth_1/ulp_inst_0_pipereg_kernel0_0.tcl|vivado_synth|1719764147372|START|Write IP Cache|",
+      "[OPTRACE]|1749054|286|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/ulp_inst_0_pipereg_kernel0_0_synth_1/ulp_inst_0_pipereg_kernel0_0.tcl|vivado_synth|1719764159150|END|Write IP Cache|",
+      "[OPTRACE]|1749054|287|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/ulp_inst_0_pipereg_kernel0_0_synth_1/ulp_inst_0_pipereg_kernel0_0.tcl|vivado_synth|1719764159167|START|write_checkpoint|CHECKPOINT",
+      "[OPTRACE]|1749054|288|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/ulp_inst_0_pipereg_kernel0_0_synth_1/ulp_inst_0_pipereg_kernel0_0.tcl|vivado_synth|1719764163390|END|write_checkpoint|",
+      "[OPTRACE]|1749054|289|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/ulp_inst_0_pipereg_kernel0_0_synth_1/ulp_inst_0_pipereg_kernel0_0.tcl|vivado_synth|1719764163392|START|synth reports|REPORT",
+      "[OPTRACE]|1749054|290|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/ulp_inst_0_pipereg_kernel0_0_synth_1/ulp_inst_0_pipereg_kernel0_0.tcl|vivado_synth|1719764166435|END|synth reports|",
+      "[OPTRACE]|1749054|295|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/ulp_inst_0_pipereg_kernel0_0_synth_1/ulp_inst_0_pipereg_kernel0_0.tcl|vivado_synth|1719764176088|END|ulp_inst_0_pipereg_kernel0_0_synth_1|",
+      "[OPTRACE]|1749175|208|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/ulp_inst_0_plram_ctrl_bram_0_synth_1/ulp_inst_0_plram_ctrl_bram_0.tcl|vivado_synth|1719762828167|START|ulp_inst_0_plram_ctrl_bram_0_synth_1|ROLLUP_AUTO",
+      "[OPTRACE]|1749175|209|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/ulp_inst_0_plram_ctrl_bram_0_synth_1/ulp_inst_0_plram_ctrl_bram_0.tcl|vivado_synth|1719762828181|START|Creating in-memory project|",
+      "[OPTRACE]|1749175|230|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/ulp_inst_0_plram_ctrl_bram_0_synth_1/ulp_inst_0_plram_ctrl_bram_0.tcl|vivado_synth|1719762971539|END|Creating in-memory project|",
+      "[OPTRACE]|1749175|231|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/ulp_inst_0_plram_ctrl_bram_0_synth_1/ulp_inst_0_plram_ctrl_bram_0.tcl|vivado_synth|1719762971568|START|Adding files|",
+      "[OPTRACE]|1749175|236|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/ulp_inst_0_plram_ctrl_bram_0_synth_1/ulp_inst_0_plram_ctrl_bram_0.tcl|vivado_synth|1719762974150|END|Adding files|",
+      "[OPTRACE]|1749175|237|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/ulp_inst_0_plram_ctrl_bram_0_synth_1/ulp_inst_0_plram_ctrl_bram_0.tcl|vivado_synth|1719762974152|START|Configure IP Cache|",
+      "[OPTRACE]|1749175|238|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/ulp_inst_0_plram_ctrl_bram_0_synth_1/ulp_inst_0_plram_ctrl_bram_0.tcl|vivado_synth|1719762974154|END|Configure IP Cache|",
+      "[OPTRACE]|1749175|239|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/ulp_inst_0_plram_ctrl_bram_0_synth_1/ulp_inst_0_plram_ctrl_bram_0.tcl|vivado_synth|1719762974173|START|synth_design|",
+      "[OPTRACE]|1749175|354|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/ulp_inst_0_plram_ctrl_bram_0_synth_1/ulp_inst_0_plram_ctrl_bram_0.tcl|vivado_synth|1719764866044|END|synth_design|",
+      "[OPTRACE]|1749175|355|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/ulp_inst_0_plram_ctrl_bram_0_synth_1/ulp_inst_0_plram_ctrl_bram_0.tcl|vivado_synth|1719764866080|START|Write IP Cache|",
+      "[OPTRACE]|1749175|356|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/ulp_inst_0_plram_ctrl_bram_0_synth_1/ulp_inst_0_plram_ctrl_bram_0.tcl|vivado_synth|1719764888755|END|Write IP Cache|",
+      "[OPTRACE]|1749175|357|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/ulp_inst_0_plram_ctrl_bram_0_synth_1/ulp_inst_0_plram_ctrl_bram_0.tcl|vivado_synth|1719764888780|START|write_checkpoint|CHECKPOINT",
+      "[OPTRACE]|1749175|358|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/ulp_inst_0_plram_ctrl_bram_0_synth_1/ulp_inst_0_plram_ctrl_bram_0.tcl|vivado_synth|1719764894968|END|write_checkpoint|",
+      "[OPTRACE]|1749175|359|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/ulp_inst_0_plram_ctrl_bram_0_synth_1/ulp_inst_0_plram_ctrl_bram_0.tcl|vivado_synth|1719764894984|START|synth reports|REPORT",
+      "[OPTRACE]|1749175|360|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/ulp_inst_0_plram_ctrl_bram_0_synth_1/ulp_inst_0_plram_ctrl_bram_0.tcl|vivado_synth|1719764899385|END|synth reports|",
+      "[OPTRACE]|1749175|361|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/ulp_inst_0_plram_ctrl_bram_0_synth_1/ulp_inst_0_plram_ctrl_bram_0.tcl|vivado_synth|1719764913825|END|ulp_inst_0_plram_ctrl_bram_0_synth_1|",
+      "[OPTRACE]|1749177|206|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/ulp_inst_0_plram_ctrl_0_synth_1/ulp_inst_0_plram_ctrl_0.tcl|vivado_synth|1719762811748|START|ulp_inst_0_plram_ctrl_0_synth_1|ROLLUP_AUTO",
+      "[OPTRACE]|1749177|207|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/ulp_inst_0_plram_ctrl_0_synth_1/ulp_inst_0_plram_ctrl_0.tcl|vivado_synth|1719762811774|START|Creating in-memory project|",
+      "[OPTRACE]|1749177|228|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/ulp_inst_0_plram_ctrl_0_synth_1/ulp_inst_0_plram_ctrl_0.tcl|vivado_synth|1719762970186|END|Creating in-memory project|",
+      "[OPTRACE]|1749177|229|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/ulp_inst_0_plram_ctrl_0_synth_1/ulp_inst_0_plram_ctrl_0.tcl|vivado_synth|1719762970223|START|Adding files|",
+      "[OPTRACE]|1749177|232|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/ulp_inst_0_plram_ctrl_0_synth_1/ulp_inst_0_plram_ctrl_0.tcl|vivado_synth|1719762973465|END|Adding files|",
+      "[OPTRACE]|1749177|233|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/ulp_inst_0_plram_ctrl_0_synth_1/ulp_inst_0_plram_ctrl_0.tcl|vivado_synth|1719762973471|START|Configure IP Cache|",
+      "[OPTRACE]|1749177|234|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/ulp_inst_0_plram_ctrl_0_synth_1/ulp_inst_0_plram_ctrl_0.tcl|vivado_synth|1719762973473|END|Configure IP Cache|",
+      "[OPTRACE]|1749177|235|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/ulp_inst_0_plram_ctrl_0_synth_1/ulp_inst_0_plram_ctrl_0.tcl|vivado_synth|1719762973473|START|synth_design|",
+      "[OPTRACE]|1749177|312|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/ulp_inst_0_plram_ctrl_0_synth_1/ulp_inst_0_plram_ctrl_0.tcl|vivado_synth|1719764359447|END|synth_design|",
+      "[OPTRACE]|1749177|313|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/ulp_inst_0_plram_ctrl_0_synth_1/ulp_inst_0_plram_ctrl_0.tcl|vivado_synth|1719764359472|START|Write IP Cache|",
+      "[OPTRACE]|1749177|314|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/ulp_inst_0_plram_ctrl_0_synth_1/ulp_inst_0_plram_ctrl_0.tcl|vivado_synth|1719764382335|END|Write IP Cache|",
+      "[OPTRACE]|1749177|315|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/ulp_inst_0_plram_ctrl_0_synth_1/ulp_inst_0_plram_ctrl_0.tcl|vivado_synth|1719764382378|START|write_checkpoint|CHECKPOINT",
+      "[OPTRACE]|1749177|316|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/ulp_inst_0_plram_ctrl_0_synth_1/ulp_inst_0_plram_ctrl_0.tcl|vivado_synth|1719764389788|END|write_checkpoint|",
+      "[OPTRACE]|1749177|317|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/ulp_inst_0_plram_ctrl_0_synth_1/ulp_inst_0_plram_ctrl_0.tcl|vivado_synth|1719764389808|START|synth reports|REPORT",
+      "[OPTRACE]|1749177|318|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/ulp_inst_0_plram_ctrl_0_synth_1/ulp_inst_0_plram_ctrl_0.tcl|vivado_synth|1719764393183|END|synth reports|",
+      "[OPTRACE]|1749177|321|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/ulp_inst_0_plram_ctrl_0_synth_1/ulp_inst_0_plram_ctrl_0.tcl|vivado_synth|1719764406776|END|ulp_inst_0_plram_ctrl_0_synth_1|",
+      "[OPTRACE]|1750803|210|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/ulp_inst_0_axi_sc_plram_0_synth_1/ulp_inst_0_axi_sc_plram_0.tcl|vivado_synth|1719762898347|START|ulp_inst_0_axi_sc_plram_0_synth_1|ROLLUP_AUTO",
+      "[OPTRACE]|1750803|211|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/ulp_inst_0_axi_sc_plram_0_synth_1/ulp_inst_0_axi_sc_plram_0.tcl|vivado_synth|1719762898350|START|Creating in-memory project|",
+      "[OPTRACE]|1750803|240|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/ulp_inst_0_axi_sc_plram_0_synth_1/ulp_inst_0_axi_sc_plram_0.tcl|vivado_synth|1719763051971|END|Creating in-memory project|",
+      "[OPTRACE]|1750803|241|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/ulp_inst_0_axi_sc_plram_0_synth_1/ulp_inst_0_axi_sc_plram_0.tcl|vivado_synth|1719763051972|START|Adding files|",
+      "[OPTRACE]|1750803|246|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/ulp_inst_0_axi_sc_plram_0_synth_1/ulp_inst_0_axi_sc_plram_0.tcl|vivado_synth|1719763067423|END|Adding files|",
+      "[OPTRACE]|1750803|247|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/ulp_inst_0_axi_sc_plram_0_synth_1/ulp_inst_0_axi_sc_plram_0.tcl|vivado_synth|1719763067467|START|Configure IP Cache|",
+      "[OPTRACE]|1750803|248|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/ulp_inst_0_axi_sc_plram_0_synth_1/ulp_inst_0_axi_sc_plram_0.tcl|vivado_synth|1719763068584|END|Configure IP Cache|",
+      "[OPTRACE]|1750803|249|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/ulp_inst_0_axi_sc_plram_0_synth_1/ulp_inst_0_axi_sc_plram_0.tcl|vivado_synth|1719763068585|START|synth_design|",
+      "[OPTRACE]|1750803|396|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/ulp_inst_0_axi_sc_plram_0_synth_1/ulp_inst_0_axi_sc_plram_0.tcl|vivado_synth|1719766008950|END|synth_design|",
+      "[OPTRACE]|1750803|397|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/ulp_inst_0_axi_sc_plram_0_synth_1/ulp_inst_0_axi_sc_plram_0.tcl|vivado_synth|1719766008980|START|Write IP Cache|",
+      "[OPTRACE]|1750803|404|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/ulp_inst_0_axi_sc_plram_0_synth_1/ulp_inst_0_axi_sc_plram_0.tcl|vivado_synth|1719766152470|END|Write IP Cache|",
+      "[OPTRACE]|1750803|405|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/ulp_inst_0_axi_sc_plram_0_synth_1/ulp_inst_0_axi_sc_plram_0.tcl|vivado_synth|1719766153031|START|write_checkpoint|CHECKPOINT",
+      "[OPTRACE]|1750803|406|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/ulp_inst_0_axi_sc_plram_0_synth_1/ulp_inst_0_axi_sc_plram_0.tcl|vivado_synth|1719766208276|END|write_checkpoint|",
+      "[OPTRACE]|1750803|407|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/ulp_inst_0_axi_sc_plram_0_synth_1/ulp_inst_0_axi_sc_plram_0.tcl|vivado_synth|1719766208277|START|synth reports|REPORT",
+      "[OPTRACE]|1750803|408|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/ulp_inst_0_axi_sc_plram_0_synth_1/ulp_inst_0_axi_sc_plram_0.tcl|vivado_synth|1719766213881|END|synth reports|",
+      "[OPTRACE]|1750803|411|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/ulp_inst_0_axi_sc_plram_0_synth_1/ulp_inst_0_axi_sc_plram_0.tcl|vivado_synth|1719766293578|END|ulp_inst_0_axi_sc_plram_0_synth_1|",
+      "[OPTRACE]|1750977|212|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/ulp_inst_0_axi_noc_h2c_0_synth_1/ulp_inst_0_axi_noc_h2c_0.tcl|vivado_synth|1719762910221|START|ulp_inst_0_axi_noc_h2c_0_synth_1|ROLLUP_AUTO",
+      "[OPTRACE]|1750977|213|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/ulp_inst_0_axi_noc_h2c_0_synth_1/ulp_inst_0_axi_noc_h2c_0.tcl|vivado_synth|1719762910224|START|Creating in-memory project|",
+      "[OPTRACE]|1750977|242|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/ulp_inst_0_axi_noc_h2c_0_synth_1/ulp_inst_0_axi_noc_h2c_0.tcl|vivado_synth|1719763061161|END|Creating in-memory project|",
+      "[OPTRACE]|1750977|243|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/ulp_inst_0_axi_noc_h2c_0_synth_1/ulp_inst_0_axi_noc_h2c_0.tcl|vivado_synth|1719763061162|START|Adding files|",
+      "[OPTRACE]|1750977|244|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/ulp_inst_0_axi_noc_h2c_0_synth_1/ulp_inst_0_axi_noc_h2c_0.tcl|vivado_synth|1719763066850|END|Adding files|",
+      "[OPTRACE]|1750977|245|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/ulp_inst_0_axi_noc_h2c_0_synth_1/ulp_inst_0_axi_noc_h2c_0.tcl|vivado_synth|1719763066853|START|Configure IP Cache|",
+      "[OPTRACE]|1750977|250|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/ulp_inst_0_axi_noc_h2c_0_synth_1/ulp_inst_0_axi_noc_h2c_0.tcl|vivado_synth|1719763068671|END|Configure IP Cache|",
+      "[OPTRACE]|1750977|251|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/ulp_inst_0_axi_noc_h2c_0_synth_1/ulp_inst_0_axi_noc_h2c_0.tcl|vivado_synth|1719763068677|START|synth_design|",
+      "[OPTRACE]|1750977|284|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/ulp_inst_0_axi_noc_h2c_0_synth_1/ulp_inst_0_axi_noc_h2c_0.tcl|vivado_synth|1719764149546|END|synth_design|",
+      "[OPTRACE]|1750977|285|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/ulp_inst_0_axi_noc_h2c_0_synth_1/ulp_inst_0_axi_noc_h2c_0.tcl|vivado_synth|1719764149552|START|Write IP Cache|",
+      "[OPTRACE]|1750977|291|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/ulp_inst_0_axi_noc_h2c_0_synth_1/ulp_inst_0_axi_noc_h2c_0.tcl|vivado_synth|1719764167434|END|Write IP Cache|",
+      "[OPTRACE]|1750977|292|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/ulp_inst_0_axi_noc_h2c_0_synth_1/ulp_inst_0_axi_noc_h2c_0.tcl|vivado_synth|1719764167454|START|write_checkpoint|CHECKPOINT",
+      "[OPTRACE]|1750977|293|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/ulp_inst_0_axi_noc_h2c_0_synth_1/ulp_inst_0_axi_noc_h2c_0.tcl|vivado_synth|1719764173843|END|write_checkpoint|",
+      "[OPTRACE]|1750977|294|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/ulp_inst_0_axi_noc_h2c_0_synth_1/ulp_inst_0_axi_noc_h2c_0.tcl|vivado_synth|1719764173860|START|synth reports|REPORT",
+      "[OPTRACE]|1750977|296|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/ulp_inst_0_axi_noc_h2c_0_synth_1/ulp_inst_0_axi_noc_h2c_0.tcl|vivado_synth|1719764177737|END|synth reports|",
+      "[OPTRACE]|1750977|297|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/ulp_inst_0_axi_noc_h2c_0_synth_1/ulp_inst_0_axi_noc_h2c_0.tcl|vivado_synth|1719764183772|END|ulp_inst_0_axi_noc_h2c_0_synth_1|",
+      "[OPTRACE]|1751468|220|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/ulp_inst_0_axi_noc_kernel0_0_synth_1/ulp_inst_0_axi_noc_kernel0_0.tcl|vivado_synth|1719762948438|START|ulp_inst_0_axi_noc_kernel0_0_synth_1|ROLLUP_AUTO",
+      "[OPTRACE]|1751468|221|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/ulp_inst_0_axi_noc_kernel0_0_synth_1/ulp_inst_0_axi_noc_kernel0_0.tcl|vivado_synth|1719762948461|START|Creating in-memory project|",
+      "[OPTRACE]|1751468|252|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/ulp_inst_0_axi_noc_kernel0_0_synth_1/ulp_inst_0_axi_noc_kernel0_0.tcl|vivado_synth|1719763081894|END|Creating in-memory project|",
+      "[OPTRACE]|1751468|253|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/ulp_inst_0_axi_noc_kernel0_0_synth_1/ulp_inst_0_axi_noc_kernel0_0.tcl|vivado_synth|1719763081912|START|Adding files|",
+      "[OPTRACE]|1751468|254|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/ulp_inst_0_axi_noc_kernel0_0_synth_1/ulp_inst_0_axi_noc_kernel0_0.tcl|vivado_synth|1719763090485|END|Adding files|",
+      "[OPTRACE]|1751468|255|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/ulp_inst_0_axi_noc_kernel0_0_synth_1/ulp_inst_0_axi_noc_kernel0_0.tcl|vivado_synth|1719763090520|START|Configure IP Cache|",
+      "[OPTRACE]|1751468|256|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/ulp_inst_0_axi_noc_kernel0_0_synth_1/ulp_inst_0_axi_noc_kernel0_0.tcl|vivado_synth|1719763092578|END|Configure IP Cache|",
+      "[OPTRACE]|1751468|257|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/ulp_inst_0_axi_noc_kernel0_0_synth_1/ulp_inst_0_axi_noc_kernel0_0.tcl|vivado_synth|1719763092579|START|synth_design|",
+      "[OPTRACE]|1751468|298|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/ulp_inst_0_axi_noc_kernel0_0_synth_1/ulp_inst_0_axi_noc_kernel0_0.tcl|vivado_synth|1719764239714|END|synth_design|",
+      "[OPTRACE]|1751468|299|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/ulp_inst_0_axi_noc_kernel0_0_synth_1/ulp_inst_0_axi_noc_kernel0_0.tcl|vivado_synth|1719764239730|START|Write IP Cache|",
+      "[OPTRACE]|1751468|300|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/ulp_inst_0_axi_noc_kernel0_0_synth_1/ulp_inst_0_axi_noc_kernel0_0.tcl|vivado_synth|1719764268960|END|Write IP Cache|",
+      "[OPTRACE]|1751468|301|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/ulp_inst_0_axi_noc_kernel0_0_synth_1/ulp_inst_0_axi_noc_kernel0_0.tcl|vivado_synth|1719764268977|START|write_checkpoint|CHECKPOINT",
+      "[OPTRACE]|1751468|302|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/ulp_inst_0_axi_noc_kernel0_0_synth_1/ulp_inst_0_axi_noc_kernel0_0.tcl|vivado_synth|1719764280751|END|write_checkpoint|",
+      "[OPTRACE]|1751468|303|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/ulp_inst_0_axi_noc_kernel0_0_synth_1/ulp_inst_0_axi_noc_kernel0_0.tcl|vivado_synth|1719764280775|START|synth reports|REPORT",
+      "[OPTRACE]|1751468|306|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/ulp_inst_0_axi_noc_kernel0_0_synth_1/ulp_inst_0_axi_noc_kernel0_0.tcl|vivado_synth|1719764285080|END|synth reports|",
+      "[OPTRACE]|1751468|307|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/ulp_inst_0_axi_noc_kernel0_0_synth_1/ulp_inst_0_axi_noc_kernel0_0.tcl|vivado_synth|1719764305620|END|ulp_inst_0_axi_noc_kernel0_0_synth_1|",
+      "[OPTRACE]|1760178|266|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/ulp_inst_0_axi_ic_user_extend_0_synth_1/ulp_inst_0_axi_ic_user_extend_0.tcl|vivado_synth|1719763733655|START|ulp_inst_0_axi_ic_user_extend_0_synth_1|ROLLUP_AUTO",
+      "[OPTRACE]|1760178|267|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/ulp_inst_0_axi_ic_user_extend_0_synth_1/ulp_inst_0_axi_ic_user_extend_0.tcl|vivado_synth|1719763733674|START|Creating in-memory project|",
+      "[OPTRACE]|1760178|268|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/ulp_inst_0_axi_ic_user_extend_0_synth_1/ulp_inst_0_axi_ic_user_extend_0.tcl|vivado_synth|1719763870776|END|Creating in-memory project|",
+      "[OPTRACE]|1760178|269|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/ulp_inst_0_axi_ic_user_extend_0_synth_1/ulp_inst_0_axi_ic_user_extend_0.tcl|vivado_synth|1719763870781|START|Adding files|",
+      "[OPTRACE]|1760178|270|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/ulp_inst_0_axi_ic_user_extend_0_synth_1/ulp_inst_0_axi_ic_user_extend_0.tcl|vivado_synth|1719763881780|END|Adding files|",
+      "[OPTRACE]|1760178|271|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/ulp_inst_0_axi_ic_user_extend_0_synth_1/ulp_inst_0_axi_ic_user_extend_0.tcl|vivado_synth|1719763881813|START|Configure IP Cache|",
+      "[OPTRACE]|1760178|272|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/ulp_inst_0_axi_ic_user_extend_0_synth_1/ulp_inst_0_axi_ic_user_extend_0.tcl|vivado_synth|1719763883113|END|Configure IP Cache|",
+      "[OPTRACE]|1760178|273|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/ulp_inst_0_axi_ic_user_extend_0_synth_1/ulp_inst_0_axi_ic_user_extend_0.tcl|vivado_synth|1719763883132|START|synth_design|",
+      "[OPTRACE]|1760178|370|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/ulp_inst_0_axi_ic_user_extend_0_synth_1/ulp_inst_0_axi_ic_user_extend_0.tcl|vivado_synth|1719765297186|END|synth_design|",
+      "[OPTRACE]|1760178|371|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/ulp_inst_0_axi_ic_user_extend_0_synth_1/ulp_inst_0_axi_ic_user_extend_0.tcl|vivado_synth|1719765297200|START|Write IP Cache|",
+      "[OPTRACE]|1760178|372|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/ulp_inst_0_axi_ic_user_extend_0_synth_1/ulp_inst_0_axi_ic_user_extend_0.tcl|vivado_synth|1719765336469|END|Write IP Cache|",
+      "[OPTRACE]|1760178|373|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/ulp_inst_0_axi_ic_user_extend_0_synth_1/ulp_inst_0_axi_ic_user_extend_0.tcl|vivado_synth|1719765336476|START|write_checkpoint|CHECKPOINT",
+      "[OPTRACE]|1760178|374|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/ulp_inst_0_axi_ic_user_extend_0_synth_1/ulp_inst_0_axi_ic_user_extend_0.tcl|vivado_synth|1719765347514|END|write_checkpoint|",
+      "[OPTRACE]|1760178|375|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/ulp_inst_0_axi_ic_user_extend_0_synth_1/ulp_inst_0_axi_ic_user_extend_0.tcl|vivado_synth|1719765347520|START|synth reports|REPORT",
+      "[OPTRACE]|1760178|376|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/ulp_inst_0_axi_ic_user_extend_0_synth_1/ulp_inst_0_axi_ic_user_extend_0.tcl|vivado_synth|1719765352358|END|synth reports|",
+      "[OPTRACE]|1760178|377|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/ulp_inst_0_axi_ic_user_extend_0_synth_1/ulp_inst_0_axi_ic_user_extend_0.tcl|vivado_synth|1719765383019|END|ulp_inst_0_axi_ic_user_extend_0_synth_1|",
+      "[OPTRACE]|1838071|304|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/ulp_inst_0_axi_ic_user_0_synth_1/ulp_inst_0_axi_ic_user_0.tcl|vivado_synth|1719764284045|START|ulp_inst_0_axi_ic_user_0_synth_1|ROLLUP_AUTO",
+      "[OPTRACE]|1838071|305|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/ulp_inst_0_axi_ic_user_0_synth_1/ulp_inst_0_axi_ic_user_0.tcl|vivado_synth|1719764284062|START|Creating in-memory project|",
+      "[OPTRACE]|1838071|322|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/ulp_inst_0_axi_ic_user_0_synth_1/ulp_inst_0_axi_ic_user_0.tcl|vivado_synth|1719764442227|END|Creating in-memory project|",
+      "[OPTRACE]|1838071|323|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/ulp_inst_0_axi_ic_user_0_synth_1/ulp_inst_0_axi_ic_user_0.tcl|vivado_synth|1719764442236|START|Adding files|",
+      "[OPTRACE]|1838071|336|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/ulp_inst_0_axi_ic_user_0_synth_1/ulp_inst_0_axi_ic_user_0.tcl|vivado_synth|1719764476184|END|Adding files|",
+      "[OPTRACE]|1838071|337|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/ulp_inst_0_axi_ic_user_0_synth_1/ulp_inst_0_axi_ic_user_0.tcl|vivado_synth|1719764476221|START|Configure IP Cache|",
+      "[OPTRACE]|1838071|338|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/ulp_inst_0_axi_ic_user_0_synth_1/ulp_inst_0_axi_ic_user_0.tcl|vivado_synth|1719764476739|END|Configure IP Cache|",
+      "[OPTRACE]|1838071|339|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/ulp_inst_0_axi_ic_user_0_synth_1/ulp_inst_0_axi_ic_user_0.tcl|vivado_synth|1719764476754|START|synth_design|",
+      "[OPTRACE]|1838071|448|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/ulp_inst_0_axi_ic_user_0_synth_1/ulp_inst_0_axi_ic_user_0.tcl|vivado_synth|1719766651831|END|synth_design|",
+      "[OPTRACE]|1838071|449|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/ulp_inst_0_axi_ic_user_0_synth_1/ulp_inst_0_axi_ic_user_0.tcl|vivado_synth|1719766651848|START|Write IP Cache|",
+      "[OPTRACE]|1838071|456|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/ulp_inst_0_axi_ic_user_0_synth_1/ulp_inst_0_axi_ic_user_0.tcl|vivado_synth|1719766728847|END|Write IP Cache|",
+      "[OPTRACE]|1838071|457|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/ulp_inst_0_axi_ic_user_0_synth_1/ulp_inst_0_axi_ic_user_0.tcl|vivado_synth|1719766728973|START|write_checkpoint|CHECKPOINT",
+      "[OPTRACE]|1838071|458|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/ulp_inst_0_axi_ic_user_0_synth_1/ulp_inst_0_axi_ic_user_0.tcl|vivado_synth|1719766752675|END|write_checkpoint|",
+      "[OPTRACE]|1838071|459|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/ulp_inst_0_axi_ic_user_0_synth_1/ulp_inst_0_axi_ic_user_0.tcl|vivado_synth|1719766752676|START|synth reports|REPORT",
+      "[OPTRACE]|1838071|460|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/ulp_inst_0_axi_ic_user_0_synth_1/ulp_inst_0_axi_ic_user_0.tcl|vivado_synth|1719766755812|END|synth reports|",
+      "[OPTRACE]|1838071|473|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/ulp_inst_0_axi_ic_user_0_synth_1/ulp_inst_0_axi_ic_user_0.tcl|vivado_synth|1719766792946|END|ulp_inst_0_axi_ic_user_0_synth_1|",
+      "[OPTRACE]|1843366|308|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/ulp_inst_0_dwc_setup_aie_0_s_0_synth_1/ulp_inst_0_dwc_setup_aie_0_s_0.tcl|vivado_synth|1719764320651|START|ulp_inst_0_dwc_setup_aie_0_s_0_synth_1|ROLLUP_AUTO",
+      "[OPTRACE]|1843366|309|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/ulp_inst_0_dwc_setup_aie_0_s_0_synth_1/ulp_inst_0_dwc_setup_aie_0_s_0.tcl|vivado_synth|1719764320665|START|Creating in-memory project|",
+      "[OPTRACE]|1843366|324|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/ulp_inst_0_dwc_setup_aie_0_s_0_synth_1/ulp_inst_0_dwc_setup_aie_0_s_0.tcl|vivado_synth|1719764455255|END|Creating in-memory project|",
+      "[OPTRACE]|1843366|325|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/ulp_inst_0_dwc_setup_aie_0_s_0_synth_1/ulp_inst_0_dwc_setup_aie_0_s_0.tcl|vivado_synth|1719764455290|START|Adding files|",
+      "[OPTRACE]|1843366|326|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/ulp_inst_0_dwc_setup_aie_0_s_0_synth_1/ulp_inst_0_dwc_setup_aie_0_s_0.tcl|vivado_synth|1719764457655|END|Adding files|",
+      "[OPTRACE]|1843366|327|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/ulp_inst_0_dwc_setup_aie_0_s_0_synth_1/ulp_inst_0_dwc_setup_aie_0_s_0.tcl|vivado_synth|1719764457676|START|Configure IP Cache|",
+      "[OPTRACE]|1843366|328|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/ulp_inst_0_dwc_setup_aie_0_s_0_synth_1/ulp_inst_0_dwc_setup_aie_0_s_0.tcl|vivado_synth|1719764457757|END|Configure IP Cache|",
+      "[OPTRACE]|1843366|329|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/ulp_inst_0_dwc_setup_aie_0_s_0_synth_1/ulp_inst_0_dwc_setup_aie_0_s_0.tcl|vivado_synth|1719764457774|START|synth_design|",
+      "[OPTRACE]|1843366|386|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/ulp_inst_0_dwc_setup_aie_0_s_0_synth_1/ulp_inst_0_dwc_setup_aie_0_s_0.tcl|vivado_synth|1719765777427|END|synth_design|",
+      "[OPTRACE]|1843366|387|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/ulp_inst_0_dwc_setup_aie_0_s_0_synth_1/ulp_inst_0_dwc_setup_aie_0_s_0.tcl|vivado_synth|1719765777443|START|Write IP Cache|",
+      "[OPTRACE]|1843366|388|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/ulp_inst_0_dwc_setup_aie_0_s_0_synth_1/ulp_inst_0_dwc_setup_aie_0_s_0.tcl|vivado_synth|1719765792559|END|Write IP Cache|",
+      "[OPTRACE]|1843366|389|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/ulp_inst_0_dwc_setup_aie_0_s_0_synth_1/ulp_inst_0_dwc_setup_aie_0_s_0.tcl|vivado_synth|1719765792577|START|write_checkpoint|CHECKPOINT",
+      "[OPTRACE]|1843366|390|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/ulp_inst_0_dwc_setup_aie_0_s_0_synth_1/ulp_inst_0_dwc_setup_aie_0_s_0.tcl|vivado_synth|1719765796335|END|write_checkpoint|",
+      "[OPTRACE]|1843366|391|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/ulp_inst_0_dwc_setup_aie_0_s_0_synth_1/ulp_inst_0_dwc_setup_aie_0_s_0.tcl|vivado_synth|1719765796340|START|synth reports|REPORT",
+      "[OPTRACE]|1843366|392|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/ulp_inst_0_dwc_setup_aie_0_s_0_synth_1/ulp_inst_0_dwc_setup_aie_0_s_0.tcl|vivado_synth|1719765801332|END|synth reports|",
+      "[OPTRACE]|1843366|393|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/ulp_inst_0_dwc_setup_aie_0_s_0_synth_1/ulp_inst_0_dwc_setup_aie_0_s_0.tcl|vivado_synth|1719765812576|END|ulp_inst_0_dwc_setup_aie_0_s_0_synth_1|",
+      "[OPTRACE]|1846237|310|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/ulp_inst_0_axi_ic_axi_noc_kernel0_S01_AXI_0_synth_1/ulp_inst_0_axi_ic_axi_noc_kernel0_S01_AXI_0.tcl|vivado_synth|1719764335931|START|ulp_inst_0_axi_ic_axi_noc_kernel0_S01_AXI_0_synth_1|ROLLUP_AUTO",
+      "[OPTRACE]|1846237|311|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/ulp_inst_0_axi_ic_axi_noc_kernel0_S01_AXI_0_synth_1/ulp_inst_0_axi_ic_axi_noc_kernel0_S01_AXI_0.tcl|vivado_synth|1719764335946|START|Creating in-memory project|",
+      "[OPTRACE]|1846237|330|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/ulp_inst_0_axi_ic_axi_noc_kernel0_S01_AXI_0_synth_1/ulp_inst_0_axi_ic_axi_noc_kernel0_S01_AXI_0.tcl|vivado_synth|1719764461123|END|Creating in-memory project|",
+      "[OPTRACE]|1846237|331|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/ulp_inst_0_axi_ic_axi_noc_kernel0_S01_AXI_0_synth_1/ulp_inst_0_axi_ic_axi_noc_kernel0_S01_AXI_0.tcl|vivado_synth|1719764461155|START|Adding files|",
+      "[OPTRACE]|1846237|332|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/ulp_inst_0_axi_ic_axi_noc_kernel0_S01_AXI_0_synth_1/ulp_inst_0_axi_ic_axi_noc_kernel0_S01_AXI_0.tcl|vivado_synth|1719764473696|END|Adding files|",
+      "[OPTRACE]|1846237|333|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/ulp_inst_0_axi_ic_axi_noc_kernel0_S01_AXI_0_synth_1/ulp_inst_0_axi_ic_axi_noc_kernel0_S01_AXI_0.tcl|vivado_synth|1719764473739|START|Configure IP Cache|",
+      "[OPTRACE]|1846237|334|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/ulp_inst_0_axi_ic_axi_noc_kernel0_S01_AXI_0_synth_1/ulp_inst_0_axi_ic_axi_noc_kernel0_S01_AXI_0.tcl|vivado_synth|1719764474810|END|Configure IP Cache|",
+      "[OPTRACE]|1846237|335|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/ulp_inst_0_axi_ic_axi_noc_kernel0_S01_AXI_0_synth_1/ulp_inst_0_axi_ic_axi_noc_kernel0_S01_AXI_0.tcl|vivado_synth|1719764474831|START|synth_design|",
+      "[OPTRACE]|1846237|412|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/ulp_inst_0_axi_ic_axi_noc_kernel0_S01_AXI_0_synth_1/ulp_inst_0_axi_ic_axi_noc_kernel0_S01_AXI_0.tcl|vivado_synth|1719766299271|END|synth_design|",
+      "[OPTRACE]|1846237|413|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/ulp_inst_0_axi_ic_axi_noc_kernel0_S01_AXI_0_synth_1/ulp_inst_0_axi_ic_axi_noc_kernel0_S01_AXI_0.tcl|vivado_synth|1719766299271|START|Write IP Cache|",
+      "[OPTRACE]|1846237|416|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/ulp_inst_0_axi_ic_axi_noc_kernel0_S01_AXI_0_synth_1/ulp_inst_0_axi_ic_axi_noc_kernel0_S01_AXI_0.tcl|vivado_synth|1719766373294|END|Write IP Cache|",
+      "[OPTRACE]|1846237|417|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/ulp_inst_0_axi_ic_axi_noc_kernel0_S01_AXI_0_synth_1/ulp_inst_0_axi_ic_axi_noc_kernel0_S01_AXI_0.tcl|vivado_synth|1719766373342|START|write_checkpoint|CHECKPOINT",
+      "[OPTRACE]|1846237|426|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/ulp_inst_0_axi_ic_axi_noc_kernel0_S01_AXI_0_synth_1/ulp_inst_0_axi_ic_axi_noc_kernel0_S01_AXI_0.tcl|vivado_synth|1719766401140|END|write_checkpoint|",
+      "[OPTRACE]|1846237|427|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/ulp_inst_0_axi_ic_axi_noc_kernel0_S01_AXI_0_synth_1/ulp_inst_0_axi_ic_axi_noc_kernel0_S01_AXI_0.tcl|vivado_synth|1719766401172|START|synth reports|REPORT",
+      "[OPTRACE]|1846237|430|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/ulp_inst_0_axi_ic_axi_noc_kernel0_S01_AXI_0_synth_1/ulp_inst_0_axi_ic_axi_noc_kernel0_S01_AXI_0.tcl|vivado_synth|1719766406267|END|synth reports|",
+      "[OPTRACE]|1846237|434|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/ulp_inst_0_axi_ic_axi_noc_kernel0_S01_AXI_0_synth_1/ulp_inst_0_axi_ic_axi_noc_kernel0_S01_AXI_0.tcl|vivado_synth|1719766455549|END|ulp_inst_0_axi_ic_axi_noc_kernel0_S01_AXI_0_synth_1|",
+      "[OPTRACE]|1857570|319|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/ulp_inst_0_axi_ic_axi_noc_kernel0_S00_AXI_0_synth_1/ulp_inst_0_axi_ic_axi_noc_kernel0_S00_AXI_0.tcl|vivado_synth|1719764394964|START|ulp_inst_0_axi_ic_axi_noc_kernel0_S00_AXI_0_synth_1|ROLLUP_AUTO",
+      "[OPTRACE]|1857570|320|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/ulp_inst_0_axi_ic_axi_noc_kernel0_S00_AXI_0_synth_1/ulp_inst_0_axi_ic_axi_noc_kernel0_S00_AXI_0.tcl|vivado_synth|1719764394967|START|Creating in-memory project|",
+      "[OPTRACE]|1857570|340|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/ulp_inst_0_axi_ic_axi_noc_kernel0_S00_AXI_0_synth_1/ulp_inst_0_axi_ic_axi_noc_kernel0_S00_AXI_0.tcl|vivado_synth|1719764482703|END|Creating in-memory project|",
+      "[OPTRACE]|1857570|341|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/ulp_inst_0_axi_ic_axi_noc_kernel0_S00_AXI_0_synth_1/ulp_inst_0_axi_ic_axi_noc_kernel0_S00_AXI_0.tcl|vivado_synth|1719764482708|START|Adding files|",
+      "[OPTRACE]|1857570|342|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/ulp_inst_0_axi_ic_axi_noc_kernel0_S00_AXI_0_synth_1/ulp_inst_0_axi_ic_axi_noc_kernel0_S00_AXI_0.tcl|vivado_synth|1719764493835|END|Adding files|",
+      "[OPTRACE]|1857570|343|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/ulp_inst_0_axi_ic_axi_noc_kernel0_S00_AXI_0_synth_1/ulp_inst_0_axi_ic_axi_noc_kernel0_S00_AXI_0.tcl|vivado_synth|1719764493860|START|Configure IP Cache|",
+      "[OPTRACE]|1857570|344|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/ulp_inst_0_axi_ic_axi_noc_kernel0_S00_AXI_0_synth_1/ulp_inst_0_axi_ic_axi_noc_kernel0_S00_AXI_0.tcl|vivado_synth|1719764494933|END|Configure IP Cache|",
+      "[OPTRACE]|1857570|345|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/ulp_inst_0_axi_ic_axi_noc_kernel0_S00_AXI_0_synth_1/ulp_inst_0_axi_ic_axi_noc_kernel0_S00_AXI_0.tcl|vivado_synth|1719764494953|START|synth_design|",
+      "[OPTRACE]|1857570|414|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/ulp_inst_0_axi_ic_axi_noc_kernel0_S00_AXI_0_synth_1/ulp_inst_0_axi_ic_axi_noc_kernel0_S00_AXI_0.tcl|vivado_synth|1719766311099|END|synth_design|",
+      "[OPTRACE]|1857570|415|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/ulp_inst_0_axi_ic_axi_noc_kernel0_S00_AXI_0_synth_1/ulp_inst_0_axi_ic_axi_noc_kernel0_S00_AXI_0.tcl|vivado_synth|1719766311100|START|Write IP Cache|",
+      "[OPTRACE]|1857570|418|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/ulp_inst_0_axi_ic_axi_noc_kernel0_S00_AXI_0_synth_1/ulp_inst_0_axi_ic_axi_noc_kernel0_S00_AXI_0.tcl|vivado_synth|1719766377952|END|Write IP Cache|",
+      "[OPTRACE]|1857570|419|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/ulp_inst_0_axi_ic_axi_noc_kernel0_S00_AXI_0_synth_1/ulp_inst_0_axi_ic_axi_noc_kernel0_S00_AXI_0.tcl|vivado_synth|1719766377988|START|write_checkpoint|CHECKPOINT",
+      "[OPTRACE]|1857570|428|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/ulp_inst_0_axi_ic_axi_noc_kernel0_S00_AXI_0_synth_1/ulp_inst_0_axi_ic_axi_noc_kernel0_S00_AXI_0.tcl|vivado_synth|1719766402712|END|write_checkpoint|",
+      "[OPTRACE]|1857570|429|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/ulp_inst_0_axi_ic_axi_noc_kernel0_S00_AXI_0_synth_1/ulp_inst_0_axi_ic_axi_noc_kernel0_S00_AXI_0.tcl|vivado_synth|1719766402731|START|synth reports|REPORT",
+      "[OPTRACE]|1857570|431|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/ulp_inst_0_axi_ic_axi_noc_kernel0_S00_AXI_0_synth_1/ulp_inst_0_axi_ic_axi_noc_kernel0_S00_AXI_0.tcl|vivado_synth|1719766407286|END|synth reports|",
+      "[OPTRACE]|1857570|435|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/ulp_inst_0_axi_ic_axi_noc_kernel0_S00_AXI_0_synth_1/ulp_inst_0_axi_ic_axi_noc_kernel0_S00_AXI_0.tcl|vivado_synth|1719766457417|END|ulp_inst_0_axi_ic_axi_noc_kernel0_S00_AXI_0_synth_1|",
+      "[OPTRACE]|1859601|346|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/ulp_inst_0_sink_from_aie_0_0_synth_1/ulp_inst_0_sink_from_aie_0_0.tcl|vivado_synth|1719764546617|START|ulp_inst_0_sink_from_aie_0_0_synth_1|ROLLUP_AUTO",
+      "[OPTRACE]|1859601|347|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/ulp_inst_0_sink_from_aie_0_0_synth_1/ulp_inst_0_sink_from_aie_0_0.tcl|vivado_synth|1719764546632|START|Creating in-memory project|",
+      "[OPTRACE]|1859601|348|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/ulp_inst_0_sink_from_aie_0_0_synth_1/ulp_inst_0_sink_from_aie_0_0.tcl|vivado_synth|1719764738039|END|Creating in-memory project|",
+      "[OPTRACE]|1859601|349|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/ulp_inst_0_sink_from_aie_0_0_synth_1/ulp_inst_0_sink_from_aie_0_0.tcl|vivado_synth|1719764738040|START|Adding files|",
+      "[OPTRACE]|1859601|350|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/ulp_inst_0_sink_from_aie_0_0_synth_1/ulp_inst_0_sink_from_aie_0_0.tcl|vivado_synth|1719764742379|END|Adding files|",
+      "[OPTRACE]|1859601|351|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/ulp_inst_0_sink_from_aie_0_0_synth_1/ulp_inst_0_sink_from_aie_0_0.tcl|vivado_synth|1719764742483|START|Configure IP Cache|",
+      "[OPTRACE]|1859601|352|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/ulp_inst_0_sink_from_aie_0_0_synth_1/ulp_inst_0_sink_from_aie_0_0.tcl|vivado_synth|1719764742501|END|Configure IP Cache|",
+      "[OPTRACE]|1859601|353|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/ulp_inst_0_sink_from_aie_0_0_synth_1/ulp_inst_0_sink_from_aie_0_0.tcl|vivado_synth|1719764742509|START|synth_design|",
+      "[OPTRACE]|1859601|446|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/ulp_inst_0_sink_from_aie_0_0_synth_1/ulp_inst_0_sink_from_aie_0_0.tcl|vivado_synth|1719766634071|END|synth_design|",
+      "[OPTRACE]|1859601|447|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/ulp_inst_0_sink_from_aie_0_0_synth_1/ulp_inst_0_sink_from_aie_0_0.tcl|vivado_synth|1719766634079|START|Write IP Cache|",
+      "[OPTRACE]|1859601|450|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/ulp_inst_0_sink_from_aie_0_0_synth_1/ulp_inst_0_sink_from_aie_0_0.tcl|vivado_synth|1719766677393|END|Write IP Cache|",
+      "[OPTRACE]|1859601|451|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/ulp_inst_0_sink_from_aie_0_0_synth_1/ulp_inst_0_sink_from_aie_0_0.tcl|vivado_synth|1719766677432|START|write_checkpoint|CHECKPOINT",
+      "[OPTRACE]|1859601|452|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/ulp_inst_0_sink_from_aie_0_0_synth_1/ulp_inst_0_sink_from_aie_0_0.tcl|vivado_synth|1719766696357|END|write_checkpoint|",
+      "[OPTRACE]|1859601|453|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/ulp_inst_0_sink_from_aie_0_0_synth_1/ulp_inst_0_sink_from_aie_0_0.tcl|vivado_synth|1719766696358|START|synth reports|REPORT",
+      "[OPTRACE]|1859601|454|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/ulp_inst_0_sink_from_aie_0_0_synth_1/ulp_inst_0_sink_from_aie_0_0.tcl|vivado_synth|1719766701559|END|synth reports|",
+      "[OPTRACE]|1859601|455|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/ulp_inst_0_sink_from_aie_0_0_synth_1/ulp_inst_0_sink_from_aie_0_0.tcl|vivado_synth|1719766721223|END|ulp_inst_0_sink_from_aie_0_0_synth_1|",
+      "[OPTRACE]|1867844|362|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/ulp_inst_0_setup_aie_1_0_synth_1/ulp_inst_0_setup_aie_1_0.tcl|vivado_synth|1719765091303|START|ulp_inst_0_setup_aie_1_0_synth_1|ROLLUP_AUTO",
+      "[OPTRACE]|1867844|363|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/ulp_inst_0_setup_aie_1_0_synth_1/ulp_inst_0_setup_aie_1_0.tcl|vivado_synth|1719765091305|START|Creating in-memory project|",
+      "[OPTRACE]|1867844|364|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/ulp_inst_0_setup_aie_1_0_synth_1/ulp_inst_0_setup_aie_1_0.tcl|vivado_synth|1719765249222|END|Creating in-memory project|",
+      "[OPTRACE]|1867844|365|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/ulp_inst_0_setup_aie_1_0_synth_1/ulp_inst_0_setup_aie_1_0.tcl|vivado_synth|1719765249224|START|Adding files|",
+      "[OPTRACE]|1867844|366|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/ulp_inst_0_setup_aie_1_0_synth_1/ulp_inst_0_setup_aie_1_0.tcl|vivado_synth|1719765252089|END|Adding files|",
+      "[OPTRACE]|1867844|367|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/ulp_inst_0_setup_aie_1_0_synth_1/ulp_inst_0_setup_aie_1_0.tcl|vivado_synth|1719765252091|START|Configure IP Cache|",
+      "[OPTRACE]|1867844|368|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/ulp_inst_0_setup_aie_1_0_synth_1/ulp_inst_0_setup_aie_1_0.tcl|vivado_synth|1719765252129|END|Configure IP Cache|",
+      "[OPTRACE]|1867844|369|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/ulp_inst_0_setup_aie_1_0_synth_1/ulp_inst_0_setup_aie_1_0.tcl|vivado_synth|1719765252129|START|synth_design|",
+      "[OPTRACE]|1867844|482|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/ulp_inst_0_setup_aie_1_0_synth_1/ulp_inst_0_setup_aie_1_0.tcl|vivado_synth|1719766945776|END|synth_design|",
+      "[OPTRACE]|1867844|483|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/ulp_inst_0_setup_aie_1_0_synth_1/ulp_inst_0_setup_aie_1_0.tcl|vivado_synth|1719766945778|START|Write IP Cache|",
+      "[OPTRACE]|1867844|484|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/ulp_inst_0_setup_aie_1_0_synth_1/ulp_inst_0_setup_aie_1_0.tcl|vivado_synth|1719766962402|END|Write IP Cache|",
+      "[OPTRACE]|1867844|485|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/ulp_inst_0_setup_aie_1_0_synth_1/ulp_inst_0_setup_aie_1_0.tcl|vivado_synth|1719766962421|START|write_checkpoint|CHECKPOINT",
+      "[OPTRACE]|1867844|486|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/ulp_inst_0_setup_aie_1_0_synth_1/ulp_inst_0_setup_aie_1_0.tcl|vivado_synth|1719766968919|END|write_checkpoint|",
+      "[OPTRACE]|1867844|487|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/ulp_inst_0_setup_aie_1_0_synth_1/ulp_inst_0_setup_aie_1_0.tcl|vivado_synth|1719766968972|START|synth reports|REPORT",
+      "[OPTRACE]|1867844|488|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/ulp_inst_0_setup_aie_1_0_synth_1/ulp_inst_0_setup_aie_1_0.tcl|vivado_synth|1719766972171|END|synth reports|",
+      "[OPTRACE]|1867844|489|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/ulp_inst_0_setup_aie_1_0_synth_1/ulp_inst_0_setup_aie_1_0.tcl|vivado_synth|1719766983477|END|ulp_inst_0_setup_aie_1_0_synth_1|",
+      "[OPTRACE]|1874817|378|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/ulp_inst_0_ip_pipe_dbg_hub_fw_00_0_synth_1/ulp_inst_0_ip_pipe_dbg_hub_fw_00_0.tcl|vivado_synth|1719765558100|START|ulp_inst_0_ip_pipe_dbg_hub_fw_00_0_synth_1|ROLLUP_AUTO",
+      "[OPTRACE]|1874817|379|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/ulp_inst_0_ip_pipe_dbg_hub_fw_00_0_synth_1/ulp_inst_0_ip_pipe_dbg_hub_fw_00_0.tcl|vivado_synth|1719765558118|START|Creating in-memory project|",
+      "[OPTRACE]|1874817|380|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/ulp_inst_0_ip_pipe_dbg_hub_fw_00_0_synth_1/ulp_inst_0_ip_pipe_dbg_hub_fw_00_0.tcl|vivado_synth|1719765681663|END|Creating in-memory project|",
+      "[OPTRACE]|1874817|381|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/ulp_inst_0_ip_pipe_dbg_hub_fw_00_0_synth_1/ulp_inst_0_ip_pipe_dbg_hub_fw_00_0.tcl|vivado_synth|1719765681671|START|Adding files|",
+      "[OPTRACE]|1874817|382|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/ulp_inst_0_ip_pipe_dbg_hub_fw_00_0_synth_1/ulp_inst_0_ip_pipe_dbg_hub_fw_00_0.tcl|vivado_synth|1719765684400|END|Adding files|",
+      "[OPTRACE]|1874817|383|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/ulp_inst_0_ip_pipe_dbg_hub_fw_00_0_synth_1/ulp_inst_0_ip_pipe_dbg_hub_fw_00_0.tcl|vivado_synth|1719765684454|START|Configure IP Cache|",
+      "[OPTRACE]|1874817|384|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/ulp_inst_0_ip_pipe_dbg_hub_fw_00_0_synth_1/ulp_inst_0_ip_pipe_dbg_hub_fw_00_0.tcl|vivado_synth|1719765684456|END|Configure IP Cache|",
+      "[OPTRACE]|1874817|385|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/ulp_inst_0_ip_pipe_dbg_hub_fw_00_0_synth_1/ulp_inst_0_ip_pipe_dbg_hub_fw_00_0.tcl|vivado_synth|1719765684474|START|synth_design|",
+      "[OPTRACE]|1874817|474|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/ulp_inst_0_ip_pipe_dbg_hub_fw_00_0_synth_1/ulp_inst_0_ip_pipe_dbg_hub_fw_00_0.tcl|vivado_synth|1719766813127|END|synth_design|",
+      "[OPTRACE]|1874817|475|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/ulp_inst_0_ip_pipe_dbg_hub_fw_00_0_synth_1/ulp_inst_0_ip_pipe_dbg_hub_fw_00_0.tcl|vivado_synth|1719766813131|START|Write IP Cache|",
+      "[OPTRACE]|1874817|476|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/ulp_inst_0_ip_pipe_dbg_hub_fw_00_0_synth_1/ulp_inst_0_ip_pipe_dbg_hub_fw_00_0.tcl|vivado_synth|1719766822974|END|Write IP Cache|",
+      "[OPTRACE]|1874817|477|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/ulp_inst_0_ip_pipe_dbg_hub_fw_00_0_synth_1/ulp_inst_0_ip_pipe_dbg_hub_fw_00_0.tcl|vivado_synth|1719766822984|START|write_checkpoint|CHECKPOINT",
+      "[OPTRACE]|1874817|478|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/ulp_inst_0_ip_pipe_dbg_hub_fw_00_0_synth_1/ulp_inst_0_ip_pipe_dbg_hub_fw_00_0.tcl|vivado_synth|1719766825556|END|write_checkpoint|",
+      "[OPTRACE]|1874817|479|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/ulp_inst_0_ip_pipe_dbg_hub_fw_00_0_synth_1/ulp_inst_0_ip_pipe_dbg_hub_fw_00_0.tcl|vivado_synth|1719766825570|START|synth reports|REPORT",
+      "[OPTRACE]|1874817|480|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/ulp_inst_0_ip_pipe_dbg_hub_fw_00_0_synth_1/ulp_inst_0_ip_pipe_dbg_hub_fw_00_0.tcl|vivado_synth|1719766828228|END|synth reports|",
+      "[OPTRACE]|1874817|481|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/ulp_inst_0_ip_pipe_dbg_hub_fw_00_0_synth_1/ulp_inst_0_ip_pipe_dbg_hub_fw_00_0.tcl|vivado_synth|1719766835760|END|ulp_inst_0_ip_pipe_dbg_hub_fw_00_0_synth_1|",
+      "[OPTRACE]|1881514|394|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/ulp_inst_0_dwc_setup_aie_1_s_0_synth_1/ulp_inst_0_dwc_setup_aie_1_s_0.tcl|vivado_synth|1719765952709|START|ulp_inst_0_dwc_setup_aie_1_s_0_synth_1|ROLLUP_AUTO",
+      "[OPTRACE]|1881514|395|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/ulp_inst_0_dwc_setup_aie_1_s_0_synth_1/ulp_inst_0_dwc_setup_aie_1_s_0.tcl|vivado_synth|1719765952749|START|Creating in-memory project|",
+      "[OPTRACE]|1881514|398|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/ulp_inst_0_dwc_setup_aie_1_s_0_synth_1/ulp_inst_0_dwc_setup_aie_1_s_0.tcl|vivado_synth|1719766135139|END|Creating in-memory project|",
+      "[OPTRACE]|1881514|399|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/ulp_inst_0_dwc_setup_aie_1_s_0_synth_1/ulp_inst_0_dwc_setup_aie_1_s_0.tcl|vivado_synth|1719766135195|START|Adding files|",
+      "[OPTRACE]|1881514|400|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/ulp_inst_0_dwc_setup_aie_1_s_0_synth_1/ulp_inst_0_dwc_setup_aie_1_s_0.tcl|vivado_synth|1719766138219|END|Adding files|",
+      "[OPTRACE]|1881514|401|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/ulp_inst_0_dwc_setup_aie_1_s_0_synth_1/ulp_inst_0_dwc_setup_aie_1_s_0.tcl|vivado_synth|1719766138226|START|Configure IP Cache|",
+      "[OPTRACE]|1881514|402|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/ulp_inst_0_dwc_setup_aie_1_s_0_synth_1/ulp_inst_0_dwc_setup_aie_1_s_0.tcl|vivado_synth|1719766138524|END|Configure IP Cache|",
+      "[OPTRACE]|1881514|403|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/ulp_inst_0_dwc_setup_aie_1_s_0_synth_1/ulp_inst_0_dwc_setup_aie_1_s_0.tcl|vivado_synth|1719766138541|END|ulp_inst_0_dwc_setup_aie_1_s_0_synth_1|",
+      "[OPTRACE]|1892643|409|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/ulp_inst_0_ip_pipe_ext_tog_kernel_00_null_0_synth_1/ulp_inst_0_ip_pipe_ext_tog_kernel_00_null_0.tcl|vivado_synth|1719766282955|START|ulp_inst_0_ip_pipe_ext_tog_kernel_00_null_0_synth_1|ROLLUP_AUTO",
+      "[OPTRACE]|1892643|410|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/ulp_inst_0_ip_pipe_ext_tog_kernel_00_null_0_synth_1/ulp_inst_0_ip_pipe_ext_tog_kernel_00_null_0.tcl|vivado_synth|1719766282985|START|Creating in-memory project|",
+      "[OPTRACE]|1892643|420|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/ulp_inst_0_ip_pipe_ext_tog_kernel_00_null_0_synth_1/ulp_inst_0_ip_pipe_ext_tog_kernel_00_null_0.tcl|vivado_synth|1719766385456|END|Creating in-memory project|",
+      "[OPTRACE]|1892643|421|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/ulp_inst_0_ip_pipe_ext_tog_kernel_00_null_0_synth_1/ulp_inst_0_ip_pipe_ext_tog_kernel_00_null_0.tcl|vivado_synth|1719766385456|START|Adding files|",
+      "[OPTRACE]|1892643|422|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/ulp_inst_0_ip_pipe_ext_tog_kernel_00_null_0_synth_1/ulp_inst_0_ip_pipe_ext_tog_kernel_00_null_0.tcl|vivado_synth|1719766386188|END|Adding files|",
+      "[OPTRACE]|1892643|423|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/ulp_inst_0_ip_pipe_ext_tog_kernel_00_null_0_synth_1/ulp_inst_0_ip_pipe_ext_tog_kernel_00_null_0.tcl|vivado_synth|1719766386206|START|Configure IP Cache|",
+      "[OPTRACE]|1892643|424|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/ulp_inst_0_ip_pipe_ext_tog_kernel_00_null_0_synth_1/ulp_inst_0_ip_pipe_ext_tog_kernel_00_null_0.tcl|vivado_synth|1719766386218|END|Configure IP Cache|",
+      "[OPTRACE]|1892643|425|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/ulp_inst_0_ip_pipe_ext_tog_kernel_00_null_0_synth_1/ulp_inst_0_ip_pipe_ext_tog_kernel_00_null_0.tcl|vivado_synth|1719766386229|START|synth_design|",
+      "[OPTRACE]|1892643|498|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/ulp_inst_0_ip_pipe_ext_tog_kernel_00_null_0_synth_1/ulp_inst_0_ip_pipe_ext_tog_kernel_00_null_0.tcl|vivado_synth|1719767271113|END|synth_design|",
+      "[OPTRACE]|1892643|499|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/ulp_inst_0_ip_pipe_ext_tog_kernel_00_null_0_synth_1/ulp_inst_0_ip_pipe_ext_tog_kernel_00_null_0.tcl|vivado_synth|1719767271113|START|Write IP Cache|",
+      "[OPTRACE]|1892643|500|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/ulp_inst_0_ip_pipe_ext_tog_kernel_00_null_0_synth_1/ulp_inst_0_ip_pipe_ext_tog_kernel_00_null_0.tcl|vivado_synth|1719767277693|END|Write IP Cache|",
+      "[OPTRACE]|1892643|501|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/ulp_inst_0_ip_pipe_ext_tog_kernel_00_null_0_synth_1/ulp_inst_0_ip_pipe_ext_tog_kernel_00_null_0.tcl|vivado_synth|1719767277695|START|write_checkpoint|CHECKPOINT",
+      "[OPTRACE]|1892643|502|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/ulp_inst_0_ip_pipe_ext_tog_kernel_00_null_0_synth_1/ulp_inst_0_ip_pipe_ext_tog_kernel_00_null_0.tcl|vivado_synth|1719767278411|END|write_checkpoint|",
+      "[OPTRACE]|1892643|503|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/ulp_inst_0_ip_pipe_ext_tog_kernel_00_null_0_synth_1/ulp_inst_0_ip_pipe_ext_tog_kernel_00_null_0.tcl|vivado_synth|1719767278412|START|synth reports|REPORT",
+      "[OPTRACE]|1892643|504|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/ulp_inst_0_ip_pipe_ext_tog_kernel_00_null_0_synth_1/ulp_inst_0_ip_pipe_ext_tog_kernel_00_null_0.tcl|vivado_synth|1719767279407|END|synth reports|",
+      "[OPTRACE]|1892643|505|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/ulp_inst_0_ip_pipe_ext_tog_kernel_00_null_0_synth_1/ulp_inst_0_ip_pipe_ext_tog_kernel_00_null_0.tcl|vivado_synth|1719767284684|END|ulp_inst_0_ip_pipe_ext_tog_kernel_00_null_0_synth_1|",
+      "[OPTRACE]|1907290|432|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/ulp_inst_0_ip_pipe_ext_tog_kernel_01_null_0_synth_1/ulp_inst_0_ip_pipe_ext_tog_kernel_01_null_0.tcl|vivado_synth|1719766453352|START|ulp_inst_0_ip_pipe_ext_tog_kernel_01_null_0_synth_1|ROLLUP_AUTO",
+      "[OPTRACE]|1907290|433|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/ulp_inst_0_ip_pipe_ext_tog_kernel_01_null_0_synth_1/ulp_inst_0_ip_pipe_ext_tog_kernel_01_null_0.tcl|vivado_synth|1719766453361|START|Creating in-memory project|",
+      "[OPTRACE]|1907290|436|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/ulp_inst_0_ip_pipe_ext_tog_kernel_01_null_0_synth_1/ulp_inst_0_ip_pipe_ext_tog_kernel_01_null_0.tcl|vivado_synth|1719766582967|END|Creating in-memory project|",
+      "[OPTRACE]|1907290|437|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/ulp_inst_0_ip_pipe_ext_tog_kernel_01_null_0_synth_1/ulp_inst_0_ip_pipe_ext_tog_kernel_01_null_0.tcl|vivado_synth|1719766582982|START|Adding files|",
+      "[OPTRACE]|1907290|438|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/ulp_inst_0_ip_pipe_ext_tog_kernel_01_null_0_synth_1/ulp_inst_0_ip_pipe_ext_tog_kernel_01_null_0.tcl|vivado_synth|1719766584363|END|Adding files|",
+      "[OPTRACE]|1907290|439|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/ulp_inst_0_ip_pipe_ext_tog_kernel_01_null_0_synth_1/ulp_inst_0_ip_pipe_ext_tog_kernel_01_null_0.tcl|vivado_synth|1719766584398|START|Configure IP Cache|",
+      "[OPTRACE]|1907290|440|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/ulp_inst_0_ip_pipe_ext_tog_kernel_01_null_0_synth_1/ulp_inst_0_ip_pipe_ext_tog_kernel_01_null_0.tcl|vivado_synth|1719766584412|END|Configure IP Cache|",
+      "[OPTRACE]|1907290|441|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/ulp_inst_0_ip_pipe_ext_tog_kernel_01_null_0_synth_1/ulp_inst_0_ip_pipe_ext_tog_kernel_01_null_0.tcl|vivado_synth|1719766584425|START|synth_design|",
+      "[OPTRACE]|1907290|506|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/ulp_inst_0_ip_pipe_ext_tog_kernel_01_null_0_synth_1/ulp_inst_0_ip_pipe_ext_tog_kernel_01_null_0.tcl|vivado_synth|1719767295205|END|synth_design|",
+      "[OPTRACE]|1907290|507|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/ulp_inst_0_ip_pipe_ext_tog_kernel_01_null_0_synth_1/ulp_inst_0_ip_pipe_ext_tog_kernel_01_null_0.tcl|vivado_synth|1719767295205|START|Write IP Cache|",
+      "[OPTRACE]|1907290|508|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/ulp_inst_0_ip_pipe_ext_tog_kernel_01_null_0_synth_1/ulp_inst_0_ip_pipe_ext_tog_kernel_01_null_0.tcl|vivado_synth|1719767301903|END|Write IP Cache|",
+      "[OPTRACE]|1907290|509|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/ulp_inst_0_ip_pipe_ext_tog_kernel_01_null_0_synth_1/ulp_inst_0_ip_pipe_ext_tog_kernel_01_null_0.tcl|vivado_synth|1719767301915|START|write_checkpoint|CHECKPOINT",
+      "[OPTRACE]|1907290|510|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/ulp_inst_0_ip_pipe_ext_tog_kernel_01_null_0_synth_1/ulp_inst_0_ip_pipe_ext_tog_kernel_01_null_0.tcl|vivado_synth|1719767303607|END|write_checkpoint|",
+      "[OPTRACE]|1907290|511|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/ulp_inst_0_ip_pipe_ext_tog_kernel_01_null_0_synth_1/ulp_inst_0_ip_pipe_ext_tog_kernel_01_null_0.tcl|vivado_synth|1719767303624|START|synth reports|REPORT",
+      "[OPTRACE]|1907290|512|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/ulp_inst_0_ip_pipe_ext_tog_kernel_01_null_0_synth_1/ulp_inst_0_ip_pipe_ext_tog_kernel_01_null_0.tcl|vivado_synth|1719767305424|END|synth reports|",
+      "[OPTRACE]|1907290|513|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/ulp_inst_0_ip_pipe_ext_tog_kernel_01_null_0_synth_1/ulp_inst_0_ip_pipe_ext_tog_kernel_01_null_0.tcl|vivado_synth|1719767309752|END|ulp_inst_0_ip_pipe_ext_tog_kernel_01_null_0_synth_1|",
+      "[OPTRACE]|1931117|444|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/ulp_inst_0_axi_gpio_null_user_0_synth_1/ulp_inst_0_axi_gpio_null_user_0.tcl|vivado_synth|1719766616235|START|ulp_inst_0_axi_gpio_null_user_0_synth_1|ROLLUP_AUTO",
+      "[OPTRACE]|1931117|445|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/ulp_inst_0_axi_gpio_null_user_0_synth_1/ulp_inst_0_axi_gpio_null_user_0.tcl|vivado_synth|1719766616237|START|Creating in-memory project|",
+      "[OPTRACE]|1931117|467|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/ulp_inst_0_axi_gpio_null_user_0_synth_1/ulp_inst_0_axi_gpio_null_user_0.tcl|vivado_synth|1719766774842|END|Creating in-memory project|",
+      "[OPTRACE]|1931117|468|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/ulp_inst_0_axi_gpio_null_user_0_synth_1/ulp_inst_0_axi_gpio_null_user_0.tcl|vivado_synth|1719766774884|START|Adding files|",
+      "[OPTRACE]|1931117|469|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/ulp_inst_0_axi_gpio_null_user_0_synth_1/ulp_inst_0_axi_gpio_null_user_0.tcl|vivado_synth|1719766776675|END|Adding files|",
+      "[OPTRACE]|1931117|470|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/ulp_inst_0_axi_gpio_null_user_0_synth_1/ulp_inst_0_axi_gpio_null_user_0.tcl|vivado_synth|1719766776698|START|Configure IP Cache|",
+      "[OPTRACE]|1931117|471|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/ulp_inst_0_axi_gpio_null_user_0_synth_1/ulp_inst_0_axi_gpio_null_user_0.tcl|vivado_synth|1719766776736|END|Configure IP Cache|",
+      "[OPTRACE]|1931117|472|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/ulp_inst_0_axi_gpio_null_user_0_synth_1/ulp_inst_0_axi_gpio_null_user_0.tcl|vivado_synth|1719766776750|START|synth_design|",
+      "[OPTRACE]|1931117|514|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/ulp_inst_0_axi_gpio_null_user_0_synth_1/ulp_inst_0_axi_gpio_null_user_0.tcl|vivado_synth|1719767398093|END|synth_design|",
+      "[OPTRACE]|1931117|515|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/ulp_inst_0_axi_gpio_null_user_0_synth_1/ulp_inst_0_axi_gpio_null_user_0.tcl|vivado_synth|1719767398093|START|Write IP Cache|",
+      "[OPTRACE]|1931117|516|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/ulp_inst_0_axi_gpio_null_user_0_synth_1/ulp_inst_0_axi_gpio_null_user_0.tcl|vivado_synth|1719767401188|END|Write IP Cache|",
+      "[OPTRACE]|1931117|517|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/ulp_inst_0_axi_gpio_null_user_0_synth_1/ulp_inst_0_axi_gpio_null_user_0.tcl|vivado_synth|1719767401194|START|write_checkpoint|CHECKPOINT",
+      "[OPTRACE]|1931117|520|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/ulp_inst_0_axi_gpio_null_user_0_synth_1/ulp_inst_0_axi_gpio_null_user_0.tcl|vivado_synth|1719767402572|END|write_checkpoint|",
+      "[OPTRACE]|1931117|521|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/ulp_inst_0_axi_gpio_null_user_0_synth_1/ulp_inst_0_axi_gpio_null_user_0.tcl|vivado_synth|1719767402580|START|synth reports|REPORT",
+      "[OPTRACE]|1931117|522|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/ulp_inst_0_axi_gpio_null_user_0_synth_1/ulp_inst_0_axi_gpio_null_user_0.tcl|vivado_synth|1719767404157|END|synth reports|",
+      "[OPTRACE]|1931117|523|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/ulp_inst_0_axi_gpio_null_user_0_synth_1/ulp_inst_0_axi_gpio_null_user_0.tcl|vivado_synth|1719767407205|END|ulp_inst_0_axi_gpio_null_user_0_synth_1|",
+      "[OPTRACE]|1931237|442|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/ulp_inst_0_axi_dbg_hub_0_synth_1/ulp_inst_0_axi_dbg_hub_0.tcl|vivado_synth|1719766611543|START|ulp_inst_0_axi_dbg_hub_0_synth_1|ROLLUP_AUTO",
+      "[OPTRACE]|1931237|443|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/ulp_inst_0_axi_dbg_hub_0_synth_1/ulp_inst_0_axi_dbg_hub_0.tcl|vivado_synth|1719766611563|START|Creating in-memory project|",
+      "[OPTRACE]|1931237|461|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/ulp_inst_0_axi_dbg_hub_0_synth_1/ulp_inst_0_axi_dbg_hub_0.tcl|vivado_synth|1719766760394|END|Creating in-memory project|",
+      "[OPTRACE]|1931237|462|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/ulp_inst_0_axi_dbg_hub_0_synth_1/ulp_inst_0_axi_dbg_hub_0.tcl|vivado_synth|1719766760401|START|Adding files|",
+      "[OPTRACE]|1931237|463|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/ulp_inst_0_axi_dbg_hub_0_synth_1/ulp_inst_0_axi_dbg_hub_0.tcl|vivado_synth|1719766764795|END|Adding files|",
+      "[OPTRACE]|1931237|464|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/ulp_inst_0_axi_dbg_hub_0_synth_1/ulp_inst_0_axi_dbg_hub_0.tcl|vivado_synth|1719766764798|START|Configure IP Cache|",
+      "[OPTRACE]|1931237|465|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/ulp_inst_0_axi_dbg_hub_0_synth_1/ulp_inst_0_axi_dbg_hub_0.tcl|vivado_synth|1719766764859|END|Configure IP Cache|",
+      "[OPTRACE]|1931237|466|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/ulp_inst_0_axi_dbg_hub_0_synth_1/ulp_inst_0_axi_dbg_hub_0.tcl|vivado_synth|1719766764886|START|synth_design|",
+      "[OPTRACE]|1931237|518|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/ulp_inst_0_axi_dbg_hub_0_synth_1/ulp_inst_0_axi_dbg_hub_0.tcl|vivado_synth|1719767401466|END|synth_design|",
+      "[OPTRACE]|1931237|519|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/ulp_inst_0_axi_dbg_hub_0_synth_1/ulp_inst_0_axi_dbg_hub_0.tcl|vivado_synth|1719767401466|START|Write IP Cache|",
+      "[OPTRACE]|1931237|524|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/ulp_inst_0_axi_dbg_hub_0_synth_1/ulp_inst_0_axi_dbg_hub_0.tcl|vivado_synth|1719767407893|END|Write IP Cache|",
+      "[OPTRACE]|1931237|525|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/ulp_inst_0_axi_dbg_hub_0_synth_1/ulp_inst_0_axi_dbg_hub_0.tcl|vivado_synth|1719767407902|START|write_checkpoint|CHECKPOINT",
+      "[OPTRACE]|1931237|526|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/ulp_inst_0_axi_dbg_hub_0_synth_1/ulp_inst_0_axi_dbg_hub_0.tcl|vivado_synth|1719767409020|END|write_checkpoint|",
+      "[OPTRACE]|1931237|527|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/ulp_inst_0_axi_dbg_hub_0_synth_1/ulp_inst_0_axi_dbg_hub_0.tcl|vivado_synth|1719767409020|START|synth reports|REPORT",
+      "[OPTRACE]|1931237|528|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/ulp_inst_0_axi_dbg_hub_0_synth_1/ulp_inst_0_axi_dbg_hub_0.tcl|vivado_synth|1719767409665|END|synth reports|",
+      "[OPTRACE]|1931237|529|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/ulp_inst_0_axi_dbg_hub_0_synth_1/ulp_inst_0_axi_dbg_hub_0.tcl|vivado_synth|1719767413166|END|ulp_inst_0_axi_dbg_hub_0_synth_1|",
+      "[OPTRACE]|1982663|490|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/ulp_inst_0_setup_aie_0_0_synth_1/ulp_inst_0_setup_aie_0_0.tcl|vivado_synth|1719767080216|START|ulp_inst_0_setup_aie_0_0_synth_1|ROLLUP_AUTO",
+      "[OPTRACE]|1982663|491|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/ulp_inst_0_setup_aie_0_0_synth_1/ulp_inst_0_setup_aie_0_0.tcl|vivado_synth|1719767080219|START|Creating in-memory project|",
+      "[OPTRACE]|1982663|492|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/ulp_inst_0_setup_aie_0_0_synth_1/ulp_inst_0_setup_aie_0_0.tcl|vivado_synth|1719767186137|END|Creating in-memory project|",
+      "[OPTRACE]|1982663|493|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/ulp_inst_0_setup_aie_0_0_synth_1/ulp_inst_0_setup_aie_0_0.tcl|vivado_synth|1719767186137|START|Adding files|",
+      "[OPTRACE]|1982663|494|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/ulp_inst_0_setup_aie_0_0_synth_1/ulp_inst_0_setup_aie_0_0.tcl|vivado_synth|1719767188141|END|Adding files|",
+      "[OPTRACE]|1982663|495|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/ulp_inst_0_setup_aie_0_0_synth_1/ulp_inst_0_setup_aie_0_0.tcl|vivado_synth|1719767188145|START|Configure IP Cache|",
+      "[OPTRACE]|1982663|496|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/ulp_inst_0_setup_aie_0_0_synth_1/ulp_inst_0_setup_aie_0_0.tcl|vivado_synth|1719767188633|END|Configure IP Cache|",
+      "[OPTRACE]|1982663|497|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/ulp_inst_0_setup_aie_0_0_synth_1/ulp_inst_0_setup_aie_0_0.tcl|vivado_synth|1719767188639|END|ulp_inst_0_setup_aie_0_0_synth_1|",
+      "[OPTRACE]|1988546|530|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/my_rm_synth_1/ulp_inst_0.tcl|vivado_synth|1719767445557|START|my_rm_synth_1|ROLLUP_AUTO",
+      "[OPTRACE]|1988546|531|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/my_rm_synth_1/ulp_inst_0.tcl|vivado_synth|1719767445560|START|Creating in-memory project|",
+      "[OPTRACE]|1988546|532|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/my_rm_synth_1/ulp_inst_0.tcl|vivado_synth|1719767467169|END|Creating in-memory project|",
+      "[OPTRACE]|1988546|533|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/my_rm_synth_1/ulp_inst_0.tcl|vivado_synth|1719767467169|START|Adding files|",
+      "[OPTRACE]|1988546|534|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/my_rm_synth_1/ulp_inst_0.tcl|vivado_synth|1719767485235|END|Adding files|",
+      "[OPTRACE]|1988546|535|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/my_rm_synth_1/ulp_inst_0.tcl|vivado_synth|1719767485281|START|synth_design|",
+      "[OPTRACE]|1988546|536|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/my_rm_synth_1/ulp_inst_0.tcl|vivado_synth|1719767669489|END|synth_design|",
+      "[OPTRACE]|1988546|537|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/my_rm_synth_1/ulp_inst_0.tcl|vivado_synth|1719767669531|START|write_checkpoint|CHECKPOINT",
+      "[OPTRACE]|1988546|538|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/my_rm_synth_1/ulp_inst_0.tcl|vivado_synth|1719767671513|END|write_checkpoint|",
+      "[OPTRACE]|1988546|539|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/my_rm_synth_1/ulp_inst_0.tcl|vivado_synth|1719767671514|START|synth reports|REPORT",
+      "[OPTRACE]|1988546|540|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/my_rm_synth_1/ulp_inst_0.tcl|vivado_synth|1719767671514|END|synth reports|",
+      "[OPTRACE]|1988546|541|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/my_rm_synth_1/ulp_inst_0.tcl|vivado_synth|1719767674183|END|my_rm_synth_1|",
+      "[OPTRACE]|1991812|543|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/impl_1/top_wrapper.tcl|vivado_impl|1719767711997|START|impl_1|ROLLUP_1",
+      "[OPTRACE]|1991812|544|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/impl_1/top_wrapper.tcl|vivado_impl|1719767711998|START|Phase: Init Design|ROLLUP_AUTO",
+      "[OPTRACE]|1991812|545|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/impl_1/top_wrapper.tcl|vivado_impl|1719767711999|START|Design Initialization: pre hook|",
+      "[OPTRACE]|1991812|546|ipirun.tcl|vpl|1719767712048|START|ipirun|ROLLUP_0",
+      "[OPTRACE]|1991812|547|ipirun.tcl|vpl|1719767712049|END|ipirun|",
+      "[OPTRACE]|1991812|548|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/impl_1/top_wrapper.tcl|vivado_impl|1719767712050|END|Design Initialization: pre hook|",
+      "[OPTRACE]|1991812|549|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/impl_1/top_wrapper.tcl|vivado_impl|1719767712052|START|create in-memory project|",
+      "[OPTRACE]|1991812|550|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/impl_1/top_wrapper.tcl|vivado_impl|1719767726400|END|create in-memory project|",
+      "[OPTRACE]|1991812|551|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/impl_1/top_wrapper.tcl|vivado_impl|1719767726400|START|set parameters|",
+      "[OPTRACE]|1991812|552|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/impl_1/top_wrapper.tcl|vivado_impl|1719767732861|END|set parameters|",
+      "[OPTRACE]|1991812|553|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/impl_1/top_wrapper.tcl|vivado_impl|1719767732861|START|add files|",
+      "[OPTRACE]|1991812|554|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/impl_1/top_wrapper.tcl|vivado_impl|1719767751042|START|read constraints: implementation|",
+      "[OPTRACE]|1991812|555|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/impl_1/top_wrapper.tcl|vivado_impl|1719767751043|END|read constraints: implementation|",
+      "[OPTRACE]|1991812|556|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/impl_1/top_wrapper.tcl|vivado_impl|1719767751046|END|add files|",
+      "[OPTRACE]|1991812|557|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/impl_1/top_wrapper.tcl|vivado_impl|1719767751046|START|link_design|",
+      "[OPTRACE]|1991812|558|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/impl_1/top_wrapper.tcl|vivado_impl|1719769091121|END|link_design|",
+      "[OPTRACE]|1991812|559|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/impl_1/top_wrapper.tcl|vivado_impl|1719769091122|START|gray box cells|",
+      "[OPTRACE]|1991812|560|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/impl_1/top_wrapper.tcl|vivado_impl|1719769091122|END|gray box cells|",
+      "[OPTRACE]|1991812|561|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/impl_1/top_wrapper.tcl|vivado_impl|1719769091122|START|Design Initialization: post hook|",
+      "[OPTRACE]|1991812|562|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/impl_1/top_wrapper.tcl|vivado_impl|1719769110604|END|Design Initialization: post hook|",
+      "[OPTRACE]|1991812|563|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/impl_1/top_wrapper.tcl|vivado_impl|1719769110604|START|init_design_reports|REPORT",
+      "[OPTRACE]|1991812|564|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/impl_1/top_wrapper.tcl|vivado_impl|1719769110604|END|init_design_reports|",
+      "[OPTRACE]|1991812|565|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/impl_1/top_wrapper.tcl|vivado_impl|1719769110604|START|init_design_write_hwdef|",
+      "[OPTRACE]|1991812|566|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/impl_1/top_wrapper.tcl|vivado_impl|1719769110604|END|init_design_write_hwdef|",
+      "[OPTRACE]|1991812|567|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/impl_1/top_wrapper.tcl|vivado_impl|1719769110605|END|Phase: Init Design|",
+      "[OPTRACE]|1991812|568|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/impl_1/top_wrapper.tcl|vivado_impl|1719769110605|START|Phase: Opt Design|ROLLUP_AUTO",
+      "[OPTRACE]|1991812|569|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/impl_1/top_wrapper.tcl|vivado_impl|1719769110606|START|Opt Design: pre hook|",
+      "[OPTRACE]|1991812|570|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/impl_1/top_wrapper.tcl|vivado_impl|1719769137040|END|Opt Design: pre hook|",
+      "[OPTRACE]|1991812|571|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/impl_1/top_wrapper.tcl|vivado_impl|1719769137040|START|read constraints: opt_design|",
+      "[OPTRACE]|1991812|572|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/impl_1/top_wrapper.tcl|vivado_impl|1719769137040|END|read constraints: opt_design|",
+      "[OPTRACE]|1991812|573|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/impl_1/top_wrapper.tcl|vivado_impl|1719769137040|START|opt_design|",
+      "[OPTRACE]|1991812|574|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/impl_1/top_wrapper.tcl|vivado_impl|1719769728182|END|opt_design|",
+      "[OPTRACE]|1991812|575|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/impl_1/top_wrapper.tcl|vivado_impl|1719769728182|START|read constraints: opt_design_post|",
+      "[OPTRACE]|1991812|576|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/impl_1/top_wrapper.tcl|vivado_impl|1719769728182|END|read constraints: opt_design_post|",
+      "[OPTRACE]|1991812|577|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/impl_1/top_wrapper.tcl|vivado_impl|1719769728183|START|Opt Design: post hook|",
+      "[OPTRACE]|1991812|578|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/impl_1/top_wrapper.tcl|vivado_impl|1719769728186|END|Opt Design: post hook|",
+      "[OPTRACE]|1991812|579|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/impl_1/top_wrapper.tcl|vivado_impl|1719769728186|START|opt_design reports|REPORT",
+      "[OPTRACE]|1991812|580|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/impl_1/top_wrapper.tcl|vivado_impl|1719769728186|END|opt_design reports|",
+      "[OPTRACE]|1991812|581|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/impl_1/top_wrapper.tcl|vivado_impl|1719769728192|END|Phase: Opt Design|",
+      "[OPTRACE]|1991812|582|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/impl_1/top_wrapper.tcl|vivado_impl|1719769728193|START|Phase: Place Design|ROLLUP_AUTO",
+      "[OPTRACE]|1991812|583|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/impl_1/top_wrapper.tcl|vivado_impl|1719769728194|START|Place Design: pre hook|",
+      "[OPTRACE]|1991812|584|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/impl_1/top_wrapper.tcl|vivado_impl|1719769728272|END|Place Design: pre hook|",
+      "[OPTRACE]|1991812|585|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/impl_1/top_wrapper.tcl|vivado_impl|1719769728272|START|read constraints: place_design|",
+      "[OPTRACE]|1991812|586|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/impl_1/top_wrapper.tcl|vivado_impl|1719769728272|END|read constraints: place_design|",
+      "[OPTRACE]|1991812|587|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/impl_1/top_wrapper.tcl|vivado_impl|1719769728273|START|implement_debug_core|",
+      "[OPTRACE]|1991812|588|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/impl_1/top_wrapper.tcl|vivado_impl|1719769728273|END|implement_debug_core|",
+      "[OPTRACE]|1991812|589|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/impl_1/top_wrapper.tcl|vivado_impl|1719769728273|START|place_design|",
+      "[OPTRACE]|1991812|590|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/impl_1/top_wrapper.tcl|vivado_impl|1719772716178|END|place_design|",
+      "[OPTRACE]|1991812|591|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/impl_1/top_wrapper.tcl|vivado_impl|1719772716179|START|read constraints: place_design_post|",
+      "[OPTRACE]|1991812|592|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/impl_1/top_wrapper.tcl|vivado_impl|1719772716179|END|read constraints: place_design_post|",
+      "[OPTRACE]|1991812|593|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/impl_1/top_wrapper.tcl|vivado_impl|1719772716179|START|Place Design: post hook|",
+      "[OPTRACE]|1991812|594|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/impl_1/top_wrapper.tcl|vivado_impl|1719772772477|END|Place Design: post hook|",
+      "[OPTRACE]|1991812|595|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/impl_1/top_wrapper.tcl|vivado_impl|1719772772478|START|place_design reports|REPORT",
+      "[OPTRACE]|1991812|596|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/impl_1/top_wrapper.tcl|vivado_impl|1719772772478|END|place_design reports|",
+      "[OPTRACE]|1991812|597|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/impl_1/top_wrapper.tcl|vivado_impl|1719772772479|END|Phase: Place Design|",
+      "[OPTRACE]|1991812|598|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/impl_1/top_wrapper.tcl|vivado_impl|1719772772479|START|Phase: Physical Opt Design|ROLLUP_AUTO",
+      "[OPTRACE]|1991812|599|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/impl_1/top_wrapper.tcl|vivado_impl|1719772772479|START|read constraints: phys_opt_design|",
+      "[OPTRACE]|1991812|600|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/impl_1/top_wrapper.tcl|vivado_impl|1719772772480|END|read constraints: phys_opt_design|",
+      "[OPTRACE]|1991812|601|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/impl_1/top_wrapper.tcl|vivado_impl|1719772772480|START|phys_opt_design|",
+      "[OPTRACE]|1991812|602|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/impl_1/top_wrapper.tcl|vivado_impl|1719772893600|END|phys_opt_design|",
+      "[OPTRACE]|1991812|603|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/impl_1/top_wrapper.tcl|vivado_impl|1719772893600|START|read constraints: phys_opt_design_post|",
+      "[OPTRACE]|1991812|604|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/impl_1/top_wrapper.tcl|vivado_impl|1719772893600|END|read constraints: phys_opt_design_post|",
+      "[OPTRACE]|1991812|605|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/impl_1/top_wrapper.tcl|vivado_impl|1719772893600|START|phys_opt_design report|REPORT",
+      "[OPTRACE]|1991812|606|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/impl_1/top_wrapper.tcl|vivado_impl|1719772893600|END|phys_opt_design report|",
+      "[OPTRACE]|1991812|607|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/impl_1/top_wrapper.tcl|vivado_impl|1719772893601|END|Phase: Physical Opt Design|",
+      "[OPTRACE]|1991812|608|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/impl_1/top_wrapper.tcl|vivado_impl|1719772893601|START|Phase: Route Design|ROLLUP_AUTO",
+      "[OPTRACE]|1991812|609|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/impl_1/top_wrapper.tcl|vivado_impl|1719772893602|START|read constraints: route_design|",
+      "[OPTRACE]|1991812|610|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/impl_1/top_wrapper.tcl|vivado_impl|1719772893602|END|read constraints: route_design|",
+      "[OPTRACE]|1991812|611|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/impl_1/top_wrapper.tcl|vivado_impl|1719772893602|START|route_design|",
+      "[OPTRACE]|1991812|612|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/impl_1/top_wrapper.tcl|vivado_impl|1719774309570|END|route_design|",
+      "[OPTRACE]|1991812|613|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/impl_1/top_wrapper.tcl|vivado_impl|1719774309573|START|read constraints: route_design_post|",
+      "[OPTRACE]|1991812|614|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/impl_1/top_wrapper.tcl|vivado_impl|1719774309573|END|read constraints: route_design_post|",
+      "[OPTRACE]|1991812|615|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/impl_1/top_wrapper.tcl|vivado_impl|1719774309574|START|Route Design: post hook|",
+      "[OPTRACE]|1991812|616|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/impl_1/top_wrapper.tcl|vivado_impl|1719774378360|END|Route Design: post hook|",
+      "[OPTRACE]|1991812|617|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/impl_1/top_wrapper.tcl|vivado_impl|1719774378360|START|Route Design: write_checkpoint|CHECKPOINT",
+      "[OPTRACE]|1991812|618|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/impl_1/top_wrapper.tcl|vivado_impl|1719774553202|END|Route Design: write_checkpoint|",
+      "[OPTRACE]|1991812|619|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/impl_1/top_wrapper.tcl|vivado_impl|1719774553203|START|route_design reports|REPORT",
+      "[OPTRACE]|1991812|620|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/impl_1/top_wrapper.tcl|vivado_impl|1719774581030|END|route_design reports|",
+      "[OPTRACE]|1991812|621|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/impl_1/top_wrapper.tcl|vivado_impl|1719774581031|START|route_design misc|",
+      "[OPTRACE]|1991812|622|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/impl_1/top_wrapper.tcl|vivado_impl|1719774581033|END|route_design misc|",
+      "[OPTRACE]|1991812|623|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/impl_1/top_wrapper.tcl|vivado_impl|1719774581033|END|Phase: Route Design|",
+      "[OPTRACE]|1991812|624|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/impl_1/top_wrapper.tcl|vivado_impl|1719774581033|START|Phase: Write Device Image|ROLLUP_AUTO",
+      "[OPTRACE]|1991812|625|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/impl_1/top_wrapper.tcl|vivado_impl|1719774581033|START|write_device_image setup|",
+      "[OPTRACE]|1991812|626|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/impl_1/top_wrapper.tcl|vivado_impl|1719774581034|START|Write Device Image: pre hook|",
+      "[OPTRACE]|1991812|627|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/impl_1/top_wrapper.tcl|vivado_impl|1719774639439|END|Write Device Image: pre hook|",
+      "[OPTRACE]|1991812|628|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/impl_1/top_wrapper.tcl|vivado_impl|1719774639439|START|read constraints: write_bitstream|",
+      "[OPTRACE]|1991812|629|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/impl_1/top_wrapper.tcl|vivado_impl|1719774639439|END|read constraints: write_bitstream|",
+      "[OPTRACE]|1991812|630|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/impl_1/top_wrapper.tcl|vivado_impl|1719774639439|START|read constraints: write_bitstream|",
+      "[OPTRACE]|1991812|631|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/impl_1/top_wrapper.tcl|vivado_impl|1719774639439|END|read constraints: write_bitstream|",
+      "[OPTRACE]|1991812|632|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/impl_1/top_wrapper.tcl|vivado_impl|1719774639448|END|write_device_image setup|",
+      "[OPTRACE]|1991812|633|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/impl_1/top_wrapper.tcl|vivado_impl|1719774639448|START|write_device_image|",
+      "[OPTRACE]|1991812|634|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/impl_1/top_wrapper.tcl|vivado_impl|1719778457316|END|write_device_image|",
+      "[OPTRACE]|1991812|635|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/impl_1/top_wrapper.tcl|vivado_impl|1719778457316|START|write_device_image misc|",
+      "[OPTRACE]|1991812|636|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/impl_1/top_wrapper.tcl|vivado_impl|1719778457316|START|read constraints: write_bitstream_post|",
+      "[OPTRACE]|1991812|637|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/impl_1/top_wrapper.tcl|vivado_impl|1719778457317|END|read constraints: write_bitstream_post|",
+      "[OPTRACE]|1991812|638|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/impl_1/top_wrapper.tcl|vivado_impl|1719778457317|START|read constraints: write_device_image_post|",
+      "[OPTRACE]|1991812|639|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/impl_1/top_wrapper.tcl|vivado_impl|1719778457317|END|read constraints: write_device_image_post|",
+      "[OPTRACE]|1991812|640|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/impl_1/top_wrapper.tcl|vivado_impl|1719778457317|START|Write Device Image: post hook|",
+      "[OPTRACE]|1991812|641|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/impl_1/top_wrapper.tcl|vivado_impl|1719778457319|END|Write Device Image: post hook|",
+      "[OPTRACE]|1991812|642|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/impl_1/top_wrapper.tcl|vivado_impl|1719778521223|END|write_device_image misc|",
+      "[OPTRACE]|1991812|643|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/impl_1/top_wrapper.tcl|vivado_impl|1719778521232|END|Phase: Write Device Image|",
+      "[OPTRACE]|1991812|644|/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/hw/_x/link/vivado/vpl/prj/prj.runs/impl_1/top_wrapper.tcl|vivado_impl|1719778521232|END|impl_1|"
+      ];
+
+  var legendData = [
+  { "title": "Report Generation",
+    "color": "#b9783f"
+  }, {
+    "title": "Write Checkpoint",
+    "color": "#cd82ad"
+  },
+  {
+    "title": "Incomplete Data",
+    "color": "#cc4748"
+  } ];
+
+  // -- Convert Raw data into something we can use ---------------------------
+  console.log("Convert log data (%s entries) to Javascript 'JSON' objects...", csvData.length);
+  var jsonData = csvArrayToJSON(header, csvData, "|");
+
+  // -- Clean up the JSON objects --------------------------------------------
+  for (var i = 0; i < jsonData.length; i++) {
+    jsonData[i].Action = jsonData[i].Action.toUpperCase();
+    jsonData[i].Tags = jsonData[i].Tags.toUpperCase();
+    jsonData[i].Tags = jsonData[i].Tags.trim();
+    jsonData[i].TimeStampMSec = parseInt(jsonData[i].TimeStampMSec, 10);
+    jsonData[i].pid = parseInt(jsonData[i].pid, 10);
+  }
+
+  // -- Sort JSON array ------------------------------------------------------
+  console.log("Sorting JSON objects (%s objects) according to timestamps...", jsonData.length);
+  jsonData.sort(compareByTimeStamp);
+
+  // Record the PID grouping order
+  var pidOrder = new Map();
+  for (var i = 0; i < jsonData.length; i++) {
+    if (pidOrder.has(jsonData[i].pid) == false) {
+      pidOrder.set(jsonData[i].pid, i);    // Simple ordering (lower is first)
+    }
+  }
+
+  // -- Create secondary data array for the chart data array -----------------
+  console.log("Preparing graph data...");
+
+  // Task limits
+  var m_startTS = 0;      // Earliest Timestamp
+  var m_endTS = 0;        // Latest Timestamp
+
+  if (jsonData.length > 0) {
+    m_startTS = jsonData[0].TimeStampMSec;
+    m_endTS = jsonData[jsonData.length - 1].TimeStampMSec;
+  }
+
+
+  var chartData = [ ];   // Empty JSON array
+
+
+  populateChartData();
+  tableCreate( chartData );
+
+  filterChartEntries();
+
+  // -- Search for "holes"
+  // -- Sort by common PID
+  // -- Create groupings by process
+
+  console.log("done");
+
+  var chart = AmCharts.makeChart("chartdiv", {
+    "type": "gantt",
+    "theme": "light",
+    "titles": [
+    { "text": "OPTrace", "size": 15}],
+    "marginRight": 70,
+    "period": "fff",                                     // X-Axis
+    "balloonDateFormat": "JJ:NN:SS",
+    "columnWidth": 0.5,                                 // Bar thickness
+    "valueAxis": {
+      "type": "numeric",
+      "title": "Time [HH:MM:SS]",
+      "duration": "ss",
+      "durationUnits": { DD: 'd. ', hh: ':', mm: ':', ss: '' },
+    },
+    "brightnessStep": 10,
+    "graph": {
+      "fillAlphas": 1,
+      "labelFunction": barLabelCallBack,
+      "labelText": " ",
+      "labelPosition": "right",
+      "balloonFunction": ballonLabelCallBack,
+      "balloonText": "<p align='left'> Task: [[task]]<br/>Start:[[start]]<br/>End:[[end]]<br/>Duration:[[duration]]</p>",
+      "bulletField": "bullet",
+      "bulletSize": 8
+    },
+    "rotate": true,
+    "categoryField": "category",
+    "segmentsField": "segments",
+    "colorField": "color",
+    "startDate": "2015-01-01 00:00:00",
+    "startField": "start",
+    "endField": "end",
+    "durationField": "duration",
+    "dataProvider": chartData,
+    "valueScrollbar": {
+      "autoGridCount": true
+    },
+    "chartScrollbar": {
+      "enable": true
+    },
+    "chartCursor": {
+      "cursorColor": "#55bb76",
+      "valueBalloonsEnabled": false,
+      "cursorAlpha": 0.1,
+      "valueLineAlpha": 0.5,
+      "valueLineBalloonEnabled": true,
+      "valueLineEnabled": true,
+      "zoomable": true,
+      "valueZoomable": true,
+      "fullWidth": true
+    },
+    "legend": {
+      "data": legendData,
+    },
+    "export": {
+      "enabled": true
+    }
+  });
+
+  // =========================================================================
+  // Call back methods
+  // =========================================================================
+function ballonLabelCallBack( _graphDataItem )
+{
+  var start = _graphDataItem.values.open;
+  var end = _graphDataItem.values.value;
+  var duration = end - start;
+
+  var result = "<p align='left'>Task: " + _graphDataItem.category + "<br/>Start: " + secondsToHHMMSS(start) + "<br/>End: " + secondsToHHMMSS( end ) + "<br/>Duration: " + secondsToHHMMSS( duration ) + "</p>";
+  return result;
+}
+
+
+function barLabelCallBack( _graphDataItem )
+{
+   var duration = _graphDataItem.values.value - _graphDataItem.values.open;
+
+   return secondsToHHMMSS( duration);
+}
+
+
+function userInputFormCallback()
+{
+  // Second filter
+  m_secondFilter = document.getElementById("userDurationFilterSecInput").value;
+  console.log("Setting second filter to: " + m_secondFilter + " seconds");
+
+  // Group PID Sort
+  m_groupPidSort = document.getElementById("userGroupPidSortSelected").checked;
+  console.log("Group PID filter is set to: " + m_groupPidSort);
+
+  // Rollup filter
+  m_showRollup = document.getElementById("userRollupSelected").checked;
+  console.log("Rollup filter is set to: " + m_showRollup);
+
+  // Individual filter
+  m_showIndividualEntry = document.getElementById("userIndividualEntrySelected").checked;
+  console.log("Individual filter is set to: " + m_showIndividualEntry);
+
+  // Checkpoint Report Entries filter
+  m_showCheckpointEntry = document.getElementById("userCheckpointEntrySelected").checked;
+  console.log("Checkpoint Entry filter is set to: " + m_showCheckpointEntry);
+
+  // Checkpoint Report Entries filter
+  m_showReportEntry = document.getElementById("userReportEntrySelected").checked;
+  console.log("Report Entry filter is set to: " + m_showReportEntry);
+
+  populateChartData();
+  filterChartEntries()
+  chart.dataProvider = chartData;
+  chart.validateData();
+}
+
+  // =========================================================================
+  // Utilities
+  // =========================================================================
+
+
+function populateChartData()
+{
+  chartData = [ ];
+  if (m_groupPidSort == false) {
+    jsonData.sort(compareByTimeStamp);
+  } else {
+    jsonData.sort(compareByGroupTimeStamp);
+  }
+
+  for (var i = 0; i < jsonData.length; i++) {
+    var timestamp = parseInt(jsonData[0].TimeStampMSec, 10);
+
+    if (m_startTS > timestamp) m_startTS = timestamp;
+    if (m_endTS < timestamp) m_endTS = timestamp;
+
+    for (var i = 0; i < jsonData.length; i++) {
+      switch (jsonData[i].Action) {
+      case "START":
+        var categoryEntry = { };
+        categoryEntry["category"] = jsonData[i].Task;
+        categoryEntry["pid"] = jsonData[i].pid;
+
+        var segmentEntry = { };
+        // Normalize entry and convert to seconds
+        segmentEntry["start"] = (jsonData[i].TimeStampMSec - m_startTS) / 1000;
+        segmentEntry["color"] = getTaskBarColor(jsonData[i].Tags)
+        segmentEntry["task"] = jsonData[i].Task;
+        segmentEntry["tags"] = jsonData[i].Tags;
+        segmentEntry["duration"] = -1;
+
+        categoryEntry["segments"] = [ ];
+        categoryEntry["segments"].push(segmentEntry);
+        chartData.push(categoryEntry);
+        break;
+
+      case "END":
+        var catagory = findCatagory(jsonData[i].pid, jsonData[i].Task, chartData);
+        if (catagory != null) {
+          var segmentsEntry = catagory.segments[0];
+          segmentsEntry["end"] = (jsonData[i].TimeStampMSec - m_startTS) / 1000;
+          segmentsEntry["duration"] = segmentsEntry.end - segmentsEntry.start;
+        } else {
+          console.log("Null entry found: pid:%s, Task: %s", jsonData[i].pid, jsonData[i].Task);
+        }
+
+        break;
+
+      default:
+        console.log("Default");
+        break;
+      }
+    }
+  }
+}
+
+function filterChartEntries()
+{
+  for(var i = chartData.length - 1; i >= 0; i--) {
+    var segment = chartData[i].segments[0];
+
+    // -- Remove entries less than 1 seconds
+    if ( segment["duration"] == -1) {
+      segment["bullet"] = "xError";
+      segment["color"] = "#cc4748";
+      segment["duration"] = ((m_endTS - m_startTS) / 1000) - segment["start"];
+    } else if (segment["duration"] <  m_secondFilter) {
+      chartData.splice(i, 1);
+      continue;
+    }
+  
+
+    // Filter by tags
+    var bHasRollup = false;
+    var bHasCheckpoint = false;
+    var bHasReport = false;
+
+    var tags = segment["tags"];
+    console.log("Tag: " + tags);
+    if (tags.search(/ROLLUP_/i) != -1) { bHasRollup = true; }
+    if (tags.search(/CHECKPOINT/i) != -1) { bHasCheckpoint = true; }
+    if (tags.search(/REPORT/i) != -1) { bHasReport = true; }
+
+    var bRemoveEntry = false;
+
+    // Remove rollups
+    if ((m_showRollup == false) && (bHasRollup == true)) {
+      bRemoveEntry = true;
+    }
+    
+    // Remove checkpoints    
+    if ((m_showCheckpointEntry == false) && (bHasCheckpoint == true)) {
+      bRemoveEntry = true;
+    }
+
+    // Remove reports
+    if ((m_showReportEntry == false) && (bHasReport == true)) {
+      bRemoveEntry = true;
+    }
+
+    // Remove individual entry
+    if (((m_showIndividualEntry == false) && 
+         ((bHasRollup == false) &&
+          (bHasCheckpoint == false) &&
+          (bHasReport == false)))) {
+      bRemoveEntry = true;
+    }
+
+    if (bRemoveEntry == true) {
+      chartData.splice(i, 1);
+      continue;
+    }
+  }
+
+  console.log("ChartData.length: " + chartData.length);
+}
+
+
+function getTaskBarColor( _tags )
+{
+  if (_tags == null)
+    return "#8dc49f";
+
+  if (_tags.search(/ROLLUP_AUTO/i) != -1){ return "#0099ff"; }
+  if (_tags.search(/ROLLUP_0/i) != -1)   { return "#006699"; }
+  if (_tags.search(/ROLLUP_1/i) != -1)   { return "#009933"; }
+  if (_tags.search(/ROLLUP_2/i) != -1)   { return "#66ccff"; }
+  if (_tags.search(/REPORT/i) != -1)     { return "#b9783f"; }
+  if (_tags.search(/CHECKPOINT/i) != -1) { return "#cd82ad"; }
+
+  return "#8dc49f"
+}
+
+
+function tableCreate( _chartData ){
+    var myTableDiv = document.getElementById("myDynamicTable");
+
+
+    for ( var i = 0; i < _chartData.length; i++) {
+      var tr = myTableDiv.insertRow();
+
+      var td_task = tr.insertCell();
+      td_task.appendChild(document.createTextNode( _chartData[i].category ));
+
+      var segmentEntry = _chartData[i].segments;
+      var td_start = tr.insertCell();
+      td_start.appendChild(document.createTextNode( secondsToHHMMSS(segmentEntry[0].start) ));
+
+      var td_duration = tr.insertCell();
+      td_duration.appendChild(document.createTextNode( secondsToHHMMSS(segmentEntry[0].duration) ));
+
+    }
+}
+
+function secondsToHHMMSS( _seconds )
+{
+  var hours = Math.floor(_seconds / 3600);
+  var minutes = Math.floor(_seconds % 3600 / 60);
+  var seconds = Math.floor(_seconds % 3600 % 60);
+
+  var result = hours + ":" + (minutes < 10 ? "0" : "") + minutes + ":" + (seconds < 10 ? "0" : "") + seconds; 
+
+  return result;
+}
+
+
+  function findCatagory(_pid, _category, _catagoryArray) {
+    for (var i = (_catagoryArray.length - 1); i >= 0; i--) {
+      if (_pid == _catagoryArray[i].pid) {
+        if (_catagoryArray[i].category == _category) {
+          return  _catagoryArray[i];
+        }
+      }
+    }
+    return null;
+  }
+
+
+  // Compares the timestamps between to JSON objects
+  function compareByTimeStamp(_a, _b) {
+    if (_a.TimeStampMSec < _b.TimeStampMSec) return -1;
+    if (_a.TimeStampMSec > _b.TimeStampMSec) return 1;
+
+    if (_a.pid == _b.pid) {
+      if ((_a.Action == "START") && (_b.Action == "END")) return -1;
+      if ((_a.Action == "END") && (_b.Action == "START")) return 1;
+
+      if(_a.Entry < _b.Entry) return -1;
+      if(_a.Entry > _b.Entry) return 1;
+    }
+
+    return 0;
+  }
+
+
+  // Compares the timestamps between to JSON objects
+  function compareByGroupTimeStamp(_a, _b) {
+    if (pidOrder.get(_a.pid) < pidOrder.get(_b.pid)) return -1;
+
+    if (pidOrder.get(_a.pid) > pidOrder.get(_b.pid)) return 1;
+
+    return compareByTimeStamp(_a, _b);
+  }
+
+
+  // Return array of string values, or NULL if CSV string not well formed.
+  function CSVtoArray(_text, _sep) {
+    // Regex expressions
+    var re_valid_default = /^\s*(?:'[^'\\]*(?:\\[\S\s][^'\\]*)*'|"[^"\\]*(?:\\[\S\s][^"\\]*)*"|[^,'"\s\\]*(?:\s+[^,'"\s\\]+)*)\s*(?:,\s*(?:'[^'\\]*(?:\\[\S\s][^'\\]*)*'|"[^"\\]*(?:\\[\S\s][^"\\]*)*"|[^,'"\s\\]*(?:\s+[^,'"\s\\]+)*)\s*)*$/;
+    var re_value_default = /(?!\s*$)\s*(?:'([^'\\]*(?:\\[\S\s][^'\\]*)*)'|"([^"\\]*(?:\\[\S\s][^"\\]*)*)"|([^,'"\s\\]*(?:\s+[^,'"\s\\]+)*))\s*(?:,|$)/g;
+    var re_special_default = /,\s*$/;
+
+    // Algorithm:
+    //   1) Convert regex expression to a string.
+    //   2) Remove leading regex escape character (e.g., '\')
+    //   3) Remove training regex escape character(s) (e.g., '\' or "\g")
+    //   4) Replace the comma (',') character witht he new delimiter character
+    //   5) Build the regex command
+
+    // Check delimiter, if special insert escapes
+    if (_sep == "|") _sep = "\\|";
+
+    var re_valid = new RegExp(re_valid_default.toString().substr(1).slice(0, -1).replace(/,/g, _sep));
+    var re_value = new RegExp(re_value_default.toString().substr(1).slice(0, -2).replace(/,/g, _sep), 'g');
+    var re_special = new RegExp(re_special_default.toString().substr(1).slice(0, -1).replace(/,/g, _sep));
+
+    // Validate the input string to determine if it is well formed
+    if (!re_valid.test(_text)) return null;
+
+    var a = [ ];                     // Initialize array to receive values.
+    _text.replace(re_value,           // "Walk" the string using replace with callback.
+                  function(m0, m1, m2, m3) {
+                      // Remove backslash from \' in single quoted values.
+                      if      (m1 !== undefined) a.push(m1.replace(/\\'/g, "'"));
+                      // Remove backslash from \" in double quoted values.
+                      else if (m2 !== undefined) a.push(m2.replace(/\\"/g, '"'));
+                      else if (m3 !== undefined) a.push(m3);
+                      return ''; // Return empty string.
+                  });
+
+    // Handle special case of empty last value.
+    if (re_special.test(_text)) a.push('');
+
+    return a;
+  };
+
+
+  // Converts the given CSV array & header into a JSON array
+  function csvArrayToJSON(_header, _csvArray, _sep) {
+    var result = [ ];
+    var headers = CSVtoArray(_header, _sep);
+
+    for (var i = 0; i < _csvArray.length; i++) {
+
+      var obj = { };
+      var currentline = CSVtoArray(_csvArray[i], _sep);
+
+      for (var j = 0; j < headers.length; j++) {
+        obj[headers[j]] = currentline[j];
+      }
+
+      result.push(obj);
+
+    }
+
+    return result; //JavaScript object
+  }
+
+
+</script>
+</body>
+
+</html>
+

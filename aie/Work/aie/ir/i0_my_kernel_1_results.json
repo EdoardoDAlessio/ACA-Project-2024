@@ -1,0 +1,39 @@
+{
+    "ModulePath": "/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/aie/src/my_kernel_1.cpp",
+    "KernelSourcePath": "/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/aie/src/my_kernel_1.cpp",
+    "UseCases": [
+        {
+            "Index": 0,
+            "KernelFunction": "my_kernel_function",
+            "InitializationFunction": "",
+            "KernelClassCtor": "",
+            "Instances": [
+                "i0"
+            ]
+        }
+    ],
+    "AccessRecords": [],
+    "ControlRegsUsage": {
+        "RndRecords": {
+            "my_kernel_function": {
+                "SetKind": 1,
+                "SetValue": -1,
+                "GetBeforeSet": 0
+            }
+        },
+        "SatRecords": {
+            "my_kernel_function": {
+                "SetKind": 1,
+                "SetValue": -1,
+                "GetBeforeSet": 1
+            }
+        },
+        "SymSatRecords": {
+            "my_kernel_function": {
+                "SetKind": 1,
+                "SetValue": -1,
+                "GetBeforeSet": 0
+            }
+        }
+    }
+}

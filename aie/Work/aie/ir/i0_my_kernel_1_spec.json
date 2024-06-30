@@ -1,0 +1,19 @@
+{
+    "KernelAnalysisSpec": {
+        "ModulePath": "/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/aie/src/my_kernel_1.cpp",
+        "KernelSourcePath": "/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/aie/src/my_kernel_1.cpp",
+        "SpecFile": "i0_my_kernel_1_spec.json",
+        "ResultFile": "i0_my_kernel_1_results.json",
+        "UseCases": [
+            {
+                "Index": 0,
+                "KernelFunction": "my_kernel_function",
+                "InitializationFunction": "",
+                "KernelClassCtor": "",
+                "Instances": [
+                    "i0"
+                ]
+            }
+        ]
+    }
+}

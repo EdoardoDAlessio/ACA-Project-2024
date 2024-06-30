@@ -1,0 +1,19 @@
+{
+    "kernelContainerValues": [
+        "setup_aie:xo",
+        "sink_from_aie:xo"
+    ],
+    "compile": "false",
+    "debug": "false",
+    "exportScript": "false",
+    "gccHostCompile": "false",
+    "generateEstimateRpt": "false",
+    "keepSolution": "false",
+    "link": "false",
+    "logDir": "\/home\/users\/edoardo.dalessio\/code\/av_omega\/VersalAutomationTemplate\/hw\/_x\/logs\/link",
+    "package": "false",
+    "reportDir": "\/home\/users\/edoardo.dalessio\/code\/av_omega\/VersalAutomationTemplate\/hw\/_x\/reports\/link",
+    "saveTemps": "false",
+    "verbose": "false",
+    "vplNoIpCache": "false"
+}

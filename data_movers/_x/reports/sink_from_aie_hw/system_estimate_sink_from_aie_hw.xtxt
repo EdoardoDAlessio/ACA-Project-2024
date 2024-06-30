@@ -1,0 +1,54 @@
+===============================================================================
+Version:    v++ v2022.2.2 (64-bit)
+Build:      SW Build 3716524 on 2023-02-17-15:43:22
+Copyright:  Copyright 1986-2023 Xilinx, Inc. All Rights Reserved.
+Created:    Sun Jun 30 17:19:57 2024
+===============================================================================
+
+-------------------------------------------------------------------------------
+Design Name:             sink_from_aie_hw
+Target Device:           xilinx:vck5000:gen4x8_qdma_2:202220.1
+Target Clock:            299.996999MHz
+Total number of kernels: 1
+-------------------------------------------------------------------------------
+
+Kernel Summary
+Kernel Name    Type  Target              OpenCL Library    Compute Units
+-------------  ----  ------------------  ----------------  -------------
+sink_from_aie  c     fpga0:OCL_REGION_0  sink_from_aie_hw  1
+
+
+-------------------------------------------------------------------------------
+OpenCL Binary:     sink_from_aie_hw
+Kernels mapped to: clc_region
+
+Timing Information (MHz)
+Compute Unit     Kernel Name    Module Name                                               Target Frequency  Estimated Frequency
+---------------  -------------  --------------------------------------------------------  ----------------  -------------------
+sink_from_aie_1  sink_from_aie  sink_from_aie_Pipeline_VITIS_LOOP_72_2                    300.300293        684.931519
+sink_from_aie_1  sink_from_aie  sink_from_aie_Pipeline_VITIS_LOOP_78_3                    300.300293        652.315735
+sink_from_aie_1  sink_from_aie  sink_from_aie_Pipeline_VITIS_LOOP_106_4                   300.300293        411.015198
+sink_from_aie_1  sink_from_aie  sink_from_aie_Pipeline_VITIS_LOOP_110_5                   300.300293        411.015198
+sink_from_aie_1  sink_from_aie  sink_from_aie_Pipeline_VITIS_LOOP_117_6_VITIS_LOOP_118_7  300.300293        411.015198
+sink_from_aie_1  sink_from_aie  sink_from_aie                                             300.300293        411.015198
+
+Latency Information
+Compute Unit     Kernel Name    Module Name                                               Start Interval  Best (cycles)  Avg (cycles)  Worst (cycles)  Best (absolute)  Avg (absolute)  Worst (absolute)
+---------------  -------------  --------------------------------------------------------  --------------  -------------  ------------  --------------  ---------------  --------------  ----------------
+sink_from_aie_1  sink_from_aie  sink_from_aie_Pipeline_VITIS_LOOP_72_2                    258             258            258           258             0.860 us         0.860 us        0.860 us
+sink_from_aie_1  sink_from_aie  sink_from_aie_Pipeline_VITIS_LOOP_78_3                    undef           undef          undef         undef           undef            undef           undef
+sink_from_aie_1  sink_from_aie  sink_from_aie_Pipeline_VITIS_LOOP_106_4                   259             259            259           259             0.863 us         0.863 us        0.863 us
+sink_from_aie_1  sink_from_aie  sink_from_aie_Pipeline_VITIS_LOOP_110_5                   259             259            259           259             0.863 us         0.863 us        0.863 us
+sink_from_aie_1  sink_from_aie  sink_from_aie_Pipeline_VITIS_LOOP_117_6_VITIS_LOOP_118_7  65540           65540          65540         65540           0.218 ms         0.218 ms        0.218 ms
+sink_from_aie_1  sink_from_aie  sink_from_aie                                             undef           undef          undef         undef           undef            undef           undef
+
+Area Information
+Compute Unit     Kernel Name    Module Name                                               FF    LUT    DSP  BRAM  URAM
+---------------  -------------  --------------------------------------------------------  ----  -----  ---  ----  ----
+sink_from_aie_1  sink_from_aie  sink_from_aie_Pipeline_VITIS_LOOP_72_2                    11    55     0    0     0
+sink_from_aie_1  sink_from_aie  sink_from_aie_Pipeline_VITIS_LOOP_78_3                    239   254    0    0     0
+sink_from_aie_1  sink_from_aie  sink_from_aie_Pipeline_VITIS_LOOP_106_4                   529   419    0    0     0
+sink_from_aie_1  sink_from_aie  sink_from_aie_Pipeline_VITIS_LOOP_110_5                   529   419    0    0     0
+sink_from_aie_1  sink_from_aie  sink_from_aie_Pipeline_VITIS_LOOP_117_6_VITIS_LOOP_118_7  1061  752    0    0     0
+sink_from_aie_1  sink_from_aie  sink_from_aie                                             7600  11228  0    2     1
+-------------------------------------------------------------------------------

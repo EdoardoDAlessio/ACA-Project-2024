@@ -1,0 +1,19 @@
+#-----------------------------------------------------------
+# Vivado v2022.2.2 (64-bit)
+# SW Build 3788238 on Tue Feb 21 19:59:23 MST 2023
+# IP Build 3783773 on Tue Feb 21 23:41:56 MST 2023
+# Start of session at: Sun Jun 30 17:19:15 2024
+# Process ID: 1710693
+# Current directory: /home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/data_movers/_x/sink_from_aie_hw/sink_from_aie/sink_from_aie/solution/impl/ip
+# Command line: vivado -notrace -mode batch -source run_ippack.tcl
+# Log file: /home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/data_movers/_x/sink_from_aie_hw/sink_from_aie/sink_from_aie/solution/impl/ip/vivado.log
+# Journal file: /home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/data_movers/_x/sink_from_aie_hw/sink_from_aie/sink_from_aie/solution/impl/ip/vivado.jou
+# Running On: nags27, OS: Linux, CPU Frequency: 3099.928 MHz, CPU Physical cores: 20, Host memory: 405693 MB
+#-----------------------------------------------------------
+source run_ippack.tcl -notrace
+ipx::create_core: Time (s): cpu = 00:00:13 ; elapsed = 00:00:14 . Memory (MB): peak = 1859.574 ; gain = 87.992 ; free physical = 48709 ; free virtual = 111476
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1704] No user IP repositories specified
+INFO: [IP_Flow 19-2313] Loaded Vivado IP repository '/home/xilinx/software/Vivado/2022.2/data/ip'.
+Running package_xo -xo_path /home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/data_movers/_x/sink_from_aie_hw/sink_from_aie/sink_from_aie/solution/impl/export.xo -kernel_name sink_from_aie -kernel_xml /home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/data_movers/_x/sink_from_aie_hw/sink_from_aie/sink_from_aie/solution/impl/ip/../kernel/kernel.xml -kernel_files /home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/data_movers/sink_from_aie.cpp -ip_directory /home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/data_movers/_x/sink_from_aie_hw/sink_from_aie/sink_from_aie/solution/impl/ip/ip_unzip_dir -design_xml /home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/data_movers/_x/sink_from_aie_hw/sink_from_aie/sink_from_aie/solution/.autopilot/db/sink_from_aie.design.xml -debug_directory /home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/data_movers/_x/sink_from_aie_hw/sink_from_aie/sink_from_aie/solution/.debug -hls_directory /home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/data_movers/_x/sink_from_aie_hw/sink_from_aie/sink_from_aie/solution/impl/ip/hls_files
+INFO: [Common 17-206] Exiting Vivado at Sun Jun 30 17:19:46 2024...

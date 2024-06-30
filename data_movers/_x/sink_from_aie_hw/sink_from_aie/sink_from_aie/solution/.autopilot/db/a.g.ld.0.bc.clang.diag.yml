@@ -1,0 +1,363 @@
+--- !Passed
+Pass:            reflow-burst-inference
+Name:            BurstInferred
+DebugLoc:        { File: /home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/data_movers/sink_from_aie.cpp, 
+                   Line: 106, Column: 23 }
+Function:        sink_from_aie
+Args:            
+  - String:          'Sequential '
+  - Direction:       write
+  - String:          ' of length '
+  - Length:          '256'
+  - String:          ' has been inferred'
+  - String:          ' _XLX_SEP_ OldID='
+  - String:          for.inc46.store.6
+  - String:          ', '
+  - String:          ' _XLX_SEP_ '
+  - AccessID:        outputseq
+  - String:          ' '
+  - ArrayName:       output
+  - String:          ' '
+  - BundleName:      gmem1
+  - String:          ' '
+  - LoopName:        VITIS_LOOP_106_4
+  - String:          ' '
+  - LoopLoc:         '/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/data_movers/sink_from_aie.cpp:106:23'
+  - String:          ' '
+  - Function:        sink_from_aie
+    DebugLoc:        { File: /home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/data_movers/sink_from_aie.cpp, 
+                       Line: 47, Column: 0 }
+  - String:          ' '
+...
+--- !Passed
+Pass:            reflow-burst-inference
+Name:            BurstInferred
+DebugLoc:        { File: /home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/data_movers/sink_from_aie.cpp, 
+                   Line: 110, Column: 23 }
+Function:        sink_from_aie
+Args:            
+  - String:          'Sequential '
+  - Direction:       write
+  - String:          ' of length '
+  - Length:          '256'
+  - String:          ' has been inferred'
+  - String:          ' _XLX_SEP_ OldID='
+  - String:          for.inc57.store.7
+  - String:          ', '
+  - String:          ' _XLX_SEP_ '
+  - AccessID:        scevgepseq
+  - String:          ' '
+  - ArrayName:       output
+  - String:          ' '
+  - BundleName:      gmem1
+  - String:          ' '
+  - LoopName:        VITIS_LOOP_110_5
+  - String:          ' '
+  - LoopLoc:         '/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/data_movers/sink_from_aie.cpp:110:23'
+  - String:          ' '
+  - Function:        sink_from_aie
+    DebugLoc:        { File: /home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/data_movers/sink_from_aie.cpp, 
+                       Line: 47, Column: 0 }
+  - String:          ' '
+...
+--- !Passed
+Pass:            reflow-burst-inference
+Name:            BurstInferred
+DebugLoc:        { File: /home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/data_movers/sink_from_aie.cpp, 
+                   Line: 117, Column: 23 }
+Function:        sink_from_aie
+Args:            
+  - String:          'Sequential '
+  - Direction:       write
+  - String:          ' of length '
+  - Length:          '65536'
+  - String:          ' has been inferred'
+  - String:          ' _XLX_SEP_ OldID='
+  - String:          for.inc74.store.8
+  - String:          ', '
+  - String:          ' _XLX_SEP_ '
+  - AccessID:        scevgep37seq
+  - String:          ' '
+  - ArrayName:       output
+  - String:          ' '
+  - BundleName:      gmem1
+  - String:          ' '
+  - LoopName:        VITIS_LOOP_117_6
+  - String:          ' '
+  - LoopLoc:         '/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/data_movers/sink_from_aie.cpp:117:23'
+  - String:          ' '
+  - Function:        sink_from_aie
+    DebugLoc:        { File: /home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/data_movers/sink_from_aie.cpp, 
+                       Line: 47, Column: 0 }
+  - String:          ' '
+...
+--- !Missed
+Pass:            reflow-burst-inference
+Name:            CouldNotAnalyzeBoundsPattern
+DebugLoc:        { File: /home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/data_movers/sink_from_aie.cpp, 
+                   Line: 78, Column: 22 }
+Function:        sink_from_aie
+Args:            
+  - String:          Could not analyze the loop bounds
+  - String:          ' _XLX_SEP_ '
+  - LoopName:        VITIS_LOOP_78_3
+  - String:          ' '
+  - LoopLoc:         '/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/data_movers/sink_from_aie.cpp:78:22'
+  - String:          ' '
+  - Function:        sink_from_aie
+    DebugLoc:        { File: /home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/data_movers/sink_from_aie.cpp, 
+                       Line: 47, Column: 0 }
+  - String:          ' '
+...
+--- !Passed
+Pass:            reflow-burst-widen
+Name:            BurstWidened
+DebugLoc:        { File: /home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/data_movers/sink_from_aie.cpp, 
+                   Line: 117, Column: 23 }
+Function:        sink_from_aie
+Args:            
+  - String:          'Sequential '
+  - Direction:       write
+  - String:          ' of '
+  - OldLength:       '65536'
+  - String:          ' x '
+  - OldWords:        '32'
+  - String:          'bit words has been widened by '
+  - Factor:          '16'
+  - String:          ': '
+  - Length:          '4096'
+  - String:          ' x '
+  - Words:           '512'
+  - String:          bit words
+  - String:          ' _XLX_SEP_ OldID='
+  - String:          scevgep37seq
+  - String:          ', '
+  - String:          ' _XLX_SEP_ '
+  - AccessID:        wseq
+  - String:          ' '
+  - ArrayName:       output
+  - String:          ' '
+  - BundleName:      gmem1
+  - String:          ' '
+  - LoopName:        VITIS_LOOP_118_7
+  - String:          ' '
+  - LoopLoc:         '/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/data_movers/sink_from_aie.cpp:118:27'
+  - String:          ' '
+  - Function:        sink_from_aie
+    DebugLoc:        { File: /home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/data_movers/sink_from_aie.cpp, 
+                       Line: 47, Column: 0 }
+  - String:          ' '
+...
+--- !Passed
+Pass:            reflow-burst-widen
+Name:            BurstWidened
+DebugLoc:        { File: /home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/data_movers/sink_from_aie.cpp, 
+                   Line: 110, Column: 23 }
+Function:        sink_from_aie
+Args:            
+  - String:          'Sequential '
+  - Direction:       write
+  - String:          ' of '
+  - OldLength:       '256'
+  - String:          ' x '
+  - OldWords:        '32'
+  - String:          'bit words has been widened by '
+  - Factor:          '16'
+  - String:          ': '
+  - Length:          '16'
+  - String:          ' x '
+  - Words:           '512'
+  - String:          bit words
+  - String:          ' _XLX_SEP_ OldID='
+  - String:          scevgepseq
+  - String:          ', '
+  - String:          ' _XLX_SEP_ '
+  - AccessID:        wseq38
+  - String:          ' '
+  - ArrayName:       output
+  - String:          ' '
+  - BundleName:      gmem1
+  - String:          ' '
+  - LoopName:        VITIS_LOOP_110_5
+  - String:          ' '
+  - LoopLoc:         '/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/data_movers/sink_from_aie.cpp:110:23'
+  - String:          ' '
+  - Function:        sink_from_aie
+    DebugLoc:        { File: /home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/data_movers/sink_from_aie.cpp, 
+                       Line: 47, Column: 0 }
+  - String:          ' '
+...
+--- !Passed
+Pass:            reflow-burst-widen
+Name:            BurstWidened
+DebugLoc:        { File: /home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/data_movers/sink_from_aie.cpp, 
+                   Line: 106, Column: 23 }
+Function:        sink_from_aie
+Args:            
+  - String:          'Sequential '
+  - Direction:       write
+  - String:          ' of '
+  - OldLength:       '256'
+  - String:          ' x '
+  - OldWords:        '32'
+  - String:          'bit words has been widened by '
+  - Factor:          '16'
+  - String:          ': '
+  - Length:          '16'
+  - String:          ' x '
+  - Words:           '512'
+  - String:          bit words
+  - String:          ' _XLX_SEP_ OldID='
+  - String:          outputseq
+  - String:          ', '
+  - String:          ' _XLX_SEP_ '
+  - AccessID:        wseq40
+  - String:          ' '
+  - ArrayName:       output
+  - String:          ' '
+  - BundleName:      gmem1
+  - String:          ' '
+  - LoopName:        VITIS_LOOP_106_4
+  - String:          ' '
+  - LoopLoc:         '/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/data_movers/sink_from_aie.cpp:106:23'
+  - String:          ' '
+  - Function:        sink_from_aie
+    DebugLoc:        { File: /home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/data_movers/sink_from_aie.cpp, 
+                       Line: 47, Column: 0 }
+  - String:          ' '
+...
+--- !Passed
+Pass:            reflow-burst-summary
+Name:            BurstInferredVerboseSummary
+DebugLoc:        { File: /home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/data_movers/sink_from_aie.cpp, 
+                   Line: 106, Column: 23 }
+Function:        sink_from_aie
+Args:            
+  - String:          'Multiple burst '
+  - Direction:       writes
+  - String:          ' of length '
+  - Length:          '16'
+  - String:          ' and bit width '
+  - Width:           '512'
+  - String:          ' has been inferred.'
+  - String:          ' These burst requests might be further partitioned into multiple requests during RTL generation, based on max_read_burst_length or max_write_burst_length settings.'
+  - String:          ' _XLX_SEP_ '
+  - AccessID:        seq
+  - String:          ' '
+  - ArrayName:       ''
+  - String:          ' '
+  - BundleName:      gmem1
+  - String:          ' '
+  - Function:        sink_from_aie
+    DebugLoc:        { File: /home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/data_movers/sink_from_aie.cpp, 
+                       Line: 47, Column: 0 }
+  - String:          ' '
+...
+--- !Passed
+Pass:            reflow-burst-summary
+Name:            BurstInferredSummary
+DebugLoc:        { File: /home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/data_movers/sink_from_aie.cpp, 
+                   Line: 106, Column: 23 }
+Function:        sink_from_aie
+Args:            
+  - String:          'Multiple burst '
+  - Direction:       writes
+  - String:          ' of length '
+  - Length:          '16'
+  - String:          ' and bit width '
+  - Width:           '512'
+  - String:          ' has been inferred on bundle '''
+  - BundleName:      gmem1
+  - String:          '''.'
+  - String:          ' These burst requests might be further partitioned into multiple requests during RTL generation, based on max_read_burst_length or max_write_burst_length settings.'
+...
+--- !Passed
+Pass:            reflow-burst-summary
+Name:            BurstInferredVerboseSummary
+DebugLoc:        { File: /home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/data_movers/sink_from_aie.cpp, 
+                   Line: 110, Column: 23 }
+Function:        sink_from_aie
+Args:            
+  - String:          'Multiple burst '
+  - Direction:       writes
+  - String:          ' of length '
+  - Length:          '16'
+  - String:          ' and bit width '
+  - Width:           '512'
+  - String:          ' has been inferred.'
+  - String:          ' These burst requests might be further partitioned into multiple requests during RTL generation, based on max_read_burst_length or max_write_burst_length settings.'
+  - String:          ' _XLX_SEP_ '
+  - AccessID:        seq1
+  - String:          ' '
+  - ArrayName:       ''
+  - String:          ' '
+  - BundleName:      gmem1
+  - String:          ' '
+  - Function:        sink_from_aie
+    DebugLoc:        { File: /home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/data_movers/sink_from_aie.cpp, 
+                       Line: 47, Column: 0 }
+  - String:          ' '
+...
+--- !Passed
+Pass:            reflow-burst-summary
+Name:            BurstInferredSummary
+DebugLoc:        { File: /home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/data_movers/sink_from_aie.cpp, 
+                   Line: 110, Column: 23 }
+Function:        sink_from_aie
+Args:            
+  - String:          'Multiple burst '
+  - Direction:       writes
+  - String:          ' of length '
+  - Length:          '16'
+  - String:          ' and bit width '
+  - Width:           '512'
+  - String:          ' has been inferred on bundle '''
+  - BundleName:      gmem1
+  - String:          '''.'
+  - String:          ' These burst requests might be further partitioned into multiple requests during RTL generation, based on max_read_burst_length or max_write_burst_length settings.'
+...
+--- !Passed
+Pass:            reflow-burst-summary
+Name:            BurstInferredVerboseSummary
+DebugLoc:        { File: /home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/data_movers/sink_from_aie.cpp, 
+                   Line: 117, Column: 23 }
+Function:        sink_from_aie
+Args:            
+  - String:          'Multiple burst '
+  - Direction:       writes
+  - String:          ' of length '
+  - Length:          '4096'
+  - String:          ' and bit width '
+  - Width:           '512'
+  - String:          ' has been inferred.'
+  - String:          ' These burst requests might be further partitioned into multiple requests during RTL generation, based on max_read_burst_length or max_write_burst_length settings.'
+  - String:          ' _XLX_SEP_ '
+  - AccessID:        seq2
+  - String:          ' '
+  - ArrayName:       ''
+  - String:          ' '
+  - BundleName:      gmem1
+  - String:          ' '
+  - Function:        sink_from_aie
+    DebugLoc:        { File: /home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/data_movers/sink_from_aie.cpp, 
+                       Line: 47, Column: 0 }
+  - String:          ' '
+...
+--- !Passed
+Pass:            reflow-burst-summary
+Name:            BurstInferredSummary
+DebugLoc:        { File: /home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/data_movers/sink_from_aie.cpp, 
+                   Line: 117, Column: 23 }
+Function:        sink_from_aie
+Args:            
+  - String:          'Multiple burst '
+  - Direction:       writes
+  - String:          ' of length '
+  - Length:          '4096'
+  - String:          ' and bit width '
+  - Width:           '512'
+  - String:          ' has been inferred on bundle '''
+  - BundleName:      gmem1
+  - String:          '''.'
+  - String:          ' These burst requests might be further partitioned into multiple requests during RTL generation, based on max_read_burst_length or max_write_burst_length settings.'
+...

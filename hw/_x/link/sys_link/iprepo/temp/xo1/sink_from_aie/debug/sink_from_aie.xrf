@@ -1,0 +1,54 @@
+Begin Function 'sink_from_aie'
+
+RTL state condition: (1'b1 == ap_CS_fsm_state1)
+# ST_1
+local output_r_read <> <integer> <> 'read' <>
+reg: output_r_read_reg_339[63:0] lv
+
+
+RTL state condition: (1'b1 == ap_CS_fsm_state147)
+# ST_147
+
+RTL state condition: (1'b1 == ap_CS_fsm_state2)
+# ST_2
+local trunc_ln69 <trunc_69> <integer> <> 'trunc' </home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/data_movers/sink_from_aie.cpp:69>
+trunc_ln69 /home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/data_movers/sink_from_aie.cpp:69
+reg: trunc_ln69_reg_346[7:0] lv
+
+
+RTL state condition: (1'b1 == ap_CS_fsm_state3)
+# ST_3
+local tmp <bitconcatenate_73> <integer> <> 'bitconcatenate' </home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/data_movers/sink_from_aie.cpp:73>
+tmp /home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/data_movers/sink_from_aie.cpp:73
+reg: tmp_reg_354[15:0] lv
+
+
+RTL state condition: (1'b1 == ap_CS_fsm_state4)
+# ST_4
+
+RTL state condition: (1'b1 == ap_CS_fsm_state5)
+# ST_5
+local trunc_ln <partselect_106> <integer> <> 'partselect' </home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/data_movers/sink_from_aie.cpp:106>
+trunc_ln /home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/data_movers/sink_from_aie.cpp:106
+reg: trunc_ln_reg_359[57:0] lv
+
+
+RTL state condition: (1'b1 == ap_CS_fsm_state7)
+# ST_7
+
+RTL state condition: (1'b1 == ap_CS_fsm_state74)
+# ST_74
+local trunc_ln1 <partselect_110> <integer> <> 'partselect' </home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/data_movers/sink_from_aie.cpp:110>
+trunc_ln1 /home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/data_movers/sink_from_aie.cpp:110
+reg: trunc_ln1_reg_369[57:0] lv
+
+local trunc_ln2 <partselect_117> <integer> <> 'partselect' </home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/data_movers/sink_from_aie.cpp:117>
+trunc_ln2 /home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/data_movers/sink_from_aie.cpp:117
+reg: trunc_ln2_reg_375[57:0] lv
+
+
+RTL state condition: (1'b1 == ap_CS_fsm_state77)
+# ST_77
+
+End Function 'sink_from_aie'
+

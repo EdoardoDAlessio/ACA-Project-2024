@@ -1,0 +1,68 @@
+{
+    "schema_version": {
+        "major": "1",
+        "minor": "0",
+        "patch": "0"
+    },
+    "design_state": "Fully Placed",
+    "user_budget": {
+        "actual_resources": {
+            "REG": "7754",
+            "LUT": "5052",
+            "LUTAsMem": "857",
+            "BRAM": "13",
+            "URAM": "8"
+        },
+        "supply_resources": {
+            "REG": "1768020",
+            "LUT": "879118",
+            "LUTAsMem": "447417",
+            "BRAM": "935",
+            "URAM": "463"
+        }
+    },
+    "kernels": [
+        {
+            "name": "setup_aie",
+            "compute_unit_count": "2",
+            "compute_units": [
+                {
+                    "cu_name": "setup_aie_0",
+                    "actual_resources": {
+                        "REG": "1634",
+                        "LUT": "1164",
+                        "LUTAsMem": "175",
+                        "BRAM": "2",
+                        "URAM": "0"
+                    }
+                },
+                {
+                    "cu_name": "setup_aie_1",
+                    "actual_resources": {
+                        "REG": "1634",
+                        "LUT": "1163",
+                        "LUTAsMem": "175",
+                        "BRAM": "2",
+                        "URAM": "0"
+                    }
+                }
+            ]
+        },
+        {
+            "name": "sink_from_aie",
+            "compute_unit_count": "1",
+            "compute_units": [
+                {
+                    "cu_name": "sink_from_aie_0",
+                    "actual_resources": {
+                        "REG": "4486",
+                        "LUT": "2725",
+                        "LUTAsMem": "507",
+                        "BRAM": "9",
+                        "URAM": "8"
+                    }
+                }
+            ]
+        }
+    ]
+}

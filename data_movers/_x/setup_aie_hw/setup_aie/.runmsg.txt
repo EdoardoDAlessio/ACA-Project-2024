@@ -1,0 +1,2 @@
+performing high-level synthesis for kernel: setup_aie
+Log file: /home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/data_movers/_x/setup_aie_hw/setup_aie/vitis_hls.log

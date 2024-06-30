@@ -1,0 +1,39 @@
+{
+  "schema_version": {
+    "major": "1",
+    "minor": "0",
+    "patch": "0"
+  },
+  "debug_ip_layout": {
+    "m_count": "3",
+    "m_debug_ip_data": [
+      {
+        "m_type": "AXI_NOC",
+        "m_index": "0",
+        "m_major": "1",
+        "m_minor": "0",
+        "m_properties": "0",
+        "m_base_address": "0xdeadbeef",
+        "m_name": "axi_ic_axi_noc_kernel0_S00_AXI/M00_AXI-NOC_NMU512_X1Y4-918-861-299.997009"
+      },
+      {
+        "m_type": "AXI_NOC",
+        "m_index": "0",
+        "m_major": "1",
+        "m_minor": "0",
+        "m_properties": "0",
+        "m_base_address": "0xdeadbeef",
+        "m_name": "axi_ic_axi_noc_kernel0_S01_AXI/M00_AXI-NOC_NMU512_X1Y5-918-861-299.997009"
+      },
+      {
+        "m_type": "AXI_NOC",
+        "m_index": "0",
+        "m_major": "1",
+        "m_minor": "0",
+        "m_properties": "0",
+        "m_base_address": "0xdeadbeef",
+        "m_name": "sink_from_aie_0/m_axi_gmem1-NOC_NMU512_X1Y6-918-861-299.997009"
+      }
+    ]
+  }
+}

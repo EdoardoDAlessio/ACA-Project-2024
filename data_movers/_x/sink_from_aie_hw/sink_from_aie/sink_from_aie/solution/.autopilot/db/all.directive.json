@@ -1,0 +1,18 @@
+{"sourceFile": [{
+      "name": "",
+      "directive": [{
+          "functionName": "sink_from_aie",
+          "label": "",
+          "functionLabel": "",
+          "id": "1",
+          "sourceFile": "\/home\/users\/edoardo.dalessio\/code\/av_omega\/VersalAutomationTemplate\/data_movers\/_x\/sink_from_aie_hw\/sink_from_aie\/sink_from_aie.tcl",
+          "sourceLine": "27",
+          "pragma": {
+            "name": "TOP",
+            "option": [{
+                "name": "name",
+                "value": "sink_from_aie"
+              }]
+          }
+        }]
+    }]}

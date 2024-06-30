@@ -1,0 +1,136 @@
+
+
+================================================================
+== Vitis HLS Report for 'sink_from_aie_Pipeline_VITIS_LOOP_72_2'
+================================================================
+* Date:           Sun Jun 30 17:18:51 2024
+
+* Version:        2022.2.2 (Build 3779808 on Feb 17 2023)
+* Project:        sink_from_aie
+* Solution:       solution (Vitis Kernel Flow Target)
+* Product family: versal
+* Target device:  xcvc1902-vsvd1760-2MP-e-S
+
+
+================================================================
+== Performance Estimates
+================================================================
++ Timing: 
+    * Summary: 
+    +--------+---------+----------+------------+
+    |  Clock |  Target | Estimated| Uncertainty|
+    +--------+---------+----------+------------+
+    |ap_clk  |  3.33 ns|  1.460 ns|     0.90 ns|
+    +--------+---------+----------+------------+
+
++ Latency: 
+    * Summary: 
+    +---------+---------+----------+----------+-----+-----+---------+
+    |  Latency (cycles) |  Latency (absolute) |  Interval | Pipeline|
+    |   min   |   max   |    min   |    max   | min | max |   Type  |
+    +---------+---------+----------+----------+-----+-----+---------+
+    |      258|      258|  0.860 us|  0.860 us|  258|  258|       no|
+    +---------+---------+----------+----------+-----+-----+---------+
+
+    + Detail: 
+        * Instance: 
+        N/A
+
+        * Loop: 
+        +-------------------+---------+---------+----------+-----------+-----------+------+----------+
+        |                   |  Latency (cycles) | Iteration|  Initiation Interval  | Trip |          |
+        |     Loop Name     |   min   |   max   |  Latency |  achieved |   target  | Count| Pipelined|
+        +-------------------+---------+---------+----------+-----------+-----------+------+----------+
+        |- VITIS_LOOP_72_2  |      256|      256|         1|          1|          1|   256|       yes|
+        +-------------------+---------+---------+----------+-----------+-----------+------+----------+
+
+============================================================
++ Verbose Summary: Synthesis Manager
+============================================================
+InlineROM: 1
+ExposeGlobal: 0
+============================================================
++ Verbose Summary: CDFG Model
+============================================================
+IsTopModel: 0
+ResetActiveHigh: 1
+IsCombinational: 0
+IsDatapathOnly: 0
+HasWiredReturn: 1
+HasMFsm: 2
+HasVarLatency: 1
+IsPipeline: 0
+IsRtlPipelined: 0
+IsInstanceOverlapped: 0
+IsDontTouch: 0
+HasImplIP: 0
+IsGatedGlobalClock: 0
+
++ Individual pipeline summary: 
+  * Pipeline-0: initiation interval (II) = 1, depth = 1
+
+
+============================================================
++ Verbose Summary: Schedule
+============================================================
+* Number of FSM states : 1
+* Pipeline : 1
+  Pipeline-0 : II = 1, D = 1, States = { 1 }
+* Dataflow Pipeline: 0
+
+* FSM state transitions: 
+1 --> 
+
+* FSM state operations: 
+
+State 1 <SV = 0> <Delay = 1.46>
+ST_1 : Operation 4 [1/1] (0.00ns)   --->   "%j = alloca i32 1"   --->   Operation 4 'alloca' 'j' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 5 [1/1] (0.00ns)   --->   "%zext_ln73_read = read i16 @_ssdm_op_Read.ap_auto.i16, i16 %zext_ln73"   --->   Operation 5 'read' 'zext_ln73_read' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 6 [1/1] (0.42ns)   --->   "%store_ln0 = store i9 0, i9 %j"   --->   Operation 6 'store' 'store_ln0' <Predicate = true> <Delay = 0.42>
+ST_1 : Operation 7 [1/1] (0.00ns)   --->   "%br_ln0 = br void %for.inc"   --->   Operation 7 'br' 'br_ln0' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 8 [1/1] (0.00ns)   --->   "%j_1 = load i9 %j" [/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/data_movers/sink_from_aie.cpp:72]   --->   Operation 8 'load' 'j_1' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 9 [1/1] (0.75ns)   --->   "%add_ln72 = add i9 %j_1, i9 1" [/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/data_movers/sink_from_aie.cpp:72]   --->   Operation 9 'add' 'add_ln72' <Predicate = true> <Delay = 0.75> <CoreInst = "Adder">   --->   Core 1 'Adder' <Latency = 0> <II = 1> <Delay = 0.75> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_1 : Operation 10 [1/1] (0.00ns)   --->   "%specpipeline_ln0 = specpipeline void @_ssdm_op_SpecPipeline, i32 4294967295, i32 0, i32 1, i32 0, void @p_str"   --->   Operation 10 'specpipeline' 'specpipeline_ln0' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 11 [1/1] (0.62ns)   --->   "%icmp_ln72 = icmp_eq  i9 %j_1, i9 256" [/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/data_movers/sink_from_aie.cpp:72]   --->   Operation 11 'icmp' 'icmp_ln72' <Predicate = true> <Delay = 0.62> <CoreInst = "Cmp">   --->   Core 9 'Cmp' <Latency = 0> <II = 1> <Delay = 0.62> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_1 : Operation 12 [1/1] (0.00ns)   --->   "%empty = speclooptripcount i32 @_ssdm_op_SpecLoopTripCount, i64 256, i64 256, i64 256"   --->   Operation 12 'speclooptripcount' 'empty' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 13 [1/1] (0.00ns)   --->   "%br_ln72 = br i1 %icmp_ln72, void %for.inc.split, void %for.inc10.exitStub" [/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/data_movers/sink_from_aie.cpp:72]   --->   Operation 13 'br' 'br_ln72' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 14 [1/1] (0.00ns)   --->   "%zext_ln73_1 = zext i9 %j_1" [/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/data_movers/sink_from_aie.cpp:73]   --->   Operation 14 'zext' 'zext_ln73_1' <Predicate = (!icmp_ln72)> <Delay = 0.00>
+ST_1 : Operation 15 [1/1] (0.82ns)   --->   "%add_ln73 = add i16 %zext_ln73_read, i16 %zext_ln73_1" [/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/data_movers/sink_from_aie.cpp:73]   --->   Operation 15 'add' 'add_ln73' <Predicate = (!icmp_ln72)> <Delay = 0.82> <CoreInst = "Adder">   --->   Core 1 'Adder' <Latency = 0> <II = 1> <Delay = 0.82> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_1 : Operation 16 [1/1] (0.00ns)   --->   "%zext_ln73_2 = zext i16 %add_ln73" [/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/data_movers/sink_from_aie.cpp:73]   --->   Operation 16 'zext' 'zext_ln73_2' <Predicate = (!icmp_ln72)> <Delay = 0.00>
+ST_1 : Operation 17 [1/1] (0.00ns)   --->   "%joint_addr = getelementptr i32 %joint, i64 0, i64 %zext_ln73_2" [/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/data_movers/sink_from_aie.cpp:73]   --->   Operation 17 'getelementptr' 'joint_addr' <Predicate = (!icmp_ln72)> <Delay = 0.00>
+ST_1 : Operation 18 [1/1] (0.00ns)   --->   "%specloopname_ln60 = specloopname void @_ssdm_op_SpecLoopName, void @empty_17" [/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/data_movers/sink_from_aie.cpp:60]   --->   Operation 18 'specloopname' 'specloopname_ln60' <Predicate = (!icmp_ln72)> <Delay = 0.00>
+ST_1 : Operation 19 [1/1] (0.64ns)   --->   "%store_ln73 = store i32 0, i16 %joint_addr" [/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/data_movers/sink_from_aie.cpp:73]   --->   Operation 19 'store' 'store_ln73' <Predicate = (!icmp_ln72)> <Delay = 0.64> <CoreInst = "RAM">   --->   Core 87 'RAM' <Latency = 1> <II = 1> <Delay = 1.24> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 65536> <RAM>
+ST_1 : Operation 20 [1/1] (0.42ns)   --->   "%store_ln72 = store i9 %add_ln72, i9 %j" [/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/data_movers/sink_from_aie.cpp:72]   --->   Operation 20 'store' 'store_ln72' <Predicate = (!icmp_ln72)> <Delay = 0.42>
+ST_1 : Operation 21 [1/1] (0.00ns)   --->   "%br_ln72 = br void %for.inc" [/home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/data_movers/sink_from_aie.cpp:72]   --->   Operation 21 'br' 'br_ln72' <Predicate = (!icmp_ln72)> <Delay = 0.00>
+ST_1 : Operation 22 [1/1] (0.00ns)   --->   "%ret_ln0 = ret"   --->   Operation 22 'ret' 'ret_ln0' <Predicate = (icmp_ln72)> <Delay = 0.00>
+
+
+============================================================
++ Verbose Summary: Timing violations
+============================================================
+Target clock period: 3.33ns, clock uncertainty: 0.9ns.
+
+ <State 1>: 1.46ns
+The critical path consists of the following:
+	'alloca' operation ('j') [3]  (0 ns)
+	'load' operation ('j', /home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/data_movers/sink_from_aie.cpp:72) on local variable 'j' [8]  (0 ns)
+	'add' operation ('add_ln73', /home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/data_movers/sink_from_aie.cpp:73) [16]  (0.82 ns)
+	'getelementptr' operation ('joint_addr', /home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/data_movers/sink_from_aie.cpp:73) [18]  (0 ns)
+	'store' operation ('store_ln73', /home/users/edoardo.dalessio/code/av_omega/VersalAutomationTemplate/data_movers/sink_from_aie.cpp:73) of constant 0 on array 'joint' [20]  (0.64 ns)
+
+
+============================================================
++ Verbose Summary: Binding
+============================================================
+N/A
+* FSMD analyzer results:
+  - Output states:
+ - Input state : 
+  - Chain level:
+	State 1
+
+
+============================================================
++ Verbose Summary: Datapath Resource usage 
+============================================================
+N/A

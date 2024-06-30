@@ -1,0 +1,6 @@
+setup_aie_flow_control_loop_pipe_sequential_init
+setup_aie_gmem0_m_axi
+setup_aie_control_s_axi
+setup_aie_regslice_both
+setup_aie_Pipeline_VITIS_LOOP_48_1
+setup_aie

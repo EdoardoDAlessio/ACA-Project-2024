@@ -1,0 +1,143 @@
+{
+    "Used Resources": [
+        {
+            "ip_instance": "ulp_inst_0_setup_aie_0_0",
+            "resources": [
+                {
+                    "REG": "1640"
+                },
+                {
+                    "LUT": "1177"
+                },
+                {
+                    "LUTAsLogic": "1002"
+                },
+                {
+                    "LUTAsMem": "175"
+                },
+                {
+                    "LOOKAHEAD8": "36"
+                },
+                {
+                    "BRAM": "2"
+                },
+                {
+                    "URAM": "0"
+                },
+                {
+                    "GLOBAL_CLOCK_BUFFERS": "0"
+                },
+                {
+                    "PLL": "0"
+                },
+                {
+                    "MMCM": "0"
+                }
+            ]
+        },
+        {
+            "ip_instance": "ulp_inst_0_setup_aie_1_0",
+            "resources": [
+                {
+                    "REG": "1640"
+                },
+                {
+                    "LUT": "1177"
+                },
+                {
+                    "LUTAsLogic": "1002"
+                },
+                {
+                    "LUTAsMem": "175"
+                },
+                {
+                    "LOOKAHEAD8": "36"
+                },
+                {
+                    "BRAM": "2"
+                },
+                {
+                    "URAM": "0"
+                },
+                {
+                    "GLOBAL_CLOCK_BUFFERS": "0"
+                },
+                {
+                    "PLL": "0"
+                },
+                {
+                    "MMCM": "0"
+                }
+            ]
+        },
+        {
+            "ip_instance": "ulp_inst_0_sink_from_aie_0_0",
+            "resources": [
+                {
+                    "REG": "4488"
+                },
+                {
+                    "LUT": "3094"
+                },
+                {
+                    "LUTAsLogic": "2269"
+                },
+                {
+                    "LUTAsMem": "825"
+                },
+                {
+                    "LOOKAHEAD8": "65"
+                },
+                {
+                    "BRAM": "9"
+                },
+                {
+                    "URAM": "8"
+                },
+                {
+                    "GLOBAL_CLOCK_BUFFERS": "0"
+                },
+                {
+                    "PLL": "0"
+                },
+                {
+                    "MMCM": "0"
+                }
+            ]
+        }
+    ],
+    "Available Resources": [
+        {
+            "pblock": "pblock_dynamic_region",
+            "resources": [
+                {
+                    "BRAM": "935"
+                },
+                {
+                    "GLOBAL_CLOCK_BUFFERS": "336"
+                },
+                {
+                    "LOOKAHEAD8": "109985"
+                },
+                {
+                    "LUT": "872624"
+                },
+                {
+                    "LUTAsLogic": "874543"
+                },
+                {
+                    "LUTAsMem": "438081"
+                },
+                {
+                    "MMCM": "8"
+                },
+                {
+                    "REG": "1750622"
+                },
+                {
+                    "URAM": "463"
+                }
+            ]
+        }
+    ]
+}
